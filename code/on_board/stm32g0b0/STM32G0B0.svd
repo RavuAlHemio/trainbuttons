@@ -16771,6 +16771,33 @@ Window value can be updated only when WVU bit is reset.</description>
               <bitOffset>3</bitOffset>
               <bitWidth>3</bitWidth>
               <access>read-only</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>HSISYS</name>
+                  <description>SYSCLK is taken from HSISYS (HSI16 prescaled by HSIDIV)</description>
+                  <value>0x0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>HSE</name>
+                  <description>SYSCLK is taken from HSE</description>
+                  <value>0x1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PLLRCLK</name>
+                  <description>SYSCLK is taken from PLLRCLK</description>
+                  <value>0x2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>LSI</name>
+                  <description>SYSCLK is taken from LSI</description>
+                  <value>0x3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>LSE</name>
+                  <description>SYSCLK is taken from LSE</description>
+                  <value>0x4</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>SW</name>
@@ -16778,6 +16805,33 @@ Window value can be updated only when WVU bit is reset.</description>
               <bitOffset>0</bitOffset>
               <bitWidth>3</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>HSISYS</name>
+                  <description>SYSCLK is taken from HSISYS (HSI16 prescaled by HSIDIV)</description>
+                  <value>0x0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>HSE</name>
+                  <description>SYSCLK is taken from HSE</description>
+                  <value>0x1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PLLRCLK</name>
+                  <description>SYSCLK is taken from PLLRCLK</description>
+                  <value>0x2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>LSI</name>
+                  <description>SYSCLK is taken from LSI</description>
+                  <value>0x3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>LSE</name>
+                  <description>SYSCLK is taken from LSE</description>
+                  <value>0x4</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -17966,6 +18020,18 @@ Window value can be updated only when WVU bit is reset.</description>
               <description>USBSEL</description>
               <bitOffset>12</bitOffset>
               <bitWidth>2</bitWidth>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>PLLQCLK</name>
+                  <description>USB clock is taken from PLLQCLK</description>
+                  <value>0x1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>HSE</name>
+                  <description>USB clock is taken from HSE</description>
+                  <value>0x2</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
