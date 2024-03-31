@@ -1,0 +1,8 @@
+[package]
+name = "trainbuttons"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+cortex-m-rt = { version = "0.7" }
+stm32g0b0 = { path = "../stm32g0b0" }

@@ -1,5 +1,6 @@
 [workspace]
 members = [
     "stm32g0b0",
+    "trainbuttons",
 ]
 resolver = "2"

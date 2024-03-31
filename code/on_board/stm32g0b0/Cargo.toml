@@ -1,0 +1,13 @@
+[package]
+name = "stm32g0b0"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+cortex-m = { version = "0.7" }
+cortex-m-rt = { version = "0.7", optional = true }
+critical-section = { version = "1.1", optional = true }
+vcell = { version = "0.1" }
+
+[features]
+rt = ["cortex-m-rt/device"]
