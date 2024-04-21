@@ -1053,7 +1053,7 @@
 			(uuid "de5c72a6-0060-4c5a-bd56-03ba73654412")
 		)
 		(instances
-			(project "trainbuttons"
+			(project "trainbuttons_left_board"
 				(path "/781b8cf7-c5e9-458b-bc5e-9d97c21958eb/7a469406-7e67-4ab5-8949-d096e5e21ed2"
 					(reference "R502")
 					(unit 1)
@@ -1131,7 +1131,7 @@
 			(uuid "a0d7c0cc-94c5-4644-8389-22495f4c24bd")
 		)
 		(instances
-			(project "trainbuttons"
+			(project "trainbuttons_left_board"
 				(path "/781b8cf7-c5e9-458b-bc5e-9d97c21958eb/7a469406-7e67-4ab5-8949-d096e5e21ed2"
 					(reference "F501")
 					(unit 1)
@@ -1197,7 +1197,7 @@
 			(uuid "c4e370db-f8d3-4bf8-942e-45347441bd76")
 		)
 		(instances
-			(project "trainbuttons"
+			(project "trainbuttons_left_board"
 				(path "/781b8cf7-c5e9-458b-bc5e-9d97c21958eb/7a469406-7e67-4ab5-8949-d096e5e21ed2"
 					(reference "#FLG01")
 					(unit 1)
@@ -1276,7 +1276,7 @@
 			(uuid "1f1c823b-7e32-484b-82a1-42ab1ae0a7f3")
 		)
 		(instances
-			(project "trainbuttons"
+			(project "trainbuttons_left_board"
 				(path "/781b8cf7-c5e9-458b-bc5e-9d97c21958eb/7a469406-7e67-4ab5-8949-d096e5e21ed2"
 					(reference "R501")
 					(unit 1)
@@ -1355,7 +1355,7 @@
 			(uuid "4f3597d6-ad33-4288-b27d-7154b6a79f54")
 		)
 		(instances
-			(project "trainbuttons"
+			(project "trainbuttons_left_board"
 				(path "/781b8cf7-c5e9-458b-bc5e-9d97c21958eb/7a469406-7e67-4ab5-8949-d096e5e21ed2"
 					(reference "C501")
 					(unit 1)
@@ -1436,7 +1436,7 @@
 			(uuid "01e046b2-0ee2-4aa3-805c-cc095cb787f8")
 		)
 		(instances
-			(project "trainbuttons"
+			(project "trainbuttons_left_board"
 				(path "/781b8cf7-c5e9-458b-bc5e-9d97c21958eb/7a469406-7e67-4ab5-8949-d096e5e21ed2"
 					(reference "U501")
 					(unit 1)
@@ -1503,7 +1503,7 @@
 			(uuid "db732c4f-e47d-4dce-9b25-2ca746446a72")
 		)
 		(instances
-			(project "trainbuttons"
+			(project "trainbuttons_left_board"
 				(path "/781b8cf7-c5e9-458b-bc5e-9d97c21958eb/7a469406-7e67-4ab5-8949-d096e5e21ed2"
 					(reference "#FLG02")
 					(unit 1)
@@ -1582,7 +1582,7 @@
 			(uuid "681924ba-ec13-4be5-a830-9cc77c66f284")
 		)
 		(instances
-			(project "trainbuttons"
+			(project "trainbuttons_left_board"
 				(path "/781b8cf7-c5e9-458b-bc5e-9d97c21958eb/7a469406-7e67-4ab5-8949-d096e5e21ed2"
 					(reference "C502")
 					(unit 1)

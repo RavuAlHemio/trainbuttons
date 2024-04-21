@@ -711,7 +711,7 @@
 			(uuid "855e321d-935c-47a8-93d9-8a5777e97e06")
 		)
 		(instances
-			(project "trainbuttons"
+			(project "trainbuttons_left_board"
 				(path "/781b8cf7-c5e9-458b-bc5e-9d97c21958eb/65cec3e7-943d-4a10-8864-30d45590d466/86613bb7-0525-4995-a748-0ddba6b97e72"
 					(reference "Y601")
 					(unit 1)
@@ -788,7 +788,7 @@
 			(uuid "d407eb56-56de-40cf-b969-35e4581a4809")
 		)
 		(instances
-			(project "trainbuttons"
+			(project "trainbuttons_left_board"
 				(path "/781b8cf7-c5e9-458b-bc5e-9d97c21958eb/65cec3e7-943d-4a10-8864-30d45590d466/86613bb7-0525-4995-a748-0ddba6b97e72"
 					(reference "C602")
 					(unit 1)
@@ -865,7 +865,7 @@
 			(uuid "0cc1684e-45f8-43d7-9f8a-987469db3919")
 		)
 		(instances
-			(project "trainbuttons"
+			(project "trainbuttons_left_board"
 				(path "/781b8cf7-c5e9-458b-bc5e-9d97c21958eb/65cec3e7-943d-4a10-8864-30d45590d466/86613bb7-0525-4995-a748-0ddba6b97e72"
 					(reference "C601")
 					(unit 1)

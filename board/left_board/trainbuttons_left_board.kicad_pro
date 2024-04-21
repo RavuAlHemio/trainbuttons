@@ -67,8 +67,6 @@
         "hole_clearance|169952500|43747500|bbb5ed90-9e52-4a19-a026-94b3ef8a1f71|aca31fbc-74d0-4466-b474-b0baa60168f3",
         "hole_clearance|175752500|43747500|92be02d7-755f-4c18-8c59-389415d9b64e|0944527c-8fdc-4ac4-b511-a415aa3da4e6",
         "hole_clearance|175752500|43747500|92be02d7-755f-4c18-8c59-389415d9b64e|85e1984d-b33c-4d0d-9471-ed009c01c333",
-        "silk_edge_clearance|245580000|66420000|15ec6f82-8190-44d0-89ac-5e220a76d6cf|fed60e00-6858-48c2-8f4f-3a7210466e38",
-        "silk_edge_clearance|245580000|81640000|15ec6f82-8190-44d0-89ac-5e220a76d6cf|b1425a1f-050e-4153-b5bc-bbe215c893c0",
         "silk_overlap|145208164|50186000|0061602a-b0aa-4ec9-ac91-23b08a1febb9|8b53824e-d323-42dc-8dcb-75340e0c7a0e",
         "silk_overlap|145208164|50906000|e64dc0be-fe5e-49c6-81fd-03d65903888b|8b53824e-d323-42dc-8dcb-75340e0c7a0e",
         "silk_overlap|145423836|50186000|0061602a-b0aa-4ec9-ac91-23b08a1febb9|a53921ad-9ace-4dfe-a970-e25f7394235f",
@@ -119,8 +117,6 @@
         "silk_overlap|178950336|66527500|b5e1a48f-9b26-44b6-99c7-c6f8c8fe0047|ece4fb3b-26d5-4312-b62b-d72d4c03951f",
         "silk_overlap|201325657|91091081|8835a1d2-6d9e-45ca-b747-e7bee6748923|ab253970-f956-40f5-ada1-0dbc400f2e37",
         "silk_overlap|201325657|98711081|8b7640e0-f191-49eb-a630-d207baa1a121|102da89d-a172-4a79-a76a-c005b5a30dab",
-        "silk_overlap|254665657|91091081|a699b314-5ca0-42a4-8a81-7af8761a6da7|f9c8d573-689d-4b6e-afe0-8c990c643bfe",
-        "silk_overlap|254665657|98711081|5a20653a-25a1-47d6-a1d6-e10fc0142fd1|a6191592-718c-48ab-ad30-b09206029078",
         "starved_thermal|174852500|48897500|92d65fe0-d6e0-4f02-b622-35184c882df1|9670ca91-6ee8-46b7-9aa6-6dddf90ba168|F.Cu"
       ],
       "meta": {
@@ -509,7 +505,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "trainbuttons.kicad_pro",
+    "filename": "trainbuttons_left_board.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -679,16 +675,8 @@
       "Left Buttons"
     ],
     [
-      "c7daac23-492d-4c4c-af36-573a49e39c1d",
-      "Right Buttons"
-    ],
-    [
       "65cec3e7-943d-4a10-8864-30d45590d466",
       "MCU"
-    ],
-    [
-      "7a469406-7e67-4ab5-8949-d096e5e21ed2",
-      "Power Supply"
     ],
     [
       "86613bb7-0525-4995-a748-0ddba6b97e72",
@@ -701,6 +689,10 @@
     [
       "bb2a7337-ad9f-4b95-92cc-1afd06bc7d73",
       "MCU Debug and Reset"
+    ],
+    [
+      "7a469406-7e67-4ab5-8949-d096e5e21ed2",
+      "Power Supply"
     ]
   ],
   "text_variables": {}
