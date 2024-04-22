@@ -147,6 +147,7 @@ dependencies = [
 name = "trainbuttons"
 version = "0.1.0"
 dependencies = [
+ "cortex-m",
  "cortex-m-rt",
  "stm32g0b0",
 ]

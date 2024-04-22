@@ -1,7 +1,7 @@
-#[doc = "Register `USB_ISTR` reader"]
-pub type R = crate::R<UsbIstrSpec>;
-#[doc = "Register `USB_ISTR` writer"]
-pub type W = crate::W<UsbIstrSpec>;
+#[doc = "Register `ISTR` reader"]
+pub type R = crate::R<IstrSpec>;
+#[doc = "Register `ISTR` writer"]
+pub type W = crate::W<IstrSpec>;
 #[doc = "Field `IDN` reader - Device Endpoint / host channel identification number These bits are written by the hardware according to the host channel or device endpoint number, which generated the interrupt request. If several endpoint/channel transactions are pending, the hardware writes the identification number related to the endpoint/channel having the highest priority defined in the following way: two levels are defined, in order of priority: isochronous and double-buffered bulk channels/endpoints are considered first and then the others are examined. If more than one endpoint/channel from the same set is requesting an interrupt, the IDN bits in USB_ISTR register are assigned according to the lowest requesting register, CHEP0R having the highest priority followed by CHEP1R and so on. The application software can assign a register to each endpoint/channel according to this priority scheme, so as to order the concurring endpoint/channel requests in a suitable way. These bits are read only."]
 pub type IdnR = crate::FieldReader;
 #[doc = "Field `DIR` reader - Direction of transaction This bit is written by the hardware according to the direction of the successful transaction, which generated the interrupt request. If DIR bit=0, VTTX bit is set in the USB_CHEPnR register related to the interrupting endpoint. The interrupting transaction is of IN type (data transmitted by the USB peripheral to the host PC). If DIR bit=1, VTRX bit or both VTTX/VTRX are set in the USB_CHEPnR register related to the interrupting endpoint. The interrupting transaction is of OUT type (data received by the USB peripheral from the host PC) or two pending transactions are waiting to be processed. This information can be used by the application software to access the USB_CHEPnR bits related to the triggering transaction since it represents the direction having the interrupt pending. This bit is read-only."]
@@ -158,72 +158,72 @@ impl W {
     #[doc = "Bit 7 - LPM L1 state request Device mode This bit is set by the hardware when LPM command to enter the L1 state is successfully received and acknowledged. This bit is read/write but only 0 can be written and writing 1 has no effect."]
     #[inline(always)]
     #[must_use]
-    pub fn l1req(&mut self) -> L1reqW<UsbIstrSpec> {
+    pub fn l1req(&mut self) -> L1reqW<IstrSpec> {
         L1reqW::new(self, 7)
     }
     #[doc = "Bit 8 - Expected start of frame Device mode This bit is set by the hardware when an SOF packet is expected but not received. The host sends an SOF packet each 1ms, but if the device does not receive it properly, the suspend timer issues this interrupt. If three consecutive ESOF interrupts are generated (for example three SOF packets are lost) without any traffic occurring in between, a SUSP interrupt is generated. This bit is set even when the missing SOF packets occur while the suspend timer is not yet locked. This bit is read/write but only 0 can be written and writing 1 has no effect."]
     #[inline(always)]
     #[must_use]
-    pub fn esof(&mut self) -> EsofW<UsbIstrSpec> {
+    pub fn esof(&mut self) -> EsofW<IstrSpec> {
         EsofW::new(self, 8)
     }
     #[doc = "Bit 9 - Start of frame This bit signals the beginning of a new USB frame and it is set when a SOF packet arrives through the USB bus. The interrupt service routine may monitor the SOF events to have a 1ms synchronization event to the USB host and to safely read the USB_FNR register which is updated at the SOF packet reception (this could be useful for isochronous applications). This bit is read/write but only 0 can be written and writing 1 has no effect."]
     #[inline(always)]
     #[must_use]
-    pub fn sof(&mut self) -> SofW<UsbIstrSpec> {
+    pub fn sof(&mut self) -> SofW<IstrSpec> {
         SofW::new(self, 9)
     }
     #[doc = "Bit 10 - USB reset request (Device mode) or device connect/disconnect (Host mode) Device mode This bit is set by hardware when an USB reset is released by the host and the bus returns to idle. USB reset state is internally detected after the sampling of 60 consecutive SE0 cycles. Host mode This bit is set by hardware when device connection or device disconnection is detected. Device connection is signaled after J state is sampled for 22 cycles consecutively from unconnected state. Device disconnection is signaled after SE0 state is seen for 22 bit times consecutively from connected state."]
     #[inline(always)]
     #[must_use]
-    pub fn rst_dcon(&mut self) -> RstDconW<UsbIstrSpec> {
+    pub fn rst_dcon(&mut self) -> RstDconW<IstrSpec> {
         RstDconW::new(self, 10)
     }
     #[doc = "Bit 11 - Suspend mode request Device mode This bit is set by the hardware when no traffic has been received for 3ms, indicating a suspend mode request from the USB bus. The suspend condition check is enabled immediately after any USB reset and it is disabled by the hardware when the suspend mode is active (SUSPEN=1) until the end of resume sequence. This bit is read/write but only 0 can be written and writing 1 has no effect."]
     #[inline(always)]
     #[must_use]
-    pub fn susp(&mut self) -> SuspW<UsbIstrSpec> {
+    pub fn susp(&mut self) -> SuspW<IstrSpec> {
         SuspW::new(self, 11)
     }
     #[doc = "Bit 12 - Wakeup This bit is set to 1 by the hardware when, during suspend mode, activity is detected that wakes up the USB peripheral. This event asynchronously clears the SUSPRDY bit in the CTLR register and activates the USB_WAKEUP line, which can be used to notify the rest of the device (for example wakeup unit) about the start of the resume process. This bit is read/write but only 0 can be written and writing 1 has no effect."]
     #[inline(always)]
     #[must_use]
-    pub fn wkup(&mut self) -> WkupW<UsbIstrSpec> {
+    pub fn wkup(&mut self) -> WkupW<IstrSpec> {
         WkupW::new(self, 12)
     }
     #[doc = "Bit 13 - Error This flag is set whenever one of the errors listed below has occurred: NANS: No ANSwer. The timeout for a host response has expired. CRC: Cyclic redundancy check error. One of the received CRCs, either in the token or in the data, was wrong. BST: Bit stuffing error. A bit stuffing error was detected anywhere in the PID, data, and/or CRC. FVIO: Framing format violation. A non-standard frame was received (EOP not in the right place, wrong token sequence, etc.). The USB software can usually ignore errors, since the USB peripheral and the PC host manage retransmission in case of errors in a fully transparent way. This interrupt can be useful during the software development phase, or to monitor the quality of transmission over the USB bus, to flag possible problems to the user (for example loose connector, too noisy environment, broken conductor in the USB cable and so on). This bit is read/write but only 0 can be written and writing 1 has no effect."]
     #[inline(always)]
     #[must_use]
-    pub fn err(&mut self) -> ErrW<UsbIstrSpec> {
+    pub fn err(&mut self) -> ErrW<IstrSpec> {
         ErrW::new(self, 13)
     }
     #[doc = "Bit 14 - Packet memory area over / underrun This bit is set if the microcontroller has not been able to respond in time to an USB memory request. The USB peripheral handles this event in the following way: During reception an ACK handshake packet is not sent, during transmission a bit-stuff error is forced on the transmitted stream; in both cases the host retries the transaction. The PMAOVR interrupt should never occur during normal operations. Since the failed transaction is retried by the host, the application software has the chance to speed-up device operations during this interrupt handling, to be ready for the next transaction retry; however this does not happen during isochronous transfers (no isochronous transaction is anyway retried) leading to a loss of data in this case. This bit is read/write but only 0 can be written and writing 1 has no effect."]
     #[inline(always)]
     #[must_use]
-    pub fn pmaovr(&mut self) -> PmaovrW<UsbIstrSpec> {
+    pub fn pmaovr(&mut self) -> PmaovrW<IstrSpec> {
         PmaovrW::new(self, 14)
     }
     #[doc = "Bit 16 - 512 byte threshold interrupt This bit is set to 1 by the hardware when 512 bytes have been transmitted or received during isochronous transfers. This bit is read/write but only 0 can be written and writing 1 has no effect. Note that no information is available to indicate the associated channel/endpoint, however in practice only one ISO endpoint/channel with such large packets can be supported, so that channel."]
     #[inline(always)]
     #[must_use]
-    pub fn thr512(&mut self) -> Thr512W<UsbIstrSpec> {
+    pub fn thr512(&mut self) -> Thr512W<IstrSpec> {
         Thr512W::new(self, 16)
     }
 }
-#[doc = "USB interrupt status register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`usb_istr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`usb_istr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct UsbIstrSpec;
-impl crate::RegisterSpec for UsbIstrSpec {
+#[doc = "USB interrupt status register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`istr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`istr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct IstrSpec;
+impl crate::RegisterSpec for IstrSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [`usb_istr::R`](R) reader structure"]
-impl crate::Readable for UsbIstrSpec {}
-#[doc = "`write(|w| ..)` method takes [`usb_istr::W`](W) writer structure"]
-impl crate::Writable for UsbIstrSpec {
+#[doc = "`read()` method returns [`istr::R`](R) reader structure"]
+impl crate::Readable for IstrSpec {}
+#[doc = "`write(|w| ..)` method takes [`istr::W`](W) writer structure"]
+impl crate::Writable for IstrSpec {
     type Safety = crate::Unsafe;
     const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
     const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
-#[doc = "`reset()` method sets USB_ISTR to value 0"]
-impl crate::Resettable for UsbIstrSpec {
+#[doc = "`reset()` method sets ISTR to value 0"]
+impl crate::Resettable for IstrSpec {
     const RESET_VALUE: u32 = 0;
 }

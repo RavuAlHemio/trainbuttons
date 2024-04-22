@@ -1,7 +1,7 @@
-#[doc = "Register `USB_CNTR` reader"]
-pub type R = crate::R<UsbCntrSpec>;
-#[doc = "Register `USB_CNTR` writer"]
-pub type W = crate::W<UsbCntrSpec>;
+#[doc = "Register `CNTR` reader"]
+pub type R = crate::R<CntrSpec>;
+#[doc = "Register `CNTR` writer"]
+pub type W = crate::W<CntrSpec>;
 #[doc = "USB Reset Software can set this bit to reset the USB core, exactly as it happens when receiving a RESET signaling on the USB.The USB peripheral, in response to a RESET, resets its internal protocol state machine. Reception and transmission are disabled until the RST_DCON bit is cleared. All configuration registers do not reset: the microcontroller must explicitly clear these registers (this is to ensure that the RST_DCON interrupt can be safely delivered, and any transaction immediately followed by a RESET can be completed). The function address and endpoint registers are reset by an USB reset event. Software sets this bit to drive USB reset state on the bus and initialize the device. USB reset terminates as soon as this bit is cleared by software.\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Usbrst {
@@ -977,114 +977,114 @@ impl W {
     #[doc = "Bit 0 - USB Reset Software can set this bit to reset the USB core, exactly as it happens when receiving a RESET signaling on the USB.The USB peripheral, in response to a RESET, resets its internal protocol state machine. Reception and transmission are disabled until the RST_DCON bit is cleared. All configuration registers do not reset: the microcontroller must explicitly clear these registers (this is to ensure that the RST_DCON interrupt can be safely delivered, and any transaction immediately followed by a RESET can be completed). The function address and endpoint registers are reset by an USB reset event. Software sets this bit to drive USB reset state on the bus and initialize the device. USB reset terminates as soon as this bit is cleared by software."]
     #[inline(always)]
     #[must_use]
-    pub fn usbrst(&mut self) -> UsbrstW<UsbCntrSpec> {
+    pub fn usbrst(&mut self) -> UsbrstW<CntrSpec> {
         UsbrstW::new(self, 0)
     }
     #[doc = "Bit 1 - Power down This bit is used to completely switch off all USB-related analog parts if it is required to completely disable the USB peripheral for any reason. When this bit is set, the USB peripheral is disconnected from the transceivers and it cannot be used."]
     #[inline(always)]
     #[must_use]
-    pub fn pdwn(&mut self) -> PdwnW<UsbCntrSpec> {
+    pub fn pdwn(&mut self) -> PdwnW<CntrSpec> {
         PdwnW::new(self, 1)
     }
     #[doc = "Bit 3 - Suspend state enable Software can set this bit when the SUSP interrupt is received, which is issued when no traffic is received by the USB peripheral for 3ms. Software can also set this bit when the L1REQ interrupt is received with positive acknowledge sent. As soon as the suspend state is propagated internally all device activity is stopped, USB clock is gated, USB transceiver is set into low power mode and the SUSPRDY bit is set by hardware. In the case that device application wants to pursue more aggressive power saving by stopping the USB clock source and by moving the microcontroller to stop mode, as in the case of bus powered device application, it must first wait few cycles to see the SUSPRDY=1 acknowledge the suspend request. This bit is cleared by hardware simultaneous with the WAKEUP flag set. Software can set this bit when host application has nothing scheduled for the next frames and wants to enter long term power saving. When set, it stops immediately SOF generation and any other host activity, gates the USB clock and sets the transceiver in low power mode. If any USB transaction is on-going at the time SUSPEN is set, suspend is entered at the end of the current transaction. As soon as suspend state is propagated internally and gets effective the SUSPRDY bit is set. In the case that host application wants to pursue more aggressive power saving by stopping the USB clock source and by moving the micro-controller to STOP mode, it must first wait few cycles to see SUSPRDY=1 acknowledge to the suspend request. This bit is cleared by hardware simultaneous with the WAKEUP flag set."]
     #[inline(always)]
     #[must_use]
-    pub fn suspen(&mut self) -> SuspenW<UsbCntrSpec> {
+    pub fn suspen(&mut self) -> SuspenW<CntrSpec> {
         SuspenW::new(self, 3)
     }
     #[doc = "Bit 4 - L2 remote wakeup / resume driver Device mode The microcontroller can set this bit to send remote wake-up signaling to the host. It must be activated, according to USB specifications, for no less than 1ms and no more than 15ms after which the host PC is ready to drive the resume sequence up to its end. Host mode Software sets this bit to send resume signaling to the device. Software clears this bit to send end of resume to device and restart SOF generation. In the context of remote wake up, this bit is to be set following the WAKEUP interrupt."]
     #[inline(always)]
     #[must_use]
-    pub fn l2res(&mut self) -> L2resW<UsbCntrSpec> {
+    pub fn l2res(&mut self) -> L2resW<CntrSpec> {
         L2resW::new(self, 4)
     }
     #[doc = "Bit 5 - L1 remote wakeup / resume driver Device mode"]
     #[inline(always)]
     #[must_use]
-    pub fn l1res(&mut self) -> L1resW<UsbCntrSpec> {
+    pub fn l1res(&mut self) -> L1resW<CntrSpec> {
         L1resW::new(self, 5)
     }
     #[doc = "Bit 7 - LPM L1 state request interrupt mask"]
     #[inline(always)]
     #[must_use]
-    pub fn l1reqm(&mut self) -> L1reqmW<UsbCntrSpec> {
+    pub fn l1reqm(&mut self) -> L1reqmW<CntrSpec> {
         L1reqmW::new(self, 7)
     }
     #[doc = "Bit 8 - Expected start of frame interrupt mask"]
     #[inline(always)]
     #[must_use]
-    pub fn esofm(&mut self) -> EsofmW<UsbCntrSpec> {
+    pub fn esofm(&mut self) -> EsofmW<CntrSpec> {
         EsofmW::new(self, 8)
     }
     #[doc = "Bit 9 - Start of frame interrupt mask"]
     #[inline(always)]
     #[must_use]
-    pub fn sofm(&mut self) -> SofmW<UsbCntrSpec> {
+    pub fn sofm(&mut self) -> SofmW<CntrSpec> {
         SofmW::new(self, 9)
     }
     #[doc = "Bit 10 - USB reset request (Device mode) or device connect/disconnect (Host mode) interrupt mask"]
     #[inline(always)]
     #[must_use]
-    pub fn rst_dconm(&mut self) -> RstDconmW<UsbCntrSpec> {
+    pub fn rst_dconm(&mut self) -> RstDconmW<CntrSpec> {
         RstDconmW::new(self, 10)
     }
     #[doc = "Bit 11 - Suspend mode interrupt mask"]
     #[inline(always)]
     #[must_use]
-    pub fn suspm(&mut self) -> SuspmW<UsbCntrSpec> {
+    pub fn suspm(&mut self) -> SuspmW<CntrSpec> {
         SuspmW::new(self, 11)
     }
     #[doc = "Bit 12 - Wakeup interrupt mask"]
     #[inline(always)]
     #[must_use]
-    pub fn wkupm(&mut self) -> WkupmW<UsbCntrSpec> {
+    pub fn wkupm(&mut self) -> WkupmW<CntrSpec> {
         WkupmW::new(self, 12)
     }
     #[doc = "Bit 13 - Error interrupt mask"]
     #[inline(always)]
     #[must_use]
-    pub fn errm(&mut self) -> ErrmW<UsbCntrSpec> {
+    pub fn errm(&mut self) -> ErrmW<CntrSpec> {
         ErrmW::new(self, 13)
     }
     #[doc = "Bit 14 - Packet memory area over / underrun interrupt mask"]
     #[inline(always)]
     #[must_use]
-    pub fn pmaovrm(&mut self) -> PmaovrmW<UsbCntrSpec> {
+    pub fn pmaovrm(&mut self) -> PmaovrmW<CntrSpec> {
         PmaovrmW::new(self, 14)
     }
     #[doc = "Bit 15 - Correct transfer interrupt mask"]
     #[inline(always)]
     #[must_use]
-    pub fn ctrm(&mut self) -> CtrmW<UsbCntrSpec> {
+    pub fn ctrm(&mut self) -> CtrmW<CntrSpec> {
         CtrmW::new(self, 15)
     }
     #[doc = "Bit 16 - 512 byte threshold interrupt mask"]
     #[inline(always)]
     #[must_use]
-    pub fn thr512m(&mut self) -> Thr512mW<UsbCntrSpec> {
+    pub fn thr512m(&mut self) -> Thr512mW<CntrSpec> {
         Thr512mW::new(self, 16)
     }
     #[doc = "Bit 31 - HOST mode HOST bit selects betweens host or device USB mode of operation. It must be set before enabling the USB peripheral by the function enable bit."]
     #[inline(always)]
     #[must_use]
-    pub fn host(&mut self) -> HostW<UsbCntrSpec> {
+    pub fn host(&mut self) -> HostW<CntrSpec> {
         HostW::new(self, 31)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`usb_cntr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`usb_cntr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct UsbCntrSpec;
-impl crate::RegisterSpec for UsbCntrSpec {
+#[doc = "\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`cntr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`cntr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct CntrSpec;
+impl crate::RegisterSpec for CntrSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [`usb_cntr::R`](R) reader structure"]
-impl crate::Readable for UsbCntrSpec {}
-#[doc = "`write(|w| ..)` method takes [`usb_cntr::W`](W) writer structure"]
-impl crate::Writable for UsbCntrSpec {
+#[doc = "`read()` method returns [`cntr::R`](R) reader structure"]
+impl crate::Readable for CntrSpec {}
+#[doc = "`write(|w| ..)` method takes [`cntr::W`](W) writer structure"]
+impl crate::Writable for CntrSpec {
     type Safety = crate::Unsafe;
     const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
     const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
-#[doc = "`reset()` method sets USB_CNTR to value 0x03"]
-impl crate::Resettable for UsbCntrSpec {
+#[doc = "`reset()` method sets CNTR to value 0x03"]
+impl crate::Resettable for CntrSpec {
     const RESET_VALUE: u32 = 0x03;
 }

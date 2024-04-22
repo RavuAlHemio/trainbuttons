@@ -1,7 +1,7 @@
-#[doc = "Register `USB_LPMCSR` reader"]
-pub type R = crate::R<UsbLpmcsrSpec>;
-#[doc = "Register `USB_LPMCSR` writer"]
-pub type W = crate::W<UsbLpmcsrSpec>;
+#[doc = "Register `LPMCSR` reader"]
+pub type R = crate::R<LpmcsrSpec>;
+#[doc = "Register `LPMCSR` writer"]
+pub type W = crate::W<LpmcsrSpec>;
 #[doc = "Field `LPMEN` reader - LPM support enable Device mode This bit is set by the software to enable the LPM support within the USB Device. If this bit is at 0 no LPM transactions are handled."]
 pub type LpmenR = crate::BitReader;
 #[doc = "Field `LPMEN` writer - LPM support enable Device mode This bit is set by the software to enable the LPM support within the USB Device. If this bit is at 0 no LPM transactions are handled."]
@@ -89,30 +89,30 @@ impl W {
     #[doc = "Bit 0 - LPM support enable Device mode This bit is set by the software to enable the LPM support within the USB Device. If this bit is at 0 no LPM transactions are handled."]
     #[inline(always)]
     #[must_use]
-    pub fn lpmen(&mut self) -> LpmenW<UsbLpmcsrSpec> {
+    pub fn lpmen(&mut self) -> LpmenW<LpmcsrSpec> {
         LpmenW::new(self, 0)
     }
     #[doc = "Bit 1 - LPM token acknowledge enable Device mode: The NYET/ACK is returned only on a successful LPM transaction: No errors in both the EXT token and the LPM token (else ERROR) A valid bLinkState = 0001B (L1) is received (else STALL)"]
     #[inline(always)]
     #[must_use]
-    pub fn lpmack(&mut self) -> LpmackW<UsbLpmcsrSpec> {
+    pub fn lpmack(&mut self) -> LpmackW<LpmcsrSpec> {
         LpmackW::new(self, 1)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`usb_lpmcsr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`usb_lpmcsr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct UsbLpmcsrSpec;
-impl crate::RegisterSpec for UsbLpmcsrSpec {
+#[doc = "\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`lpmcsr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`lpmcsr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct LpmcsrSpec;
+impl crate::RegisterSpec for LpmcsrSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [`usb_lpmcsr::R`](R) reader structure"]
-impl crate::Readable for UsbLpmcsrSpec {}
-#[doc = "`write(|w| ..)` method takes [`usb_lpmcsr::W`](W) writer structure"]
-impl crate::Writable for UsbLpmcsrSpec {
+#[doc = "`read()` method returns [`lpmcsr::R`](R) reader structure"]
+impl crate::Readable for LpmcsrSpec {}
+#[doc = "`write(|w| ..)` method takes [`lpmcsr::W`](W) writer structure"]
+impl crate::Writable for LpmcsrSpec {
     type Safety = crate::Unsafe;
     const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
     const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
-#[doc = "`reset()` method sets USB_LPMCSR to value 0"]
-impl crate::Resettable for UsbLpmcsrSpec {
+#[doc = "`reset()` method sets LPMCSR to value 0"]
+impl crate::Resettable for LpmcsrSpec {
     const RESET_VALUE: u32 = 0;
 }

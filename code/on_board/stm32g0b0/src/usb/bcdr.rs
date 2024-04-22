@@ -1,7 +1,7 @@
-#[doc = "Register `USB_BCDR` reader"]
-pub type R = crate::R<UsbBcdrSpec>;
-#[doc = "Register `USB_BCDR` writer"]
-pub type W = crate::W<UsbBcdrSpec>;
+#[doc = "Register `BCDR` reader"]
+pub type R = crate::R<BcdrSpec>;
+#[doc = "Register `BCDR` writer"]
+pub type W = crate::W<BcdrSpec>;
 #[doc = "Field `BCDEN` reader - Battery charging detector (BCD) enable Device mode This bit is set by the software to enable the BCD support within the USB Device. When enabled, the USB PHY is fully controlled by BCD and cannot be used for normal communication. Once the BCD discovery is finished, the BCD should be placed in OFF mode by clearing this bit to 0 in order to allow the normal USB operation."]
 pub type BcdenR = crate::BitReader;
 #[doc = "Field `BCDEN` writer - Battery charging detector (BCD) enable Device mode This bit is set by the software to enable the BCD support within the USB Device. When enabled, the USB PHY is fully controlled by BCD and cannot be used for normal communication. Once the BCD discovery is finished, the BCD should be placed in OFF mode by clearing this bit to 0 in order to allow the normal USB operation."]
@@ -217,48 +217,48 @@ impl W {
     #[doc = "Bit 0 - Battery charging detector (BCD) enable Device mode This bit is set by the software to enable the BCD support within the USB Device. When enabled, the USB PHY is fully controlled by BCD and cannot be used for normal communication. Once the BCD discovery is finished, the BCD should be placed in OFF mode by clearing this bit to 0 in order to allow the normal USB operation."]
     #[inline(always)]
     #[must_use]
-    pub fn bcden(&mut self) -> BcdenW<UsbBcdrSpec> {
+    pub fn bcden(&mut self) -> BcdenW<BcdrSpec> {
         BcdenW::new(self, 0)
     }
     #[doc = "Bit 1 - Data contact detection (DCD) mode enable Device mode This bit is set by the software to put the BCD into DCD mode. Only one detection mode (DCD, PD, SD or OFF) should be selected to work correctly."]
     #[inline(always)]
     #[must_use]
-    pub fn dcden(&mut self) -> DcdenW<UsbBcdrSpec> {
+    pub fn dcden(&mut self) -> DcdenW<BcdrSpec> {
         DcdenW::new(self, 1)
     }
     #[doc = "Bit 2 - Primary detection (PD) mode enable Device mode This bit is set by the software to put the BCD into PD mode. Only one detection mode (DCD, PD, SD or OFF) should be selected to work correctly."]
     #[inline(always)]
     #[must_use]
-    pub fn pden(&mut self) -> PdenW<UsbBcdrSpec> {
+    pub fn pden(&mut self) -> PdenW<BcdrSpec> {
         PdenW::new(self, 2)
     }
     #[doc = "Bit 3 - Secondary detection (SD) mode enable Device mode This bit is set by the software to put the BCD into SD mode. Only one detection mode (DCD, PD, SD or OFF) should be selected to work correctly."]
     #[inline(always)]
     #[must_use]
-    pub fn sden(&mut self) -> SdenW<UsbBcdrSpec> {
+    pub fn sden(&mut self) -> SdenW<BcdrSpec> {
         SdenW::new(self, 3)
     }
     #[doc = "Bit 15 - DP pull-up / DPDM pull-down Device mode This bit is set by software to enable the embedded pull-up on DP line. Clearing it to 0 can be used to signal disconnect to the host when needed by the user software. Host mode This bit is set by software to enable the embedded pull-down on DP and DM lines."]
     #[inline(always)]
     #[must_use]
-    pub fn dppu_dpd(&mut self) -> DppuDpdW<UsbBcdrSpec> {
+    pub fn dppu_dpd(&mut self) -> DppuDpdW<BcdrSpec> {
         DppuDpdW::new(self, 15)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`usb_bcdr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`usb_bcdr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct UsbBcdrSpec;
-impl crate::RegisterSpec for UsbBcdrSpec {
+#[doc = "\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`bcdr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`bcdr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct BcdrSpec;
+impl crate::RegisterSpec for BcdrSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [`usb_bcdr::R`](R) reader structure"]
-impl crate::Readable for UsbBcdrSpec {}
-#[doc = "`write(|w| ..)` method takes [`usb_bcdr::W`](W) writer structure"]
-impl crate::Writable for UsbBcdrSpec {
+#[doc = "`read()` method returns [`bcdr::R`](R) reader structure"]
+impl crate::Readable for BcdrSpec {}
+#[doc = "`write(|w| ..)` method takes [`bcdr::W`](W) writer structure"]
+impl crate::Writable for BcdrSpec {
     type Safety = crate::Unsafe;
     const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
     const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
-#[doc = "`reset()` method sets USB_BCDR to value 0"]
-impl crate::Resettable for UsbBcdrSpec {
+#[doc = "`reset()` method sets BCDR to value 0"]
+impl crate::Resettable for BcdrSpec {
     const RESET_VALUE: u32 = 0;
 }

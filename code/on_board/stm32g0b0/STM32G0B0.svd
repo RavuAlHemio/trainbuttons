@@ -38029,8 +38029,8 @@ Note: When PRESCALER is programmed with a value different of the allowed ones, p
         </addressBlock>
         <registers>
           <register>
-            <name>USB_CHEP0R</name>
-            <displayName>USB_CHEP0R</displayName>
+            <name>CHEP0R</name>
+            <displayName>CHEP0R</displayName>
             <description>USB endpoint/channel 0 register</description>
             <addressOffset>0x0</addressOffset>
             <size>0x20</size>
@@ -38291,8 +38291,8 @@ Coding of the received error:</description>
             </fields>
           </register>
           <register>
-            <name>USB_CHEP1R</name>
-            <displayName>USB_CHEP1R</displayName>
+            <name>CHEP1R</name>
+            <displayName>CHEP1R</displayName>
             <description>USB endpoint/channel 1 register</description>
             <addressOffset>0x4</addressOffset>
             <size>0x20</size>
@@ -38553,8 +38553,8 @@ Coding of the received error:</description>
             </fields>
           </register>
           <register>
-            <name>USB_CHEP2R</name>
-            <displayName>USB_CHEP2R</displayName>
+            <name>CHEP2R</name>
+            <displayName>CHEP2R</displayName>
             <description>USB endpoint/channel 2 register</description>
             <addressOffset>0x8</addressOffset>
             <size>0x20</size>
@@ -38815,8 +38815,8 @@ Coding of the received error:</description>
             </fields>
           </register>
           <register>
-            <name>USB_CHEP3R</name>
-            <displayName>USB_CHEP3R</displayName>
+            <name>CHEP3R</name>
+            <displayName>CHEP3R</displayName>
             <description>USB endpoint/channel 3 register</description>
             <addressOffset>0xc</addressOffset>
             <size>0x20</size>
@@ -39077,8 +39077,8 @@ Coding of the received error:</description>
             </fields>
           </register>
           <register>
-            <name>USB_CHEP4R</name>
-            <displayName>USB_CHEP4R</displayName>
+            <name>CHEP4R</name>
+            <displayName>CHEP4R</displayName>
             <description>USB endpoint/channel 4 register</description>
             <addressOffset>0x10</addressOffset>
             <size>0x20</size>
@@ -39339,8 +39339,8 @@ Coding of the received error:</description>
             </fields>
           </register>
           <register>
-            <name>USB_CHEP5R</name>
-            <displayName>USB_CHEP5R</displayName>
+            <name>CHEP5R</name>
+            <displayName>CHEP5R</displayName>
             <description>USB endpoint/channel 5 register</description>
             <addressOffset>0x14</addressOffset>
             <size>0x20</size>
@@ -39603,8 +39603,8 @@ Coding of the received error:</description>
             </fields>
           </register>
           <register>
-            <name>USB_CHEP6R</name>
-            <displayName>USB_CHEP6R</displayName>
+            <name>CHEP6R</name>
+            <displayName>CHEP6R</displayName>
             <description>USB endpoint/channel 6 register</description>
             <addressOffset>0x18</addressOffset>
             <size>0x20</size>
@@ -39867,8 +39867,8 @@ Coding of the received error:</description>
             </fields>
           </register>
           <register>
-            <name>USB_CHEP7R</name>
-            <displayName>USB_CHEP7R</displayName>
+            <name>CHEP7R</name>
+            <displayName>CHEP7R</displayName>
             <description>USB endpoint/channel 7 register</description>
             <addressOffset>0x1c</addressOffset>
             <size>0x20</size>
@@ -40131,8 +40131,8 @@ Coding of the received error:</description>
             </fields>
           </register>
           <register>
-            <name>USB_CNTR</name>
-            <displayName>USB_CNTR</displayName>
+            <name>CNTR</name>
+            <displayName>CNTR</displayName>
             <addressOffset>0x40</addressOffset>
             <size>0x20</size>
             <resetValue>0x00000003</resetValue>
@@ -40483,8 +40483,8 @@ HOST bit selects betweens host or device USB mode of operation. It must be set b
             </fields>
           </register>
           <register>
-            <name>USB_ISTR</name>
-            <displayName>USB_ISTR</displayName>
+            <name>ISTR</name>
+            <displayName>ISTR</displayName>
             <description>USB interrupt status register </description>
             <addressOffset>0x44</addressOffset>
             <size>0x20</size>
@@ -40634,8 +40634,8 @@ This bit is set by hardware when an LS device connection is detected. Device con
             </fields>
           </register>
           <register>
-            <name>USB_FNR</name>
-            <displayName>USB_FNR</displayName>
+            <name>FNR</name>
+            <displayName>FNR</displayName>
             <description>USB frame number register </description>
             <addressOffset>0x48</addressOffset>
             <size>0x20</size>
@@ -40687,8 +40687,8 @@ This bit can be used to observe the status of received data plus upstream port d
             </fields>
           </register>
           <register>
-            <name>USB_DADDR</name>
-            <displayName>USB_DADDR</displayName>
+            <name>DADDR</name>
+            <displayName>DADDR</displayName>
             <addressOffset>0x4c</addressOffset>
             <size>0x20</size>
             <resetValue>0x00000000</resetValue>
@@ -40716,8 +40716,8 @@ This bit is set by the software to enable the USB Device. The address of this de
             </fields>
           </register>
           <register>
-            <name>USB_LPMCSR</name>
-            <displayName>USB_LPMCSR</displayName>
+            <name>LPMCSR</name>
+            <displayName>LPMCSR</displayName>
             <addressOffset>0x54</addressOffset>
             <size>0x20</size>
             <resetValue>0x00000000</resetValue>
@@ -40776,8 +40776,8 @@ These bits contain the BESL value received with last ACKed LPM Token</descriptio
             </fields>
           </register>
           <register>
-            <name>USB_BCDR</name>
-            <displayName>USB_BCDR</displayName>
+            <name>BCDR</name>
+            <displayName>BCDR</displayName>
             <addressOffset>0x58</addressOffset>
             <size>0x20</size>
             <resetValue>0x00000000</resetValue>
