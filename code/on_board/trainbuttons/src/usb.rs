@@ -4,7 +4,31 @@
 
 
 use cortex_m::asm::nop;
-use stm32g0b0::{Interrupt, Peripherals};
+use cortex_m::peripheral::NVIC;
+use stm32g0b0::{interrupt, Interrupt, Peripherals};
+
+
+#[interrupt]
+fn USB() {
+    // USB interrupt
+    let peripherals = unsafe { Peripherals::steal() };
+
+    // blink the LED
+    loop {
+        peripherals.gpiob.bsrr().write(|w| w
+            .bs13().set_bit()
+        );
+        for _ in 0..4*1024*1024 {
+            cortex_m::asm::nop();
+        }
+        peripherals.gpiob.bsrr().write(|w| w
+            .br13().set_bit()
+        );
+        for _ in 0..4*1024*1024 {
+            cortex_m::asm::nop();
+        }
+    }
+}
 
 
 /// Sets up USB device support.
@@ -22,7 +46,7 @@ pub(crate) fn set_up(peripherals: &mut Peripherals) {
     );
 
     // enable USB interrupt
-    // TODO: wait for STM32 case
+    unsafe { NVIC::unmask(Interrupt::USB) };
 
     // trigger USB macrocell reset
     peripherals.rcc.apbrstr1().modify(|_, w| w
@@ -34,13 +58,27 @@ pub(crate) fn set_up(peripherals: &mut Peripherals) {
     peripherals.rcc.apbrstr1().modify(|_, w| w
         .usbrst().clear_bit()
     );
+    for _ in 0..8 {
+        nop();
+    }
+
+    // enable USB reset condition
+    peripherals.usb.cntr().modify(|_, w| w
+        .usbrst().set_bit()
+    );
 
     // enable USB transceiver
     peripherals.usb.cntr().modify(|_, w| w
         .pdwn().clear_bit()
     );
 
-    // TODO: wait t_{STARTUP} (RM says it's specified in DS, nothing relevant in DS)
+    // wait t_{STARTUP}
+    // RM says it's specified in DS, nothing relevant in DS
+    // ST case 00202347 clarifies: it's max. 1µs
+    // 1µs / 48MHz = 48
+    for _ in 0..48 {
+        nop();
+    }
 
     // remove USB reset condition
     peripherals.usb.cntr().modify(|_, w| w
@@ -73,4 +111,7 @@ pub(crate) fn set_up(peripherals: &mut Peripherals) {
         .pmaovr().clear_bit()
         .thr512().clear_bit()
     );
+
+    // set up buffers
+    peripherals.usb_ram1.single_buffered(0);
 }

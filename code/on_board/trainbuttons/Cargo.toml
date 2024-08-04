@@ -6,4 +6,4 @@ edition = "2021"
 [dependencies]
 cortex-m = { version = "0.7" }
 cortex-m-rt = { version = "0.7" }
-stm32g0b0 = { path = "../stm32g0b0" }
+stm32g0b0 = { path = "../stm32g0b0", features = ["rt"] }
