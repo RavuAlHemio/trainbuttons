@@ -2,38 +2,54 @@
 pub type R = crate::R<AfrhSpec>;
 #[doc = "Register `AFRH` writer"]
 pub type W = crate::W<AfrhSpec>;
+#[doc = "Alternate function selection for port x bit y (y = 8..15)"]
+pub use super::afrl::Afsel7 as Afsel8;
+#[doc = "Alternate function selection for port x bit y (y = 8..15)"]
+pub use super::afrl::Afsel7 as Afsel9;
+#[doc = "Alternate function selection for port x bit y (y = 8..15)"]
+pub use super::afrl::Afsel7 as Afsel10;
+#[doc = "Alternate function selection for port x bit y (y = 8..15)"]
+pub use super::afrl::Afsel7 as Afsel11;
+#[doc = "Alternate function selection for port x bit y (y = 8..15)"]
+pub use super::afrl::Afsel7 as Afsel12;
+#[doc = "Alternate function selection for port x bit y (y = 8..15)"]
+pub use super::afrl::Afsel7 as Afsel13;
+#[doc = "Alternate function selection for port x bit y (y = 8..15)"]
+pub use super::afrl::Afsel7 as Afsel14;
+#[doc = "Alternate function selection for port x bit y (y = 8..15)"]
+pub use super::afrl::Afsel7 as Afsel15;
 #[doc = "Field `AFSEL8` reader - Alternate function selection for port x bit y (y = 8..15)"]
-pub type Afsel8R = crate::FieldReader;
-#[doc = "Field `AFSEL8` writer - Alternate function selection for port x bit y (y = 8..15)"]
-pub type Afsel8W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+pub use super::afrl::Afsel7R as Afsel8R;
 #[doc = "Field `AFSEL9` reader - Alternate function selection for port x bit y (y = 8..15)"]
-pub type Afsel9R = crate::FieldReader;
-#[doc = "Field `AFSEL9` writer - Alternate function selection for port x bit y (y = 8..15)"]
-pub type Afsel9W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+pub use super::afrl::Afsel7R as Afsel9R;
 #[doc = "Field `AFSEL10` reader - Alternate function selection for port x bit y (y = 8..15)"]
-pub type Afsel10R = crate::FieldReader;
-#[doc = "Field `AFSEL10` writer - Alternate function selection for port x bit y (y = 8..15)"]
-pub type Afsel10W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+pub use super::afrl::Afsel7R as Afsel10R;
 #[doc = "Field `AFSEL11` reader - Alternate function selection for port x bit y (y = 8..15)"]
-pub type Afsel11R = crate::FieldReader;
-#[doc = "Field `AFSEL11` writer - Alternate function selection for port x bit y (y = 8..15)"]
-pub type Afsel11W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+pub use super::afrl::Afsel7R as Afsel11R;
 #[doc = "Field `AFSEL12` reader - Alternate function selection for port x bit y (y = 8..15)"]
-pub type Afsel12R = crate::FieldReader;
-#[doc = "Field `AFSEL12` writer - Alternate function selection for port x bit y (y = 8..15)"]
-pub type Afsel12W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+pub use super::afrl::Afsel7R as Afsel12R;
 #[doc = "Field `AFSEL13` reader - Alternate function selection for port x bit y (y = 8..15)"]
-pub type Afsel13R = crate::FieldReader;
-#[doc = "Field `AFSEL13` writer - Alternate function selection for port x bit y (y = 8..15)"]
-pub type Afsel13W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+pub use super::afrl::Afsel7R as Afsel13R;
 #[doc = "Field `AFSEL14` reader - Alternate function selection for port x bit y (y = 8..15)"]
-pub type Afsel14R = crate::FieldReader;
-#[doc = "Field `AFSEL14` writer - Alternate function selection for port x bit y (y = 8..15)"]
-pub type Afsel14W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+pub use super::afrl::Afsel7R as Afsel14R;
 #[doc = "Field `AFSEL15` reader - Alternate function selection for port x bit y (y = 8..15)"]
-pub type Afsel15R = crate::FieldReader;
+pub use super::afrl::Afsel7R as Afsel15R;
+#[doc = "Field `AFSEL8` writer - Alternate function selection for port x bit y (y = 8..15)"]
+pub use super::afrl::Afsel7W as Afsel8W;
+#[doc = "Field `AFSEL9` writer - Alternate function selection for port x bit y (y = 8..15)"]
+pub use super::afrl::Afsel7W as Afsel9W;
+#[doc = "Field `AFSEL10` writer - Alternate function selection for port x bit y (y = 8..15)"]
+pub use super::afrl::Afsel7W as Afsel10W;
+#[doc = "Field `AFSEL11` writer - Alternate function selection for port x bit y (y = 8..15)"]
+pub use super::afrl::Afsel7W as Afsel11W;
+#[doc = "Field `AFSEL12` writer - Alternate function selection for port x bit y (y = 8..15)"]
+pub use super::afrl::Afsel7W as Afsel12W;
+#[doc = "Field `AFSEL13` writer - Alternate function selection for port x bit y (y = 8..15)"]
+pub use super::afrl::Afsel7W as Afsel13W;
+#[doc = "Field `AFSEL14` writer - Alternate function selection for port x bit y (y = 8..15)"]
+pub use super::afrl::Afsel7W as Afsel14W;
 #[doc = "Field `AFSEL15` writer - Alternate function selection for port x bit y (y = 8..15)"]
-pub type Afsel15W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+pub use super::afrl::Afsel7W as Afsel15W;
 impl R {
     #[doc = "Bits 0:3 - Alternate function selection for port x bit y (y = 8..15)"]
     #[inline(always)]

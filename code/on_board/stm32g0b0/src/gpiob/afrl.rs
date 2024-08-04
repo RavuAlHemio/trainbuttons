@@ -2,38 +2,54 @@
 pub type R = crate::R<AfrlSpec>;
 #[doc = "Register `AFRL` writer"]
 pub type W = crate::W<AfrlSpec>;
+#[doc = "Alternate function selection for port x bit y (y = 0..7)"]
+pub use crate::gpioa::afrl::Afsel7 as Afsel0;
+#[doc = "Alternate function selection for port x bit y (y = 0..7)"]
+pub use crate::gpioa::afrl::Afsel7 as Afsel1;
+#[doc = "Alternate function selection for port x bit y (y = 0..7)"]
+pub use crate::gpioa::afrl::Afsel7 as Afsel2;
+#[doc = "Alternate function selection for port x bit y (y = 0..7)"]
+pub use crate::gpioa::afrl::Afsel7 as Afsel3;
+#[doc = "Alternate function selection for port x bit y (y = 0..7)"]
+pub use crate::gpioa::afrl::Afsel7 as Afsel4;
+#[doc = "Alternate function selection for port x bit y (y = 0..7)"]
+pub use crate::gpioa::afrl::Afsel7 as Afsel5;
+#[doc = "Alternate function selection for port x bit y (y = 0..7)"]
+pub use crate::gpioa::afrl::Afsel7 as Afsel6;
+#[doc = "Alternate function selection for port x bit y (y = 0..7)"]
+pub use crate::gpioa::afrl::Afsel7;
 #[doc = "Field `AFSEL0` reader - Alternate function selection for port x bit y (y = 0..7)"]
-pub type Afsel0R = crate::FieldReader;
-#[doc = "Field `AFSEL0` writer - Alternate function selection for port x bit y (y = 0..7)"]
-pub type Afsel0W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+pub use crate::gpioa::afrl::Afsel7R as Afsel0R;
 #[doc = "Field `AFSEL1` reader - Alternate function selection for port x bit y (y = 0..7)"]
-pub type Afsel1R = crate::FieldReader;
-#[doc = "Field `AFSEL1` writer - Alternate function selection for port x bit y (y = 0..7)"]
-pub type Afsel1W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+pub use crate::gpioa::afrl::Afsel7R as Afsel1R;
 #[doc = "Field `AFSEL2` reader - Alternate function selection for port x bit y (y = 0..7)"]
-pub type Afsel2R = crate::FieldReader;
-#[doc = "Field `AFSEL2` writer - Alternate function selection for port x bit y (y = 0..7)"]
-pub type Afsel2W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+pub use crate::gpioa::afrl::Afsel7R as Afsel2R;
 #[doc = "Field `AFSEL3` reader - Alternate function selection for port x bit y (y = 0..7)"]
-pub type Afsel3R = crate::FieldReader;
-#[doc = "Field `AFSEL3` writer - Alternate function selection for port x bit y (y = 0..7)"]
-pub type Afsel3W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+pub use crate::gpioa::afrl::Afsel7R as Afsel3R;
 #[doc = "Field `AFSEL4` reader - Alternate function selection for port x bit y (y = 0..7)"]
-pub type Afsel4R = crate::FieldReader;
-#[doc = "Field `AFSEL4` writer - Alternate function selection for port x bit y (y = 0..7)"]
-pub type Afsel4W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+pub use crate::gpioa::afrl::Afsel7R as Afsel4R;
 #[doc = "Field `AFSEL5` reader - Alternate function selection for port x bit y (y = 0..7)"]
-pub type Afsel5R = crate::FieldReader;
-#[doc = "Field `AFSEL5` writer - Alternate function selection for port x bit y (y = 0..7)"]
-pub type Afsel5W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+pub use crate::gpioa::afrl::Afsel7R as Afsel5R;
 #[doc = "Field `AFSEL6` reader - Alternate function selection for port x bit y (y = 0..7)"]
-pub type Afsel6R = crate::FieldReader;
-#[doc = "Field `AFSEL6` writer - Alternate function selection for port x bit y (y = 0..7)"]
-pub type Afsel6W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+pub use crate::gpioa::afrl::Afsel7R as Afsel6R;
 #[doc = "Field `AFSEL7` reader - Alternate function selection for port x bit y (y = 0..7)"]
-pub type Afsel7R = crate::FieldReader;
+pub use crate::gpioa::afrl::Afsel7R;
+#[doc = "Field `AFSEL0` writer - Alternate function selection for port x bit y (y = 0..7)"]
+pub use crate::gpioa::afrl::Afsel7W as Afsel0W;
+#[doc = "Field `AFSEL1` writer - Alternate function selection for port x bit y (y = 0..7)"]
+pub use crate::gpioa::afrl::Afsel7W as Afsel1W;
+#[doc = "Field `AFSEL2` writer - Alternate function selection for port x bit y (y = 0..7)"]
+pub use crate::gpioa::afrl::Afsel7W as Afsel2W;
+#[doc = "Field `AFSEL3` writer - Alternate function selection for port x bit y (y = 0..7)"]
+pub use crate::gpioa::afrl::Afsel7W as Afsel3W;
+#[doc = "Field `AFSEL4` writer - Alternate function selection for port x bit y (y = 0..7)"]
+pub use crate::gpioa::afrl::Afsel7W as Afsel4W;
+#[doc = "Field `AFSEL5` writer - Alternate function selection for port x bit y (y = 0..7)"]
+pub use crate::gpioa::afrl::Afsel7W as Afsel5W;
+#[doc = "Field `AFSEL6` writer - Alternate function selection for port x bit y (y = 0..7)"]
+pub use crate::gpioa::afrl::Afsel7W as Afsel6W;
 #[doc = "Field `AFSEL7` writer - Alternate function selection for port x bit y (y = 0..7)"]
-pub type Afsel7W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+pub use crate::gpioa::afrl::Afsel7W;
 impl R {
     #[doc = "Bits 0:3 - Alternate function selection for port x bit y (y = 0..7)"]
     #[inline(always)]

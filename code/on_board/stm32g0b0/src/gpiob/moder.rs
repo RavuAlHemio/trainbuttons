@@ -2,70 +2,102 @@
 pub type R = crate::R<ModerSpec>;
 #[doc = "Register `MODER` writer"]
 pub type W = crate::W<ModerSpec>;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::moder::Moder15 as Moder0;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::moder::Moder15 as Moder1;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::moder::Moder15 as Moder2;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::moder::Moder15 as Moder3;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::moder::Moder15 as Moder4;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::moder::Moder15 as Moder5;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::moder::Moder15 as Moder6;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::moder::Moder15 as Moder7;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::moder::Moder15 as Moder8;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::moder::Moder15 as Moder9;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::moder::Moder15 as Moder10;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::moder::Moder15 as Moder11;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::moder::Moder15 as Moder12;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::moder::Moder15 as Moder13;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::moder::Moder15 as Moder14;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::moder::Moder15;
 #[doc = "Field `MODER0` reader - Port x configuration bits (y = 0..15)"]
-pub type Moder0R = crate::FieldReader;
-#[doc = "Field `MODER0` writer - Port x configuration bits (y = 0..15)"]
-pub type Moder0W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use crate::gpioa::moder::Moder15R as Moder0R;
 #[doc = "Field `MODER1` reader - Port x configuration bits (y = 0..15)"]
-pub type Moder1R = crate::FieldReader;
-#[doc = "Field `MODER1` writer - Port x configuration bits (y = 0..15)"]
-pub type Moder1W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use crate::gpioa::moder::Moder15R as Moder1R;
 #[doc = "Field `MODER2` reader - Port x configuration bits (y = 0..15)"]
-pub type Moder2R = crate::FieldReader;
-#[doc = "Field `MODER2` writer - Port x configuration bits (y = 0..15)"]
-pub type Moder2W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use crate::gpioa::moder::Moder15R as Moder2R;
 #[doc = "Field `MODER3` reader - Port x configuration bits (y = 0..15)"]
-pub type Moder3R = crate::FieldReader;
-#[doc = "Field `MODER3` writer - Port x configuration bits (y = 0..15)"]
-pub type Moder3W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use crate::gpioa::moder::Moder15R as Moder3R;
 #[doc = "Field `MODER4` reader - Port x configuration bits (y = 0..15)"]
-pub type Moder4R = crate::FieldReader;
-#[doc = "Field `MODER4` writer - Port x configuration bits (y = 0..15)"]
-pub type Moder4W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use crate::gpioa::moder::Moder15R as Moder4R;
 #[doc = "Field `MODER5` reader - Port x configuration bits (y = 0..15)"]
-pub type Moder5R = crate::FieldReader;
-#[doc = "Field `MODER5` writer - Port x configuration bits (y = 0..15)"]
-pub type Moder5W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use crate::gpioa::moder::Moder15R as Moder5R;
 #[doc = "Field `MODER6` reader - Port x configuration bits (y = 0..15)"]
-pub type Moder6R = crate::FieldReader;
-#[doc = "Field `MODER6` writer - Port x configuration bits (y = 0..15)"]
-pub type Moder6W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use crate::gpioa::moder::Moder15R as Moder6R;
 #[doc = "Field `MODER7` reader - Port x configuration bits (y = 0..15)"]
-pub type Moder7R = crate::FieldReader;
-#[doc = "Field `MODER7` writer - Port x configuration bits (y = 0..15)"]
-pub type Moder7W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use crate::gpioa::moder::Moder15R as Moder7R;
 #[doc = "Field `MODER8` reader - Port x configuration bits (y = 0..15)"]
-pub type Moder8R = crate::FieldReader;
-#[doc = "Field `MODER8` writer - Port x configuration bits (y = 0..15)"]
-pub type Moder8W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use crate::gpioa::moder::Moder15R as Moder8R;
 #[doc = "Field `MODER9` reader - Port x configuration bits (y = 0..15)"]
-pub type Moder9R = crate::FieldReader;
-#[doc = "Field `MODER9` writer - Port x configuration bits (y = 0..15)"]
-pub type Moder9W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use crate::gpioa::moder::Moder15R as Moder9R;
 #[doc = "Field `MODER10` reader - Port x configuration bits (y = 0..15)"]
-pub type Moder10R = crate::FieldReader;
-#[doc = "Field `MODER10` writer - Port x configuration bits (y = 0..15)"]
-pub type Moder10W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use crate::gpioa::moder::Moder15R as Moder10R;
 #[doc = "Field `MODER11` reader - Port x configuration bits (y = 0..15)"]
-pub type Moder11R = crate::FieldReader;
-#[doc = "Field `MODER11` writer - Port x configuration bits (y = 0..15)"]
-pub type Moder11W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use crate::gpioa::moder::Moder15R as Moder11R;
 #[doc = "Field `MODER12` reader - Port x configuration bits (y = 0..15)"]
-pub type Moder12R = crate::FieldReader;
-#[doc = "Field `MODER12` writer - Port x configuration bits (y = 0..15)"]
-pub type Moder12W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use crate::gpioa::moder::Moder15R as Moder12R;
 #[doc = "Field `MODER13` reader - Port x configuration bits (y = 0..15)"]
-pub type Moder13R = crate::FieldReader;
-#[doc = "Field `MODER13` writer - Port x configuration bits (y = 0..15)"]
-pub type Moder13W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use crate::gpioa::moder::Moder15R as Moder13R;
 #[doc = "Field `MODER14` reader - Port x configuration bits (y = 0..15)"]
-pub type Moder14R = crate::FieldReader;
-#[doc = "Field `MODER14` writer - Port x configuration bits (y = 0..15)"]
-pub type Moder14W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use crate::gpioa::moder::Moder15R as Moder14R;
 #[doc = "Field `MODER15` reader - Port x configuration bits (y = 0..15)"]
-pub type Moder15R = crate::FieldReader;
+pub use crate::gpioa::moder::Moder15R;
+#[doc = "Field `MODER0` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::moder::Moder15W as Moder0W;
+#[doc = "Field `MODER1` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::moder::Moder15W as Moder1W;
+#[doc = "Field `MODER2` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::moder::Moder15W as Moder2W;
+#[doc = "Field `MODER3` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::moder::Moder15W as Moder3W;
+#[doc = "Field `MODER4` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::moder::Moder15W as Moder4W;
+#[doc = "Field `MODER5` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::moder::Moder15W as Moder5W;
+#[doc = "Field `MODER6` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::moder::Moder15W as Moder6W;
+#[doc = "Field `MODER7` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::moder::Moder15W as Moder7W;
+#[doc = "Field `MODER8` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::moder::Moder15W as Moder8W;
+#[doc = "Field `MODER9` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::moder::Moder15W as Moder9W;
+#[doc = "Field `MODER10` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::moder::Moder15W as Moder10W;
+#[doc = "Field `MODER11` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::moder::Moder15W as Moder11W;
+#[doc = "Field `MODER12` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::moder::Moder15W as Moder12W;
+#[doc = "Field `MODER13` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::moder::Moder15W as Moder13W;
+#[doc = "Field `MODER14` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::moder::Moder15W as Moder14W;
 #[doc = "Field `MODER15` writer - Port x configuration bits (y = 0..15)"]
-pub type Moder15W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use crate::gpioa::moder::Moder15W;
 impl R {
     #[doc = "Bits 0:1 - Port x configuration bits (y = 0..15)"]
     #[inline(always)]

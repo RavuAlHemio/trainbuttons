@@ -2,70 +2,102 @@
 pub type R = crate::R<PupdrSpec>;
 #[doc = "Register `PUPDR` writer"]
 pub type W = crate::W<PupdrSpec>;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::pupdr::Pupdr15 as Pupdr0;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::pupdr::Pupdr15 as Pupdr1;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::pupdr::Pupdr15 as Pupdr2;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::pupdr::Pupdr15 as Pupdr3;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::pupdr::Pupdr15 as Pupdr4;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::pupdr::Pupdr15 as Pupdr5;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::pupdr::Pupdr15 as Pupdr6;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::pupdr::Pupdr15 as Pupdr7;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::pupdr::Pupdr15 as Pupdr8;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::pupdr::Pupdr15 as Pupdr9;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::pupdr::Pupdr15 as Pupdr10;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::pupdr::Pupdr15 as Pupdr11;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::pupdr::Pupdr15 as Pupdr12;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::pupdr::Pupdr15 as Pupdr13;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::pupdr::Pupdr15 as Pupdr14;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::pupdr::Pupdr15;
 #[doc = "Field `PUPDR0` reader - Port x configuration bits (y = 0..15)"]
-pub type Pupdr0R = crate::FieldReader;
-#[doc = "Field `PUPDR0` writer - Port x configuration bits (y = 0..15)"]
-pub type Pupdr0W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use crate::gpioa::pupdr::Pupdr15R as Pupdr0R;
 #[doc = "Field `PUPDR1` reader - Port x configuration bits (y = 0..15)"]
-pub type Pupdr1R = crate::FieldReader;
-#[doc = "Field `PUPDR1` writer - Port x configuration bits (y = 0..15)"]
-pub type Pupdr1W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use crate::gpioa::pupdr::Pupdr15R as Pupdr1R;
 #[doc = "Field `PUPDR2` reader - Port x configuration bits (y = 0..15)"]
-pub type Pupdr2R = crate::FieldReader;
-#[doc = "Field `PUPDR2` writer - Port x configuration bits (y = 0..15)"]
-pub type Pupdr2W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use crate::gpioa::pupdr::Pupdr15R as Pupdr2R;
 #[doc = "Field `PUPDR3` reader - Port x configuration bits (y = 0..15)"]
-pub type Pupdr3R = crate::FieldReader;
-#[doc = "Field `PUPDR3` writer - Port x configuration bits (y = 0..15)"]
-pub type Pupdr3W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use crate::gpioa::pupdr::Pupdr15R as Pupdr3R;
 #[doc = "Field `PUPDR4` reader - Port x configuration bits (y = 0..15)"]
-pub type Pupdr4R = crate::FieldReader;
-#[doc = "Field `PUPDR4` writer - Port x configuration bits (y = 0..15)"]
-pub type Pupdr4W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use crate::gpioa::pupdr::Pupdr15R as Pupdr4R;
 #[doc = "Field `PUPDR5` reader - Port x configuration bits (y = 0..15)"]
-pub type Pupdr5R = crate::FieldReader;
-#[doc = "Field `PUPDR5` writer - Port x configuration bits (y = 0..15)"]
-pub type Pupdr5W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use crate::gpioa::pupdr::Pupdr15R as Pupdr5R;
 #[doc = "Field `PUPDR6` reader - Port x configuration bits (y = 0..15)"]
-pub type Pupdr6R = crate::FieldReader;
-#[doc = "Field `PUPDR6` writer - Port x configuration bits (y = 0..15)"]
-pub type Pupdr6W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use crate::gpioa::pupdr::Pupdr15R as Pupdr6R;
 #[doc = "Field `PUPDR7` reader - Port x configuration bits (y = 0..15)"]
-pub type Pupdr7R = crate::FieldReader;
-#[doc = "Field `PUPDR7` writer - Port x configuration bits (y = 0..15)"]
-pub type Pupdr7W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use crate::gpioa::pupdr::Pupdr15R as Pupdr7R;
 #[doc = "Field `PUPDR8` reader - Port x configuration bits (y = 0..15)"]
-pub type Pupdr8R = crate::FieldReader;
-#[doc = "Field `PUPDR8` writer - Port x configuration bits (y = 0..15)"]
-pub type Pupdr8W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use crate::gpioa::pupdr::Pupdr15R as Pupdr8R;
 #[doc = "Field `PUPDR9` reader - Port x configuration bits (y = 0..15)"]
-pub type Pupdr9R = crate::FieldReader;
-#[doc = "Field `PUPDR9` writer - Port x configuration bits (y = 0..15)"]
-pub type Pupdr9W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use crate::gpioa::pupdr::Pupdr15R as Pupdr9R;
 #[doc = "Field `PUPDR10` reader - Port x configuration bits (y = 0..15)"]
-pub type Pupdr10R = crate::FieldReader;
-#[doc = "Field `PUPDR10` writer - Port x configuration bits (y = 0..15)"]
-pub type Pupdr10W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use crate::gpioa::pupdr::Pupdr15R as Pupdr10R;
 #[doc = "Field `PUPDR11` reader - Port x configuration bits (y = 0..15)"]
-pub type Pupdr11R = crate::FieldReader;
-#[doc = "Field `PUPDR11` writer - Port x configuration bits (y = 0..15)"]
-pub type Pupdr11W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use crate::gpioa::pupdr::Pupdr15R as Pupdr11R;
 #[doc = "Field `PUPDR12` reader - Port x configuration bits (y = 0..15)"]
-pub type Pupdr12R = crate::FieldReader;
-#[doc = "Field `PUPDR12` writer - Port x configuration bits (y = 0..15)"]
-pub type Pupdr12W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use crate::gpioa::pupdr::Pupdr15R as Pupdr12R;
 #[doc = "Field `PUPDR13` reader - Port x configuration bits (y = 0..15)"]
-pub type Pupdr13R = crate::FieldReader;
-#[doc = "Field `PUPDR13` writer - Port x configuration bits (y = 0..15)"]
-pub type Pupdr13W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use crate::gpioa::pupdr::Pupdr15R as Pupdr13R;
 #[doc = "Field `PUPDR14` reader - Port x configuration bits (y = 0..15)"]
-pub type Pupdr14R = crate::FieldReader;
-#[doc = "Field `PUPDR14` writer - Port x configuration bits (y = 0..15)"]
-pub type Pupdr14W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use crate::gpioa::pupdr::Pupdr15R as Pupdr14R;
 #[doc = "Field `PUPDR15` reader - Port x configuration bits (y = 0..15)"]
-pub type Pupdr15R = crate::FieldReader;
+pub use crate::gpioa::pupdr::Pupdr15R;
+#[doc = "Field `PUPDR0` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::pupdr::Pupdr15W as Pupdr0W;
+#[doc = "Field `PUPDR1` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::pupdr::Pupdr15W as Pupdr1W;
+#[doc = "Field `PUPDR2` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::pupdr::Pupdr15W as Pupdr2W;
+#[doc = "Field `PUPDR3` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::pupdr::Pupdr15W as Pupdr3W;
+#[doc = "Field `PUPDR4` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::pupdr::Pupdr15W as Pupdr4W;
+#[doc = "Field `PUPDR5` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::pupdr::Pupdr15W as Pupdr5W;
+#[doc = "Field `PUPDR6` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::pupdr::Pupdr15W as Pupdr6W;
+#[doc = "Field `PUPDR7` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::pupdr::Pupdr15W as Pupdr7W;
+#[doc = "Field `PUPDR8` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::pupdr::Pupdr15W as Pupdr8W;
+#[doc = "Field `PUPDR9` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::pupdr::Pupdr15W as Pupdr9W;
+#[doc = "Field `PUPDR10` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::pupdr::Pupdr15W as Pupdr10W;
+#[doc = "Field `PUPDR11` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::pupdr::Pupdr15W as Pupdr11W;
+#[doc = "Field `PUPDR12` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::pupdr::Pupdr15W as Pupdr12W;
+#[doc = "Field `PUPDR13` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::pupdr::Pupdr15W as Pupdr13W;
+#[doc = "Field `PUPDR14` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::pupdr::Pupdr15W as Pupdr14W;
 #[doc = "Field `PUPDR15` writer - Port x configuration bits (y = 0..15)"]
-pub type Pupdr15W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use crate::gpioa::pupdr::Pupdr15W;
 impl R {
     #[doc = "Bits 0:1 - Port x configuration bits (y = 0..15)"]
     #[inline(always)]

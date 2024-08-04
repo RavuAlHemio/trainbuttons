@@ -2,38 +2,186 @@
 pub type R = crate::R<AfrlSpec>;
 #[doc = "Register `AFRL` writer"]
 pub type W = crate::W<AfrlSpec>;
+#[doc = "Alternate function selection for port x bit y (y = 0..7)"]
+pub use Afsel7 as Afsel0;
+#[doc = "Alternate function selection for port x bit y (y = 0..7)"]
+pub use Afsel7 as Afsel1;
+#[doc = "Alternate function selection for port x bit y (y = 0..7)"]
+pub use Afsel7 as Afsel2;
+#[doc = "Alternate function selection for port x bit y (y = 0..7)"]
+pub use Afsel7 as Afsel3;
+#[doc = "Alternate function selection for port x bit y (y = 0..7)"]
+pub use Afsel7 as Afsel4;
+#[doc = "Alternate function selection for port x bit y (y = 0..7)"]
+pub use Afsel7 as Afsel5;
+#[doc = "Alternate function selection for port x bit y (y = 0..7)"]
+pub use Afsel7 as Afsel6;
 #[doc = "Field `AFSEL0` reader - Alternate function selection for port x bit y (y = 0..7)"]
-pub type Afsel0R = crate::FieldReader;
-#[doc = "Field `AFSEL0` writer - Alternate function selection for port x bit y (y = 0..7)"]
-pub type Afsel0W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+pub use Afsel7R as Afsel0R;
 #[doc = "Field `AFSEL1` reader - Alternate function selection for port x bit y (y = 0..7)"]
-pub type Afsel1R = crate::FieldReader;
-#[doc = "Field `AFSEL1` writer - Alternate function selection for port x bit y (y = 0..7)"]
-pub type Afsel1W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+pub use Afsel7R as Afsel1R;
 #[doc = "Field `AFSEL2` reader - Alternate function selection for port x bit y (y = 0..7)"]
-pub type Afsel2R = crate::FieldReader;
-#[doc = "Field `AFSEL2` writer - Alternate function selection for port x bit y (y = 0..7)"]
-pub type Afsel2W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+pub use Afsel7R as Afsel2R;
 #[doc = "Field `AFSEL3` reader - Alternate function selection for port x bit y (y = 0..7)"]
-pub type Afsel3R = crate::FieldReader;
-#[doc = "Field `AFSEL3` writer - Alternate function selection for port x bit y (y = 0..7)"]
-pub type Afsel3W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+pub use Afsel7R as Afsel3R;
 #[doc = "Field `AFSEL4` reader - Alternate function selection for port x bit y (y = 0..7)"]
-pub type Afsel4R = crate::FieldReader;
-#[doc = "Field `AFSEL4` writer - Alternate function selection for port x bit y (y = 0..7)"]
-pub type Afsel4W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+pub use Afsel7R as Afsel4R;
 #[doc = "Field `AFSEL5` reader - Alternate function selection for port x bit y (y = 0..7)"]
-pub type Afsel5R = crate::FieldReader;
-#[doc = "Field `AFSEL5` writer - Alternate function selection for port x bit y (y = 0..7)"]
-pub type Afsel5W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+pub use Afsel7R as Afsel5R;
 #[doc = "Field `AFSEL6` reader - Alternate function selection for port x bit y (y = 0..7)"]
-pub type Afsel6R = crate::FieldReader;
+pub use Afsel7R as Afsel6R;
+#[doc = "Field `AFSEL0` writer - Alternate function selection for port x bit y (y = 0..7)"]
+pub use Afsel7W as Afsel0W;
+#[doc = "Field `AFSEL1` writer - Alternate function selection for port x bit y (y = 0..7)"]
+pub use Afsel7W as Afsel1W;
+#[doc = "Field `AFSEL2` writer - Alternate function selection for port x bit y (y = 0..7)"]
+pub use Afsel7W as Afsel2W;
+#[doc = "Field `AFSEL3` writer - Alternate function selection for port x bit y (y = 0..7)"]
+pub use Afsel7W as Afsel3W;
+#[doc = "Field `AFSEL4` writer - Alternate function selection for port x bit y (y = 0..7)"]
+pub use Afsel7W as Afsel4W;
+#[doc = "Field `AFSEL5` writer - Alternate function selection for port x bit y (y = 0..7)"]
+pub use Afsel7W as Afsel5W;
 #[doc = "Field `AFSEL6` writer - Alternate function selection for port x bit y (y = 0..7)"]
-pub type Afsel6W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+pub use Afsel7W as Afsel6W;
+#[doc = "Alternate function selection for port x bit y (y = 0..7)\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum Afsel7 {
+    #[doc = "0: Alternate function 0"]
+    Af0 = 0,
+    #[doc = "1: Alternate function 1"]
+    Af1 = 1,
+    #[doc = "2: Alternate function 2"]
+    Af2 = 2,
+    #[doc = "3: Alternate function 3"]
+    Af3 = 3,
+    #[doc = "4: Alternate function 4"]
+    Af4 = 4,
+    #[doc = "5: Alternate function 5"]
+    Af5 = 5,
+    #[doc = "6: Alternate function 6"]
+    Af6 = 6,
+    #[doc = "7: Alternate function 7"]
+    Af7 = 7,
+}
+impl From<Afsel7> for u8 {
+    #[inline(always)]
+    fn from(variant: Afsel7) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for Afsel7 {
+    type Ux = u8;
+}
+impl crate::IsEnum for Afsel7 {}
 #[doc = "Field `AFSEL7` reader - Alternate function selection for port x bit y (y = 0..7)"]
-pub type Afsel7R = crate::FieldReader;
+pub type Afsel7R = crate::FieldReader<Afsel7>;
+impl Afsel7R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<Afsel7> {
+        match self.bits {
+            0 => Some(Afsel7::Af0),
+            1 => Some(Afsel7::Af1),
+            2 => Some(Afsel7::Af2),
+            3 => Some(Afsel7::Af3),
+            4 => Some(Afsel7::Af4),
+            5 => Some(Afsel7::Af5),
+            6 => Some(Afsel7::Af6),
+            7 => Some(Afsel7::Af7),
+            _ => None,
+        }
+    }
+    #[doc = "Alternate function 0"]
+    #[inline(always)]
+    pub fn is_af0(&self) -> bool {
+        *self == Afsel7::Af0
+    }
+    #[doc = "Alternate function 1"]
+    #[inline(always)]
+    pub fn is_af1(&self) -> bool {
+        *self == Afsel7::Af1
+    }
+    #[doc = "Alternate function 2"]
+    #[inline(always)]
+    pub fn is_af2(&self) -> bool {
+        *self == Afsel7::Af2
+    }
+    #[doc = "Alternate function 3"]
+    #[inline(always)]
+    pub fn is_af3(&self) -> bool {
+        *self == Afsel7::Af3
+    }
+    #[doc = "Alternate function 4"]
+    #[inline(always)]
+    pub fn is_af4(&self) -> bool {
+        *self == Afsel7::Af4
+    }
+    #[doc = "Alternate function 5"]
+    #[inline(always)]
+    pub fn is_af5(&self) -> bool {
+        *self == Afsel7::Af5
+    }
+    #[doc = "Alternate function 6"]
+    #[inline(always)]
+    pub fn is_af6(&self) -> bool {
+        *self == Afsel7::Af6
+    }
+    #[doc = "Alternate function 7"]
+    #[inline(always)]
+    pub fn is_af7(&self) -> bool {
+        *self == Afsel7::Af7
+    }
+}
 #[doc = "Field `AFSEL7` writer - Alternate function selection for port x bit y (y = 0..7)"]
-pub type Afsel7W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+pub type Afsel7W<'a, REG> = crate::FieldWriter<'a, REG, 4, Afsel7>;
+impl<'a, REG> Afsel7W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
+    #[doc = "Alternate function 0"]
+    #[inline(always)]
+    pub fn af0(self) -> &'a mut crate::W<REG> {
+        self.variant(Afsel7::Af0)
+    }
+    #[doc = "Alternate function 1"]
+    #[inline(always)]
+    pub fn af1(self) -> &'a mut crate::W<REG> {
+        self.variant(Afsel7::Af1)
+    }
+    #[doc = "Alternate function 2"]
+    #[inline(always)]
+    pub fn af2(self) -> &'a mut crate::W<REG> {
+        self.variant(Afsel7::Af2)
+    }
+    #[doc = "Alternate function 3"]
+    #[inline(always)]
+    pub fn af3(self) -> &'a mut crate::W<REG> {
+        self.variant(Afsel7::Af3)
+    }
+    #[doc = "Alternate function 4"]
+    #[inline(always)]
+    pub fn af4(self) -> &'a mut crate::W<REG> {
+        self.variant(Afsel7::Af4)
+    }
+    #[doc = "Alternate function 5"]
+    #[inline(always)]
+    pub fn af5(self) -> &'a mut crate::W<REG> {
+        self.variant(Afsel7::Af5)
+    }
+    #[doc = "Alternate function 6"]
+    #[inline(always)]
+    pub fn af6(self) -> &'a mut crate::W<REG> {
+        self.variant(Afsel7::Af6)
+    }
+    #[doc = "Alternate function 7"]
+    #[inline(always)]
+    pub fn af7(self) -> &'a mut crate::W<REG> {
+        self.variant(Afsel7::Af7)
+    }
+}
 impl R {
     #[doc = "Bits 0:3 - Alternate function selection for port x bit y (y = 0..7)"]
     #[inline(always)]

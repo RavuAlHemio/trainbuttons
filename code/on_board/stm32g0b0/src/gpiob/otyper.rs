@@ -2,70 +2,102 @@
 pub type R = crate::R<OtyperSpec>;
 #[doc = "Register `OTYPER` writer"]
 pub type W = crate::W<OtyperSpec>;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::otyper::Ot15 as Ot0;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::otyper::Ot15 as Ot1;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::otyper::Ot15 as Ot2;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::otyper::Ot15 as Ot3;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::otyper::Ot15 as Ot4;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::otyper::Ot15 as Ot5;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::otyper::Ot15 as Ot6;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::otyper::Ot15 as Ot7;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::otyper::Ot15 as Ot8;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::otyper::Ot15 as Ot9;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::otyper::Ot15 as Ot10;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::otyper::Ot15 as Ot11;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::otyper::Ot15 as Ot12;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::otyper::Ot15 as Ot13;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::otyper::Ot15 as Ot14;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::otyper::Ot15;
 #[doc = "Field `OT0` reader - Port x configuration bits (y = 0..15)"]
-pub type Ot0R = crate::BitReader;
-#[doc = "Field `OT0` writer - Port x configuration bits (y = 0..15)"]
-pub type Ot0W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use crate::gpioa::otyper::Ot15R as Ot0R;
 #[doc = "Field `OT1` reader - Port x configuration bits (y = 0..15)"]
-pub type Ot1R = crate::BitReader;
-#[doc = "Field `OT1` writer - Port x configuration bits (y = 0..15)"]
-pub type Ot1W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use crate::gpioa::otyper::Ot15R as Ot1R;
 #[doc = "Field `OT2` reader - Port x configuration bits (y = 0..15)"]
-pub type Ot2R = crate::BitReader;
-#[doc = "Field `OT2` writer - Port x configuration bits (y = 0..15)"]
-pub type Ot2W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use crate::gpioa::otyper::Ot15R as Ot2R;
 #[doc = "Field `OT3` reader - Port x configuration bits (y = 0..15)"]
-pub type Ot3R = crate::BitReader;
-#[doc = "Field `OT3` writer - Port x configuration bits (y = 0..15)"]
-pub type Ot3W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use crate::gpioa::otyper::Ot15R as Ot3R;
 #[doc = "Field `OT4` reader - Port x configuration bits (y = 0..15)"]
-pub type Ot4R = crate::BitReader;
-#[doc = "Field `OT4` writer - Port x configuration bits (y = 0..15)"]
-pub type Ot4W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use crate::gpioa::otyper::Ot15R as Ot4R;
 #[doc = "Field `OT5` reader - Port x configuration bits (y = 0..15)"]
-pub type Ot5R = crate::BitReader;
-#[doc = "Field `OT5` writer - Port x configuration bits (y = 0..15)"]
-pub type Ot5W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use crate::gpioa::otyper::Ot15R as Ot5R;
 #[doc = "Field `OT6` reader - Port x configuration bits (y = 0..15)"]
-pub type Ot6R = crate::BitReader;
-#[doc = "Field `OT6` writer - Port x configuration bits (y = 0..15)"]
-pub type Ot6W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use crate::gpioa::otyper::Ot15R as Ot6R;
 #[doc = "Field `OT7` reader - Port x configuration bits (y = 0..15)"]
-pub type Ot7R = crate::BitReader;
-#[doc = "Field `OT7` writer - Port x configuration bits (y = 0..15)"]
-pub type Ot7W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use crate::gpioa::otyper::Ot15R as Ot7R;
 #[doc = "Field `OT8` reader - Port x configuration bits (y = 0..15)"]
-pub type Ot8R = crate::BitReader;
-#[doc = "Field `OT8` writer - Port x configuration bits (y = 0..15)"]
-pub type Ot8W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use crate::gpioa::otyper::Ot15R as Ot8R;
 #[doc = "Field `OT9` reader - Port x configuration bits (y = 0..15)"]
-pub type Ot9R = crate::BitReader;
-#[doc = "Field `OT9` writer - Port x configuration bits (y = 0..15)"]
-pub type Ot9W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use crate::gpioa::otyper::Ot15R as Ot9R;
 #[doc = "Field `OT10` reader - Port x configuration bits (y = 0..15)"]
-pub type Ot10R = crate::BitReader;
-#[doc = "Field `OT10` writer - Port x configuration bits (y = 0..15)"]
-pub type Ot10W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use crate::gpioa::otyper::Ot15R as Ot10R;
 #[doc = "Field `OT11` reader - Port x configuration bits (y = 0..15)"]
-pub type Ot11R = crate::BitReader;
-#[doc = "Field `OT11` writer - Port x configuration bits (y = 0..15)"]
-pub type Ot11W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use crate::gpioa::otyper::Ot15R as Ot11R;
 #[doc = "Field `OT12` reader - Port x configuration bits (y = 0..15)"]
-pub type Ot12R = crate::BitReader;
-#[doc = "Field `OT12` writer - Port x configuration bits (y = 0..15)"]
-pub type Ot12W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use crate::gpioa::otyper::Ot15R as Ot12R;
 #[doc = "Field `OT13` reader - Port x configuration bits (y = 0..15)"]
-pub type Ot13R = crate::BitReader;
-#[doc = "Field `OT13` writer - Port x configuration bits (y = 0..15)"]
-pub type Ot13W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use crate::gpioa::otyper::Ot15R as Ot13R;
 #[doc = "Field `OT14` reader - Port x configuration bits (y = 0..15)"]
-pub type Ot14R = crate::BitReader;
-#[doc = "Field `OT14` writer - Port x configuration bits (y = 0..15)"]
-pub type Ot14W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use crate::gpioa::otyper::Ot15R as Ot14R;
 #[doc = "Field `OT15` reader - Port x configuration bits (y = 0..15)"]
-pub type Ot15R = crate::BitReader;
+pub use crate::gpioa::otyper::Ot15R;
+#[doc = "Field `OT0` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::otyper::Ot15W as Ot0W;
+#[doc = "Field `OT1` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::otyper::Ot15W as Ot1W;
+#[doc = "Field `OT2` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::otyper::Ot15W as Ot2W;
+#[doc = "Field `OT3` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::otyper::Ot15W as Ot3W;
+#[doc = "Field `OT4` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::otyper::Ot15W as Ot4W;
+#[doc = "Field `OT5` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::otyper::Ot15W as Ot5W;
+#[doc = "Field `OT6` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::otyper::Ot15W as Ot6W;
+#[doc = "Field `OT7` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::otyper::Ot15W as Ot7W;
+#[doc = "Field `OT8` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::otyper::Ot15W as Ot8W;
+#[doc = "Field `OT9` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::otyper::Ot15W as Ot9W;
+#[doc = "Field `OT10` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::otyper::Ot15W as Ot10W;
+#[doc = "Field `OT11` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::otyper::Ot15W as Ot11W;
+#[doc = "Field `OT12` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::otyper::Ot15W as Ot12W;
+#[doc = "Field `OT13` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::otyper::Ot15W as Ot13W;
+#[doc = "Field `OT14` writer - Port x configuration bits (y = 0..15)"]
+pub use crate::gpioa::otyper::Ot15W as Ot14W;
 #[doc = "Field `OT15` writer - Port x configuration bits (y = 0..15)"]
-pub type Ot15W<'a, REG> = crate::BitWriter<'a, REG>;
+pub use crate::gpioa::otyper::Ot15W;
 impl R {
     #[doc = "Bit 0 - Port x configuration bits (y = 0..15)"]
     #[inline(always)]

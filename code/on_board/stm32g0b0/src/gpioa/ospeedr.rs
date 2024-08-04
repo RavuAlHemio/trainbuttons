@@ -2,70 +2,182 @@
 pub type R = crate::R<OspeedrSpec>;
 #[doc = "Register `OSPEEDR` writer"]
 pub type W = crate::W<OspeedrSpec>;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use Ospeedr15 as Ospeedr0;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use Ospeedr15 as Ospeedr1;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use Ospeedr15 as Ospeedr2;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use Ospeedr15 as Ospeedr3;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use Ospeedr15 as Ospeedr4;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use Ospeedr15 as Ospeedr5;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use Ospeedr15 as Ospeedr6;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use Ospeedr15 as Ospeedr7;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use Ospeedr15 as Ospeedr8;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use Ospeedr15 as Ospeedr9;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use Ospeedr15 as Ospeedr10;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use Ospeedr15 as Ospeedr11;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use Ospeedr15 as Ospeedr12;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use Ospeedr15 as Ospeedr13;
+#[doc = "Port x configuration bits (y = 0..15)"]
+pub use Ospeedr15 as Ospeedr14;
 #[doc = "Field `OSPEEDR0` reader - Port x configuration bits (y = 0..15)"]
-pub type Ospeedr0R = crate::FieldReader;
-#[doc = "Field `OSPEEDR0` writer - Port x configuration bits (y = 0..15)"]
-pub type Ospeedr0W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use Ospeedr15R as Ospeedr0R;
 #[doc = "Field `OSPEEDR1` reader - Port x configuration bits (y = 0..15)"]
-pub type Ospeedr1R = crate::FieldReader;
-#[doc = "Field `OSPEEDR1` writer - Port x configuration bits (y = 0..15)"]
-pub type Ospeedr1W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use Ospeedr15R as Ospeedr1R;
 #[doc = "Field `OSPEEDR2` reader - Port x configuration bits (y = 0..15)"]
-pub type Ospeedr2R = crate::FieldReader;
-#[doc = "Field `OSPEEDR2` writer - Port x configuration bits (y = 0..15)"]
-pub type Ospeedr2W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use Ospeedr15R as Ospeedr2R;
 #[doc = "Field `OSPEEDR3` reader - Port x configuration bits (y = 0..15)"]
-pub type Ospeedr3R = crate::FieldReader;
-#[doc = "Field `OSPEEDR3` writer - Port x configuration bits (y = 0..15)"]
-pub type Ospeedr3W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use Ospeedr15R as Ospeedr3R;
 #[doc = "Field `OSPEEDR4` reader - Port x configuration bits (y = 0..15)"]
-pub type Ospeedr4R = crate::FieldReader;
-#[doc = "Field `OSPEEDR4` writer - Port x configuration bits (y = 0..15)"]
-pub type Ospeedr4W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use Ospeedr15R as Ospeedr4R;
 #[doc = "Field `OSPEEDR5` reader - Port x configuration bits (y = 0..15)"]
-pub type Ospeedr5R = crate::FieldReader;
-#[doc = "Field `OSPEEDR5` writer - Port x configuration bits (y = 0..15)"]
-pub type Ospeedr5W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use Ospeedr15R as Ospeedr5R;
 #[doc = "Field `OSPEEDR6` reader - Port x configuration bits (y = 0..15)"]
-pub type Ospeedr6R = crate::FieldReader;
-#[doc = "Field `OSPEEDR6` writer - Port x configuration bits (y = 0..15)"]
-pub type Ospeedr6W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use Ospeedr15R as Ospeedr6R;
 #[doc = "Field `OSPEEDR7` reader - Port x configuration bits (y = 0..15)"]
-pub type Ospeedr7R = crate::FieldReader;
-#[doc = "Field `OSPEEDR7` writer - Port x configuration bits (y = 0..15)"]
-pub type Ospeedr7W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use Ospeedr15R as Ospeedr7R;
 #[doc = "Field `OSPEEDR8` reader - Port x configuration bits (y = 0..15)"]
-pub type Ospeedr8R = crate::FieldReader;
-#[doc = "Field `OSPEEDR8` writer - Port x configuration bits (y = 0..15)"]
-pub type Ospeedr8W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use Ospeedr15R as Ospeedr8R;
 #[doc = "Field `OSPEEDR9` reader - Port x configuration bits (y = 0..15)"]
-pub type Ospeedr9R = crate::FieldReader;
-#[doc = "Field `OSPEEDR9` writer - Port x configuration bits (y = 0..15)"]
-pub type Ospeedr9W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use Ospeedr15R as Ospeedr9R;
 #[doc = "Field `OSPEEDR10` reader - Port x configuration bits (y = 0..15)"]
-pub type Ospeedr10R = crate::FieldReader;
-#[doc = "Field `OSPEEDR10` writer - Port x configuration bits (y = 0..15)"]
-pub type Ospeedr10W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use Ospeedr15R as Ospeedr10R;
 #[doc = "Field `OSPEEDR11` reader - Port x configuration bits (y = 0..15)"]
-pub type Ospeedr11R = crate::FieldReader;
-#[doc = "Field `OSPEEDR11` writer - Port x configuration bits (y = 0..15)"]
-pub type Ospeedr11W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use Ospeedr15R as Ospeedr11R;
 #[doc = "Field `OSPEEDR12` reader - Port x configuration bits (y = 0..15)"]
-pub type Ospeedr12R = crate::FieldReader;
-#[doc = "Field `OSPEEDR12` writer - Port x configuration bits (y = 0..15)"]
-pub type Ospeedr12W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use Ospeedr15R as Ospeedr12R;
 #[doc = "Field `OSPEEDR13` reader - Port x configuration bits (y = 0..15)"]
-pub type Ospeedr13R = crate::FieldReader;
-#[doc = "Field `OSPEEDR13` writer - Port x configuration bits (y = 0..15)"]
-pub type Ospeedr13W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use Ospeedr15R as Ospeedr13R;
 #[doc = "Field `OSPEEDR14` reader - Port x configuration bits (y = 0..15)"]
-pub type Ospeedr14R = crate::FieldReader;
+pub use Ospeedr15R as Ospeedr14R;
+#[doc = "Field `OSPEEDR0` writer - Port x configuration bits (y = 0..15)"]
+pub use Ospeedr15W as Ospeedr0W;
+#[doc = "Field `OSPEEDR1` writer - Port x configuration bits (y = 0..15)"]
+pub use Ospeedr15W as Ospeedr1W;
+#[doc = "Field `OSPEEDR2` writer - Port x configuration bits (y = 0..15)"]
+pub use Ospeedr15W as Ospeedr2W;
+#[doc = "Field `OSPEEDR3` writer - Port x configuration bits (y = 0..15)"]
+pub use Ospeedr15W as Ospeedr3W;
+#[doc = "Field `OSPEEDR4` writer - Port x configuration bits (y = 0..15)"]
+pub use Ospeedr15W as Ospeedr4W;
+#[doc = "Field `OSPEEDR5` writer - Port x configuration bits (y = 0..15)"]
+pub use Ospeedr15W as Ospeedr5W;
+#[doc = "Field `OSPEEDR6` writer - Port x configuration bits (y = 0..15)"]
+pub use Ospeedr15W as Ospeedr6W;
+#[doc = "Field `OSPEEDR7` writer - Port x configuration bits (y = 0..15)"]
+pub use Ospeedr15W as Ospeedr7W;
+#[doc = "Field `OSPEEDR8` writer - Port x configuration bits (y = 0..15)"]
+pub use Ospeedr15W as Ospeedr8W;
+#[doc = "Field `OSPEEDR9` writer - Port x configuration bits (y = 0..15)"]
+pub use Ospeedr15W as Ospeedr9W;
+#[doc = "Field `OSPEEDR10` writer - Port x configuration bits (y = 0..15)"]
+pub use Ospeedr15W as Ospeedr10W;
+#[doc = "Field `OSPEEDR11` writer - Port x configuration bits (y = 0..15)"]
+pub use Ospeedr15W as Ospeedr11W;
+#[doc = "Field `OSPEEDR12` writer - Port x configuration bits (y = 0..15)"]
+pub use Ospeedr15W as Ospeedr12W;
+#[doc = "Field `OSPEEDR13` writer - Port x configuration bits (y = 0..15)"]
+pub use Ospeedr15W as Ospeedr13W;
 #[doc = "Field `OSPEEDR14` writer - Port x configuration bits (y = 0..15)"]
-pub type Ospeedr14W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use Ospeedr15W as Ospeedr14W;
+#[doc = "Port x configuration bits (y = 0..15)\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum Ospeedr15 {
+    #[doc = "0: Very low output speed"]
+    VeryLow = 0,
+    #[doc = "1: Low output speed"]
+    Low = 1,
+    #[doc = "2: High output speed"]
+    High = 2,
+    #[doc = "3: Very high output speed"]
+    VeryHigh = 3,
+}
+impl From<Ospeedr15> for u8 {
+    #[inline(always)]
+    fn from(variant: Ospeedr15) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for Ospeedr15 {
+    type Ux = u8;
+}
+impl crate::IsEnum for Ospeedr15 {}
 #[doc = "Field `OSPEEDR15` reader - Port x configuration bits (y = 0..15)"]
-pub type Ospeedr15R = crate::FieldReader;
+pub type Ospeedr15R = crate::FieldReader<Ospeedr15>;
+impl Ospeedr15R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Ospeedr15 {
+        match self.bits {
+            0 => Ospeedr15::VeryLow,
+            1 => Ospeedr15::Low,
+            2 => Ospeedr15::High,
+            3 => Ospeedr15::VeryHigh,
+            _ => unreachable!(),
+        }
+    }
+    #[doc = "Very low output speed"]
+    #[inline(always)]
+    pub fn is_very_low(&self) -> bool {
+        *self == Ospeedr15::VeryLow
+    }
+    #[doc = "Low output speed"]
+    #[inline(always)]
+    pub fn is_low(&self) -> bool {
+        *self == Ospeedr15::Low
+    }
+    #[doc = "High output speed"]
+    #[inline(always)]
+    pub fn is_high(&self) -> bool {
+        *self == Ospeedr15::High
+    }
+    #[doc = "Very high output speed"]
+    #[inline(always)]
+    pub fn is_very_high(&self) -> bool {
+        *self == Ospeedr15::VeryHigh
+    }
+}
 #[doc = "Field `OSPEEDR15` writer - Port x configuration bits (y = 0..15)"]
-pub type Ospeedr15W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub type Ospeedr15W<'a, REG> = crate::FieldWriter<'a, REG, 2, Ospeedr15, crate::Safe>;
+impl<'a, REG> Ospeedr15W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
+    #[doc = "Very low output speed"]
+    #[inline(always)]
+    pub fn very_low(self) -> &'a mut crate::W<REG> {
+        self.variant(Ospeedr15::VeryLow)
+    }
+    #[doc = "Low output speed"]
+    #[inline(always)]
+    pub fn low(self) -> &'a mut crate::W<REG> {
+        self.variant(Ospeedr15::Low)
+    }
+    #[doc = "High output speed"]
+    #[inline(always)]
+    pub fn high(self) -> &'a mut crate::W<REG> {
+        self.variant(Ospeedr15::High)
+    }
+    #[doc = "Very high output speed"]
+    #[inline(always)]
+    pub fn very_high(self) -> &'a mut crate::W<REG> {
+        self.variant(Ospeedr15::VeryHigh)
+    }
+}
 impl R {
     #[doc = "Bits 0:1 - Port x configuration bits (y = 0..15)"]
     #[inline(always)]

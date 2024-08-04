@@ -10655,109 +10655,101 @@ Writing 1 in each bit clears the corresponding overrun flag OFx in the DMAMUX_RG
               0..15)</description>
               <bitOffset>30</bitOffset>
               <bitWidth>2</bitWidth>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>INPUT</name>
+                  <description>Input mode</description>
+                  <value>0x0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>GENERAL_PURPOSE_OUTPUT</name>
+                  <description>General purpose output mode</description>
+                  <value>0x1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>ALTERNATE_FUNCTION</name>
+                  <description>Alternate function mode</description>
+                  <value>0x2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>ANALOG</name>
+                  <description>Analog mode</description>
+                  <value>0x3</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.MODER.MODER15">
               <name>MODER14</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>28</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.MODER.MODER15">
               <name>MODER13</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>26</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.MODER.MODER15">
               <name>MODER12</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>24</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.MODER.MODER15">
               <name>MODER11</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>22</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.MODER.MODER15">
               <name>MODER10</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>20</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.MODER.MODER15">
               <name>MODER9</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>18</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.MODER.MODER15">
               <name>MODER8</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>16</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.MODER.MODER15">
               <name>MODER7</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>14</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.MODER.MODER15">
               <name>MODER6</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>12</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.MODER.MODER15">
               <name>MODER5</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>10</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.MODER.MODER15">
               <name>MODER4</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>8</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.MODER.MODER15">
               <name>MODER3</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>6</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.MODER.MODER15">
               <name>MODER2</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>4</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.MODER.MODER15">
               <name>MODER1</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>2</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.MODER.MODER15">
               <name>MODER0</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>0</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
@@ -10778,109 +10770,91 @@ Writing 1 in each bit clears the corresponding overrun flag OFx in the DMAMUX_RG
               0..15)</description>
               <bitOffset>15</bitOffset>
               <bitWidth>1</bitWidth>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>PUSH_PULL</name>
+                  <description>Push-pull output</description>
+                  <value>0x0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>OPEN_DRAIN</name>
+                  <description>Open-drain output</description>
+                  <value>0x1</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OTYPER.OT15">
               <name>OT14</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>14</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OTYPER.OT15">
               <name>OT13</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>13</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OTYPER.OT15">
               <name>OT12</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>12</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OTYPER.OT15">
               <name>OT11</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>11</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OTYPER.OT15">
               <name>OT10</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>10</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OTYPER.OT15">
               <name>OT9</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>9</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OTYPER.OT15">
               <name>OT8</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>8</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OTYPER.OT15">
               <name>OT7</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>7</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OTYPER.OT15">
               <name>OT6</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OTYPER.OT15">
               <name>OT5</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OTYPER.OT15">
               <name>OT4</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OTYPER.OT15">
               <name>OT3</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OTYPER.OT15">
               <name>OT2</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OTYPER.OT15">
               <name>OT1</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OTYPER.OT15">
               <name>OT0</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
@@ -10902,109 +10876,101 @@ Writing 1 in each bit clears the corresponding overrun flag OFx in the DMAMUX_RG
               0..15)</description>
               <bitOffset>30</bitOffset>
               <bitWidth>2</bitWidth>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>VERY_LOW</name>
+                  <description>Very low output speed</description>
+                  <value>0x0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>LOW</name>
+                  <description>Low output speed</description>
+                  <value>0x1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>HIGH</name>
+                  <description>High output speed</description>
+                  <value>0x2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>VERY_HIGH</name>
+                  <description>Very high output speed</description>
+                  <value>0x3</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OSPEEDR.OSPEEDR15">
               <name>OSPEEDR14</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>28</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OSPEEDR.OSPEEDR15">
               <name>OSPEEDR13</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>26</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OSPEEDR.OSPEEDR15">
               <name>OSPEEDR12</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>24</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OSPEEDR.OSPEEDR15">
               <name>OSPEEDR11</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>22</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OSPEEDR.OSPEEDR15">
               <name>OSPEEDR10</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>20</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OSPEEDR.OSPEEDR15">
               <name>OSPEEDR9</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>18</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OSPEEDR.OSPEEDR15">
               <name>OSPEEDR8</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>16</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OSPEEDR.OSPEEDR15">
               <name>OSPEEDR7</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>14</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OSPEEDR.OSPEEDR15">
               <name>OSPEEDR6</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>12</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OSPEEDR.OSPEEDR15">
               <name>OSPEEDR5</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>10</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OSPEEDR.OSPEEDR15">
               <name>OSPEEDR4</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>8</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OSPEEDR.OSPEEDR15">
               <name>OSPEEDR3</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>6</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OSPEEDR.OSPEEDR15">
               <name>OSPEEDR2</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>4</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OSPEEDR.OSPEEDR15">
               <name>OSPEEDR1</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>2</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OSPEEDR.OSPEEDR15">
               <name>OSPEEDR0</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>0</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
@@ -11026,109 +10992,96 @@ Writing 1 in each bit clears the corresponding overrun flag OFx in the DMAMUX_RG
               0..15)</description>
               <bitOffset>30</bitOffset>
               <bitWidth>2</bitWidth>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>NO</name>
+                  <description>No pull-up or pull-down</description>
+                  <value>0x0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PULL_UP</name>
+                  <description>Pull-up</description>
+                  <value>0x1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PULL_DOWN</name>
+                  <description>Pull-down</description>
+                  <value>0x2</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.PUPDR.PUPDR15">
               <name>PUPDR14</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>28</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.PUPDR.PUPDR15">
               <name>PUPDR13</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>26</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.PUPDR.PUPDR15">
               <name>PUPDR12</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>24</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.PUPDR.PUPDR15">
               <name>PUPDR11</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>22</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.PUPDR.PUPDR15">
               <name>PUPDR10</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>20</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.PUPDR.PUPDR15">
               <name>PUPDR9</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>18</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.PUPDR.PUPDR15">
               <name>PUPDR8</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>16</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.PUPDR.PUPDR15">
               <name>PUPDR7</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>14</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.PUPDR.PUPDR15">
               <name>PUPDR6</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>12</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.PUPDR.PUPDR15">
               <name>PUPDR5</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>10</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.PUPDR.PUPDR15">
               <name>PUPDR4</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>8</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.PUPDR.PUPDR15">
               <name>PUPDR3</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>6</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.PUPDR.PUPDR15">
               <name>PUPDR2</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>4</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.PUPDR.PUPDR15">
               <name>PUPDR1</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>2</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.PUPDR.PUPDR15">
               <name>PUPDR0</name>
-              <description>Port x configuration bits (y =
-              0..15)</description>
               <bitOffset>0</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
@@ -11763,50 +11716,92 @@ Writing 1 in each bit clears the corresponding overrun flag OFx in the DMAMUX_RG
               bit y (y = 0..7)</description>
               <bitOffset>28</bitOffset>
               <bitWidth>4</bitWidth>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>AF0</name>
+                  <description>Alternate function 0</description>
+                  <value>0x0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AF1</name>
+                  <description>Alternate function 1</description>
+                  <value>0x1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AF2</name>
+                  <description>Alternate function 2</description>
+                  <value>0x2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AF3</name>
+                  <description>Alternate function 3</description>
+                  <value>0x3</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AF4</name>
+                  <description>Alternate function 4</description>
+                  <value>0x4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AF5</name>
+                  <description>Alternate function 5</description>
+                  <value>0x5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AF6</name>
+                  <description>Alternate function 6</description>
+                  <value>0x6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>AF7</name>
+                  <description>Alternate function 7</description>
+                  <value>0x7</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.AFRL.AFSEL7">
               <name>AFSEL6</name>
               <description>Alternate function selection for port x
               bit y (y = 0..7)</description>
               <bitOffset>24</bitOffset>
               <bitWidth>4</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.AFRL.AFSEL7">
               <name>AFSEL5</name>
               <description>Alternate function selection for port x
               bit y (y = 0..7)</description>
               <bitOffset>20</bitOffset>
               <bitWidth>4</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.AFRL.AFSEL7">
               <name>AFSEL4</name>
               <description>Alternate function selection for port x
               bit y (y = 0..7)</description>
               <bitOffset>16</bitOffset>
               <bitWidth>4</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.AFRL.AFSEL7">
               <name>AFSEL3</name>
               <description>Alternate function selection for port x
               bit y (y = 0..7)</description>
               <bitOffset>12</bitOffset>
               <bitWidth>4</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.AFRL.AFSEL7">
               <name>AFSEL2</name>
               <description>Alternate function selection for port x
               bit y (y = 0..7)</description>
               <bitOffset>8</bitOffset>
               <bitWidth>4</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.AFRL.AFSEL7">
               <name>AFSEL1</name>
               <description>Alternate function selection for port x
               bit y (y = 0..7)</description>
               <bitOffset>4</bitOffset>
               <bitWidth>4</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.AFRL.AFSEL7">
               <name>AFSEL0</name>
               <description>Alternate function selection for port x
               bit y (y = 0..7)</description>
@@ -11825,56 +11820,56 @@ Writing 1 in each bit clears the corresponding overrun flag OFx in the DMAMUX_RG
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
           <fields>
-            <field>
+            <field derivedFrom="GPIOA.AFRL.AFSEL7">
               <name>AFSEL15</name>
               <description>Alternate function selection for port x
               bit y (y = 8..15)</description>
               <bitOffset>28</bitOffset>
               <bitWidth>4</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.AFRL.AFSEL7">
               <name>AFSEL14</name>
               <description>Alternate function selection for port x
               bit y (y = 8..15)</description>
               <bitOffset>24</bitOffset>
               <bitWidth>4</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.AFRL.AFSEL7">
               <name>AFSEL13</name>
               <description>Alternate function selection for port x
               bit y (y = 8..15)</description>
               <bitOffset>20</bitOffset>
               <bitWidth>4</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.AFRL.AFSEL7">
               <name>AFSEL12</name>
               <description>Alternate function selection for port x
               bit y (y = 8..15)</description>
               <bitOffset>16</bitOffset>
               <bitWidth>4</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.AFRL.AFSEL7">
               <name>AFSEL11</name>
               <description>Alternate function selection for port x
               bit y (y = 8..15)</description>
               <bitOffset>12</bitOffset>
               <bitWidth>4</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.AFRL.AFSEL7">
               <name>AFSEL10</name>
               <description>Alternate function selection for port x
               bit y (y = 8..15)</description>
               <bitOffset>8</bitOffset>
               <bitWidth>4</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.AFRL.AFSEL7">
               <name>AFSEL9</name>
               <description>Alternate function selection for port x
               bit y (y = 8..15)</description>
               <bitOffset>4</bitOffset>
               <bitWidth>4</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.AFRL.AFSEL7">
               <name>AFSEL8</name>
               <description>Alternate function selection for port x
               bit y (y = 8..15)</description>
@@ -12012,112 +12007,112 @@ Writing 1 in each bit clears the corresponding overrun flag OFx in the DMAMUX_RG
           <access>read-write</access>
           <resetValue>0xFFFFFFFF</resetValue>
           <fields>
-            <field>
+            <field derivedFrom="GPIOA.MODER.MODER15">
               <name>MODER15</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>30</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.MODER.MODER15">
               <name>MODER14</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>28</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.MODER.MODER15">
               <name>MODER13</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>26</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.MODER.MODER15">
               <name>MODER12</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>24</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.MODER.MODER15">
               <name>MODER11</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>22</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.MODER.MODER15">
               <name>MODER10</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>20</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.MODER.MODER15">
               <name>MODER9</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>18</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.MODER.MODER15">
               <name>MODER8</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>16</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.MODER.MODER15">
               <name>MODER7</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>14</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.MODER.MODER15">
               <name>MODER6</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>12</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.MODER.MODER15">
               <name>MODER5</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>10</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.MODER.MODER15">
               <name>MODER4</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>8</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.MODER.MODER15">
               <name>MODER3</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>6</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.MODER.MODER15">
               <name>MODER2</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>4</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.MODER.MODER15">
               <name>MODER1</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>2</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.MODER.MODER15">
               <name>MODER0</name>
               <description>Port x configuration bits (y =
               0..15)</description>
@@ -12135,112 +12130,112 @@ Writing 1 in each bit clears the corresponding overrun flag OFx in the DMAMUX_RG
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
           <fields>
-            <field>
+            <field derivedFrom="GPIOA.OTYPER.OT15">
               <name>OT15</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>15</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OTYPER.OT15">
               <name>OT14</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>14</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OTYPER.OT15">
               <name>OT13</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>13</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OTYPER.OT15">
               <name>OT12</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>12</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OTYPER.OT15">
               <name>OT11</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>11</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OTYPER.OT15">
               <name>OT10</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>10</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OTYPER.OT15">
               <name>OT9</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>9</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OTYPER.OT15">
               <name>OT8</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>8</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OTYPER.OT15">
               <name>OT7</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>7</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OTYPER.OT15">
               <name>OT6</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OTYPER.OT15">
               <name>OT5</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OTYPER.OT15">
               <name>OT4</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OTYPER.OT15">
               <name>OT3</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OTYPER.OT15">
               <name>OT2</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OTYPER.OT15">
               <name>OT1</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OTYPER.OT15">
               <name>OT0</name>
               <description>Port x configuration bits (y =
               0..15)</description>
@@ -12259,112 +12254,112 @@ Writing 1 in each bit clears the corresponding overrun flag OFx in the DMAMUX_RG
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
           <fields>
-            <field>
+            <field derivedFrom="GPIOA.OSPEEDR.OSPEEDR15">
               <name>OSPEEDR15</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>30</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OSPEEDR.OSPEEDR15">
               <name>OSPEEDR14</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>28</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OSPEEDR.OSPEEDR15">
               <name>OSPEEDR13</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>26</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OSPEEDR.OSPEEDR15">
               <name>OSPEEDR12</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>24</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OSPEEDR.OSPEEDR15">
               <name>OSPEEDR11</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>22</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OSPEEDR.OSPEEDR15">
               <name>OSPEEDR10</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>20</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OSPEEDR.OSPEEDR15">
               <name>OSPEEDR9</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>18</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OSPEEDR.OSPEEDR15">
               <name>OSPEEDR8</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>16</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OSPEEDR.OSPEEDR15">
               <name>OSPEEDR7</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>14</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OSPEEDR.OSPEEDR15">
               <name>OSPEEDR6</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>12</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OSPEEDR.OSPEEDR15">
               <name>OSPEEDR5</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>10</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OSPEEDR.OSPEEDR15">
               <name>OSPEEDR4</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>8</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OSPEEDR.OSPEEDR15">
               <name>OSPEEDR3</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>6</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OSPEEDR.OSPEEDR15">
               <name>OSPEEDR2</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>4</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OSPEEDR.OSPEEDR15">
               <name>OSPEEDR1</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>2</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.OSPEEDR.OSPEEDR15">
               <name>OSPEEDR0</name>
               <description>Port x configuration bits (y =
               0..15)</description>
@@ -12383,112 +12378,112 @@ Writing 1 in each bit clears the corresponding overrun flag OFx in the DMAMUX_RG
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
           <fields>
-            <field>
+            <field derivedFrom="GPIOA.PUPDR.PUPDR15">
               <name>PUPDR15</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>30</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.PUPDR.PUPDR15">
               <name>PUPDR14</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>28</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.PUPDR.PUPDR15">
               <name>PUPDR13</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>26</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.PUPDR.PUPDR15">
               <name>PUPDR12</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>24</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.PUPDR.PUPDR15">
               <name>PUPDR11</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>22</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.PUPDR.PUPDR15">
               <name>PUPDR10</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>20</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.PUPDR.PUPDR15">
               <name>PUPDR9</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>18</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.PUPDR.PUPDR15">
               <name>PUPDR8</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>16</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.PUPDR.PUPDR15">
               <name>PUPDR7</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>14</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.PUPDR.PUPDR15">
               <name>PUPDR6</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>12</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.PUPDR.PUPDR15">
               <name>PUPDR5</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>10</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.PUPDR.PUPDR15">
               <name>PUPDR4</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>8</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.PUPDR.PUPDR15">
               <name>PUPDR3</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>6</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.PUPDR.PUPDR15">
               <name>PUPDR2</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>4</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.PUPDR.PUPDR15">
               <name>PUPDR1</name>
               <description>Port x configuration bits (y =
               0..15)</description>
               <bitOffset>2</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.PUPDR.PUPDR15">
               <name>PUPDR0</name>
               <description>Port x configuration bits (y =
               0..15)</description>
@@ -13120,56 +13115,56 @@ Writing 1 in each bit clears the corresponding overrun flag OFx in the DMAMUX_RG
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
           <fields>
-            <field>
+            <field derivedFrom="GPIOA.AFRL.AFSEL7">
               <name>AFSEL7</name>
               <description>Alternate function selection for port x
               bit y (y = 0..7)</description>
               <bitOffset>28</bitOffset>
               <bitWidth>4</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.AFRL.AFSEL7">
               <name>AFSEL6</name>
               <description>Alternate function selection for port x
               bit y (y = 0..7)</description>
               <bitOffset>24</bitOffset>
               <bitWidth>4</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.AFRL.AFSEL7">
               <name>AFSEL5</name>
               <description>Alternate function selection for port x
               bit y (y = 0..7)</description>
               <bitOffset>20</bitOffset>
               <bitWidth>4</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.AFRL.AFSEL7">
               <name>AFSEL4</name>
               <description>Alternate function selection for port x
               bit y (y = 0..7)</description>
               <bitOffset>16</bitOffset>
               <bitWidth>4</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.AFRL.AFSEL7">
               <name>AFSEL3</name>
               <description>Alternate function selection for port x
               bit y (y = 0..7)</description>
               <bitOffset>12</bitOffset>
               <bitWidth>4</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.AFRL.AFSEL7">
               <name>AFSEL2</name>
               <description>Alternate function selection for port x
               bit y (y = 0..7)</description>
               <bitOffset>8</bitOffset>
               <bitWidth>4</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.AFRL.AFSEL7">
               <name>AFSEL1</name>
               <description>Alternate function selection for port x
               bit y (y = 0..7)</description>
               <bitOffset>4</bitOffset>
               <bitWidth>4</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.AFRL.AFSEL7">
               <name>AFSEL0</name>
               <description>Alternate function selection for port x
               bit y (y = 0..7)</description>
@@ -13188,56 +13183,56 @@ Writing 1 in each bit clears the corresponding overrun flag OFx in the DMAMUX_RG
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
           <fields>
-            <field>
+            <field derivedFrom="GPIOA.AFRL.AFSEL7">
               <name>AFSEL15</name>
               <description>Alternate function selection for port x
               bit y (y = 8..15)</description>
               <bitOffset>28</bitOffset>
               <bitWidth>4</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.AFRL.AFSEL7">
               <name>AFSEL14</name>
               <description>Alternate function selection for port x
               bit y (y = 8..15)</description>
               <bitOffset>24</bitOffset>
               <bitWidth>4</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.AFRL.AFSEL7">
               <name>AFSEL13</name>
               <description>Alternate function selection for port x
               bit y (y = 8..15)</description>
               <bitOffset>20</bitOffset>
               <bitWidth>4</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.AFRL.AFSEL7">
               <name>AFSEL12</name>
               <description>Alternate function selection for port x
               bit y (y = 8..15)</description>
               <bitOffset>16</bitOffset>
               <bitWidth>4</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.AFRL.AFSEL7">
               <name>AFSEL11</name>
               <description>Alternate function selection for port x
               bit y (y = 8..15)</description>
               <bitOffset>12</bitOffset>
               <bitWidth>4</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.AFRL.AFSEL7">
               <name>AFSEL10</name>
               <description>Alternate function selection for port x
               bit y (y = 8..15)</description>
               <bitOffset>8</bitOffset>
               <bitWidth>4</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.AFRL.AFSEL7">
               <name>AFSEL9</name>
               <description>Alternate function selection for port x
               bit y (y = 8..15)</description>
               <bitOffset>4</bitOffset>
               <bitWidth>4</bitWidth>
             </field>
-            <field>
+            <field derivedFrom="GPIOA.AFRL.AFSEL7">
               <name>AFSEL8</name>
               <description>Alternate function selection for port x
               bit y (y = 8..15)</description>
