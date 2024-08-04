@@ -9,7 +9,7 @@ fi
 rm -rf "src"
 
 # generate fresh code
-svd2rust -i "./STM32G0B0.svd" -o .
+svd2rust -i "./STM32G0B0.svd" -o . --reexport-interrupt
 
 # beautify
 form -i "./lib.rs" -o "src"
