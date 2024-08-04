@@ -20,6 +20,7 @@ extern "C" {
     fn EXTI0_1();
     fn EXTI2_3();
     fn EXTI4_15();
+    fn USB();
     fn DMA1_Channel1();
     fn DMA1_Channel2_3();
     fn DMA1_Channel4_5_6_7_DMAMUX_DMA2_Channel1_2_3_4_5();
@@ -62,7 +63,7 @@ pub static __INTERRUPTS: [Vector; 30] = [
     Vector { _handler: EXTI0_1 },
     Vector { _handler: EXTI2_3 },
     Vector { _handler: EXTI4_15 },
-    Vector { _reserved: 0 },
+    Vector { _handler: USB },
     Vector {
         _handler: DMA1_Channel1,
     },
@@ -117,6 +118,8 @@ pub enum Interrupt {
     EXTI2_3 = 6,
     #[doc = "7 - EXTI line 4 to 15 interrupt"]
     EXTI4_15 = 7,
+    #[doc = "8 - USB global interrupt"]
+    USB = 8,
     #[doc = "9 - DMA channel 1 interrupt"]
     DMA1_Channel1 = 9,
     #[doc = "10 - DMA channel 2 and 3 interrupts"]

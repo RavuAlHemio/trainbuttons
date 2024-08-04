@@ -38027,6 +38027,11 @@ Note: When PRESCALER is programmed with a value different of the allowed ones, p
           <size>0x400</size>
           <usage>registers</usage>
         </addressBlock>
+        <interrupt>
+          <name>USB</name>
+          <description>USB global interrupt</description>
+          <value>8</value>
+        </interrupt>
         <registers>
           <register>
             <name>CHEP0R</name>

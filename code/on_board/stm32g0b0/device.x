@@ -5,6 +5,7 @@ PROVIDE(RCC = DefaultHandler);
 PROVIDE(EXTI0_1 = DefaultHandler);
 PROVIDE(EXTI2_3 = DefaultHandler);
 PROVIDE(EXTI4_15 = DefaultHandler);
+PROVIDE(USB = DefaultHandler);
 PROVIDE(DMA1_Channel1 = DefaultHandler);
 PROVIDE(DMA1_Channel2_3 = DefaultHandler);
 PROVIDE(DMA1_Channel4_5_6_7_DMAMUX_DMA2_Channel1_2_3_4_5 = DefaultHandler);
