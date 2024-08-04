@@ -41197,5 +41197,247 @@ The timebase of the prescaler can be modified as follows:</description>
         </register>
       </registers>
     </peripheral>	
+      <peripheral>
+        <name>USB_RAM1</name>
+        <description>Universal Serial Bus RAM 1</description>
+        <groupName>USB</groupName>
+        <baseAddress>0x40009800</baseAddress>
+        <addressBlock>
+          <offset>0x0</offset>
+          <size>0x400</size>
+          <usage>registers</usage>
+        </addressBlock>
+        <registers>
+          <cluster>
+            <dim>8</dim>
+            <dimIncrement>0x8</dimIncrement>
+            <name>SINGLE_BUFFERED[%s]</name>
+            <description>Descriptors if double buffering is disabled.</description>
+            <addressOffset>0x0</addressOffset>
+            <register>
+              <name>CHEP_TXRXBD_0</name>
+              <description>Channel/endpoint transmit buffer descriptor 0</description>
+              <addressOffset>0x0</addressOffset>
+              <size>0x20</size>
+              <access>read-write</access>
+              <resetValue>0x0000</resetValue>
+              <fields>
+                <field>
+                  <name>ADDR_TX</name>
+                  <description>
+                    These bits point to the starting address of the packet buffer containing data to be transmitted
+                    by the endpoint/channel associated with the USB_CHEPnR register at the next IN token
+                    addressed to it. Bits 1 and 0 must always be written as "00" since packet memory is word
+                    wide and all packet buffers must be word aligned.
+                  </description>
+                  <bitOffset>0</bitOffset>
+                  <bitWidth>16</bitWidth>
+                  <access>read-write</access>
+                </field>
+                <field>
+                  <name>COUNT_TX</name>
+                  <description>
+                    These bits contain the number of bytes to be transmitted by the endpoint/channel associated
+                    with the USB_CHEPnR register at the next IN token addressed to it.
+                  </description>
+                  <bitOffset>16</bitOffset>
+                  <bitWidth>10</bitWidth>
+                  <access>read-write</access>
+                </field>
+              </fields>
+            </register>
+            <register>
+              <name>CHEP_RXTXBD_0</name>
+              <description>Channel/endpoint receive buffer descriptor 0</description>
+              <addressOffset>0x4</addressOffset>
+              <size>0x20</size>
+              <access>read-write</access>
+              <resetValue>0x0000</resetValue>
+              <fields>
+                <field>
+                  <name>ADDR_RX</name>
+                  <description>
+                    These bits point to the starting address of the packet buffer, which contains the data received
+                    by the endpoint/channel associated with the USB_CHEPnR register at the next OUT/SETUP
+                    token addressed to it. Bits 1 and 0 must always be written as "00" since packet memory is
+                    word wide and all packet buffers must be word aligned.
+                  </description>
+                  <bitOffset>0</bitOffset>
+                  <bitWidth>16</bitWidth>
+                  <access>read-write</access>
+                </field>
+                <field>
+                  <name>COUNT_RX</name>
+                  <description>
+                    These bits contain the number of bytes received by the endpoint/channel associated with the
+                    USB_CHEPnR register during the last OUT/SETUP transaction addressed to it.
+                  </description>
+                  <bitOffset>16</bitOffset>
+                  <bitWidth>10</bitWidth>
+                  <access>read-write</access>
+                </field>
+                <field>
+                  <name>NUM_BLOCK</name>
+                  <description>
+                    These bits define the number of memory blocks allocated to this packet buffer. The actual
+                    amount of allocated memory depends on the BLSIZE value.
+                  </description>
+                  <bitOffset>26</bitOffset>
+                  <bitWidth>5</bitWidth>
+                  <access>read-write</access>
+                </field>
+                <field>
+                  <name>BLSIZE</name>
+                  <description>This bit selects the size of memory block used to define the allocated buffer area.</description>
+                  <bitOffset>31</bitOffset>
+                  <bitWidth>1</bitWidth>
+                  <access>read-write</access>
+                  <enumeratedValues>
+                    <enumeratedValue>
+                      <name>BYTES_2</name>
+                      <description>
+                        The memory block is 2-byte large, which is the minimum block
+                        allowed in a half-word wide memory. With this block size the allocated buffer size
+                        ranges from 2 to 62 bytes.
+
+                        The buffer size is NUM_BLOCK*2; NUM_BLOCK must not be 0.
+                      </description>
+                      <value>0x0</value>
+                    </enumeratedValue>
+                    <enumeratedValue>
+                      <name>BYTES_32</name>
+                      <description>
+                        The memory block is 32-byte large, which permits to reach the
+                        maximum packet length defined by USB specifications. With this block size the
+                        allocated buffer size theoretically ranges from 32 to 1024 bytes, which is the longest
+                        packet size allowed by USB standard specifications. However, the applicable size is
+                        limited by the available buffer memory.
+
+                        The buffer size is (NUM_BLOCK+1)*32.
+                      </description>
+                      <value>0x1</value>
+                    </enumeratedValue>
+                  </enumeratedValues>
+                </field>
+              </fields>
+            </register>
+          </cluster>
+          <cluster>
+            <dim>8</dim>
+            <dimIncrement>0x8</dimIncrement>
+            <name>DOUBLE_BUFFERED[%s]</name>
+            <description>Descriptors if double buffering is enabled.</description>
+            <alternateCluster>USB_RAM1.SINGLE_BUFFERED[%s]</alternateCluster>
+            <addressOffset>0x0</addressOffset>
+            <register>
+              <name>CHEP_RXTXBD_0</name>
+              <description>Channel/endpoint receive buffer descriptor 0</description>
+              <addressOffset>0x0</addressOffset>
+              <size>0x20</size>
+              <access>read-write</access>
+              <resetValue>0x0000</resetValue>
+              <fields>
+                <field>
+                  <name>ADDR_RX</name>
+                  <description>
+                    These bits point to the starting address of the packet buffer, which contains the data received
+                    by the endpoint/channel associated with the USB_CHEPnR register at the next OUT/SETUP
+                    token addressed to it. Bits 1 and 0 must always be written as "00" since packet memory is
+                    word wide and all packet buffers must be word aligned.
+                  </description>
+                  <bitOffset>0</bitOffset>
+                  <bitWidth>16</bitWidth>
+                  <access>read-write</access>
+                </field>
+                <field>
+                  <name>COUNT_RX</name>
+                  <description>
+                    These bits contain the number of bytes received by the endpoint/channel associated with the
+                    USB_CHEPnR register during the last OUT/SETUP transaction addressed to it.
+                  </description>
+                  <bitOffset>16</bitOffset>
+                  <bitWidth>10</bitWidth>
+                  <access>read-write</access>
+                </field>
+                <field>
+                  <name>NUM_BLOCK</name>
+                  <description>
+                    These bits define the number of memory blocks allocated to this packet buffer. The actual
+                    amount of allocated memory depends on the BLSIZE value.
+                  </description>
+                  <bitOffset>26</bitOffset>
+                  <bitWidth>5</bitWidth>
+                  <access>read-write</access>
+                </field>
+                <field>
+                  <name>BLSIZE</name>
+                  <description>This bit selects the size of memory block used to define the allocated buffer area.</description>
+                  <bitOffset>31</bitOffset>
+                  <bitWidth>1</bitWidth>
+                  <access>read-write</access>
+                  <enumeratedValues>
+                    <enumeratedValue>
+                      <name>BYTES_2</name>
+                      <description>
+                        The memory block is 2-byte large, which is the minimum block
+                        allowed in a half-word wide memory. With this block size the allocated buffer size
+                        ranges from 2 to 62 bytes.
+
+                        The buffer size is NUM_BLOCK*2; NUM_BLOCK must not be 0.
+                      </description>
+                      <value>0x0</value>
+                    </enumeratedValue>
+                    <enumeratedValue>
+                      <name>BYTES_32</name>
+                      <description>
+                        The memory block is 32-byte large, which permits to reach the
+                        maximum packet length defined by USB specifications. With this block size the
+                        allocated buffer size theoretically ranges from 32 to 1024 bytes, which is the longest
+                        packet size allowed by USB standard specifications. However, the applicable size is
+                        limited by the available buffer memory.
+
+                        The buffer size is (NUM_BLOCK+1)*32.
+                      </description>
+                      <value>0x1</value>
+                    </enumeratedValue>
+                  </enumeratedValues>
+                </field>
+              </fields>
+            </register>
+            <register>
+              <name>CHEP_TXRXBD_0</name>
+              <description>Channel/endpoint transmit buffer descriptor 0</description>
+              <addressOffset>0x4</addressOffset>
+              <size>0x20</size>
+              <access>read-write</access>
+              <resetValue>0x0000</resetValue>
+              <fields>
+                <field>
+                  <name>ADDR_TX</name>
+                  <description>
+                    These bits point to the starting address of the packet buffer containing data to be transmitted
+                    by the endpoint/channel associated with the USB_CHEPnR register at the next IN token
+                    addressed to it. Bits 1 and 0 must always be written as "00" since packet memory is word
+                    wide and all packet buffers must be word aligned.
+                  </description>
+                  <bitOffset>0</bitOffset>
+                  <bitWidth>16</bitWidth>
+                  <access>read-write</access>
+                </field>
+                <field>
+                  <name>COUNT_TX</name>
+                  <description>
+                    These bits contain the number of bytes to be transmitted by the endpoint/channel associated
+                    with the USB_CHEPnR register at the next IN token addressed to it.
+                  </description>
+                  <bitOffset>16</bitOffset>
+                  <bitWidth>10</bitWidth>
+                  <access>read-write</access>
+                </field>
+              </fields>
+            </register>
+          </cluster>
+        </registers>
+      </peripheral>
   </peripherals>
 </device>
