@@ -96,48 +96,20 @@ module"]
 pub type Chep0r = crate::Reg<chep0r::Chep0rSpec>;
 #[doc = "USB endpoint/channel 0 register"]
 pub mod chep0r;
-#[doc = "CHEP1R (rw) register accessor: USB endpoint/channel 1 register\n\nYou can [`read`](crate::Reg::read) this register and get [`chep1r::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`chep1r::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@chep1r`]
-module"]
-#[doc(alias = "CHEP1R")]
-pub type Chep1r = crate::Reg<chep1r::Chep1rSpec>;
-#[doc = "USB endpoint/channel 1 register"]
-pub mod chep1r;
-#[doc = "CHEP2R (rw) register accessor: USB endpoint/channel 2 register\n\nYou can [`read`](crate::Reg::read) this register and get [`chep2r::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`chep2r::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@chep2r`]
-module"]
-#[doc(alias = "CHEP2R")]
-pub type Chep2r = crate::Reg<chep2r::Chep2rSpec>;
-#[doc = "USB endpoint/channel 2 register"]
-pub mod chep2r;
-#[doc = "CHEP3R (rw) register accessor: USB endpoint/channel 3 register\n\nYou can [`read`](crate::Reg::read) this register and get [`chep3r::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`chep3r::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@chep3r`]
-module"]
-#[doc(alias = "CHEP3R")]
-pub type Chep3r = crate::Reg<chep3r::Chep3rSpec>;
-#[doc = "USB endpoint/channel 3 register"]
-pub mod chep3r;
-#[doc = "CHEP4R (rw) register accessor: USB endpoint/channel 4 register\n\nYou can [`read`](crate::Reg::read) this register and get [`chep4r::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`chep4r::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@chep4r`]
-module"]
-#[doc(alias = "CHEP4R")]
-pub type Chep4r = crate::Reg<chep4r::Chep4rSpec>;
-#[doc = "USB endpoint/channel 4 register"]
-pub mod chep4r;
-#[doc = "CHEP5R (rw) register accessor: USB endpoint/channel 5 register\n\nYou can [`read`](crate::Reg::read) this register and get [`chep5r::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`chep5r::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@chep5r`]
-module"]
-#[doc(alias = "CHEP5R")]
-pub type Chep5r = crate::Reg<chep5r::Chep5rSpec>;
-#[doc = "USB endpoint/channel 5 register"]
-pub mod chep5r;
-#[doc = "CHEP6R (rw) register accessor: USB endpoint/channel 6 register\n\nYou can [`read`](crate::Reg::read) this register and get [`chep6r::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`chep6r::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@chep6r`]
-module"]
-#[doc(alias = "CHEP6R")]
-pub type Chep6r = crate::Reg<chep6r::Chep6rSpec>;
-#[doc = "USB endpoint/channel 6 register"]
-pub mod chep6r;
-#[doc = "CHEP7R (rw) register accessor: USB endpoint/channel 7 register\n\nYou can [`read`](crate::Reg::read) this register and get [`chep7r::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`chep7r::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@chep7r`]
-module"]
-#[doc(alias = "CHEP7R")]
-pub type Chep7r = crate::Reg<chep7r::Chep7rSpec>;
-#[doc = "USB endpoint/channel 7 register"]
-pub mod chep7r;
+pub use chep0r as chep1r;
+pub use chep0r as chep2r;
+pub use chep0r as chep3r;
+pub use chep0r as chep4r;
+pub use chep0r as chep5r;
+pub use chep0r as chep6r;
+pub use chep0r as chep7r;
+pub use Chep0r as Chep1r;
+pub use Chep0r as Chep2r;
+pub use Chep0r as Chep3r;
+pub use Chep0r as Chep4r;
+pub use Chep0r as Chep5r;
+pub use Chep0r as Chep6r;
+pub use Chep0r as Chep7r;
 #[doc = "CNTR (rw) register accessor: \n\nYou can [`read`](crate::Reg::read) this register and get [`cntr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cntr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cntr`]
 module"]
 #[doc(alias = "CNTR")]
