@@ -8,16 +8,49 @@ use cortex_m::peripheral::NVIC;
 use stm32g0b0::{interrupt, Interrupt, Peripherals};
 
 
+const ENDPOINT_CONFIG_COUNT: usize = 1; // how many endpoint configs will we use in packet RAM?
+
+// controller-specific values; these are for STM32G0x0:
 const USB_PACKET_RAM_BASE: *mut u8 = 0x4000_9800 as *mut u8; // USB_DRD_PMAADDR or USB_DRD_PMA_BUFF
 const USB_PACKET_RAM_SIZE: usize = 2*1024; // USB_DRD_PMA_SIZE
 
+// packet data RAM layout:
+//
+// 4B endpoint 0 Tx config
+// 4B endpoint 0 Rx config
+// 4B endpoint 1 Tx config (if applicable)
+// 4B endpoint 1 Rx config (if applicable)
+// ...
+// endpoint 0 Tx buffer
+// endpoint 0 Rx buffer
+// endpoint 1 Tx buffer (if applicable)
+// endpoint 1 Rx buffer (if applicable)
+// ...
+//
+// buffers are apportioned equally among endpoints
 
-fn get_usb_ep0_buf() -> &'static mut [u8] {
-    // allow space for the Tx and the Rx register of Ep0 (2x4 bytes)
+const PACKET_DATA_RAM_OFFSET: usize = 2 * ENDPOINT_CONFIG_COUNT;
+const PACKET_DATA_RAM_POINTER: *mut u8 = USB_PACKET_RAM_BASE.wrapping_add(PACKET_DATA_RAM_OFFSET);
+const PACKET_DATA_RAM_SIZE: usize = USB_PACKET_RAM_SIZE - PACKET_DATA_RAM_OFFSET;
+
+const EP_BUF_SIZE: usize = PACKET_DATA_RAM_SIZE / (ENDPOINT_CONFIG_COUNT * 2);
+const EP0_TX_OFFSET: usize = PACKET_DATA_RAM_OFFSET + 0*EP_BUF_SIZE;
+const EP0_RX_OFFSET: usize = PACKET_DATA_RAM_OFFSET + 1*EP_BUF_SIZE;
+
+
+fn get_usb_ep0_tx_buf() -> &'static mut [u8] {
     unsafe {
         core::slice::from_raw_parts_mut(
-            USB_PACKET_RAM_BASE.add(2*4),
-            USB_PACKET_RAM_SIZE - (2*4),
+            PACKET_DATA_RAM_POINTER.wrapping_add(EP0_TX_OFFSET),
+            EP_BUF_SIZE,
+        )
+    }
+}
+fn get_usb_ep0_rx_buf() -> &'static mut [u8] {
+    unsafe {
+        core::slice::from_raw_parts_mut(
+            PACKET_DATA_RAM_POINTER.wrapping_add(EP0_RX_OFFSET),
+            EP_BUF_SIZE,
         )
     }
 }
@@ -30,6 +63,8 @@ fn USB() {
 
     let interrupts_raised = peripherals.usb.istr().read();
     if interrupts_raised.rst_dcon().bit_is_set() {
+        // USB reset received
+
         // clear most other interrupts except the following
         peripherals.usb.istr().write(|w| w
             .pmaovr().set_bit()
@@ -40,10 +75,24 @@ fn USB() {
             .esof().set_bit()
         );
 
-        // define space for Ep0 buffer
+        // define space for Ep0 buffers
         peripherals.usb_ram1.single_buffered(0).chep_txrxbd_0().modify(|_, w| w
-            // TODO
+            .addr_tx().set(PACKET_DATA_RAM_OFFSET.try_into().unwrap())
+            .count_tx().set((PACKET_DATA_RAM_SIZE / 2).try_into().unwrap())
         );
+        peripherals.usb_ram1.single_buffered(0).chep_rxtxbd_0().modify(|_, w| w
+            .addr_rx().set((PACKET_DATA_RAM_OFFSET + PACKET_DATA_RAM_SIZE/2).try_into().unwrap())
+            .count_rx().set((PACKET_DATA_RAM_SIZE / 2).try_into().unwrap())
+        );
+
+        // set up Ep0 buffer
+        peripherals.usb.chep0r().modify(|_, w| w
+            .ea().set(0x0) // endpoint 0
+            .stattx().valid() // enable this endpoint
+            .utype().control() // it's a control endpoint
+        );
+
+        // wait
     }
 
     // blink the LED
