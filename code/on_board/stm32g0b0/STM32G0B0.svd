@@ -41233,6 +41233,12 @@ The timebase of the prescaler can be modified as follows:</description>
                   <bitOffset>0</bitOffset>
                   <bitWidth>16</bitWidth>
                   <access>read-write</access>
+                  <writeConstraint>
+                    <range>
+                      <minimum>0x0</minimum>
+                      <maximum>0xFFFF</maximum>
+                    </range>
+                  </writeConstraint>
                 </field>
                 <field>
                   <name>COUNT_TX</name>
@@ -41243,6 +41249,12 @@ The timebase of the prescaler can be modified as follows:</description>
                   <bitOffset>16</bitOffset>
                   <bitWidth>10</bitWidth>
                   <access>read-write</access>
+                  <writeConstraint>
+                    <range>
+                      <minimum>0x0</minimum>
+                      <maximum>0x3FF</maximum>
+                    </range>
+                  </writeConstraint>
                 </field>
               </fields>
             </register>
@@ -41265,6 +41277,12 @@ The timebase of the prescaler can be modified as follows:</description>
                   <bitOffset>0</bitOffset>
                   <bitWidth>16</bitWidth>
                   <access>read-write</access>
+                  <writeConstraint>
+                    <range>
+                      <minimum>0x0</minimum>
+                      <maximum>0xFFFF</maximum>
+                    </range>
+                  </writeConstraint>
                 </field>
                 <field>
                   <name>COUNT_RX</name>
@@ -41275,6 +41293,12 @@ The timebase of the prescaler can be modified as follows:</description>
                   <bitOffset>16</bitOffset>
                   <bitWidth>10</bitWidth>
                   <access>read-write</access>
+                  <writeConstraint>
+                    <range>
+                      <minimum>0x0</minimum>
+                      <maximum>0x3FF</maximum>
+                    </range>
+                  </writeConstraint>
                 </field>
                 <field>
                   <name>NUM_BLOCK</name>
@@ -41285,6 +41309,12 @@ The timebase of the prescaler can be modified as follows:</description>
                   <bitOffset>26</bitOffset>
                   <bitWidth>5</bitWidth>
                   <access>read-write</access>
+                  <writeConstraint>
+                    <range>
+                      <minimum>0x0</minimum>
+                      <maximum>0x1F</maximum>
+                    </range>
+                  </writeConstraint>
                 </field>
                 <field>
                   <name>BLSIZE</name>
@@ -41348,6 +41378,12 @@ The timebase of the prescaler can be modified as follows:</description>
                   <bitOffset>0</bitOffset>
                   <bitWidth>16</bitWidth>
                   <access>read-write</access>
+                  <writeConstraint>
+                    <range>
+                      <minimum>0x0</minimum>
+                      <maximum>0xFFFF</maximum>
+                    </range>
+                  </writeConstraint>
                 </field>
                 <field>
                   <name>COUNT_RX</name>
@@ -41358,6 +41394,12 @@ The timebase of the prescaler can be modified as follows:</description>
                   <bitOffset>16</bitOffset>
                   <bitWidth>10</bitWidth>
                   <access>read-write</access>
+                  <writeConstraint>
+                    <range>
+                      <minimum>0x0</minimum>
+                      <maximum>0x3FF</maximum>
+                    </range>
+                  </writeConstraint>
                 </field>
                 <field>
                   <name>NUM_BLOCK</name>
@@ -41368,6 +41410,12 @@ The timebase of the prescaler can be modified as follows:</description>
                   <bitOffset>26</bitOffset>
                   <bitWidth>5</bitWidth>
                   <access>read-write</access>
+                  <writeConstraint>
+                    <range>
+                      <minimum>0x0</minimum>
+                      <maximum>0x1F</maximum>
+                    </range>
+                  </writeConstraint>
                 </field>
                 <field>
                   <name>BLSIZE</name>
@@ -41423,6 +41471,12 @@ The timebase of the prescaler can be modified as follows:</description>
                   <bitOffset>0</bitOffset>
                   <bitWidth>16</bitWidth>
                   <access>read-write</access>
+                  <writeConstraint>
+                    <range>
+                      <minimum>0x0</minimum>
+                      <maximum>0xFFFF</maximum>
+                    </range>
+                  </writeConstraint>
                 </field>
                 <field>
                   <name>COUNT_TX</name>
@@ -41433,6 +41487,12 @@ The timebase of the prescaler can be modified as follows:</description>
                   <bitOffset>16</bitOffset>
                   <bitWidth>10</bitWidth>
                   <access>read-write</access>
+                  <writeConstraint>
+                    <range>
+                      <minimum>0x0</minimum>
+                      <maximum>0x3FF</maximum>
+                    </range>
+                  </writeConstraint>
                 </field>
               </fields>
             </register>

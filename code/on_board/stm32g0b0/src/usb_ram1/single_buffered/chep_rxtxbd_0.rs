@@ -5,15 +5,15 @@ pub type W = crate::W<ChepRxtxbd0Spec>;
 #[doc = "Field `ADDR_RX` reader - These bits point to the starting address of the packet buffer, which contains the data received by the endpoint/channel associated with the USB_CHEPnR register at the next OUT/SETUP token addressed to it. Bits 1 and 0 must always be written as \"00\" since packet memory is word wide and all packet buffers must be word aligned."]
 pub type AddrRxR = crate::FieldReader<u16>;
 #[doc = "Field `ADDR_RX` writer - These bits point to the starting address of the packet buffer, which contains the data received by the endpoint/channel associated with the USB_CHEPnR register at the next OUT/SETUP token addressed to it. Bits 1 and 0 must always be written as \"00\" since packet memory is word wide and all packet buffers must be word aligned."]
-pub type AddrRxW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+pub type AddrRxW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16, crate::Safe>;
 #[doc = "Field `COUNT_RX` reader - These bits contain the number of bytes received by the endpoint/channel associated with the USB_CHEPnR register during the last OUT/SETUP transaction addressed to it."]
 pub type CountRxR = crate::FieldReader<u16>;
 #[doc = "Field `COUNT_RX` writer - These bits contain the number of bytes received by the endpoint/channel associated with the USB_CHEPnR register during the last OUT/SETUP transaction addressed to it."]
-pub type CountRxW<'a, REG> = crate::FieldWriter<'a, REG, 10, u16>;
+pub type CountRxW<'a, REG> = crate::FieldWriter<'a, REG, 10, u16, crate::Safe>;
 #[doc = "Field `NUM_BLOCK` reader - These bits define the number of memory blocks allocated to this packet buffer. The actual amount of allocated memory depends on the BLSIZE value."]
 pub type NumBlockR = crate::FieldReader;
 #[doc = "Field `NUM_BLOCK` writer - These bits define the number of memory blocks allocated to this packet buffer. The actual amount of allocated memory depends on the BLSIZE value."]
-pub type NumBlockW<'a, REG> = crate::FieldWriter<'a, REG, 5>;
+pub type NumBlockW<'a, REG> = crate::FieldWriter<'a, REG, 5, u8, crate::Safe>;
 #[doc = "This bit selects the size of memory block used to define the allocated buffer area.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Blsize {

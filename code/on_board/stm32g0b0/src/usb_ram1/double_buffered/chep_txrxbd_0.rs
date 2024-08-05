@@ -5,11 +5,11 @@ pub type W = crate::W<ChepTxrxbd0Spec>;
 #[doc = "Field `ADDR_TX` reader - These bits point to the starting address of the packet buffer containing data to be transmitted by the endpoint/channel associated with the USB_CHEPnR register at the next IN token addressed to it. Bits 1 and 0 must always be written as \"00\" since packet memory is word wide and all packet buffers must be word aligned."]
 pub type AddrTxR = crate::FieldReader<u16>;
 #[doc = "Field `ADDR_TX` writer - These bits point to the starting address of the packet buffer containing data to be transmitted by the endpoint/channel associated with the USB_CHEPnR register at the next IN token addressed to it. Bits 1 and 0 must always be written as \"00\" since packet memory is word wide and all packet buffers must be word aligned."]
-pub type AddrTxW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+pub type AddrTxW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16, crate::Safe>;
 #[doc = "Field `COUNT_TX` reader - These bits contain the number of bytes to be transmitted by the endpoint/channel associated with the USB_CHEPnR register at the next IN token addressed to it."]
 pub type CountTxR = crate::FieldReader<u16>;
 #[doc = "Field `COUNT_TX` writer - These bits contain the number of bytes to be transmitted by the endpoint/channel associated with the USB_CHEPnR register at the next IN token addressed to it."]
-pub type CountTxW<'a, REG> = crate::FieldWriter<'a, REG, 10, u16>;
+pub type CountTxW<'a, REG> = crate::FieldWriter<'a, REG, 10, u16, crate::Safe>;
 impl R {
     #[doc = "Bits 0:15 - These bits point to the starting address of the packet buffer containing data to be transmitted by the endpoint/channel associated with the USB_CHEPnR register at the next IN token addressed to it. Bits 1 and 0 must always be written as \"00\" since packet memory is word wide and all packet buffers must be word aligned."]
     #[inline(always)]
