@@ -8,10 +8,43 @@ use cortex_m::peripheral::NVIC;
 use stm32g0b0::{interrupt, Interrupt, Peripherals};
 
 
+const USB_PACKET_RAM_BASE: *mut u8 = 0x4000_9800 as *mut u8; // USB_DRD_PMAADDR or USB_DRD_PMA_BUFF
+const USB_PACKET_RAM_SIZE: usize = 2*1024; // USB_DRD_PMA_SIZE
+
+
+fn get_usb_ep0_buf() -> &'static mut [u8] {
+    // allow space for the Tx and the Rx register of Ep0 (2x4 bytes)
+    unsafe {
+        core::slice::from_raw_parts_mut(
+            USB_PACKET_RAM_BASE.add(2*4),
+            USB_PACKET_RAM_SIZE - (2*4),
+        )
+    }
+}
+
+
 #[interrupt]
 fn USB() {
     // USB interrupt
     let peripherals = unsafe { Peripherals::steal() };
+
+    let interrupts_raised = peripherals.usb.istr().read();
+    if interrupts_raised.rst_dcon().bit_is_set() {
+        // clear most other interrupts except the following
+        peripherals.usb.istr().write(|w| w
+            .pmaovr().set_bit()
+            .err().set_bit()
+            .wkup().set_bit()
+            .susp().set_bit()
+            .sof().set_bit()
+            .esof().set_bit()
+        );
+
+        // define space for Ep0 buffer
+        peripherals.usb_ram1.single_buffered(0).chep_txrxbd_0().modify(|_, w| w
+            // TODO
+        );
+    }
 
     // blink the LED
     loop {
@@ -111,7 +144,4 @@ pub(crate) fn set_up(peripherals: &mut Peripherals) {
         .pmaovr().clear_bit()
         .thr512().clear_bit()
     );
-
-    // set up buffers
-    peripherals.usb_ram1.single_buffered(0);
 }
