@@ -58,7 +58,7 @@ impl R {
         WufiR::new(((self.bits >> 15) & 1) != 0)
     }
 }
-#[doc = "Power status register 1\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`sr1::R`](R).  See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "Power status register 1\n\nYou can [`read`](crate::Reg::read) this register and get [`sr1::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Sr1Spec;
 impl crate::RegisterSpec for Sr1Spec {
     type Ux = u32;

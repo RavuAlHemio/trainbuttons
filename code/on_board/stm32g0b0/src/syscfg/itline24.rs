@@ -16,7 +16,7 @@ impl R {
         I2c3R::new(((self.bits >> 1) & 1) != 0)
     }
 }
-#[doc = "interrupt line 24 status register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`itline24::R`](R).  See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "interrupt line 24 status register\n\nYou can [`read`](crate::Reg::read) this register and get [`itline24::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Itline24Spec;
 impl crate::RegisterSpec for Itline24Spec {
     type Ux = u32;

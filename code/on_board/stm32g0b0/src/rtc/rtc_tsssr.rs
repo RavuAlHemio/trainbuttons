@@ -11,7 +11,7 @@ is the value of the synchronous prescaler counter when the timestamp event occur
         SsR::new((self.bits & 0xffff) as u16)
     }
 }
-#[doc = "RTC timestamp sub second register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`rtc_tsssr::R`](R).  See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "RTC timestamp sub second register\n\nYou can [`read`](crate::Reg::read) this register and get [`rtc_tsssr::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct RtcTsssrSpec;
 impl crate::RegisterSpec for RtcTsssrSpec {
     type Ux = u32;

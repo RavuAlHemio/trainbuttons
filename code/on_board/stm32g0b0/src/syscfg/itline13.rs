@@ -30,7 +30,7 @@ impl R {
         Tim1BrkR::new(((self.bits >> 3) & 1) != 0)
     }
 }
-#[doc = "interrupt line 13 status register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`itline13::R`](R).  See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "interrupt line 13 status register\n\nYou can [`read`](crate::Reg::read) this register and get [`itline13::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Itline13Spec;
 impl crate::RegisterSpec for Itline13Spec {
     type Ux = u32;

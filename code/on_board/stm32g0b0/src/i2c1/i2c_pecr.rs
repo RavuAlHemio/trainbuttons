@@ -9,7 +9,7 @@ impl R {
         PecR::new((self.bits & 0xff) as u8)
     }
 }
-#[doc = "PEC register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`i2c_pecr::R`](R).  See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "PEC register\n\nYou can [`read`](crate::Reg::read) this register and get [`i2c_pecr::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct I2cPecrSpec;
 impl crate::RegisterSpec for I2cPecrSpec {
     type Ux = u32;

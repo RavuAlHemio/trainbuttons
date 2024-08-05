@@ -16,7 +16,7 @@ impl R {
         FlashEccR::new(((self.bits >> 1) & 1) != 0)
     }
 }
-#[doc = "interrupt line 3 status register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`itline3::R`](R).  See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "interrupt line 3 status register\n\nYou can [`read`](crate::Reg::read) this register and get [`itline3::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Itline3Spec;
 impl crate::RegisterSpec for Itline3Spec {
     type Ux = u32;

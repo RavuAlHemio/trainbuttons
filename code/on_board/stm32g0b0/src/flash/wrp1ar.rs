@@ -16,7 +16,7 @@ impl R {
         Wrp1aEndR::new(((self.bits >> 16) & 0x7f) as u8)
     }
 }
-#[doc = "Flash WRP area A address register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`wrp1ar::R`](R).  See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "Flash WRP area A address register\n\nYou can [`read`](crate::Reg::read) this register and get [`wrp1ar::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Wrp1arSpec;
 impl crate::RegisterSpec for Wrp1arSpec {
     type Ux = u32;

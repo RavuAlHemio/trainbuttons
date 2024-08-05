@@ -16,7 +16,7 @@ impl R {
         Exti3R::new(((self.bits >> 1) & 1) != 0)
     }
 }
-#[doc = "interrupt line 6 status register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`itline6::R`](R).  See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "interrupt line 6 status register\n\nYou can [`read`](crate::Reg::read) this register and get [`itline6::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Itline6Spec;
 impl crate::RegisterSpec for Itline6Spec {
     type Ux = u32;

@@ -85,7 +85,7 @@ impl R {
         PmR::new(((self.bits >> 22) & 1) != 0)
     }
 }
-#[doc = "RTC timestamp time register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`rtc_tstr::R`](R).  See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "RTC timestamp time register\n\nYou can [`read`](crate::Reg::read) this register and get [`rtc_tstr::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct RtcTstrSpec;
 impl crate::RegisterSpec for RtcTstrSpec {
     type Ux = u32;

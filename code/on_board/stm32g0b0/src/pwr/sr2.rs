@@ -30,7 +30,7 @@ impl R {
         VosfR::new(((self.bits >> 10) & 1) != 0)
     }
 }
-#[doc = "Power status register 2\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`sr2::R`](R).  See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "Power status register 2\n\nYou can [`read`](crate::Reg::read) this register and get [`sr2::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Sr2Spec;
 impl crate::RegisterSpec for Sr2Spec {
     type Ux = u32;

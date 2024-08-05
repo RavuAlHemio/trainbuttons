@@ -9,7 +9,7 @@ impl R {
         Tim6R::new((self.bits & 1) != 0)
     }
 }
-#[doc = "interrupt line 17 status register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`itline17::R`](R).  See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "interrupt line 17 status register\n\nYou can [`read`](crate::Reg::read) this register and get [`itline17::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Itline17Spec;
 impl crate::RegisterSpec for Itline17Spec {
     type Ux = u32;

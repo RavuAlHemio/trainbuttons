@@ -51,7 +51,7 @@ impl R {
         Sof6R::new(((self.bits >> 6) & 1) != 0)
     }
 }
-#[doc = "DMAMUX request line multiplexer interrupt channel status register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`dmamux_csr::R`](R).  See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "DMAMUX request line multiplexer interrupt channel status register\n\nYou can [`read`](crate::Reg::read) this register and get [`dmamux_csr::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct DmamuxCsrSpec;
 impl crate::RegisterSpec for DmamuxCsrSpec {
     type Ux = u32;

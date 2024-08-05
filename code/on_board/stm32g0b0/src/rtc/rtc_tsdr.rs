@@ -37,7 +37,7 @@ impl R {
         WduR::new(((self.bits >> 13) & 7) as u8)
     }
 }
-#[doc = "RTC timestamp date register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`rtc_tsdr::R`](R).  See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "RTC timestamp date register\n\nYou can [`read`](crate::Reg::read) this register and get [`rtc_tsdr::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct RtcTsdrSpec;
 impl crate::RegisterSpec for RtcTsdrSpec {
     type Ux = u32;

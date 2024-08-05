@@ -983,7 +983,7 @@ is received. It is cleared by software, writing 1 to the CMCF in the USART_ICR r
         TxftR::new(((self.bits >> 27) & 1) != 0)
     }
 }
-#[doc = "Interrupt &amp; status register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`isr_fifo_enabled::R`](R).  See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "Interrupt &amp; status register\n\nYou can [`read`](crate::Reg::read) this register and get [`isr_fifo_enabled::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct IsrFifoEnabledSpec;
 impl crate::RegisterSpec for IsrFifoEnabledSpec {
     type Ux = u32;

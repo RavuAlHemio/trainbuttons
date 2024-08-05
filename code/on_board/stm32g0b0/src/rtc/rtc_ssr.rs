@@ -11,7 +11,7 @@ is the value in the synchronous prescaler counter. The fraction of a second is g
         SsR::new((self.bits & 0xffff) as u16)
     }
 }
-#[doc = "RTC sub second register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`rtc_ssr::R`](R).  See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "RTC sub second register\n\nYou can [`read`](crate::Reg::read) this register and get [`rtc_ssr::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct RtcSsrSpec;
 impl crate::RegisterSpec for RtcSsrSpec {
     type Ux = u32;

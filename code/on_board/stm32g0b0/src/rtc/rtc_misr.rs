@@ -44,7 +44,7 @@ impl R {
         ItsmfR::new(((self.bits >> 5) & 1) != 0)
     }
 }
-#[doc = "RTC masked interrupt status register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`rtc_misr::R`](R).  See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "RTC masked interrupt status register\n\nYou can [`read`](crate::Reg::read) this register and get [`rtc_misr::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct RtcMisrSpec;
 impl crate::RegisterSpec for RtcMisrSpec {
     type Ux = u32;

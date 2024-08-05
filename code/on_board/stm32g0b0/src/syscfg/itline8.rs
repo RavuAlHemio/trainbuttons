@@ -9,7 +9,7 @@ impl R {
         UsbR::new(((self.bits >> 2) & 1) != 0)
     }
 }
-#[doc = "interrupt line 8 status register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`itline8::R`](R).  See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "interrupt line 8 status register\n\nYou can [`read`](crate::Reg::read) this register and get [`itline8::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Itline8Spec;
 impl crate::RegisterSpec for Itline8Spec {
     type Ux = u32;

@@ -11,7 +11,7 @@ bits contain the computed CRC value of the subsequently received bytes. This reg
         RxcrcR::new(self.bits)
     }
 }
-#[doc = "\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`spi_rxcrcr::R`](R).  See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "\n\nYou can [`read`](crate::Reg::read) this register and get [`spi_rxcrcr::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct SpiRxcrcrSpec;
 impl crate::RegisterSpec for SpiRxcrcrSpec {
     type Ux = u16;

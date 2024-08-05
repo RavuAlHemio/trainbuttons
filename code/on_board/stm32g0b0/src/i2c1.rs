@@ -70,67 +70,67 @@ impl RegisterBlock {
         &self.i2c_txdr
     }
 }
-#[doc = "I2C_CR1 (rw) register accessor: Control register 1\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`i2c_cr1::R`].  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`i2c_cr1::W`]. You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@i2c_cr1`]
+#[doc = "I2C_CR1 (rw) register accessor: Control register 1\n\nYou can [`read`](crate::Reg::read) this register and get [`i2c_cr1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`i2c_cr1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@i2c_cr1`]
 module"]
 #[doc(alias = "I2C_CR1")]
 pub type I2cCr1 = crate::Reg<i2c_cr1::I2cCr1Spec>;
 #[doc = "Control register 1"]
 pub mod i2c_cr1;
-#[doc = "I2C_CR2 (rw) register accessor: Control register 2\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`i2c_cr2::R`].  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`i2c_cr2::W`]. You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@i2c_cr2`]
+#[doc = "I2C_CR2 (rw) register accessor: Control register 2\n\nYou can [`read`](crate::Reg::read) this register and get [`i2c_cr2::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`i2c_cr2::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@i2c_cr2`]
 module"]
 #[doc(alias = "I2C_CR2")]
 pub type I2cCr2 = crate::Reg<i2c_cr2::I2cCr2Spec>;
 #[doc = "Control register 2"]
 pub mod i2c_cr2;
-#[doc = "I2C_OAR1 (rw) register accessor: Own address register 1\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`i2c_oar1::R`].  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`i2c_oar1::W`]. You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@i2c_oar1`]
+#[doc = "I2C_OAR1 (rw) register accessor: Own address register 1\n\nYou can [`read`](crate::Reg::read) this register and get [`i2c_oar1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`i2c_oar1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@i2c_oar1`]
 module"]
 #[doc(alias = "I2C_OAR1")]
 pub type I2cOar1 = crate::Reg<i2c_oar1::I2cOar1Spec>;
 #[doc = "Own address register 1"]
 pub mod i2c_oar1;
-#[doc = "I2C_OAR2 (rw) register accessor: Own address register 2\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`i2c_oar2::R`].  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`i2c_oar2::W`]. You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@i2c_oar2`]
+#[doc = "I2C_OAR2 (rw) register accessor: Own address register 2\n\nYou can [`read`](crate::Reg::read) this register and get [`i2c_oar2::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`i2c_oar2::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@i2c_oar2`]
 module"]
 #[doc(alias = "I2C_OAR2")]
 pub type I2cOar2 = crate::Reg<i2c_oar2::I2cOar2Spec>;
 #[doc = "Own address register 2"]
 pub mod i2c_oar2;
-#[doc = "I2C_TIMINGR (rw) register accessor: Timing register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`i2c_timingr::R`].  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`i2c_timingr::W`]. You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@i2c_timingr`]
+#[doc = "I2C_TIMINGR (rw) register accessor: Timing register\n\nYou can [`read`](crate::Reg::read) this register and get [`i2c_timingr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`i2c_timingr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@i2c_timingr`]
 module"]
 #[doc(alias = "I2C_TIMINGR")]
 pub type I2cTimingr = crate::Reg<i2c_timingr::I2cTimingrSpec>;
 #[doc = "Timing register"]
 pub mod i2c_timingr;
-#[doc = "I2C_TIMEOUTR (rw) register accessor: Status register 1\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`i2c_timeoutr::R`].  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`i2c_timeoutr::W`]. You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@i2c_timeoutr`]
+#[doc = "I2C_TIMEOUTR (rw) register accessor: Status register 1\n\nYou can [`read`](crate::Reg::read) this register and get [`i2c_timeoutr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`i2c_timeoutr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@i2c_timeoutr`]
 module"]
 #[doc(alias = "I2C_TIMEOUTR")]
 pub type I2cTimeoutr = crate::Reg<i2c_timeoutr::I2cTimeoutrSpec>;
 #[doc = "Status register 1"]
 pub mod i2c_timeoutr;
-#[doc = "I2C_ISR (rw) register accessor: Interrupt and Status register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`i2c_isr::R`].  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`i2c_isr::W`]. You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@i2c_isr`]
+#[doc = "I2C_ISR (rw) register accessor: Interrupt and Status register\n\nYou can [`read`](crate::Reg::read) this register and get [`i2c_isr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`i2c_isr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@i2c_isr`]
 module"]
 #[doc(alias = "I2C_ISR")]
 pub type I2cIsr = crate::Reg<i2c_isr::I2cIsrSpec>;
 #[doc = "Interrupt and Status register"]
 pub mod i2c_isr;
-#[doc = "I2C_ICR (w) register accessor: Interrupt clear register\n\nYou can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`i2c_icr::W`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@i2c_icr`]
+#[doc = "I2C_ICR (w) register accessor: Interrupt clear register\n\nYou can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`i2c_icr::W`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@i2c_icr`]
 module"]
 #[doc(alias = "I2C_ICR")]
 pub type I2cIcr = crate::Reg<i2c_icr::I2cIcrSpec>;
 #[doc = "Interrupt clear register"]
 pub mod i2c_icr;
-#[doc = "I2C_PECR (r) register accessor: PEC register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`i2c_pecr::R`].  See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@i2c_pecr`]
+#[doc = "I2C_PECR (r) register accessor: PEC register\n\nYou can [`read`](crate::Reg::read) this register and get [`i2c_pecr::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@i2c_pecr`]
 module"]
 #[doc(alias = "I2C_PECR")]
 pub type I2cPecr = crate::Reg<i2c_pecr::I2cPecrSpec>;
 #[doc = "PEC register"]
 pub mod i2c_pecr;
-#[doc = "I2C_RXDR (r) register accessor: Receive data register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`i2c_rxdr::R`].  See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@i2c_rxdr`]
+#[doc = "I2C_RXDR (r) register accessor: Receive data register\n\nYou can [`read`](crate::Reg::read) this register and get [`i2c_rxdr::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@i2c_rxdr`]
 module"]
 #[doc(alias = "I2C_RXDR")]
 pub type I2cRxdr = crate::Reg<i2c_rxdr::I2cRxdrSpec>;
 #[doc = "Receive data register"]
 pub mod i2c_rxdr;
-#[doc = "I2C_TXDR (rw) register accessor: Transmit data register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`i2c_txdr::R`].  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`i2c_txdr::W`]. You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@i2c_txdr`]
+#[doc = "I2C_TXDR (rw) register accessor: Transmit data register\n\nYou can [`read`](crate::Reg::read) this register and get [`i2c_txdr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`i2c_txdr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@i2c_txdr`]
 module"]
 #[doc(alias = "I2C_TXDR")]
 pub type I2cTxdr = crate::Reg<i2c_txdr::I2cTxdrSpec>;

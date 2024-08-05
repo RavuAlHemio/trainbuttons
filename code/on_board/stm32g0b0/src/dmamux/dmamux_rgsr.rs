@@ -30,7 +30,7 @@ impl R {
         Of3R::new(((self.bits >> 3) & 1) != 0)
     }
 }
-#[doc = "DMAMUX request generator interrupt status register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`dmamux_rgsr::R`](R).  See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "DMAMUX request generator interrupt status register\n\nYou can [`read`](crate::Reg::read) this register and get [`dmamux_rgsr::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct DmamuxRgsrSpec;
 impl crate::RegisterSpec for DmamuxRgsrSpec {
     type Ux = u32;

@@ -16,7 +16,7 @@ impl R {
         RevIdR::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
-#[doc = "MCU Device ID Code Register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`idcode::R`](R).  See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "MCU Device ID Code Register\n\nYou can [`read`](crate::Reg::read) this register and get [`idcode::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct IdcodeSpec;
 impl crate::RegisterSpec for IdcodeSpec {
     type Ux = u32;

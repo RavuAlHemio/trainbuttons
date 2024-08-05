@@ -1150,7 +1150,7 @@ impl R {
         Teif7R::new(((self.bits >> 27) & 1) != 0)
     }
 }
-#[doc = "DMA interrupt status register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`dma_isr::R`](R).  See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "DMA interrupt status register\n\nYou can [`read`](crate::Reg::read) this register and get [`dma_isr::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct DmaIsrSpec;
 impl crate::RegisterSpec for DmaIsrSpec {
     type Ux = u32;
