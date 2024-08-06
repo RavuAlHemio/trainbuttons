@@ -58,11 +58,14 @@ fn get_usb_ep0_rx_buf() -> &'static mut [u8] {
 
 #[interrupt]
 fn USB() {
+    handle_usb_interrupt();
+}
+
+fn handle_usb_interrupt() {
     // USB interrupt
     let peripherals = unsafe { Peripherals::steal() };
 
-    let interrupts_raised = peripherals.usb.istr().read();
-    if interrupts_raised.rst_dcon().bit_is_set() {
+    if peripherals.usb.istr().read().rst_dcon().bit_is_set() {
         // USB reset received
 
         // clear most other interrupts except the following
@@ -93,6 +96,10 @@ fn USB() {
         );
 
         // wait
+    }
+    if peripherals.usb.istr().read().ctr().bit_is_set() {
+        let endpoint = peripherals.usb.istr().read().idn().bits();
+        let endpoint_register = peripherals.usb.chepr(endpoint.into());
     }
 
     // blink the LED
@@ -192,5 +199,10 @@ pub(crate) fn set_up(peripherals: &mut Peripherals) {
         .err().clear_bit()
         .pmaovr().clear_bit()
         .thr512().clear_bit()
+    );
+
+    // say hello
+    peripherals.usb.bcdr().modify(|_, w| w
+        .dppu_dpd().set_bit()
     );
 }
