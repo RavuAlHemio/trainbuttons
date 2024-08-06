@@ -86,7 +86,7 @@ fn USB() {
         );
 
         // set up Ep0 buffer
-        peripherals.usb.chep0r().modify(|_, w| w
+        peripherals.usb.chepr(0).modify(|_, w| w
             .ea().set(0x0) // endpoint 0
             .stattx().valid() // enable this endpoint
             .utype().control() // it's a control endpoint

@@ -38029,9 +38029,11 @@ Note: When PRESCALER is programmed with a value different of the allowed ones, p
         </interrupt>
         <registers>
           <register>
-            <name>CHEP0R</name>
-            <displayName>CHEP0R</displayName>
-            <description>USB endpoint/channel 0 register</description>
+            <dim>8</dim>
+            <dimIncrement>0x20</dimIncrement>
+            <name>CHEPR[%s]</name>
+            <displayName>CHEPR[%s]</displayName>
+            <description>USB endpoint/channel register</description>
             <addressOffset>0x0</addressOffset>
             <size>0x20</size>
             <resetValue>0x00000000</resetValue>
@@ -38377,55 +38379,6 @@ Coding of the received error:</description>
                 </enumeratedValues>
               </field>
             </fields>
-          </register>
-          <register derivedFrom="CHEP0R">
-            <name>CHEP1R</name>
-            <displayName>CHEP1R</displayName>
-            <description>USB endpoint/channel 1 register</description>
-            <addressOffset>0x4</addressOffset>
-            <size>0x20</size>
-          </register>
-          <register derivedFrom="CHEP0R">
-            <name>CHEP2R</name>
-            <displayName>CHEP2R</displayName>
-            <description>USB endpoint/channel 2 register</description>
-            <addressOffset>0x8</addressOffset>
-            <size>0x20</size>
-          </register>
-          <register derivedFrom="CHEP0R">
-            <name>CHEP3R</name>
-            <displayName>CHEP3R</displayName>
-            <description>USB endpoint/channel 3 register</description>
-            <addressOffset>0xc</addressOffset>
-            <size>0x20</size>
-          </register>
-          <register derivedFrom="CHEP0R">
-            <name>CHEP4R</name>
-            <displayName>CHEP4R</displayName>
-            <description>USB endpoint/channel 4 register</description>
-            <addressOffset>0x10</addressOffset>
-            <size>0x20</size>
-          </register>
-          <register derivedFrom="CHEP0R">
-            <name>CHEP5R</name>
-            <displayName>CHEP5R</displayName>
-            <description>USB endpoint/channel 5 register</description>
-            <addressOffset>0x14</addressOffset>
-            <size>0x20</size>
-          </register>
-          <register derivedFrom="CHEP0R">
-            <name>CHEP6R</name>
-            <displayName>CHEP6R</displayName>
-            <description>USB endpoint/channel 6 register</description>
-            <addressOffset>0x18</addressOffset>
-            <size>0x20</size>
-          </register>
-          <register derivedFrom="CHEP0R">
-            <name>CHEP7R</name>
-            <displayName>CHEP7R</displayName>
-            <description>USB endpoint/channel 7 register</description>
-            <addressOffset>0x1c</addressOffset>
-            <size>0x20</size>
           </register>
           <register>
             <name>CNTR</name>
