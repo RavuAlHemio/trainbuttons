@@ -91,8 +91,8 @@ fn handle_usb_interrupt() {
         // set up Ep0 buffer
         peripherals.usb.chepr(0).modify(|_, w| w
             .ea().set(0x0) // endpoint 0
-            .stattx().valid() // enable this endpoint
-            .utype().control() // it's a control endpoint
+                        .utype().control() // it's a control endpoint
+.statrx().valid() // send me something
         );
 
         // wait
