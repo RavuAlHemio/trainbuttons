@@ -29,7 +29,7 @@ const USB_PACKET_RAM_SIZE: usize = 2*1024; // USB_DRD_PMA_SIZE
 //
 // buffers are apportioned equally among endpoints
 
-const PACKET_DATA_RAM_OFFSET: usize = 2 * ENDPOINT_CONFIG_COUNT;
+const PACKET_DATA_RAM_OFFSET: usize = 2 * 4 * ENDPOINT_CONFIG_COUNT; // (rx+tx) * 4 bytes/register * endpoints
 const PACKET_DATA_RAM_POINTER: *mut u8 = USB_PACKET_RAM_BASE.wrapping_add(PACKET_DATA_RAM_OFFSET);
 const PACKET_DATA_RAM_SIZE: usize = USB_PACKET_RAM_SIZE - PACKET_DATA_RAM_OFFSET;
 
@@ -80,12 +80,14 @@ fn handle_usb_interrupt() {
 
         // define space for Ep0 buffers
         peripherals.usb_ram1.single_buffered(0).chep_txrxbd_0().modify(|_, w| w
-            .addr_tx().set(PACKET_DATA_RAM_OFFSET.try_into().unwrap())
-            .count_tx().set((PACKET_DATA_RAM_SIZE / 2).try_into().unwrap())
+            .addr_tx().set(EP0_TX_OFFSET.try_into().unwrap())
+            .count_tx().set(0)
         );
         peripherals.usb_ram1.single_buffered(0).chep_rxtxbd_0().modify(|_, w| w
-            .addr_rx().set((PACKET_DATA_RAM_OFFSET + PACKET_DATA_RAM_SIZE/2).try_into().unwrap())
-            .count_rx().set((PACKET_DATA_RAM_SIZE / 2).try_into().unwrap())
+            .addr_rx().set(EP0_RX_OFFSET.try_into().unwrap())
+            .count_rx().set(0)
+            .num_block().set((EP_BUF_SIZE/32 - 1).try_into().unwrap())
+.blsize().set_bit()
         );
 
         // set up Ep0 buffer
