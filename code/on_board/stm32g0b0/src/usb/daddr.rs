@@ -5,7 +5,7 @@ pub type W = crate::W<DaddrSpec>;
 #[doc = "Field `ADD` reader - Device address Device mode These bits contain the USB function address assigned by the host PC during the enumeration process. Both this field and the endpoint/channel address (EA) field in the associated USB_CHEPnR register must match with the information contained in a USB token in order to handle a transaction to the required endpoint. Host mode These bits contain the address transmitted with the LPM transaction"]
 pub type AddR = crate::FieldReader;
 #[doc = "Field `ADD` writer - Device address Device mode These bits contain the USB function address assigned by the host PC during the enumeration process. Both this field and the endpoint/channel address (EA) field in the associated USB_CHEPnR register must match with the information contained in a USB token in order to handle a transaction to the required endpoint. Host mode These bits contain the address transmitted with the LPM transaction"]
-pub type AddW<'a, REG> = crate::FieldWriter<'a, REG, 7>;
+pub type AddW<'a, REG> = crate::FieldWriter<'a, REG, 7, u8, crate::Safe>;
 #[doc = "Field `EF` reader - Enable function This bit is set by the software to enable the USB Device. The address of this device is contained in the following ADD\\[6:0\\]
 bits. If this bit is at 0 no transactions are handled, irrespective of the settings of USB_CHEPnR registers."]
 pub type EfR = crate::BitReader;

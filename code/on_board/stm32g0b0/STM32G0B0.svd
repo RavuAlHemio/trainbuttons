@@ -38954,6 +38954,12 @@ These bits contain the address transmitted with the LPM transaction</description
                 <bitOffset>0</bitOffset>
                 <bitWidth>7</bitWidth>
                 <access>read-write</access>
+                <writeConstraint>
+                  <range>
+                    <minimum>0x0</minimum>
+                    <maximum>0x7F</maximum>
+                  </range>
+                </writeConstraint>
               </field>
               <field>
                 <name>EF</name>
