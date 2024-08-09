@@ -1,7 +1,7 @@
 #[repr(C)]
 #[doc = "Register block"]
 pub struct RegisterBlock {
-    chepr: (),
+    chepnr: (),
     _reserved1: [u8; 0x40],
     cntr: Cntr,
     istr: Istr,
@@ -12,17 +12,17 @@ pub struct RegisterBlock {
     bcdr: Bcdr,
 }
 impl RegisterBlock {
-    #[doc = "0x00..0x20 - USB endpoint/channel register"]
+    #[doc = "0x00..0x20 - USB endpoint/channel n register"]
     #[inline(always)]
-    pub const fn chepr(&self, n: usize) -> &Chepr {
+    pub const fn chepnr(&self, n: usize) -> &Chepnr {
         #[allow(clippy::no_effect)]
         [(); 8][n];
         unsafe { &*(self as *const Self).cast::<u8>().add(0).add(32 * n).cast() }
     }
     #[doc = "Iterator for array of:"]
-    #[doc = "0x00..0x20 - USB endpoint/channel register"]
+    #[doc = "0x00..0x20 - USB endpoint/channel n register"]
     #[inline(always)]
-    pub fn chepr_iter(&self) -> impl Iterator<Item = &Chepr> {
+    pub fn chepnr_iter(&self) -> impl Iterator<Item = &Chepnr> {
         (0..8)
             .map(move |n| unsafe { &*(self as *const Self).cast::<u8>().add(0).add(32 * n).cast() })
     }
@@ -57,12 +57,12 @@ impl RegisterBlock {
         &self.bcdr
     }
 }
-#[doc = "CHEPR (rw) register accessor: USB endpoint/channel register\n\nYou can [`read`](crate::Reg::read) this register and get [`chepr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`chepr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@chepr`]
+#[doc = "CHEPNR (rw) register accessor: USB endpoint/channel n register\n\nYou can [`read`](crate::Reg::read) this register and get [`chepnr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`chepnr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@chepnr`]
 module"]
-#[doc(alias = "CHEPR")]
-pub type Chepr = crate::Reg<chepr::CheprSpec>;
-#[doc = "USB endpoint/channel register"]
-pub mod chepr;
+#[doc(alias = "CHEPNR")]
+pub type Chepnr = crate::Reg<chepnr::ChepnrSpec>;
+#[doc = "USB endpoint/channel n register"]
+pub mod chepnr;
 #[doc = "CNTR (rw) register accessor: \n\nYou can [`read`](crate::Reg::read) this register and get [`cntr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cntr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cntr`]
 module"]
 #[doc(alias = "CNTR")]
