@@ -8,9 +8,8 @@ use cortex_m::peripheral::NVIC;
 use stm32g0b0::{interrupt, Interrupt, Peripherals};
 
 
-const ENDPOINT_CONFIG_COUNT: usize = 1; // how many endpoint configs will we use in packet RAM?
-
 // controller-specific values; these are for STM32G0x0:
+const ENDPOINT_CONFIG_COUNT: usize = 8;
 const USB_PACKET_RAM_BASE: *mut u8 = 0x4000_9800 as *mut u8; // USB_DRD_PMAADDR or USB_DRD_PMA_BUFF
 const USB_PACKET_RAM_SIZE: usize = 2*1024; // USB_DRD_PMA_SIZE
 
@@ -63,46 +62,7 @@ fn USB() {
 
 fn handle_usb_interrupt() {
     // USB interrupt
-    let peripherals = unsafe { Peripherals::steal() };
-
-    if peripherals.usb.istr().read().rst_dcon().bit_is_set() {
-        // USB reset received
-
-        // clear most other interrupts except the following
-        peripherals.usb.istr().write(|w| w
-            .pmaovr().set_bit()
-            .err().set_bit()
-            .wkup().set_bit()
-            .susp().set_bit()
-            .sof().set_bit()
-            .esof().set_bit()
-        );
-
-        // define space for Ep0 buffers
-        peripherals.usb_ram1.single_buffered(0).chep_txrxbd_0().modify(|_, w| w
-            .addr_tx().set(EP0_TX_OFFSET.try_into().unwrap())
-            .count_tx().set(0)
-        );
-        peripherals.usb_ram1.single_buffered(0).chep_rxtxbd_0().modify(|_, w| w
-            .addr_rx().set(EP0_RX_OFFSET.try_into().unwrap())
-            .count_rx().set(0)
-            .num_block().set((EP_BUF_SIZE/32 - 1).try_into().unwrap())
-.blsize().set_bit()
-        );
-
-        // set up Ep0 buffer
-        peripherals.usb.chepr(0).modify(|_, w| w
-            .ea().set(0x0) // endpoint 0
-                        .utype().control() // it's a control endpoint
-.statrx().valid() // send me something
-        );
-
-        // wait
-    }
-    if peripherals.usb.istr().read().ctr().bit_is_set() {
-        let endpoint = peripherals.usb.istr().read().idn().bits();
-        let endpoint_register = peripherals.usb.chepr(endpoint.into());
-    }
+    let mut peripherals = unsafe { Peripherals::steal() };
 
     // blink the LED
     loop {
@@ -119,6 +79,54 @@ fn handle_usb_interrupt() {
             cortex_m::asm::nop();
         }
     }
+
+    if peripherals.usb.istr().read().rst_dcon().bit_is_set() {
+        // USB reset received
+        post_reset_setup(&mut peripherals);
+    }
+    if peripherals.usb.istr().read().ctr().bit_is_set() {
+        let endpoint = peripherals.usb.istr().read().idn().bits();
+        let endpoint_register = peripherals.usb.chepnr(endpoint.into());
+    }
+}
+
+
+/// Setup operations to be performed before the first activation as well as after every reset.
+fn post_reset_setup(peripherals: &mut Peripherals) {
+    // clear most other interrupts except the following
+    peripherals.usb.istr().write(|w| w
+        .pmaovr().set_bit()
+        .err().set_bit()
+        .wkup().set_bit()
+        .susp().set_bit()
+        .sof().set_bit()
+        .esof().set_bit()
+    );
+
+    // define space for Ep0 buffers
+    peripherals.usb_ram1.single_buffered(0).chep_txrxbd_0().modify(|_, w| w
+        .addr_tx().set(EP0_TX_OFFSET.try_into().unwrap())
+        .count_tx().set(0)
+    );
+    peripherals.usb_ram1.single_buffered(0).chep_rxtxbd_0().modify(|_, w| w
+        .addr_rx().set(EP0_RX_OFFSET.try_into().unwrap())
+        .count_rx().set(0)
+        .num_block().set((EP_BUF_SIZE/32 - 1).try_into().unwrap())
+        .blsize().set_bit()
+    );
+
+    // set up Ep0 buffer
+    peripherals.usb.chepnr(0).modify(|_, w| w
+        .ea().set(0x0) // endpoint 0
+        .utype().control() // it's a control endpoint
+        .statrx().valid() // I am ready to receive
+    );
+
+    // enable USB function for address 0x00 (no address assigned yet)
+    peripherals.usb.daddr().modify(|_, w| w
+        .ef().set_bit()
+        .add().set(0x00)
+    );
 }
 
 
@@ -136,8 +144,10 @@ pub(crate) fn set_up(peripherals: &mut Peripherals) {
         .usben().set_bit()
     );
 
-    // enable USB interrupt
-    unsafe { NVIC::unmask(Interrupt::USB) };
+    // give it a bit
+    for _ in 0..8 {
+        nop();
+    }
 
     // trigger USB macrocell reset
     peripherals.rcc.apbrstr1().modify(|_, w| w
@@ -153,10 +163,14 @@ pub(crate) fn set_up(peripherals: &mut Peripherals) {
         nop();
     }
 
-    // enable USB reset condition
+    // enable USB reset and power-down condition
     peripherals.usb.cntr().modify(|_, w| w
         .usbrst().set_bit()
+        .pdwn().set_bit()
     );
+    for _ in 0..8 {
+        nop();
+    }
 
     // enable USB transceiver
     peripherals.usb.cntr().modify(|_, w| w
@@ -175,9 +189,21 @@ pub(crate) fn set_up(peripherals: &mut Peripherals) {
     peripherals.usb.cntr().modify(|_, w| w
         .usbrst().clear_bit()
     );
+    for _ in 0..8 {
+        nop();
+    }
+
+    // enable USB interrupt and set its priority to 0
+    unsafe { NVIC::unmask(Interrupt::USB) };
+    let mut core_peripherals = unsafe { cortex_m::Peripherals::steal() };
+    unsafe { core_peripherals.NVIC.set_priority(Interrupt::USB, 0) };
+    for _ in 0..8 {
+        nop();
+    }
 
     // disable most interrupts
     peripherals.usb.cntr().modify(|_, w| w
+        /*
         .l1reqm().clear_bit() // disable "LPM L1 state request" interrupt
         .esofm().clear_bit() // disable "expected start of frame" interrupt
         .sofm().clear_bit() // disable "start of frame" interrupt
@@ -188,6 +214,18 @@ pub(crate) fn set_up(peripherals: &mut Peripherals) {
         .pmaovrm().clear_bit() // disable "packet memory area overrun/underrun" interrupt
         .ctrm().clear_bit() // disable "correct transfer" interrupt
         .thr512m().clear_bit() // disable "512 byte threshold" interrupt
+        */
+
+        .l1reqm().set_bit()
+        .esofm().set_bit()
+        .sofm().set_bit()
+        .rst_dconm().set_bit()
+        .suspm().set_bit()
+        .wkupm().set_bit()
+        .errm().set_bit()
+        .pmaovrm().set_bit()
+        .ctrm().set_bit()
+        .thr512m().set_bit()
     );
 
     // remove spurious interrupt states
@@ -202,6 +240,8 @@ pub(crate) fn set_up(peripherals: &mut Peripherals) {
         .pmaovr().clear_bit()
         .thr512().clear_bit()
     );
+
+    post_reset_setup(peripherals);
 
     // say hello
     peripherals.usb.bcdr().modify(|_, w| w
