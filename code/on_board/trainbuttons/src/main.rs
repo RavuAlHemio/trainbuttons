@@ -19,9 +19,19 @@ fn panic_handler(_panic_info: &PanicInfo) -> ! {
 }
 
 
+#[inline(never)]
+fn tell_gdb_to_return_from_this_function() {
+    loop {
+    }
+}
+
+
 #[entry]
 fn main() -> ! {
     let mut peripherals = unsafe { Peripherals::steal() };
+
+    tell_gdb_to_return_from_this_function();
+
     crate::clock::set_up(&mut peripherals);
 
     // send clock to GPIOB

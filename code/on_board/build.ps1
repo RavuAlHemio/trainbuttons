@@ -2,7 +2,8 @@
 Param(
     [switch] $NoBuild,
     [switch] $DebugBuild,
-    [switch] $ProgramOOCD
+    [switch] $ProgramOOCD,
+    [switch] $DebugOOCD
 )
 
 $buildSuccess = $true
@@ -37,4 +38,23 @@ If ($ProgramOOCD) {
     & "C:\Program Files\OpenOCD\bin\openocd.exe" `
         -c "set BINFILE tb.bin" `
         -c "source oocd-prog-jlink.cfg"
+}
+
+If ($DebugOOCD)
+{
+    $null = Read-Host -Prompt "Hit Enter after resetting."
+
+    $oocd = Start-Process `
+        -FilePath "pwsh.exe" `
+        -ArgumentList @("-NoExit -Command & \`"C:\Program Files\OpenOCD\bin\openocd.exe\`" -c \`"source oocd-debug-jlink.cfg\`"") `
+        -PassThru
+
+    $gdb = Start-Process `
+        -FilePath 'C:\Program Files\arm-gcc\bin\arm-none-eabi-gdb.exe' `
+        -ArgumentList @("`"-ex`" `"target extended-remote :3333`" `"$elfBinary`"") `
+        -PassThru
+
+    Write-Output "Exit GDB and OpenOCD to return to console."
+    $oocd.WaitForExit()
+    $gdb.WaitForExit()
 }
