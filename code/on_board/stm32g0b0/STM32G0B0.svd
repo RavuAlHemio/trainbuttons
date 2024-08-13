@@ -38175,7 +38175,7 @@ Host mode
 The STATTX bits contain the information about the channel status. Refer to  for the full descriptions ('Host mode' descriptions). Whereas in Device mode, these bits contain the status that are given out on the following transaction, in Host mode they capture the status last received from the device. If a NAK is received, STATTX contains the value indicating NAK.</description>
                 <bitOffset>4</bitOffset>
                 <bitWidth>2</bitWidth>
-                <access>write-only</access>
+                <access>read-write</access>
                 <enumeratedValues>
                   <enumeratedValue>
                     <name>DISABLED</name>
@@ -38216,7 +38216,7 @@ If the endpoint/channel is isochronous, this bit is used to support packet buffe
 This bit can also be toggled by the software to initialize its value (mandatory when the endpoint/channel is not a control one) or to force a specific data toggle/packet buffer usage. When the application software writes 0, the value of DTOGTX remains unchanged, while writing 1 makes the bit value to toggle. This bit is read/write but it can only be toggled by writing 1.</description>
                 <bitOffset>6</bitOffset>
                 <bitWidth>1</bitWidth>
-                <access>write-only</access>
+                <access>read-write</access>
               </field>
               <field>
                 <name>VTTX</name>
@@ -38305,7 +38305,7 @@ NAK value is reported in case of NAK acknowledge received. When in NAK state the
 STALL value is reported in case of STALL acknowledge received. When in STALL state the channel behaves as disabled. Application should not retry transmission but reset the USB and re-enumerate.</description>
                 <bitOffset>12</bitOffset>
                 <bitWidth>2</bitWidth>
-                <access>write-only</access>
+                <access>read-write</access>
                 <enumeratedValues>
                   <enumeratedValue>
                     <name>DISABLED</name>
@@ -38346,7 +38346,7 @@ If the endpoint/channel is isochronous, this bit is used only to support packet 
 This bit can also be toggled by the software to initialize its value (mandatory when the endpoint is not a control one) or to force specific data toggle/packet buffer usage. When the application software writes 0, the value of DTOGRX remains unchanged, while writing 1 makes the bit value toggle. This bit is read/write but it can be only toggled by writing 1.</description>
                 <bitOffset>14</bitOffset>
                 <bitWidth>1</bitWidth>
-                <access>write-only</access>
+                <access>read-write</access>
               </field>
               <field>
                 <name>VTRX</name>
