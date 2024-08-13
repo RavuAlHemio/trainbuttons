@@ -18012,18 +18012,23 @@ Window value can be updated only when WVU bit is reset.</description>
             </field>			
             <field>
               <name>USBSEL</name>
-              <description>USBSEL</description>
+              <description>
+                Selects the clock source for the USB peripheral.
+
+                Note that the reference manuals are incorrect; in reality, 0b01 sets HSE and 0b10
+                sets PLLQCLK. This SVD and code derived from it have been corrected.
+              </description>
               <bitOffset>12</bitOffset>
               <bitWidth>2</bitWidth>
               <enumeratedValues>
                 <enumeratedValue>
-                  <name>PLLQCLK</name>
-                  <description>USB clock is taken from PLLQCLK</description>
+                  <name>HSE</name>
+                  <description>USB clock is taken from HSE</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>HSE</name>
-                  <description>USB clock is taken from HSE</description>
+                  <name>PLLQCLK</name>
+                  <description>USB clock is taken from PLLQCLK</description>
                   <value>0x2</value>
                 </enumeratedValue>
               </enumeratedValues>

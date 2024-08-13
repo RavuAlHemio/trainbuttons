@@ -10,14 +10,14 @@ pub type I2s1selW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 pub type I2s2selR = crate::FieldReader;
 #[doc = "Field `I2S2SEL` writer - I2S2SEL"]
 pub type I2s2selW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
-#[doc = "USBSEL\n\nValue on reset: 0"]
+#[doc = "Selects the clock source for the USB peripheral. Note that the reference manuals are incorrect; in reality, 0b01 sets HSE and 0b10 sets PLLQCLK. This SVD and code derived from it have been corrected.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Usbsel {
-    #[doc = "1: USB clock is taken from PLLQCLK"]
-    Pllqclk = 1,
-    #[doc = "2: USB clock is taken from HSE"]
-    Hse = 2,
+    #[doc = "1: USB clock is taken from HSE"]
+    Hse = 1,
+    #[doc = "2: USB clock is taken from PLLQCLK"]
+    Pllqclk = 2,
 }
 impl From<Usbsel> for u8 {
     #[inline(always)]
@@ -29,45 +29,45 @@ impl crate::FieldSpec for Usbsel {
     type Ux = u8;
 }
 impl crate::IsEnum for Usbsel {}
-#[doc = "Field `USBSEL` reader - USBSEL"]
+#[doc = "Field `USBSEL` reader - Selects the clock source for the USB peripheral. Note that the reference manuals are incorrect; in reality, 0b01 sets HSE and 0b10 sets PLLQCLK. This SVD and code derived from it have been corrected."]
 pub type UsbselR = crate::FieldReader<Usbsel>;
 impl UsbselR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
     pub const fn variant(&self) -> Option<Usbsel> {
         match self.bits {
-            1 => Some(Usbsel::Pllqclk),
-            2 => Some(Usbsel::Hse),
+            1 => Some(Usbsel::Hse),
+            2 => Some(Usbsel::Pllqclk),
             _ => None,
         }
-    }
-    #[doc = "USB clock is taken from PLLQCLK"]
-    #[inline(always)]
-    pub fn is_pllqclk(&self) -> bool {
-        *self == Usbsel::Pllqclk
     }
     #[doc = "USB clock is taken from HSE"]
     #[inline(always)]
     pub fn is_hse(&self) -> bool {
         *self == Usbsel::Hse
     }
+    #[doc = "USB clock is taken from PLLQCLK"]
+    #[inline(always)]
+    pub fn is_pllqclk(&self) -> bool {
+        *self == Usbsel::Pllqclk
+    }
 }
-#[doc = "Field `USBSEL` writer - USBSEL"]
+#[doc = "Field `USBSEL` writer - Selects the clock source for the USB peripheral. Note that the reference manuals are incorrect; in reality, 0b01 sets HSE and 0b10 sets PLLQCLK. This SVD and code derived from it have been corrected."]
 pub type UsbselW<'a, REG> = crate::FieldWriter<'a, REG, 2, Usbsel>;
 impl<'a, REG> UsbselW<'a, REG>
 where
     REG: crate::Writable + crate::RegisterSpec,
     REG::Ux: From<u8>,
 {
-    #[doc = "USB clock is taken from PLLQCLK"]
-    #[inline(always)]
-    pub fn pllqclk(self) -> &'a mut crate::W<REG> {
-        self.variant(Usbsel::Pllqclk)
-    }
     #[doc = "USB clock is taken from HSE"]
     #[inline(always)]
     pub fn hse(self) -> &'a mut crate::W<REG> {
         self.variant(Usbsel::Hse)
+    }
+    #[doc = "USB clock is taken from PLLQCLK"]
+    #[inline(always)]
+    pub fn pllqclk(self) -> &'a mut crate::W<REG> {
+        self.variant(Usbsel::Pllqclk)
     }
 }
 impl R {
@@ -81,7 +81,7 @@ impl R {
     pub fn i2s2sel(&self) -> I2s2selR {
         I2s2selR::new(((self.bits >> 2) & 3) as u8)
     }
-    #[doc = "Bits 12:13 - USBSEL"]
+    #[doc = "Bits 12:13 - Selects the clock source for the USB peripheral. Note that the reference manuals are incorrect; in reality, 0b01 sets HSE and 0b10 sets PLLQCLK. This SVD and code derived from it have been corrected."]
     #[inline(always)]
     pub fn usbsel(&self) -> UsbselR {
         UsbselR::new(((self.bits >> 12) & 3) as u8)
@@ -100,7 +100,7 @@ impl W {
     pub fn i2s2sel(&mut self) -> I2s2selW<Ccipr2Spec> {
         I2s2selW::new(self, 2)
     }
-    #[doc = "Bits 12:13 - USBSEL"]
+    #[doc = "Bits 12:13 - Selects the clock source for the USB peripheral. Note that the reference manuals are incorrect; in reality, 0b01 sets HSE and 0b10 sets PLLQCLK. This SVD and code derived from it have been corrected."]
     #[inline(always)]
     #[must_use]
     pub fn usbsel(&mut self) -> UsbselW<Ccipr2Spec> {
