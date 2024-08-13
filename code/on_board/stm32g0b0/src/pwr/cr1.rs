@@ -22,10 +22,66 @@ pub type FpdLpslpW<'a, REG> = crate::BitWriter<'a, REG>;
 pub type DbpR = crate::BitReader;
 #[doc = "Field `DBP` writer - Disable backup domain write protection"]
 pub type DbpW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Voltage scaling range selection\n\nValue on reset: 1"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum Vos {
+    #[doc = "1: Voltage range 1 (high performance)"]
+    Range1 = 1,
+    #[doc = "2: Voltage range 2 (low power)"]
+    Range2 = 2,
+}
+impl From<Vos> for u8 {
+    #[inline(always)]
+    fn from(variant: Vos) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for Vos {
+    type Ux = u8;
+}
+impl crate::IsEnum for Vos {}
 #[doc = "Field `VOS` reader - Voltage scaling range selection"]
-pub type VosR = crate::FieldReader;
+pub type VosR = crate::FieldReader<Vos>;
+impl VosR {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<Vos> {
+        match self.bits {
+            1 => Some(Vos::Range1),
+            2 => Some(Vos::Range2),
+            _ => None,
+        }
+    }
+    #[doc = "Voltage range 1 (high performance)"]
+    #[inline(always)]
+    pub fn is_range1(&self) -> bool {
+        *self == Vos::Range1
+    }
+    #[doc = "Voltage range 2 (low power)"]
+    #[inline(always)]
+    pub fn is_range2(&self) -> bool {
+        *self == Vos::Range2
+    }
+}
 #[doc = "Field `VOS` writer - Voltage scaling range selection"]
-pub type VosW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub type VosW<'a, REG> = crate::FieldWriter<'a, REG, 2, Vos>;
+impl<'a, REG> VosW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
+    #[doc = "Voltage range 1 (high performance)"]
+    #[inline(always)]
+    pub fn range1(self) -> &'a mut crate::W<REG> {
+        self.variant(Vos::Range1)
+    }
+    #[doc = "Voltage range 2 (low power)"]
+    #[inline(always)]
+    pub fn range2(self) -> &'a mut crate::W<REG> {
+        self.variant(Vos::Range2)
+    }
+}
 #[doc = "Field `LPR` reader - Low-power run"]
 pub type LprR = crate::BitReader;
 #[doc = "Field `LPR` writer - Low-power run"]

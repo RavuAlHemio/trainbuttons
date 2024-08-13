@@ -2,10 +2,79 @@
 pub type R = crate::R<AcrSpec>;
 #[doc = "Register `ACR` writer"]
 pub type W = crate::W<AcrSpec>;
+#[doc = "Latency\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum Latency {
+    #[doc = "0: Zero wait states, for clock speeds ≤ 24 MHz in Vcore range 1 and ≤ 8 MHz in Vcore range 2."]
+    Ws0 = 0,
+    #[doc = "1: One wait state, for clock speeds ≤ 48 MHz in Vcore range 1 and ≤ 16 MHz in Vcore range 2."]
+    Ws1 = 1,
+    #[doc = "2: Two wait states, for clock speeds ≤ 64 MHz in Vcore range 1."]
+    Ws2 = 2,
+}
+impl From<Latency> for u8 {
+    #[inline(always)]
+    fn from(variant: Latency) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for Latency {
+    type Ux = u8;
+}
+impl crate::IsEnum for Latency {}
 #[doc = "Field `LATENCY` reader - Latency"]
-pub type LatencyR = crate::FieldReader;
+pub type LatencyR = crate::FieldReader<Latency>;
+impl LatencyR {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<Latency> {
+        match self.bits {
+            0 => Some(Latency::Ws0),
+            1 => Some(Latency::Ws1),
+            2 => Some(Latency::Ws2),
+            _ => None,
+        }
+    }
+    #[doc = "Zero wait states, for clock speeds ≤ 24 MHz in Vcore range 1 and ≤ 8 MHz in Vcore range 2."]
+    #[inline(always)]
+    pub fn is_ws0(&self) -> bool {
+        *self == Latency::Ws0
+    }
+    #[doc = "One wait state, for clock speeds ≤ 48 MHz in Vcore range 1 and ≤ 16 MHz in Vcore range 2."]
+    #[inline(always)]
+    pub fn is_ws1(&self) -> bool {
+        *self == Latency::Ws1
+    }
+    #[doc = "Two wait states, for clock speeds ≤ 64 MHz in Vcore range 1."]
+    #[inline(always)]
+    pub fn is_ws2(&self) -> bool {
+        *self == Latency::Ws2
+    }
+}
 #[doc = "Field `LATENCY` writer - Latency"]
-pub type LatencyW<'a, REG> = crate::FieldWriter<'a, REG, 3>;
+pub type LatencyW<'a, REG> = crate::FieldWriter<'a, REG, 3, Latency>;
+impl<'a, REG> LatencyW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
+    #[doc = "Zero wait states, for clock speeds ≤ 24 MHz in Vcore range 1 and ≤ 8 MHz in Vcore range 2."]
+    #[inline(always)]
+    pub fn ws0(self) -> &'a mut crate::W<REG> {
+        self.variant(Latency::Ws0)
+    }
+    #[doc = "One wait state, for clock speeds ≤ 48 MHz in Vcore range 1 and ≤ 16 MHz in Vcore range 2."]
+    #[inline(always)]
+    pub fn ws1(self) -> &'a mut crate::W<REG> {
+        self.variant(Latency::Ws1)
+    }
+    #[doc = "Two wait states, for clock speeds ≤ 64 MHz in Vcore range 1."]
+    #[inline(always)]
+    pub fn ws2(self) -> &'a mut crate::W<REG> {
+        self.variant(Latency::Ws2)
+    }
+}
 #[doc = "Field `PRFTEN` reader - Prefetch enable"]
 pub type PrftenR = crate::BitReader;
 #[doc = "Field `PRFTEN` writer - Prefetch enable"]

@@ -167,14 +167,256 @@ impl SwsR {
         *self == Sws::Lse
     }
 }
+#[doc = "AHB prescaler\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum Hpre {
+    #[doc = "0: HCLK is SYSCLK divided by 1"]
+    Prescale1 = 0,
+    #[doc = "8: HCLK is SYSCLK divided by 2"]
+    Prescale2 = 8,
+    #[doc = "9: HCLK is SYSCLK divided by 4"]
+    Prescale4 = 9,
+    #[doc = "10: HCLK is SYSCLK divided by 8"]
+    Prescale8 = 10,
+    #[doc = "11: HCLK is SYSCLK divided by 16"]
+    Prescale16 = 11,
+    #[doc = "12: HCLK is SYSCLK divided by 64"]
+    Prescale64 = 12,
+    #[doc = "13: HCLK is SYSCLK divided by 128"]
+    Prescale128 = 13,
+    #[doc = "14: HCLK is SYSCLK divided by 256"]
+    Prescale256 = 14,
+    #[doc = "15: HCLK is SYSCLK divided by 512"]
+    Prescale512 = 15,
+}
+impl From<Hpre> for u8 {
+    #[inline(always)]
+    fn from(variant: Hpre) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for Hpre {
+    type Ux = u8;
+}
+impl crate::IsEnum for Hpre {}
 #[doc = "Field `HPRE` reader - AHB prescaler"]
-pub type HpreR = crate::FieldReader;
+pub type HpreR = crate::FieldReader<Hpre>;
+impl HpreR {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<Hpre> {
+        match self.bits {
+            0 => Some(Hpre::Prescale1),
+            8 => Some(Hpre::Prescale2),
+            9 => Some(Hpre::Prescale4),
+            10 => Some(Hpre::Prescale8),
+            11 => Some(Hpre::Prescale16),
+            12 => Some(Hpre::Prescale64),
+            13 => Some(Hpre::Prescale128),
+            14 => Some(Hpre::Prescale256),
+            15 => Some(Hpre::Prescale512),
+            _ => None,
+        }
+    }
+    #[doc = "HCLK is SYSCLK divided by 1"]
+    #[inline(always)]
+    pub fn is_prescale1(&self) -> bool {
+        *self == Hpre::Prescale1
+    }
+    #[doc = "HCLK is SYSCLK divided by 2"]
+    #[inline(always)]
+    pub fn is_prescale2(&self) -> bool {
+        *self == Hpre::Prescale2
+    }
+    #[doc = "HCLK is SYSCLK divided by 4"]
+    #[inline(always)]
+    pub fn is_prescale4(&self) -> bool {
+        *self == Hpre::Prescale4
+    }
+    #[doc = "HCLK is SYSCLK divided by 8"]
+    #[inline(always)]
+    pub fn is_prescale8(&self) -> bool {
+        *self == Hpre::Prescale8
+    }
+    #[doc = "HCLK is SYSCLK divided by 16"]
+    #[inline(always)]
+    pub fn is_prescale16(&self) -> bool {
+        *self == Hpre::Prescale16
+    }
+    #[doc = "HCLK is SYSCLK divided by 64"]
+    #[inline(always)]
+    pub fn is_prescale64(&self) -> bool {
+        *self == Hpre::Prescale64
+    }
+    #[doc = "HCLK is SYSCLK divided by 128"]
+    #[inline(always)]
+    pub fn is_prescale128(&self) -> bool {
+        *self == Hpre::Prescale128
+    }
+    #[doc = "HCLK is SYSCLK divided by 256"]
+    #[inline(always)]
+    pub fn is_prescale256(&self) -> bool {
+        *self == Hpre::Prescale256
+    }
+    #[doc = "HCLK is SYSCLK divided by 512"]
+    #[inline(always)]
+    pub fn is_prescale512(&self) -> bool {
+        *self == Hpre::Prescale512
+    }
+}
 #[doc = "Field `HPRE` writer - AHB prescaler"]
-pub type HpreW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+pub type HpreW<'a, REG> = crate::FieldWriter<'a, REG, 4, Hpre>;
+impl<'a, REG> HpreW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
+    #[doc = "HCLK is SYSCLK divided by 1"]
+    #[inline(always)]
+    pub fn prescale1(self) -> &'a mut crate::W<REG> {
+        self.variant(Hpre::Prescale1)
+    }
+    #[doc = "HCLK is SYSCLK divided by 2"]
+    #[inline(always)]
+    pub fn prescale2(self) -> &'a mut crate::W<REG> {
+        self.variant(Hpre::Prescale2)
+    }
+    #[doc = "HCLK is SYSCLK divided by 4"]
+    #[inline(always)]
+    pub fn prescale4(self) -> &'a mut crate::W<REG> {
+        self.variant(Hpre::Prescale4)
+    }
+    #[doc = "HCLK is SYSCLK divided by 8"]
+    #[inline(always)]
+    pub fn prescale8(self) -> &'a mut crate::W<REG> {
+        self.variant(Hpre::Prescale8)
+    }
+    #[doc = "HCLK is SYSCLK divided by 16"]
+    #[inline(always)]
+    pub fn prescale16(self) -> &'a mut crate::W<REG> {
+        self.variant(Hpre::Prescale16)
+    }
+    #[doc = "HCLK is SYSCLK divided by 64"]
+    #[inline(always)]
+    pub fn prescale64(self) -> &'a mut crate::W<REG> {
+        self.variant(Hpre::Prescale64)
+    }
+    #[doc = "HCLK is SYSCLK divided by 128"]
+    #[inline(always)]
+    pub fn prescale128(self) -> &'a mut crate::W<REG> {
+        self.variant(Hpre::Prescale128)
+    }
+    #[doc = "HCLK is SYSCLK divided by 256"]
+    #[inline(always)]
+    pub fn prescale256(self) -> &'a mut crate::W<REG> {
+        self.variant(Hpre::Prescale256)
+    }
+    #[doc = "HCLK is SYSCLK divided by 512"]
+    #[inline(always)]
+    pub fn prescale512(self) -> &'a mut crate::W<REG> {
+        self.variant(Hpre::Prescale512)
+    }
+}
+#[doc = "APB prescaler\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum Ppre {
+    #[doc = "0: HCLK is SYSCLK divided by 1"]
+    Prescale1 = 0,
+    #[doc = "4: HCLK is SYSCLK divided by 2"]
+    Prescale2 = 4,
+    #[doc = "5: HCLK is SYSCLK divided by 4"]
+    Prescale4 = 5,
+    #[doc = "6: HCLK is SYSCLK divided by 8"]
+    Prescale8 = 6,
+    #[doc = "7: HCLK is SYSCLK divided by 16"]
+    Prescale16 = 7,
+}
+impl From<Ppre> for u8 {
+    #[inline(always)]
+    fn from(variant: Ppre) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for Ppre {
+    type Ux = u8;
+}
+impl crate::IsEnum for Ppre {}
 #[doc = "Field `PPRE` reader - APB prescaler"]
-pub type PpreR = crate::FieldReader;
+pub type PpreR = crate::FieldReader<Ppre>;
+impl PpreR {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<Ppre> {
+        match self.bits {
+            0 => Some(Ppre::Prescale1),
+            4 => Some(Ppre::Prescale2),
+            5 => Some(Ppre::Prescale4),
+            6 => Some(Ppre::Prescale8),
+            7 => Some(Ppre::Prescale16),
+            _ => None,
+        }
+    }
+    #[doc = "HCLK is SYSCLK divided by 1"]
+    #[inline(always)]
+    pub fn is_prescale1(&self) -> bool {
+        *self == Ppre::Prescale1
+    }
+    #[doc = "HCLK is SYSCLK divided by 2"]
+    #[inline(always)]
+    pub fn is_prescale2(&self) -> bool {
+        *self == Ppre::Prescale2
+    }
+    #[doc = "HCLK is SYSCLK divided by 4"]
+    #[inline(always)]
+    pub fn is_prescale4(&self) -> bool {
+        *self == Ppre::Prescale4
+    }
+    #[doc = "HCLK is SYSCLK divided by 8"]
+    #[inline(always)]
+    pub fn is_prescale8(&self) -> bool {
+        *self == Ppre::Prescale8
+    }
+    #[doc = "HCLK is SYSCLK divided by 16"]
+    #[inline(always)]
+    pub fn is_prescale16(&self) -> bool {
+        *self == Ppre::Prescale16
+    }
+}
 #[doc = "Field `PPRE` writer - APB prescaler"]
-pub type PpreW<'a, REG> = crate::FieldWriter<'a, REG, 3>;
+pub type PpreW<'a, REG> = crate::FieldWriter<'a, REG, 3, Ppre>;
+impl<'a, REG> PpreW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
+    #[doc = "HCLK is SYSCLK divided by 1"]
+    #[inline(always)]
+    pub fn prescale1(self) -> &'a mut crate::W<REG> {
+        self.variant(Ppre::Prescale1)
+    }
+    #[doc = "HCLK is SYSCLK divided by 2"]
+    #[inline(always)]
+    pub fn prescale2(self) -> &'a mut crate::W<REG> {
+        self.variant(Ppre::Prescale2)
+    }
+    #[doc = "HCLK is SYSCLK divided by 4"]
+    #[inline(always)]
+    pub fn prescale4(self) -> &'a mut crate::W<REG> {
+        self.variant(Ppre::Prescale4)
+    }
+    #[doc = "HCLK is SYSCLK divided by 8"]
+    #[inline(always)]
+    pub fn prescale8(self) -> &'a mut crate::W<REG> {
+        self.variant(Ppre::Prescale8)
+    }
+    #[doc = "HCLK is SYSCLK divided by 16"]
+    #[inline(always)]
+    pub fn prescale16(self) -> &'a mut crate::W<REG> {
+        self.variant(Ppre::Prescale16)
+    }
+}
 #[doc = "Field `MCO2SEL` reader - MCO2SEL"]
 pub type Mco2selR = crate::FieldReader;
 #[doc = "Field `MCO2SEL` writer - MCO2SEL"]

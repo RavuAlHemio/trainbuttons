@@ -10143,6 +10143,23 @@ Writing 1 in each bit clears the corresponding overrun flag OFx in the DMAMUX_RG
               <description>Latency</description>
               <bitOffset>0</bitOffset>
               <bitWidth>3</bitWidth>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>WS0</name>
+                  <description>Zero wait states, for clock speeds &#8804; 24 MHz in Vcore range 1 and &#8804; 8 MHz in Vcore range 2.</description>
+                  <value>0x0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>WS1</name>
+                  <description>One wait state, for clock speeds &#8804; 48 MHz in Vcore range 1 and &#8804; 16 MHz in Vcore range 2.</description>
+                  <value>0x1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>WS2</name>
+                  <description>Two wait states, for clock speeds &#8804; 64 MHz in Vcore range 1.</description>
+                  <value>0x2</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>PRFTEN</name>
@@ -14806,6 +14823,18 @@ Window value can be updated only when WVU bit is reset.</description>
               selection</description>
               <bitOffset>9</bitOffset>
               <bitWidth>2</bitWidth>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>RANGE1</name>
+                  <description>Voltage range 1 (high performance)</description>
+                  <value>0x1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>RANGE2</name>
+                  <description>Voltage range 2 (low power)</description>
+                  <value>0x2</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>DBP</name>
@@ -16752,6 +16781,33 @@ Window value can be updated only when WVU bit is reset.</description>
               <bitOffset>12</bitOffset>
               <bitWidth>3</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>PRESCALE1</name>
+                  <description>HCLK is SYSCLK divided by 1</description>
+                  <value>0x0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PRESCALE2</name>
+                  <description>HCLK is SYSCLK divided by 2</description>
+                  <value>0x4</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PRESCALE4</name>
+                  <description>HCLK is SYSCLK divided by 4</description>
+                  <value>0x5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PRESCALE8</name>
+                  <description>HCLK is SYSCLK divided by 8</description>
+                  <value>0x6</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PRESCALE16</name>
+                  <description>HCLK is SYSCLK divided by 16</description>
+                  <value>0x7</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>HPRE</name>
@@ -16759,6 +16815,53 @@ Window value can be updated only when WVU bit is reset.</description>
               <bitOffset>8</bitOffset>
               <bitWidth>4</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>PRESCALE1</name>
+                  <description>HCLK is SYSCLK divided by 1</description>
+                  <value>0x0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PRESCALE2</name>
+                  <description>HCLK is SYSCLK divided by 2</description>
+                  <value>0x8</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PRESCALE4</name>
+                  <description>HCLK is SYSCLK divided by 4</description>
+                  <value>0x9</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PRESCALE8</name>
+                  <description>HCLK is SYSCLK divided by 8</description>
+                  <value>0xA</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PRESCALE16</name>
+                  <description>HCLK is SYSCLK divided by 16</description>
+                  <value>0xB</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PRESCALE64</name>
+                  <description>HCLK is SYSCLK divided by 64</description>
+                  <value>0xC</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PRESCALE128</name>
+                  <description>HCLK is SYSCLK divided by 128</description>
+                  <value>0xD</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PRESCALE256</name>
+                  <description>HCLK is SYSCLK divided by 256</description>
+                  <value>0xE</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PRESCALE512</name>
+                  <description>HCLK is SYSCLK divided by 512</description>
+                  <value>0xF</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>SWS</name>
