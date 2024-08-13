@@ -12,6 +12,9 @@ use cortex_m_rt::entry;
 use stm32g0b0::Peripherals;
 
 
+static mut BLINK_ME: bool = false;
+
+
 #[panic_handler]
 fn panic_handler(_panic_info: &PanicInfo) -> ! {
     loop {
@@ -21,7 +24,13 @@ fn panic_handler(_panic_info: &PanicInfo) -> ! {
 
 #[inline(never)]
 fn tell_gdb_to_return_from_this_function() {
+    // address 4 (reset interrupt) is never 1
+    const RESET_INTERRUPT_PTR: *const u32 = 0x0000_0004 as *const u32;
     loop {
+        let isvp = unsafe { core::ptr::read_volatile(RESET_INTERRUPT_PTR) };
+        if isvp == 1 {
+            return;
+        }
     }
 }
 
@@ -30,17 +39,17 @@ fn tell_gdb_to_return_from_this_function() {
 fn main() -> ! {
     let mut peripherals = unsafe { Peripherals::steal() };
 
-    tell_gdb_to_return_from_this_function();
-
     crate::clock::set_up(&mut peripherals);
 
-    // send clock to GPIOB
+    // send clock to GPIOA and GPIOB
     peripherals.rcc.iopenr().modify(|_, w| w
+        .gpioaen().set_bit()
         .gpioben().set_bit()
     );
 
-    // reset GPIOB
+    // reset GPIOA and GPIOB
     peripherals.rcc.ioprstr().modify(|_, w| w
+        .gpioarst().set_bit()
         .gpiobrst().set_bit()
     );
     // give it a bit to reset
@@ -48,6 +57,7 @@ fn main() -> ! {
         cortex_m::asm::nop();
     }
     peripherals.rcc.ioprstr().modify(|_, w| w
+        .gpioarst().clear_bit()
         .gpiobrst().clear_bit()
     );
     // give it a bit to reinitialize
@@ -65,6 +75,13 @@ fn main() -> ! {
 
     crate::usb::set_up(&mut peripherals);
 
+    /*
+    // disable USB IRQ so we can poke around
+    cortex_m::peripheral::NVIC::mask(stm32g0b0::Interrupt::USB);
+    tell_gdb_to_return_from_this_function();
+    */
+
     loop {
+        cortex_m::asm::wfe();
     }
 }
