@@ -103,21 +103,6 @@ fn set_chepnr_rx_dtog(chepnr: &stm32g0b0::generic::Reg<stm32g0b0::usb::chepnr::C
 
 #[interrupt]
 fn USB() {
-    let peripherals = unsafe { Peripherals::steal() };
-    loop {
-        peripherals.gpiob.bsrr().write(|w| w
-            .bs13().set_bit()
-        );
-        for _ in 0..4*1024*1024 {
-            cortex_m::asm::nop();
-        }
-        peripherals.gpiob.bsrr().write(|w| w
-            .br13().set_bit()
-        );
-        for _ in 0..4*1024*1024 {
-            cortex_m::asm::nop();
-        }
-    }
     crate::usb::distribute_usb_interrupt();
 }
 
