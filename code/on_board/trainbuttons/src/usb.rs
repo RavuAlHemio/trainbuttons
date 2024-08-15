@@ -186,6 +186,11 @@ fn post_reset_setup(peripherals: &mut Peripherals) {
 ///
 /// Assumes that clocks have already been set up using [`crate::clock::set_up`].
 pub(crate) fn set_up(peripherals: &mut Peripherals) {
+    // plug HSE into USB clock
+    peripherals.rcc.ccipr2().modify(|_, w| w
+        .usbsel().hse()
+    );
+
     // send power to the USB macrocell
     peripherals.pwr.cr2().modify(|_, w| w
         .usv().set_bit()

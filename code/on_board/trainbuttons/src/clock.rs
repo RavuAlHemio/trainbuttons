@@ -81,9 +81,4 @@ pub(crate) fn set_up(peripherals: &mut Peripherals) {
     );
     while !peripherals.rcc.cfgr().read().ppre().is_prescale1() {
     }
-
-    // also plug HSE into USB clock
-    peripherals.rcc.ccipr2().modify(|_, w| w
-        .usbsel().hse()
-    );
 }
