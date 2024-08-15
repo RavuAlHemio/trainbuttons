@@ -9,8 +9,10 @@ use stm32g0b0::{interrupt, Interrupt, Peripherals};
 use stm32g0b0::usb::chepnr::{Statrx, Stattx};
 
 
+// we only ever use two endpoints in this code
+const ENDPOINT_CONFIG_COUNT: usize = 2;
+
 // controller-specific values; these are for STM32G0x0:
-const ENDPOINT_CONFIG_COUNT: usize = 8;
 const USB_PACKET_RAM_BASE: *mut u8 = 0x4000_9800 as *mut u8; // USB_DRD_PMAADDR or USB_DRD_PMA_BUFF
 const USB_PACKET_RAM_SIZE: usize = 2*1024; // USB_DRD_PMA_SIZE
 
