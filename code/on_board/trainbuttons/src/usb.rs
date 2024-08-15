@@ -40,18 +40,18 @@ const EP0_TX_OFFSET: usize = PACKET_DATA_RAM_OFFSET + 0*EP_BUF_SIZE;
 const EP0_RX_OFFSET: usize = PACKET_DATA_RAM_OFFSET + 1*EP_BUF_SIZE;
 
 
-fn get_usb_ep0_tx_buf() -> &'static mut [u8] {
+fn get_usb_endpoint_tx_buffer(endpoint: usize) -> &'static mut [u8] {
     unsafe {
         core::slice::from_raw_parts_mut(
-            PACKET_DATA_RAM_POINTER.wrapping_add(EP0_TX_OFFSET),
+            PACKET_DATA_RAM_POINTER.wrapping_add(PACKET_DATA_RAM_OFFSET + 2*endpoint*EP_BUF_SIZE),
             EP_BUF_SIZE,
         )
     }
 }
-fn get_usb_ep0_rx_buf() -> &'static mut [u8] {
+fn get_usb_endpoint_rx_buffer(endpoint: usize) -> &'static mut [u8] {
     unsafe {
         core::slice::from_raw_parts_mut(
-            PACKET_DATA_RAM_POINTER.wrapping_add(EP0_RX_OFFSET),
+            PACKET_DATA_RAM_POINTER.wrapping_add(PACKET_DATA_RAM_OFFSET + (2*endpoint + 1)*EP_BUF_SIZE),
             EP_BUF_SIZE,
         )
     }
