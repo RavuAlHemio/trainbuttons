@@ -3,6 +3,7 @@
 
 
 mod clock;
+mod uart;
 mod usb;
 
 
@@ -73,6 +74,8 @@ fn main() -> ! {
         .ot13().push_pull()
     );
 
+    // set up UART and USB
+    crate::uart::set_up(&mut peripherals);
     crate::usb::set_up(&mut peripherals);
 
     /*
