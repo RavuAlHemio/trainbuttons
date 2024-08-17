@@ -2,18 +2,104 @@
 pub type R = crate::R<CciprSpec>;
 #[doc = "Register `CCIPR` writer"]
 pub type W = crate::W<CciprSpec>;
+#[doc = "USART1 clock source selection\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum Usart1sel {
+    #[doc = "0: Use the peripheral clock."]
+    Pclk = 0,
+    #[doc = "1: Use the system clock."]
+    Sysclk = 1,
+    #[doc = "2: Use the high-speed internal 16 MHz oscillator."]
+    Hsi16 = 2,
+    #[doc = "3: Use the low-speed external oscillator."]
+    Lse = 3,
+}
+impl From<Usart1sel> for u8 {
+    #[inline(always)]
+    fn from(variant: Usart1sel) -> Self {
+        variant as _
+    }
+}
+impl crate::FieldSpec for Usart1sel {
+    type Ux = u8;
+}
+impl crate::IsEnum for Usart1sel {}
 #[doc = "Field `USART1SEL` reader - USART1 clock source selection"]
-pub type Usart1selR = crate::FieldReader;
+pub type Usart1selR = crate::FieldReader<Usart1sel>;
+impl Usart1selR {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Usart1sel {
+        match self.bits {
+            0 => Usart1sel::Pclk,
+            1 => Usart1sel::Sysclk,
+            2 => Usart1sel::Hsi16,
+            3 => Usart1sel::Lse,
+            _ => unreachable!(),
+        }
+    }
+    #[doc = "Use the peripheral clock."]
+    #[inline(always)]
+    pub fn is_pclk(&self) -> bool {
+        *self == Usart1sel::Pclk
+    }
+    #[doc = "Use the system clock."]
+    #[inline(always)]
+    pub fn is_sysclk(&self) -> bool {
+        *self == Usart1sel::Sysclk
+    }
+    #[doc = "Use the high-speed internal 16 MHz oscillator."]
+    #[inline(always)]
+    pub fn is_hsi16(&self) -> bool {
+        *self == Usart1sel::Hsi16
+    }
+    #[doc = "Use the low-speed external oscillator."]
+    #[inline(always)]
+    pub fn is_lse(&self) -> bool {
+        *self == Usart1sel::Lse
+    }
+}
 #[doc = "Field `USART1SEL` writer - USART1 clock source selection"]
-pub type Usart1selW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub type Usart1selW<'a, REG> = crate::FieldWriter<'a, REG, 2, Usart1sel, crate::Safe>;
+impl<'a, REG> Usart1selW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
+    #[doc = "Use the peripheral clock."]
+    #[inline(always)]
+    pub fn pclk(self) -> &'a mut crate::W<REG> {
+        self.variant(Usart1sel::Pclk)
+    }
+    #[doc = "Use the system clock."]
+    #[inline(always)]
+    pub fn sysclk(self) -> &'a mut crate::W<REG> {
+        self.variant(Usart1sel::Sysclk)
+    }
+    #[doc = "Use the high-speed internal 16 MHz oscillator."]
+    #[inline(always)]
+    pub fn hsi16(self) -> &'a mut crate::W<REG> {
+        self.variant(Usart1sel::Hsi16)
+    }
+    #[doc = "Use the low-speed external oscillator."]
+    #[inline(always)]
+    pub fn lse(self) -> &'a mut crate::W<REG> {
+        self.variant(Usart1sel::Lse)
+    }
+}
+#[doc = "USART2 clock source selection"]
+pub use Usart1sel as Usart2sel;
+#[doc = "USART3 clock source selection"]
+pub use Usart1sel as Usart3sel;
 #[doc = "Field `USART2SEL` reader - USART2 clock source selection"]
-pub type Usart2selR = crate::FieldReader;
-#[doc = "Field `USART2SEL` writer - USART2 clock source selection"]
-pub type Usart2selW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use Usart1selR as Usart2selR;
 #[doc = "Field `USART3SEL` reader - USART3 clock source selection"]
-pub type Usart3selR = crate::FieldReader;
+pub use Usart1selR as Usart3selR;
+#[doc = "Field `USART2SEL` writer - USART2 clock source selection"]
+pub use Usart1selW as Usart2selW;
 #[doc = "Field `USART3SEL` writer - USART3 clock source selection"]
-pub type Usart3selW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+pub use Usart1selW as Usart3selW;
 #[doc = "Field `I2C1SEL` reader - I2C1 clock source selection"]
 pub type I2c1selR = crate::FieldReader;
 #[doc = "Field `I2C1SEL` writer - I2C1 clock source selection"]

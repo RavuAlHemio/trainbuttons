@@ -5,7 +5,7 @@ pub type W = crate::W<BrrSpec>;
 #[doc = "Field `BRR` reader - USART baud rate"]
 pub type BrrR = crate::FieldReader<u16>;
 #[doc = "Field `BRR` writer - USART baud rate"]
-pub type BrrW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+pub type BrrW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16, crate::Safe>;
 impl R {
     #[doc = "Bits 0:15 - USART baud rate"]
     #[inline(always)]

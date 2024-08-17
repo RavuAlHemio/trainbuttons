@@ -18040,15 +18040,37 @@ Window value can be updated only when WVU bit is reset.</description>
               selection</description>
               <bitOffset>0</bitOffset>
               <bitWidth>2</bitWidth>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>PCLK</name>
+                  <description>Use the peripheral clock.</description>
+                  <value>0x0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>SYSCLK</name>
+                  <description>Use the system clock.</description>
+                  <value>0x1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>HSI16</name>
+                  <description>Use the high-speed internal 16 MHz oscillator.</description>
+                  <value>0x2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>LSE</name>
+                  <description>Use the low-speed external oscillator.</description>
+                  <value>0x3</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
-            <field>
+            <field derivedFrom="RCC.CCIPR.USART1SEL">
               <name>USART2SEL</name>
               <description>USART2 clock source
               selection</description>
               <bitOffset>2</bitOffset>
               <bitWidth>2</bitWidth>
             </field>
-			<field>
+            <field derivedFrom="RCC.CCIPR.USART1SEL">
               <name>USART3SEL</name>
               <description>USART3 clock source
               selection</description>
@@ -35781,22 +35803,22 @@ This bitfield can only be written when the USART is disabled (UE=0).</descriptio
             <access>read-write</access>
             <enumeratedValues>
               <enumeratedValue>
-                <name>B_0x0</name>
+                <name>STOP_1</name>
                 <description>1 stop bit</description>
                 <value>0x0</value>
               </enumeratedValue>
               <enumeratedValue>
-                <name>B_0x1</name>
+                <name>STOP_HALF</name>
                 <description>0.5 stop bit.</description>
                 <value>0x1</value>
               </enumeratedValue>
               <enumeratedValue>
-                <name>B_0x2</name>
+                <name>STOP_2</name>
                 <description>2 stop bits</description>
                 <value>0x2</value>
               </enumeratedValue>
               <enumeratedValue>
-                <name>B_0x3</name>
+                <name>STOP_1_AND_HALF</name>
                 <description>1.5 stop bits</description>
                 <value>0x3</value>
               </enumeratedValue>
@@ -36634,6 +36656,12 @@ Remaining combinations: Reserved</description>
             <bitOffset>0</bitOffset>
             <bitWidth>16</bitWidth>
             <access>read-write</access>
+            <writeConstraint>
+              <range>
+                <minimum>0x0</minimum>
+                <maximum>0xFFFF</maximum>
+              </range>
+            </writeConstraint>
           </field>
           </fields>
         </register>
@@ -38002,6 +38030,12 @@ Note: If the USART does not support the wakeup from Stop feature, this bit is re
               <description>Transmit data value</description>
               <bitOffset>0</bitOffset>
               <bitWidth>9</bitWidth>
+              <writeConstraint>
+                <range>
+                  <minimum>0x0</minimum>
+                  <maximum>0x1FF</maximum>
+                </range>
+              </writeConstraint>
             </field>
           </fields>
         </register>
