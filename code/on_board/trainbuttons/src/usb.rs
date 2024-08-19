@@ -237,12 +237,21 @@ fn post_reset_setup(peripherals: &mut Peripherals) {
         .addr_tx().set(EP0_TX_OFFSET.try_into().unwrap())
         .count_tx().set(0)
     );
-    peripherals.usb_ram1.single_buffered(0).chep_rxtxbd_0().modify(|_, w| w
-        .addr_rx().set(EP0_RX_OFFSET.try_into().unwrap())
-        .count_rx().set(EP_BUF_SIZE.try_into().unwrap())
-        .num_block().set((EP_BUF_SIZE/32 - 1).try_into().unwrap())
-        .blsize().set_bit()
-    );
+    if EP_BUF_SIZE > 62 {
+        peripherals.usb_ram1.single_buffered(0).chep_rxtxbd_0().modify(|_, w| w
+            .addr_rx().set(EP0_RX_OFFSET.try_into().unwrap())
+            .count_rx().set(EP_BUF_SIZE.try_into().unwrap())
+            .num_block().set((EP_BUF_SIZE/32 - 1).try_into().unwrap())
+            .blsize().set_bit()
+        );
+    } else {
+        peripherals.usb_ram1.single_buffered(0).chep_rxtxbd_0().modify(|_, w| w
+            .addr_rx().set(EP0_RX_OFFSET.try_into().unwrap())
+            .count_rx().set(EP_BUF_SIZE.try_into().unwrap())
+            .num_block().set((EP_BUF_SIZE/2).try_into().unwrap())
+            .blsize().clear_bit()
+        );
+    }
 
     // set up Ep0 buffer
     peripherals.usb.chepnr(0).modify(|_, w| w
