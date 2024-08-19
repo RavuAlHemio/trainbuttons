@@ -109,9 +109,10 @@ fn USB() {
 
 pub fn distribute_usb_interrupt() {
     let mut peripherals = unsafe { Peripherals::steal() };
-    if peripherals.syscfg.itline8().read().usb().bit_is_set() {
-        handle_usb_interrupt(&mut peripherals);
-    }
+    // theoretically, SYSCFG.ITLINE8.USB should be set
+    // practically, it is not
+    // however, line 8 on STM32G0x0 is only triggered by USB
+    handle_usb_interrupt(&mut peripherals);
 }
 
 fn handle_usb_interrupt(peripherals: &mut Peripherals) {
