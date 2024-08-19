@@ -101,6 +101,28 @@ fn set_chepnr_rx_dtog(chepnr: &stm32g0b0::generic::Reg<stm32g0b0::usb::chepnr::C
     }
 }
 
+/// Clears only some USB interrupt bits.
+///
+/// Use the `writer` to clear those bits that should be set to zero.
+fn clear_only_some_usb_interrupts<F>(peripherals: &mut Peripherals, writer: F)
+    where
+        for<'w> F: FnOnce(&'w mut stm32g0b0::generic::W<stm32g0b0::usb::istr::IstrSpec>) -> &'w mut stm32g0b0::generic::W<stm32g0b0::usb::istr::IstrSpec>, {
+    peripherals.usb.istr().write(|w| {
+        writer(
+            w
+                .l1req().set_bit()
+                .esof().set_bit()
+                .sof().set_bit()
+                .rst_dcon().set_bit()
+                .susp().set_bit()
+                .wkup().set_bit()
+                .err().set_bit()
+                .pmaovr().set_bit()
+                .thr512().set_bit()
+        )
+    })
+}
+
 #[interrupt]
 fn USB() {
     crate::usb::distribute_usb_interrupt();
@@ -116,27 +138,98 @@ pub fn distribute_usb_interrupt() {
 }
 
 fn handle_usb_interrupt(peripherals: &mut Peripherals) {
-    if peripherals.usb.istr().read().rst_dcon().bit_is_set() {
-        // USB reset received
-        post_reset_setup(peripherals);
-    }
     if peripherals.usb.istr().read().ctr().bit_is_set() {
         let endpoint = peripherals.usb.istr().read().idn().bits();
         let endpoint_register = peripherals.usb.chepnr(endpoint.into());
+        let endpoint_register_state = endpoint_register.read();
+        let received = peripherals.usb.istr().read().dir().bit_is_set();
+
+        // clear the Rx/Tx flags
+        endpoint_register.modify(|_, w| w
+            .vtrx().clear_bit()
+            .vttx().clear_bit()
+        );
+
+        let rx_set = endpoint_register_state.vtrx().bit_is_set();
+        let tx_set = endpoint_register_state.vttx().bit_is_set();
+        if received && rx_set {
+            crate::uart::write_bytes(peripherals, b"USB incoming\r\n");
+            let read_bytes: usize = peripherals.usb_ram1.single_buffered(0).chep_rxtxbd_0().read().count_rx().bits().into();
+
+            // read it out
+            let mut buf = [0u8; EP_BUF_SIZE];
+            buf.copy_from_slice(&get_usb_endpoint_rx_buffer(endpoint.into()));
+            crate::uart::write_bytes(peripherals, b"received via USB: >");
+            crate::uart::write_hex_dump(peripherals, &buf[..read_bytes]);
+            crate::uart::write_bytes(peripherals, b"<\r\n");
+        }
+        if tx_set {
+            // TODO
+            crate::uart::write_bytes(peripherals, b"USB outgoing\r\n");
+        }
+
+        // CTR flag does not get cleared
+    }
+    if peripherals.usb.istr().read().rst_dcon().bit_is_set() {
+        // USB reset received
+        crate::uart::write_bytes(peripherals, b"USB reset\r\n");
+        post_reset_setup(peripherals);
+    }
+    if peripherals.usb.istr().read().pmaovr().bit_is_set() {
+        // packet memory area overrun
+        crate::uart::write_bytes(peripherals, b"USB packet memory area overrun\r\n");
+        // oh well, clear the flag
+        clear_only_some_usb_interrupts(peripherals, |w| w.pmaovr().clear_bit());
+    }
+    if peripherals.usb.istr().read().err().bit_is_set() {
+        // error received
+        // oh well, clear the flag
+        clear_only_some_usb_interrupts(peripherals, |w| w.err().clear_bit());
+    }
+    if peripherals.usb.istr().read().wkup().bit_is_set() {
+        // wakeup received
+
+        // resume USB peripheral
+        peripherals.usb.cntr().modify(|_, w| w
+            .suspen().clear_bit()
+        );
+
+        // clear interrupt
+        // (can only happen after peripheral has been resumed)
+        clear_only_some_usb_interrupts(peripherals, |w| w.wkup().clear_bit());
+    }
+    if peripherals.usb.istr().read().susp().bit_is_set() {
+        // suspend received
+
+        // suspend USB peripheral
+        peripherals.usb.cntr().modify(|_, w| w
+            .suspen().set_bit()
+        );
+
+        // clear interrupt
+        // (can only happen after peripheral has been suspended)
+        clear_only_some_usb_interrupts(peripherals, |w| w.susp().clear_bit());
+    }
+    if peripherals.usb.istr().read().sof().bit_is_set() {
+        // Start of Frame received
+        // clear the flag
+        clear_only_some_usb_interrupts(peripherals, |w| w.sof().clear_bit());
+    }
+    if peripherals.usb.istr().read().esof().bit_is_set() {
+        // expected Start of Frame, didn't get it
+        // oh well, clear the flag
+        clear_only_some_usb_interrupts(peripherals, |w| w.esof().clear_bit());
     }
 }
 
 
 /// Setup operations to be performed before the first activation as well as after every reset.
 fn post_reset_setup(peripherals: &mut Peripherals) {
-    // clear most other interrupts except the following
-    peripherals.usb.istr().write(|w| w
-        .pmaovr().set_bit()
-        .err().set_bit()
-        .wkup().set_bit()
-        .susp().set_bit()
-        .sof().set_bit()
-        .esof().set_bit()
+    // clear a couple of interrupts we are not interested in
+    clear_only_some_usb_interrupts(peripherals, |w| w
+        .l1req().clear_bit()
+        .rst_dcon().clear_bit()
+        .thr512().clear_bit()
     );
 
     // define space for Ep0 buffers
