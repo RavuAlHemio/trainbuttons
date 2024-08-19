@@ -12,6 +12,21 @@ pub(crate) fn set_up(peripherals: &mut Peripherals) {
         .usart1en().set_bit()
     );
 
+    // also send clock to GPIOA
+    peripherals.rcc.iopenr().modify(|_, w| w
+        .gpioaen().set_bit()
+    );
+
+    // configure pins: PA9 = Tx, PA10 = Rx (alternative function 1)
+    peripherals.gpioa.moder().modify(|_, w| w
+        .moder9().alternate_function()
+        .moder10().alternate_function()
+    );
+    peripherals.gpioa.afrh().modify(|_, w| w
+        .afsel9().af1()
+        .afsel10().af1()
+    );
+
     // disable USART1 to reconfigure it
     peripherals.usart1.cr1_fifo_disabled().modify(|_, w| w
         .ue().clear_bit()
