@@ -124,3 +124,40 @@ pub(crate) fn write_bytes(peripherals: &mut Peripherals, bytes: &[u8]) {
     while peripherals.usart1.isr_fifo_disabled().read().tc().bit_is_clear() {
     }
 }
+
+fn nibble_to_hex(nibble: u8) -> u8 {
+    match nibble {
+        0..=9 => b'0' + nibble,
+        10..=15 => b'A' - 10 + nibble,
+        _ => 0,
+    }
+}
+
+fn byte_to_hex(byte: u8) -> [u8; 2] {
+    [
+        nibble_to_hex(byte >> 4),
+        nibble_to_hex(byte & 0xF),
+    ]
+}
+
+pub(crate) fn write_hex_dump(peripherals: &mut Peripherals, bytes: &[u8]) {
+    for &b in bytes {
+        for hex in byte_to_hex(b) {
+            // wait for transmission register to empty
+            while peripherals.usart1.isr_fifo_disabled().read().txe().bit_is_clear() {
+            }
+
+            peripherals.usart1.tdr().modify(|_, w| w
+                .tdr().set(hex.into())
+            );
+        }
+    }
+
+    // wait for transmission register to empty
+    while peripherals.usart1.isr_fifo_disabled().read().txe().bit_is_clear() {
+    }
+
+    // wait until transmission is complete
+    while peripherals.usart1.isr_fifo_disabled().read().tc().bit_is_clear() {
+    }
+}
