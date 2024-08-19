@@ -57,6 +57,57 @@ fn get_usb_endpoint_rx_buffer(endpoint: usize) -> &'static mut [u8] {
     }
 }
 
+struct ChepnrModifier<'a> {
+    chepnr: &'a stm32g0b0::generic::Reg<stm32g0b0::usb::chepnr::ChepnrSpec>,
+    initial_value: u32,
+    set_value: u32,
+}
+impl<'a> ChepnrModifier<'a> {
+    fn new(chepnr: &'a stm32g0b0::generic::Reg<stm32g0b0::usb::chepnr::ChepnrSpec>) -> Self {
+        let initial_value = chepnr.read().bits();
+        let set_value =
+            // transfer r/w fields 1:1
+            (initial_value & 0b0000_0001_0111_1111_0000_0111_0000_1111)
+
+            // set write-zero-to-reset fields to 1 by default
+            | 0b0000_0110_1000_0000_1000_0000_1000_0000
+
+            // keep toggle fields at zero by default
+        ;
+        Self {
+            chepnr,
+            initial_value,
+            set_value,
+        }
+    }
+
+    fn endpoint_address(&mut self, new_ea: u8) -> &mut Self {
+        // TODO: write macros for bit extraction and emplacement (position and bitcount)
+        self.set_value = (self.set_value & (!0b1111)) | (new_ea as u32 & 0b1111);
+        self
+    }
+
+    fn stattx_variant(&mut self, value: Stattx) -> &mut Self {
+        let initial_bits = (self.initial_value & 0b11_0000) >> 4;
+        let toggle_bits = initial_bits ^ ((value as u8) as u32);
+        self.set_value = (self.set_value & (!0b11_0000)) | (toggle_bits << 4);
+        self
+    }
+    fn stattx_disabled(&mut self) -> &mut Self { self.stattx_variant(Stattx::Disabled) }
+    fn stattx_stall(&mut self) -> &mut Self { self.stattx_variant(Stattx::Stall) }
+    fn stattx_nak(&mut self) -> &mut Self { self.stattx_variant(Stattx::Nak) }
+    fn stattx_valid(&mut self) -> &mut Self { self.stattx_variant(Stattx::Valid) }
+
+    fn dtogtx_value(&mut self, value: bool) -> &mut Self {
+        todo!();
+    }
+
+    fn perform(self) {
+        self.chepnr.write(|w| unsafe { w.bits(self.set_value) });
+    }
+}
+
+
 fn set_chepnr_stattx(chepnr: &stm32g0b0::generic::Reg<stm32g0b0::usb::chepnr::ChepnrSpec>, value: Stattx) {
     let current_value = chepnr.read().stattx().bits();
     let new_value: u8 = value.into();
