@@ -8,7 +8,6 @@ pub(crate) mod chepnr;
 use cortex_m::asm::nop;
 use cortex_m::peripheral::NVIC;
 use stm32g0b0::{interrupt, Interrupt, Peripherals};
-use stm32g0b0::usb::chepnr::{Statrx, Stattx};
 
 use crate::usb::chepnr::modify_chepnr;
 
