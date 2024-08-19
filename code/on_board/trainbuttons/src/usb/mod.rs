@@ -2,11 +2,15 @@
 //!
 //! Why are USB peripherals on microcontrollers always so hard to work with?
 
+pub(crate) mod chepnr;
+
 
 use cortex_m::asm::nop;
 use cortex_m::peripheral::NVIC;
 use stm32g0b0::{interrupt, Interrupt, Peripherals};
 use stm32g0b0::usb::chepnr::{Statrx, Stattx};
+
+use crate::usb::chepnr::modify_chepnr;
 
 
 // we only ever use two endpoints in this code
@@ -57,101 +61,6 @@ fn get_usb_endpoint_rx_buffer(endpoint: usize) -> &'static mut [u8] {
     }
 }
 
-struct ChepnrModifier<'a> {
-    chepnr: &'a stm32g0b0::generic::Reg<stm32g0b0::usb::chepnr::ChepnrSpec>,
-    initial_value: u32,
-    set_value: u32,
-}
-impl<'a> ChepnrModifier<'a> {
-    fn new(chepnr: &'a stm32g0b0::generic::Reg<stm32g0b0::usb::chepnr::ChepnrSpec>) -> Self {
-        let initial_value = chepnr.read().bits();
-        let set_value =
-            // transfer r/w fields 1:1
-            (initial_value & 0b0000_0001_0111_1111_0000_0111_0000_1111)
-
-            // set write-zero-to-reset fields to 1 by default
-            | 0b0000_0110_1000_0000_1000_0000_1000_0000
-
-            // keep toggle fields at zero by default
-        ;
-        Self {
-            chepnr,
-            initial_value,
-            set_value,
-        }
-    }
-
-    fn endpoint_address(&mut self, new_ea: u8) -> &mut Self {
-        // TODO: write macros for bit extraction and emplacement (position and bitcount)
-        self.set_value = (self.set_value & (!0b1111)) | (new_ea as u32 & 0b1111);
-        self
-    }
-
-    fn stattx_variant(&mut self, value: Stattx) -> &mut Self {
-        let initial_bits = (self.initial_value & 0b11_0000) >> 4;
-        let toggle_bits = initial_bits ^ ((value as u8) as u32);
-        self.set_value = (self.set_value & (!0b11_0000)) | (toggle_bits << 4);
-        self
-    }
-    fn stattx_disabled(&mut self) -> &mut Self { self.stattx_variant(Stattx::Disabled) }
-    fn stattx_stall(&mut self) -> &mut Self { self.stattx_variant(Stattx::Stall) }
-    fn stattx_nak(&mut self) -> &mut Self { self.stattx_variant(Stattx::Nak) }
-    fn stattx_valid(&mut self) -> &mut Self { self.stattx_variant(Stattx::Valid) }
-
-    fn dtogtx_value(&mut self, value: bool) -> &mut Self {
-        todo!();
-    }
-
-    fn perform(self) {
-        self.chepnr.write(|w| unsafe { w.bits(self.set_value) });
-    }
-}
-
-
-fn set_chepnr_stattx(chepnr: &stm32g0b0::generic::Reg<stm32g0b0::usb::chepnr::ChepnrSpec>, value: Stattx) {
-    let current_value = chepnr.read().stattx().bits();
-    let new_value: u8 = value.into();
-    let set_value = current_value ^ new_value;
-    chepnr.modify(|_, w| w
-        .stattx().set(set_value)
-        .vtrx().set_bit() // leave unchanged
-        .vttx().set_bit() // leave unchanged
-    );
-}
-
-fn set_chepnr_statrx(chepnr: &stm32g0b0::generic::Reg<stm32g0b0::usb::chepnr::ChepnrSpec>, value: Statrx) {
-    let current_value = chepnr.read().statrx().bits();
-    let new_value: u8 = value.into();
-    let set_value = current_value ^ new_value;
-    chepnr.modify(|_, w| w
-        .statrx().set(set_value)
-        .vtrx().set_bit() // leave unchanged
-        .vttx().set_bit() // leave unchanged
-    );
-}
-
-fn set_chepnr_tx_dtog(chepnr: &stm32g0b0::generic::Reg<stm32g0b0::usb::chepnr::ChepnrSpec>, value: bool) {
-    let current_value = chepnr.read().dtogtx().bit_is_set();
-    if current_value != value {
-        chepnr.modify(|_, w| w
-            .dtogtx().set_bit() // toggle
-            .vtrx().set_bit() // leave unchanged
-            .vttx().set_bit() // leave unchanged
-        );
-    }
-}
-
-fn set_chepnr_rx_dtog(chepnr: &stm32g0b0::generic::Reg<stm32g0b0::usb::chepnr::ChepnrSpec>, value: bool) {
-    let current_value = chepnr.read().dtogrx().bit_is_set();
-    if current_value != value {
-        chepnr.modify(|_, w| w
-            .dtogrx().set_bit() // toggle
-            .vtrx().set_bit() // leave unchanged
-            .vttx().set_bit() // leave unchanged
-        );
-    }
-}
-
 /// Clears only some USB interrupt bits.
 ///
 /// Use the `writer` to clear those bits that should be set to zero.
@@ -196,9 +105,9 @@ fn handle_usb_interrupt(peripherals: &mut Peripherals) {
         let received = peripherals.usb.istr().read().dir().bit_is_set();
 
         // clear the Rx/Tx flags
-        endpoint_register.modify(|_, w| w
-            .vtrx().clear_bit()
-            .vttx().clear_bit()
+        modify_chepnr(endpoint_register, |w| w
+            .reset_vtrx()
+            .reset_vttx()
         );
 
         let rx_set = endpoint_register_state.vtrx().bit_is_set();
@@ -305,15 +214,14 @@ fn post_reset_setup(peripherals: &mut Peripherals) {
     }
 
     // set up Ep0 buffer
-    peripherals.usb.chepnr(0).modify(|_, w| w
-        .ea().set(0x0) // endpoint 0
-        .utype().control() // it's a control endpoint
-        .vtrx().set_bit() // leave unchanged
-        .vttx().set_bit() // leave unchanged
+    modify_chepnr(peripherals.usb.chepnr(0), |w| w
+        .endpoint_address(0x0) // endpoint 0
+        .utype_control() // it's a control endpoint
+        .statrx_valid() // ready to receive
+        .stattx_nak() // nothing to send
+        .dtogrx(false) // set DTOGRX (reception data toggle) to 0
+        .dtogtx(false) // set DTOGTX (transmission data toggle) to 0
     );
-    set_chepnr_statrx(peripherals.usb.chepnr(0), Statrx::Valid);
-    set_chepnr_stattx(peripherals.usb.chepnr(0), Stattx::Nak);
-    set_chepnr_rx_dtog(peripherals.usb.chepnr(0), false);
 
     // enable USB function (no address assigned yet)
     peripherals.usb.daddr().modify(|_, w| w
