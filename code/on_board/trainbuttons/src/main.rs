@@ -78,6 +78,9 @@ fn main() -> ! {
     crate::uart::set_up(&mut peripherals);
     crate::usb::set_up(&mut peripherals);
 
+    // send initial data via UART
+    crate::uart::write_bytes(&mut peripherals, b"\r\nHi, world!\r\n");
+
     /*
     // disable USB IRQ so we can poke around
     cortex_m::peripheral::NVIC::mask(stm32g0b0::Interrupt::USB);
