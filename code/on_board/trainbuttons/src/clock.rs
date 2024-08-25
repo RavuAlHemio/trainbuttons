@@ -28,7 +28,7 @@ use stm32g0b0::Peripherals;
 /// Sets up clocks according to the requirements of the project.
 ///
 /// See the module documentation for a diagram.
-pub(crate) fn set_up(peripherals: &mut Peripherals) {
+pub(crate) fn set_up(peripherals: &Peripherals) {
     // startup state: HSI16 (16 MHz) --> HSIDIV = /1 --> HSISYS (16 MHz) --> SYSCLK (16 MHz)
 
     // slow down flash because we're going above 24 MHz

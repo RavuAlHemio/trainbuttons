@@ -3,6 +3,8 @@
 //! Why are USB peripherals on microcontrollers always so hard to work with?
 
 pub(crate) mod chepnr;
+mod data;
+mod packets;
 
 
 use cortex_m::asm::nop;
@@ -10,12 +12,18 @@ use cortex_m::peripheral::NVIC;
 use stm32g0b0::{interrupt, Interrupt, Peripherals};
 
 use crate::usb::chepnr::modify_chepnr;
+use crate::usb::data::{
+    CONFIG_1_DESCRIPTOR, DEVICE_DESCRIPTOR, HID_REPORT, MAX_STRING_DESCRIPTOR_BUF,
+    STRING_DESCRIPTOR_0, STRINGS,
+};
+use crate::usb::packets::SetupSlicer;
 
 
 // we only ever use two endpoints in this code
-const ENDPOINT_CONFIG_COUNT: usize = 2;
+const USED_ENDPOINT_COUNT: usize = 2;
 
 // controller-specific values; these are for STM32G0x0:
+const ENDPOINT_CONFIG_COUNT: usize = 8;
 const USB_PACKET_RAM_BASE: *mut u8 = 0x4000_9800 as *mut u8; // USB_DRD_PMAADDR or USB_DRD_PMA_BUFF
 const USB_PACKET_RAM_SIZE: usize = 2*1024; // USB_DRD_PMA_SIZE
 
@@ -35,35 +43,83 @@ const USB_PACKET_RAM_SIZE: usize = 2*1024; // USB_DRD_PMA_SIZE
 // buffers are apportioned equally among endpoints
 
 const PACKET_DATA_RAM_OFFSET: usize = 2 * 4 * ENDPOINT_CONFIG_COUNT; // (rx+tx) * 4 bytes/register * endpoints
-const PACKET_DATA_RAM_POINTER: *mut u8 = USB_PACKET_RAM_BASE.wrapping_add(PACKET_DATA_RAM_OFFSET);
 const PACKET_DATA_RAM_SIZE: usize = USB_PACKET_RAM_SIZE - PACKET_DATA_RAM_OFFSET;
 
-const EP_BUF_SIZE: usize = PACKET_DATA_RAM_SIZE / (ENDPOINT_CONFIG_COUNT * 2);
-const EP0_TX_OFFSET: usize = PACKET_DATA_RAM_OFFSET + 0*EP_BUF_SIZE;
-const EP0_RX_OFFSET: usize = PACKET_DATA_RAM_OFFSET + 1*EP_BUF_SIZE;
+const EP_BUF_SIZE: usize = PACKET_DATA_RAM_SIZE / (USED_ENDPOINT_COUNT * 2);
 
 
-fn get_usb_endpoint_tx_buffer(endpoint: usize) -> &'static mut [u8] {
-    unsafe {
+static mut SETTING_ADDRESS: Option<u8> = None;
+static mut EXPECTING_STATUS: bool = false;
+
+
+const fn get_usb_endpoint_tx_offset(endpoint: usize) -> usize {
+    PACKET_DATA_RAM_OFFSET + 2*endpoint*EP_BUF_SIZE
+}
+const fn get_usb_endpoint_rx_offset(endpoint: usize) -> usize {
+    PACKET_DATA_RAM_OFFSET + (2*endpoint + 1)*EP_BUF_SIZE
+}
+
+
+fn copy_to_endpoint_tx_buffer(endpoint: usize, data: &[u8]) {
+    // data must be transferred in units of 4 bytes
+    // otherwise we get spurious bit errors
+    let ep_buffer = unsafe {
         core::slice::from_raw_parts_mut(
-            PACKET_DATA_RAM_POINTER.wrapping_add(PACKET_DATA_RAM_OFFSET + 2*endpoint*EP_BUF_SIZE),
-            EP_BUF_SIZE,
+            USB_PACKET_RAM_BASE.wrapping_add(get_usb_endpoint_tx_offset(endpoint)) as *mut u32,
+            EP_BUF_SIZE / 4
         )
+    };
+    let mut iterations = data.len() / 4;
+    if data.len() % 4 != 0 {
+        iterations += 1;
+    }
+
+    for i in 0..iterations {
+        let mut value = (data[4*i + 0] as u32) <<  0;
+        if data.len() > 4*i + 1 {
+            value |= (data[4*i + 1] as u32) <<  8;
+        }
+        if data.len() > 4*i + 2 {
+            value |= (data[4*i + 2] as u32) << 16;
+        }
+        if data.len() > 4*i + 3 {
+            value |= (data[4*i + 3] as u32) << 24;
+        }
+        ep_buffer[i] = value;
     }
 }
-fn get_usb_endpoint_rx_buffer(endpoint: usize) -> &'static mut [u8] {
-    unsafe {
-        core::slice::from_raw_parts_mut(
-            PACKET_DATA_RAM_POINTER.wrapping_add(PACKET_DATA_RAM_OFFSET + (2*endpoint + 1)*EP_BUF_SIZE),
-            EP_BUF_SIZE,
+
+fn copy_from_endpoint_rx_buffer(endpoint: usize, data: &mut [u8]) {
+    // data must be transferred in units of 4 bytes
+    // otherwise we get spurious bit errors
+    let ep_buffer = unsafe {
+        core::slice::from_raw_parts(
+            USB_PACKET_RAM_BASE.wrapping_add(get_usb_endpoint_rx_offset(endpoint)) as *mut u32,
+            EP_BUF_SIZE / 4
         )
+    };
+    let mut i = 0;
+    for &chunk in ep_buffer {
+        if i >= data.len() { break; }
+        data[i] = ((chunk >>  0) & 0xFF) as u8;
+        i += 1;
+        if i >= data.len() { break; }
+        data[i] = ((chunk >>  8) & 0xFF) as u8;
+        i += 1;
+        if i >= data.len() { break; }
+        data[i] = ((chunk >> 16) & 0xFF) as u8;
+        i += 1;
+        if i >= data.len() { break; }
+        data[i] = ((chunk >> 24) & 0xFF) as u8;
+        i += 1;
     }
 }
+
 
 /// Clears only some USB interrupt bits.
 ///
 /// Use the `writer` to clear those bits that should be set to zero.
-fn clear_only_some_usb_interrupts<F>(peripherals: &mut Peripherals, writer: F)
+fn clear_only_some_usb_interrupts<F>(peripherals: &Peripherals, writer: F)
     where
         for<'w> F: FnOnce(&'w mut stm32g0b0::generic::W<stm32g0b0::usb::istr::IstrSpec>) -> &'w mut stm32g0b0::generic::W<stm32g0b0::usb::istr::IstrSpec>, {
     peripherals.usb.istr().write(|w| {
@@ -96,35 +152,248 @@ pub fn distribute_usb_interrupt() {
     handle_usb_interrupt(&mut peripherals);
 }
 
-fn handle_usb_interrupt(peripherals: &mut Peripherals) {
-    if peripherals.usb.istr().read().ctr().bit_is_set() {
+fn handle_usb_interrupt(peripherals: &Peripherals) {
+    while peripherals.usb.istr().read().ctr().bit_is_set() {
         let endpoint = peripherals.usb.istr().read().idn().bits();
         let endpoint_register = peripherals.usb.chepnr(endpoint.into());
         let endpoint_register_state = endpoint_register.read();
         let received = peripherals.usb.istr().read().dir().bit_is_set();
 
-        // clear the Rx/Tx flags
-        modify_chepnr(endpoint_register, |w| w
-            .reset_vtrx()
-            .reset_vttx()
-        );
-
         let rx_set = endpoint_register_state.vtrx().bit_is_set();
         let tx_set = endpoint_register_state.vttx().bit_is_set();
+        let is_setup = endpoint_register_state.setup().bit_is_set();
         if received && rx_set {
-            crate::uart::write_bytes(peripherals, b"USB incoming\r\n");
-            let read_bytes: usize = peripherals.usb_ram1.single_buffered(0).chep_rxtxbd_0().read().count_rx().bits().into();
+            // clear VTRX bit
+            modify_chepnr(endpoint_register, |m| m
+                .reset_vtrx()
+            );
 
-            // read it out
-            let mut buf = [0u8; EP_BUF_SIZE];
-            buf.copy_from_slice(&get_usb_endpoint_rx_buffer(endpoint.into()));
-            crate::uart::write_bytes(peripherals, b"received via USB: >");
-            crate::uart::write_hex_dump(peripherals, &buf[..read_bytes]);
-            crate::uart::write_bytes(peripherals, b"<\r\n");
+            if is_setup {
+                // SETUP packet
+                if endpoint == 0 {
+                    let read_bytes: usize = peripherals.usb_ram1.single_buffered(0).chep_rxtxbd_0().read().count_rx().bits().into();
+                    let mut buf = [0u8; EP_BUF_SIZE];
+                    copy_from_endpoint_rx_buffer(endpoint.into(), &mut buf);
+
+                    crate::uart::write_bytes(peripherals, b"USB setup: >");
+                    crate::uart::write_hex_dump(peripherals, &buf[..read_bytes]);
+                    crate::uart::write_bytes(peripherals, b"<\r\n");
+
+                    // reset Rx buffer for next transmission
+                    prepare_rx_buffer(peripherals, 0);
+
+                    // stall Rx until we have sent a response
+                    modify_chepnr(endpoint_register, |m| m
+                        .statrx_stall()
+                    );
+
+                    let setup_slicer = SetupSlicer::new(&buf[..read_bytes]);
+                    if setup_slicer.direction_is_device_to_host() && setup_slicer.recipient_is_device() && setup_slicer.type_is_standard() && setup_slicer.request_is_get_descriptor() {
+                        // GET DESCRIPTOR on device
+                        let mut handled = false;
+                        if setup_slicer.descriptor_type_is_device() {
+                            let want_len = DEVICE_DESCRIPTOR.len().min(setup_slicer.length_usize());
+                            transmit_packet(peripherals, 0, &DEVICE_DESCRIPTOR[..want_len]);
+                            handled = true;
+                        } else if setup_slicer.descriptor_type_is_configuration() {
+                            let want_len = CONFIG_1_DESCRIPTOR.len().min(setup_slicer.length_usize());
+                            transmit_packet(peripherals, 0, &CONFIG_1_DESCRIPTOR[..want_len]);
+                            handled = true;
+                        } else if setup_slicer.descriptor_type_is_string() {
+                            if setup_slicer.descriptor_index() == 0 {
+                                let want_len = STRING_DESCRIPTOR_0.len().min(setup_slicer.length_usize());
+                                transmit_packet(peripherals, 0, &STRING_DESCRIPTOR_0[..want_len]);
+                                handled = true;
+                            } else {
+                                let want_index: usize = (setup_slicer.descriptor_index() - 1).into();
+                                if want_index < STRINGS.len() {
+                                    // that fits
+                                    let mut out_buf = [0u8; MAX_STRING_DESCRIPTOR_BUF];
+
+                                    // encode string as UTF-8
+                                    let mut string_len = 2;
+                                    for w in STRINGS[want_index].encode_utf16() {
+                                        let bs = w.to_le_bytes();
+                                        out_buf[string_len] = bs[0];
+                                        out_buf[string_len+1] = bs[1];
+                                        string_len += 2;
+                                    }
+
+                                    // set length
+                                    out_buf[0] = string_len.try_into().unwrap();
+
+                                    // set type
+                                    out_buf[1] = 3; // string descriptor
+
+                                    // send
+                                    let want_len = string_len.min(setup_slicer.length_usize());
+                                    transmit_packet(peripherals, 0, &out_buf[..want_len]);
+                                    handled = true;
+                                }
+                            }
+                        }
+
+                        if handled {
+                            // wait for confirmation
+                            unsafe { EXPECTING_STATUS = true };
+                        } else {
+                            // nope, can't deal with this one
+                            modify_chepnr(endpoint_register, |m| m
+                                .stattx_stall()
+                            );
+                        }
+                    } else if setup_slicer.direction_is_device_to_host() && setup_slicer.recipient_is_interface() && setup_slicer.type_is_standard() && setup_slicer.request_is_get_descriptor() {
+                        // GET DESCRIPTOR on interface
+                        let mut handled = false;
+                        if setup_slicer.descriptor_type_is(0x22) {
+                            // HID report
+                            let want_len = HID_REPORT.len().min(setup_slicer.length_usize());
+                            transmit_packet(peripherals, 0, &HID_REPORT[..want_len]);
+                            handled = true;
+                        }
+
+                        if handled {
+                            // wait for confirmation
+                            unsafe { EXPECTING_STATUS = true };
+                        } else {
+                            // nope, can't deal with this one
+                            modify_chepnr(endpoint_register, |m| m
+                                .stattx_stall()
+                            );
+                        }
+                    } else if setup_slicer.direction_is_host_to_device() && setup_slicer.recipient_is_device() && setup_slicer.type_is_standard() && setup_slicer.request_is_set_address() {
+                        // SET ADDRESS
+                        let address = u16::from_le_bytes([buf[2], buf[3]]);
+                        if address < 128 {
+                            // remember this for once the response has been sent
+                            unsafe { SETTING_ADDRESS = Some(address.try_into().unwrap()) };
+
+                            // say we're done
+                            transmit_packet(peripherals, 0, &[]);
+                        } else {
+                            // nope
+                            modify_chepnr(endpoint_register, |m| m
+                                .stattx_stall()
+                            );
+                        }
+                    } else if setup_slicer.direction_is_host_to_device() && setup_slicer.recipient_is_device() && setup_slicer.type_is_standard() && setup_slicer.request_is_set_configuration() {
+                        // SET CONFIGURATION
+                        let config_value = u16::from_le_bytes([buf[2], buf[3]]);
+                        if config_value == 1 {
+                            // sure
+                            transmit_packet(peripherals, 0, &[]);
+                        } else {
+                            // nope
+                            modify_chepnr(endpoint_register, |m| m
+                                .stattx_stall()
+                            );
+                        }
+                    } else {
+                        // can't handle whatever this is
+                        modify_chepnr(endpoint_register, |m| m
+                            .stattx_stall()
+                        );
+                    }
+
+                    // read the next response
+                    modify_chepnr(endpoint_register, |m| m
+                        .statrx_valid()
+                    );
+                } else if usize::from(endpoint) < USED_ENDPOINT_COUNT {
+                    let read_bytes: usize = peripherals.usb_ram1.single_buffered(endpoint.into()).chep_rxtxbd_0().read().count_rx().bits().into();
+                    let mut buf = [0u8; EP_BUF_SIZE];
+                    copy_from_endpoint_rx_buffer(endpoint.into(), &mut buf);
+                    crate::uart::write_bytes(peripherals, b"received USB SETUP on endpoint 0x");
+                    crate::uart::write_hex_dump(peripherals, &[endpoint]);
+                    crate::uart::write_bytes(peripherals, b": >");
+                    crate::uart::write_hex_dump(peripherals, &buf[..read_bytes]);
+                    crate::uart::write_bytes(peripherals, b"<\r\n");
+
+                    prepare_rx_buffer(peripherals, endpoint.into());
+
+                    // get ready to receive again
+                    modify_chepnr(endpoint_register, |w| w
+                        .statrx_valid()
+                    );
+                }
+            } else {
+                // non-SETUP packet
+                let read_bytes: usize = peripherals.usb_ram1.single_buffered(endpoint.into()).chep_rxtxbd_0().read().count_rx().bits().into();
+                if usize::from(endpoint) < USED_ENDPOINT_COUNT {
+                    let is_expecting_status = unsafe { EXPECTING_STATUS };
+                    if is_expecting_status {
+                        if read_bytes != 0 {
+                            crate::uart::write_bytes(peripherals, b"expecting status but received data!\r\n");
+                            modify_chepnr(endpoint_register, |w| w
+                                .stattx_stall()
+                            );
+                        } else {
+                            unsafe { EXPECTING_STATUS = false };
+
+                            // reset Rx buffer for next transmission
+                            prepare_rx_buffer(peripherals, endpoint.into());
+
+                            // get ready to receive again
+                            modify_chepnr(endpoint_register, |w| w
+                                .statrx_valid()
+                            );
+                        }
+                    } else {
+                        // read it out
+                        let mut buf = [0u8; EP_BUF_SIZE];
+                        copy_from_endpoint_rx_buffer(endpoint.into(), &mut buf[..read_bytes]);
+                        crate::uart::write_bytes(peripherals, b"received on endpoint 0x");
+                        crate::uart::write_hex_dump(peripherals, &[endpoint]);
+                        crate::uart::write_bytes(peripherals, b" via USB: >");
+                        crate::uart::write_hex_dump(peripherals, &buf[..read_bytes]);
+                        crate::uart::write_bytes(peripherals, b"<\r\n");
+
+                        // reset Rx buffer for next transmission
+                        prepare_rx_buffer(peripherals, endpoint.into());
+
+                        // get ready to receive again
+                        modify_chepnr(endpoint_register, |w| w
+                            .statrx_valid()
+                        );
+                    }
+                } else {
+                    crate::uart::write_bytes(peripherals, b"non-SETUP packet to unexpected endpoint\r\n");
+
+                    // clear the Rx flag and complain
+                    modify_chepnr(endpoint_register, |w| w
+                        .stattx_stall()
+                    );
+                }
+            }
         }
         if tx_set {
-            // TODO
-            crate::uart::write_bytes(peripherals, b"USB outgoing\r\n");
+            // clear the Tx flag
+            modify_chepnr(endpoint_register, |w| w
+                .reset_vttx()
+            );
+
+            if endpoint == 0 {
+                // are we supposed to change our address?
+                let set_addr_opt = unsafe { SETTING_ADDRESS };
+                if let Some(set_addr) = set_addr_opt {
+                    // yes
+                    peripherals.usb.daddr().modify(|_, w| w
+                        .add().set(set_addr)
+                    );
+
+                    // don't do this again
+                    unsafe { SETTING_ADDRESS = None };
+                }
+            } else if endpoint == 1 {
+                // endpoint 1 just sent off its current state
+
+                // TODO: update the state
+
+                // ready to send again
+                modify_chepnr(endpoint_register, |m| m
+                    .stattx_valid()
+                );
+            }
         }
 
         // CTR flag does not get cleared
@@ -182,8 +451,46 @@ fn handle_usb_interrupt(peripherals: &mut Peripherals) {
 }
 
 
+fn transmit_packet(peripherals: &Peripherals, endpoint: usize, data: &[u8]) {
+    // copy over
+    copy_to_endpoint_tx_buffer(endpoint, data);
+
+    // set length
+    peripherals.usb_ram1.single_buffered(endpoint).chep_txrxbd_0().modify(|_, w| w
+        .addr_tx().set(get_usb_endpoint_tx_offset(endpoint).try_into().unwrap())
+        .count_tx().set(data.len().try_into().unwrap())
+    );
+
+    // fire
+    modify_chepnr(peripherals.usb.chepnr(endpoint), |w| w
+        .stattx_valid()
+    );
+}
+
+
+fn prepare_rx_buffer(peripherals: &Peripherals, endpoint: usize) {
+    if EP_BUF_SIZE > 62 {
+        peripherals.usb_ram1.single_buffered(endpoint).chep_rxtxbd_0().modify(|_, w| w
+            .addr_rx().set(get_usb_endpoint_rx_offset(endpoint).try_into().unwrap())
+            //.count_rx().set(EP_BUF_SIZE.try_into().unwrap())
+            .count_rx().set(0)
+            .num_block().set((EP_BUF_SIZE/32 - 1).try_into().unwrap())
+            .blsize().set_bit()
+        );
+    } else {
+        peripherals.usb_ram1.single_buffered(endpoint).chep_rxtxbd_0().modify(|_, w| w
+            .addr_rx().set(get_usb_endpoint_rx_offset(endpoint).try_into().unwrap())
+            //.count_rx().set(EP_BUF_SIZE.try_into().unwrap())
+            .count_rx().set(0)
+            .num_block().set((EP_BUF_SIZE/2).try_into().unwrap())
+            .blsize().clear_bit()
+        );
+    }
+}
+
+
 /// Setup operations to be performed before the first activation as well as after every reset.
-fn post_reset_setup(peripherals: &mut Peripherals) {
+fn post_reset_setup(peripherals: &Peripherals) {
     // clear a couple of interrupts we are not interested in
     clear_only_some_usb_interrupts(peripherals, |w| w
         .l1req().clear_bit()
@@ -191,26 +498,17 @@ fn post_reset_setup(peripherals: &mut Peripherals) {
         .thr512().clear_bit()
     );
 
-    // define space for Ep0 buffers
+    // define space for Ep0 and Ep1 Tx buffers
     peripherals.usb_ram1.single_buffered(0).chep_txrxbd_0().modify(|_, w| w
-        .addr_tx().set(EP0_TX_OFFSET.try_into().unwrap())
+        .addr_tx().set(get_usb_endpoint_tx_offset(0).try_into().unwrap())
         .count_tx().set(0)
     );
-    if EP_BUF_SIZE > 62 {
-        peripherals.usb_ram1.single_buffered(0).chep_rxtxbd_0().modify(|_, w| w
-            .addr_rx().set(EP0_RX_OFFSET.try_into().unwrap())
-            .count_rx().set(EP_BUF_SIZE.try_into().unwrap())
-            .num_block().set((EP_BUF_SIZE/32 - 1).try_into().unwrap())
-            .blsize().set_bit()
-        );
-    } else {
-        peripherals.usb_ram1.single_buffered(0).chep_rxtxbd_0().modify(|_, w| w
-            .addr_rx().set(EP0_RX_OFFSET.try_into().unwrap())
-            .count_rx().set(EP_BUF_SIZE.try_into().unwrap())
-            .num_block().set((EP_BUF_SIZE/2).try_into().unwrap())
-            .blsize().clear_bit()
-        );
-    }
+    peripherals.usb_ram1.single_buffered(1).chep_txrxbd_0().modify(|_, w| w
+        .addr_tx().set(get_usb_endpoint_tx_offset(1).try_into().unwrap())
+        .count_tx().set(0)
+    );
+    prepare_rx_buffer(peripherals, 0);
+    prepare_rx_buffer(peripherals, 1);
 
     // set up Ep0 buffer
     modify_chepnr(peripherals.usb.chepnr(0), |w| w
@@ -218,6 +516,17 @@ fn post_reset_setup(peripherals: &mut Peripherals) {
         .utype_control() // it's a control endpoint
         .statrx_valid() // ready to receive
         .stattx_nak() // nothing to send
+        .dtogrx(false) // set DTOGRX (reception data toggle) to 0
+        .dtogtx(false) // set DTOGTX (transmission data toggle) to 0
+    );
+
+    // set up Ep1 buffer
+    copy_to_endpoint_tx_buffer(1, &[0x00, 0x00, 0x00, 0x00]);
+    modify_chepnr(peripherals.usb.chepnr(1), |w| w
+        .endpoint_address(0x1) // endpoint 1
+        .utype_interrupt() // it's an interrupt endpoint
+        .statrx_nak() // nothing to receive
+        .stattx_valid() // ready to send
         .dtogrx(false) // set DTOGRX (reception data toggle) to 0
         .dtogtx(false) // set DTOGTX (transmission data toggle) to 0
     );
@@ -233,7 +542,7 @@ fn post_reset_setup(peripherals: &mut Peripherals) {
 /// Sets up USB device support.
 ///
 /// Assumes that clocks have already been set up using [`crate::clock::set_up`].
-pub(crate) fn set_up(peripherals: &mut Peripherals) {
+pub(crate) fn set_up(peripherals: &Peripherals) {
     // plug HSE into USB clock
     peripherals.rcc.ccipr2().modify(|_, w| w
         .usbsel().hse()

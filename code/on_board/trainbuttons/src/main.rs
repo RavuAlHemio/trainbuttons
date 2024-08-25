@@ -13,9 +13,6 @@ use cortex_m_rt::entry;
 use stm32g0b0::Peripherals;
 
 
-static mut BLINK_ME: bool = false;
-
-
 #[panic_handler]
 fn panic_handler(_panic_info: &PanicInfo) -> ! {
     loop {
@@ -38,9 +35,9 @@ fn tell_gdb_to_return_from_this_function() {
 
 #[entry]
 fn main() -> ! {
-    let mut peripherals = unsafe { Peripherals::steal() };
+    let peripherals = unsafe { Peripherals::steal() };
 
-    crate::clock::set_up(&mut peripherals);
+    crate::clock::set_up(&peripherals);
 
     // send clock to GPIOA and GPIOB
     peripherals.rcc.iopenr().modify(|_, w| w
@@ -75,11 +72,11 @@ fn main() -> ! {
     );
 
     // set up UART and USB
-    crate::uart::set_up(&mut peripherals);
-    crate::usb::set_up(&mut peripherals);
+    crate::uart::set_up(&peripherals);
+    crate::usb::set_up(&peripherals);
 
     // send initial data via UART
-    crate::uart::write_bytes(&mut peripherals, b"\r\nHi, world!\r\n");
+    crate::uart::write_bytes(&peripherals, b"\r\nHi, world!\r\n");
 
     /*
     // disable USB IRQ so we can poke around

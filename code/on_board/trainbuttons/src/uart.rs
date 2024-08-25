@@ -1,7 +1,7 @@
 use stm32g0b0::Peripherals;
 
 
-pub(crate) fn set_up(peripherals: &mut Peripherals) {
+pub(crate) fn set_up(peripherals: &Peripherals) {
     // use peripheral clock (equal to undivided HSE = 48 MHz)
     peripherals.rcc.ccipr().modify(|_, w| w
         .usart1sel().pclk()
@@ -105,7 +105,7 @@ pub(crate) fn set_up(peripherals: &mut Peripherals) {
     );
 }
 
-pub(crate) fn write_bytes(peripherals: &mut Peripherals, bytes: &[u8]) {
+pub(crate) fn write_bytes(peripherals: &Peripherals, bytes: &[u8]) {
     for &b in bytes {
         // wait for transmission register to empty
         while peripherals.usart1.isr_fifo_disabled().read().txe().bit_is_clear() {
@@ -140,7 +140,7 @@ fn byte_to_hex(byte: u8) -> [u8; 2] {
     ]
 }
 
-pub(crate) fn write_hex_dump(peripherals: &mut Peripherals, bytes: &[u8]) {
+pub(crate) fn write_hex_dump(peripherals: &Peripherals, bytes: &[u8]) {
     for &b in bytes {
         for hex in byte_to_hex(b) {
             // wait for transmission register to empty

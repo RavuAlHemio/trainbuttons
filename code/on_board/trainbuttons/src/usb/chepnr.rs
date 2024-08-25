@@ -1,24 +1,8 @@
 //! Utilities for CHEPnR (Channel/Endpoint n Register) modification.
 
 
+use bitmacros::{emplace_bits, extract_bits};
 use stm32g0b0::usb::chepnr::{Statrx, Stattx, Utype};
-
-
-macro_rules! bit_mask {
-    ($lowest_bit_index:expr, $bit_count:expr) => {
-        (((1 << $bit_count) - 1) << $lowest_bit_index)
-    };
-}
-macro_rules! extract_bits {
-    ($register:expr, $lowest_bit_index:expr, $bit_count:expr) => {
-        (($register >> $lowest_bit_index) & bit_mask!($lowest_bit_index, $bit_count))
-    };
-}
-macro_rules! emplace_bits {
-    ($register:expr, $value:expr, $lowest_bit_index:expr, $bit_count:expr) => {
-        $register = ($register & (!bit_mask!($lowest_bit_index, $bit_count))) | (($value << $lowest_bit_index) & bit_mask!($lowest_bit_index, $bit_count))
-    };
-}
 
 
 pub(crate) struct ChepnrModifier<'a> {
@@ -81,12 +65,12 @@ impl<'a> ChepnrModifier<'a> {
     // vttx = write 0 to reset
     #[allow(dead_code)]
     pub fn reset_vttx(mut self) -> Self {
-        emplace_bits!(self.set_value, 0b1, 7, 1);
+        emplace_bits!(self.set_value, 0b0, 7, 1);
         self
     }
     #[allow(dead_code)]
     pub fn dont_reset_vttx(mut self) -> Self {
-        emplace_bits!(self.set_value, 0b0, 7, 1);
+        emplace_bits!(self.set_value, 0b1, 7, 1);
         self
     }
 
@@ -144,12 +128,12 @@ impl<'a> ChepnrModifier<'a> {
     // vtrx = write 0 to reset
     #[allow(dead_code)]
     pub fn reset_vtrx(mut self) -> Self {
-        emplace_bits!(self.set_value, 0b1, 15, 1);
+        emplace_bits!(self.set_value, 0b0, 15, 1);
         self
     }
     #[allow(dead_code)]
     pub fn dont_reset_vtrx(mut self) -> Self {
-        emplace_bits!(self.set_value, 0b0, 15, 1);
+        emplace_bits!(self.set_value, 0b1, 15, 1);
         self
     }
 
@@ -163,12 +147,12 @@ impl<'a> ChepnrModifier<'a> {
     // nak = write 0 to reset
     #[allow(dead_code)]
     pub fn reset_nak(mut self) -> Self {
-        emplace_bits!(self.set_value, 0b1, 23, 1);
+        emplace_bits!(self.set_value, 0b0, 23, 1);
         self
     }
     #[allow(dead_code)]
     pub fn dont_reset_nak(mut self) -> Self {
-        emplace_bits!(self.set_value, 0b0, 23, 1);
+        emplace_bits!(self.set_value, 0b1, 23, 1);
         self
     }
 
@@ -180,27 +164,27 @@ impl<'a> ChepnrModifier<'a> {
         self
     }
 
-    // nak = write 0 to reset
+    // err_tx = write 0 to reset
     #[allow(dead_code)]
     pub fn reset_err_tx(mut self) -> Self {
-        emplace_bits!(self.set_value, 0b1, 25, 1);
+        emplace_bits!(self.set_value, 0b0, 25, 1);
         self
     }
     #[allow(dead_code)]
     pub fn dont_reset_err_tx(mut self) -> Self {
-        emplace_bits!(self.set_value, 0b0, 25, 1);
+        emplace_bits!(self.set_value, 0b1, 25, 1);
         self
     }
 
-    // nak = write 0 to reset
+    // err_rx = write 0 to reset
     #[allow(dead_code)]
     pub fn reset_err_rx(mut self) -> Self {
-        emplace_bits!(self.set_value, 0b1, 26, 1);
+        emplace_bits!(self.set_value, 0b0, 26, 1);
         self
     }
     #[allow(dead_code)]
     pub fn dont_reset_err_rx(mut self) -> Self {
-        emplace_bits!(self.set_value, 0b0, 26, 1);
+        emplace_bits!(self.set_value, 0b1, 26, 1);
         self
     }
 

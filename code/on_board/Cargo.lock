@@ -18,6 +18,10 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "46afbd2983a5d5a7bd740ccb198caf5b82f45c40c09c0eed36052d91cb92e719"
 
 [[package]]
+name = "bitmacros"
+version = "0.1.0"
+
+[[package]]
 name = "cortex-m"
 version = "0.7.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -147,6 +151,7 @@ dependencies = [
 name = "trainbuttons"
 version = "0.1.0"
 dependencies = [
+ "bitmacros",
  "cortex-m",
  "cortex-m-rt",
  "stm32g0b0",
