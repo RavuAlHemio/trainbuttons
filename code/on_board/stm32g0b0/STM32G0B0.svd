@@ -38172,7 +38172,7 @@ Note: When PRESCALER is programmed with a value different of the allowed ones, p
         <registers>
           <register>
             <dim>8</dim>
-            <dimIncrement>0x20</dimIncrement>
+            <dimIncrement>4</dimIncrement>
             <name>CHEPNR[%s]</name>
             <displayName>CHEPNR[%s]</displayName>
             <description>USB endpoint/channel n register</description>

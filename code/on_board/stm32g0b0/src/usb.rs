@@ -1,8 +1,8 @@
 #[repr(C)]
 #[doc = "Register block"]
 pub struct RegisterBlock {
-    chepnr: (),
-    _reserved1: [u8; 0x40],
+    chepnr: [Chepnr; 8],
+    _reserved1: [u8; 0x20],
     cntr: Cntr,
     istr: Istr,
     fnr: Fnr,
@@ -15,16 +15,13 @@ impl RegisterBlock {
     #[doc = "0x00..0x20 - USB endpoint/channel n register"]
     #[inline(always)]
     pub const fn chepnr(&self, n: usize) -> &Chepnr {
-        #[allow(clippy::no_effect)]
-        [(); 8][n];
-        unsafe { &*(self as *const Self).cast::<u8>().add(0).add(32 * n).cast() }
+        &self.chepnr[n]
     }
     #[doc = "Iterator for array of:"]
     #[doc = "0x00..0x20 - USB endpoint/channel n register"]
     #[inline(always)]
     pub fn chepnr_iter(&self) -> impl Iterator<Item = &Chepnr> {
-        (0..8)
-            .map(move |n| unsafe { &*(self as *const Self).cast::<u8>().add(0).add(32 * n).cast() })
+        self.chepnr.iter()
     }
     #[doc = "0x40 - "]
     #[inline(always)]
