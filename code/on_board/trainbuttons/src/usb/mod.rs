@@ -7,6 +7,7 @@ mod data;
 mod packets;
 
 
+use bitmacros::{bit_mask, extract_bits};
 use cortex_m::asm::nop;
 use cortex_m::peripheral::NVIC;
 use stm32g0b0::{interrupt, Interrupt, Peripherals};
@@ -50,6 +51,7 @@ const EP_BUF_SIZE: usize = PACKET_DATA_RAM_SIZE / (USED_ENDPOINT_COUNT * 2);
 
 static mut SETTING_ADDRESS: Option<u8> = None;
 static mut EXPECTING_STATUS: bool = false;
+static mut RESETTING_DATA_TOGGLES: bool = false;
 
 
 const fn get_usb_endpoint_tx_offset(endpoint: usize) -> usize {
@@ -281,6 +283,7 @@ fn handle_usb_interrupt(peripherals: &Peripherals) {
                         let config_value = u16::from_le_bytes([buf[2], buf[3]]);
                         if config_value == 1 {
                             // sure
+                            unsafe { RESETTING_DATA_TOGGLES = true };
                             transmit_packet(peripherals, 0, &[]);
                         } else {
                             // nope
@@ -365,6 +368,9 @@ fn handle_usb_interrupt(peripherals: &Peripherals) {
                     );
                 }
             }
+
+            // process all Rx before we start on Tx
+            continue;
         }
         if tx_set {
             // clear the Tx flag
@@ -384,19 +390,69 @@ fn handle_usb_interrupt(peripherals: &Peripherals) {
                     // don't do this again
                     unsafe { SETTING_ADDRESS = None };
                 }
+
+                // are we supposed to reset our data toggles?
+                let reset_data_toggles = unsafe { RESETTING_DATA_TOGGLES };
+                if reset_data_toggles {
+                    for n in 0..USED_ENDPOINT_COUNT {
+                        let ep_type = peripherals.usb.chepnr(n).read().utype();
+                        if ep_type.is_bulk() || ep_type.is_interrupt() {
+                            // yup; reset the flags
+                            modify_chepnr(peripherals.usb.chepnr(n), |m| m
+                                .dtogtx(false)
+                                .dtogrx(false)
+                            );
+                        }
+                    }
+
+                    // don't do this again
+                    unsafe { RESETTING_DATA_TOGGLES = false };
+                }
             } else if endpoint == 1 {
                 // endpoint 1 just sent off its current state
 
-                // TODO: update the state
+                // update button states
+                // buttons are:
+                // PA1-PA4, PA7, PA15 (6 bits)
+                // PB1-PB11 (11 bits)
+                // [PB12 and PB13 are LEDs]
+                // PD0-PD3 (4 bits)
+                let pa_bits = peripherals.gpioa.idr().read().bits();
+                let pa_button_states: u32 =
+                    (extract_bits!(pa_bits, 1, 4) ^ bit_mask!(0, 4))
+                    | ((extract_bits!(pa_bits, 7, 1) ^ bit_mask!(0, 1)) << 4)
+                    | ((extract_bits!(pa_bits, 15, 1) ^ bit_mask!(0, 1)) << 5)
+                ;
+                let pb_bits = peripherals.gpiob.idr().read().bits();
+                let pb_button_states: u32 =
+                    extract_bits!(pb_bits, 1, 11) ^ bit_mask!(0, 11)
+                ;
+                let pd_bits = peripherals.gpiod.idr().read().bits();
+                let pd_button_states: u32 =
+                    extract_bits!(pd_bits, 0, 4) ^ bit_mask!(0, 4)
+                ;
 
-                // ready to send again
+                // reports are filled up from the least significant bit...
+                // 000D DDDB BBBB BBBB BBAA AAAA
+                let all_button_states =
+                    pa_button_states
+                    | (pb_button_states << 6)
+                    | (pd_button_states << (6 + 11))
+                ;
+
+                // ... but sent out in little-endian ordner
+                copy_to_endpoint_tx_buffer(1, &all_button_states.to_le_bytes()[0..3]);
+
+                // ready to send three bytes again
+                peripherals.usb_ram1.single_buffered(1).chep_txrxbd_0().modify(|_, w| w
+                    .addr_tx().set(get_usb_endpoint_tx_offset(1).try_into().unwrap())
+                    .count_tx().set(3)
+                );
                 modify_chepnr(endpoint_register, |m| m
                     .stattx_valid()
                 );
             }
         }
-
-        // CTR flag does not get cleared
     }
     if peripherals.usb.istr().read().rst_dcon().bit_is_set() {
         // USB reset received
@@ -472,7 +528,6 @@ fn prepare_rx_buffer(peripherals: &Peripherals, endpoint: usize) {
     if EP_BUF_SIZE > 62 {
         peripherals.usb_ram1.single_buffered(endpoint).chep_rxtxbd_0().modify(|_, w| w
             .addr_rx().set(get_usb_endpoint_rx_offset(endpoint).try_into().unwrap())
-            //.count_rx().set(EP_BUF_SIZE.try_into().unwrap())
             .count_rx().set(0)
             .num_block().set((EP_BUF_SIZE/32 - 1).try_into().unwrap())
             .blsize().set_bit()
@@ -480,7 +535,6 @@ fn prepare_rx_buffer(peripherals: &Peripherals, endpoint: usize) {
     } else {
         peripherals.usb_ram1.single_buffered(endpoint).chep_rxtxbd_0().modify(|_, w| w
             .addr_rx().set(get_usb_endpoint_rx_offset(endpoint).try_into().unwrap())
-            //.count_rx().set(EP_BUF_SIZE.try_into().unwrap())
             .count_rx().set(0)
             .num_block().set((EP_BUF_SIZE/2).try_into().unwrap())
             .blsize().clear_bit()
@@ -522,13 +576,22 @@ fn post_reset_setup(peripherals: &Peripherals) {
 
     // set up Ep1 buffer
     copy_to_endpoint_tx_buffer(1, &[0x00, 0x00, 0x00, 0x00]);
+    peripherals.usb_ram1.single_buffered(1).chep_txrxbd_0().modify(|_, w| w
+        .addr_tx().set(get_usb_endpoint_tx_offset(1).try_into().unwrap())
+        .count_tx().set(3)
+    );
     modify_chepnr(peripherals.usb.chepnr(1), |w| w
         .endpoint_address(0x1) // endpoint 1
         .utype_interrupt() // it's an interrupt endpoint
-        .statrx_nak() // nothing to receive
-        .stattx_valid() // ready to send
+        .statrx_disabled() // disabled for the time being
+        .stattx_disabled() // disabled for the time being
         .dtogrx(false) // set DTOGRX (reception data toggle) to 0
         .dtogtx(false) // set DTOGTX (transmission data toggle) to 0
+        .reset_nak()
+    );
+    modify_chepnr(peripherals.usb.chepnr(1), |w| w
+        .statrx_nak() // nothing to receive
+        .stattx_valid() // ready to send
     );
 
     // enable USB function (no address assigned yet)
