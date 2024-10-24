@@ -5391,8 +5391,310 @@ It is not read-only when the channel is enabled (EN=1).</description>
 				<description>DMA request identification
 	Selects the input DMA request. See the DMAMUX table about assignments of multiplexer inputs to resources.</description>
 				<bitOffset>0</bitOffset>
-				<bitWidth>6</bitWidth>
+				<bitWidth>7</bitWidth>
 				<access>read-write</access>
+				<enumeratedValues>
+          <enumeratedValue>
+            <name>NONE</name>
+            <description>DMA source NONE (0).</description>
+            <value>0x0</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>DMAMUX_REQ_GEN0</name>
+            <description>DMA source DMAMUX_REQ_GEN0 (1).</description>
+            <value>0x1</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>DMAMUX_REQ_GEN1</name>
+            <description>DMA source DMAMUX_REQ_GEN1 (2).</description>
+            <value>0x2</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>DMAMUX_REQ_GEN2</name>
+            <description>DMA source DMAMUX_REQ_GEN2 (3).</description>
+            <value>0x3</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>DMAMUX_REQ_GEN3</name>
+            <description>DMA source DMAMUX_REQ_GEN3 (4).</description>
+            <value>0x4</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>ADC</name>
+            <description>DMA source ADC (5).</description>
+            <value>0x5</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>I2C1_RX</name>
+            <description>DMA source I2C1_RX (10).</description>
+            <value>0xA</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>I2C1_TX</name>
+            <description>DMA source I2C1_TX (11).</description>
+            <value>0xB</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>I2C2_RX</name>
+            <description>DMA source I2C2_RX (12).</description>
+            <value>0xC</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>I2C2_TX</name>
+            <description>DMA source I2C2_TX (13).</description>
+            <value>0xD</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>SPI1_RX</name>
+            <description>DMA source SPI1_RX (16).</description>
+            <value>0x10</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>SPI1_TX</name>
+            <description>DMA source SPI1_TX (17).</description>
+            <value>0x11</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>SPI2_RX</name>
+            <description>DMA source SPI2_RX (18).</description>
+            <value>0x12</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>SPI2_TX</name>
+            <description>DMA source SPI2_TX (19).</description>
+            <value>0x13</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>TIM1_CH1</name>
+            <description>DMA source TIM1_CH1 (20).</description>
+            <value>0x14</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>TIM1_CH2</name>
+            <description>DMA source TIM1_CH2 (21).</description>
+            <value>0x15</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>TIM1_CH3</name>
+            <description>DMA source TIM1_CH3 (22).</description>
+            <value>0x16</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>TIM1_CH4</name>
+            <description>DMA source TIM1_CH4 (23).</description>
+            <value>0x17</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>TIM1_TRIG_COM</name>
+            <description>DMA source TIM1_TRIG_COM (24).</description>
+            <value>0x18</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>TIM1_UP</name>
+            <description>DMA source TIM1_UP (25).</description>
+            <value>0x19</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>TIM3_CH1</name>
+            <description>DMA source TIM3_CH1 (32).</description>
+            <value>0x20</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>TIM3_CH2</name>
+            <description>DMA source TIM3_CH2 (33).</description>
+            <value>0x21</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>TIM3_CH3</name>
+            <description>DMA source TIM3_CH3 (34).</description>
+            <value>0x22</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>TIM3_CH4</name>
+            <description>DMA source TIM3_CH4 (35).</description>
+            <value>0x23</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>TIM3_TRIG</name>
+            <description>DMA source TIM3_TRIG (36).</description>
+            <value>0x24</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>TIM3_UP</name>
+            <description>DMA source TIM3_UP (37).</description>
+            <value>0x25</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>TIM6_UP</name>
+            <description>DMA source TIM6_UP (38).</description>
+            <value>0x26</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>TIM7_UP</name>
+            <description>DMA source TIM7_UP (39).</description>
+            <value>0x27</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>TIM15_CH1</name>
+            <description>DMA source TIM15_CH1 (40).</description>
+            <value>0x28</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>TIM15_CH2</name>
+            <description>DMA source TIM15_CH2 (41).</description>
+            <value>0x29</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>TIM15_TRIG_COM</name>
+            <description>DMA source TIM15_TRIG_COM (42).</description>
+            <value>0x2A</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>TIM15_UP</name>
+            <description>DMA source TIM15_UP (43).</description>
+            <value>0x2B</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>TIM16_CH1</name>
+            <description>DMA source TIM16_CH1 (44).</description>
+            <value>0x2C</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>TIM16_COM</name>
+            <description>DMA source TIM16_COM (45).</description>
+            <value>0x2D</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>TIM16_UP</name>
+            <description>DMA source TIM16_UP (46).</description>
+            <value>0x2E</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>TIM17_CH1</name>
+            <description>DMA source TIM17_CH1 (47).</description>
+            <value>0x2F</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>TIM17_COM</name>
+            <description>DMA source TIM17_COM (48).</description>
+            <value>0x30</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>TIM17_UP</name>
+            <description>DMA source TIM17_UP (49).</description>
+            <value>0x31</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>USART1_RX</name>
+            <description>DMA source USART1_RX (50).</description>
+            <value>0x32</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>USART1_TX</name>
+            <description>DMA source USART1_TX (51).</description>
+            <value>0x33</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>USART2_RX</name>
+            <description>DMA source USART2_RX (52).</description>
+            <value>0x34</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>USART2_TX</name>
+            <description>DMA source USART2_TX (53).</description>
+            <value>0x35</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>USART3_RX</name>
+            <description>DMA source USART3_RX (54).</description>
+            <value>0x36</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>USART3_TX</name>
+            <description>DMA source USART3_TX (55).</description>
+            <value>0x37</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>USART4_RX</name>
+            <description>DMA source USART4_RX (56).</description>
+            <value>0x38</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>USART4_TX</name>
+            <description>DMA source USART4_TX (57).</description>
+            <value>0x39</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>I2C3_RX</name>
+            <description>DMA source I2C3_RX (62).</description>
+            <value>0x3E</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>I2C3_TX</name>
+            <description>DMA source I2C3_TX (63).</description>
+            <value>0x3F</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>SPI3_RX</name>
+            <description>DMA source SPI3_RX (66).</description>
+            <value>0x42</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>SPI3_TX</name>
+            <description>DMA source SPI3_TX (67).</description>
+            <value>0x43</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>TIM4_CH1</name>
+            <description>DMA source TIM4_CH1 (68).</description>
+            <value>0x44</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>TIM4_CH2</name>
+            <description>DMA source TIM4_CH2 (69).</description>
+            <value>0x45</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>TIM4_CH3</name>
+            <description>DMA source TIM4_CH3 (70).</description>
+            <value>0x46</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>TIM4_CH4</name>
+            <description>DMA source TIM4_CH4 (71).</description>
+            <value>0x47</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>TIM4_TRIG</name>
+            <description>DMA source TIM4_TRIG (72).</description>
+            <value>0x48</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>TIM4_UP</name>
+            <description>DMA source TIM4_UP (73).</description>
+            <value>0x49</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>USART5_RX</name>
+            <description>DMA source USART5_RX (74).</description>
+            <value>0x4A</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>USART5_TX</name>
+            <description>DMA source USART5_TX (75).</description>
+            <value>0x4B</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>USART6_RX</name>
+            <description>DMA source USART6_RX (76).</description>
+            <value>0x4C</value>
+          </enumeratedValue>
+          <enumeratedValue>
+            <name>USART6_TX</name>
+            <description>DMA source USART6_TX (77).</description>
+            <value>0x4D</value>
+          </enumeratedValue>
+        </enumeratedValues>
 			  </field>
 			  <field>
 				<name>SOIE</name>
