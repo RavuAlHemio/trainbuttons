@@ -166,13 +166,13 @@ where
 #[repr(u8)]
 pub enum Res {
     #[doc = "0: 12 bits"]
-    B0x0 = 0,
+    Bits12 = 0,
     #[doc = "1: 10 bits"]
-    B0x1 = 1,
+    Bits10 = 1,
     #[doc = "2: 8 bits"]
-    B0x2 = 2,
+    Bits8 = 2,
     #[doc = "3: 6 bits"]
-    B0x3 = 3,
+    Bits6 = 3,
 }
 impl From<Res> for u8 {
     #[inline(always)]
@@ -191,32 +191,32 @@ impl ResR {
     #[inline(always)]
     pub const fn variant(&self) -> Res {
         match self.bits {
-            0 => Res::B0x0,
-            1 => Res::B0x1,
-            2 => Res::B0x2,
-            3 => Res::B0x3,
+            0 => Res::Bits12,
+            1 => Res::Bits10,
+            2 => Res::Bits8,
+            3 => Res::Bits6,
             _ => unreachable!(),
         }
     }
     #[doc = "12 bits"]
     #[inline(always)]
-    pub fn is_b_0x0(&self) -> bool {
-        *self == Res::B0x0
+    pub fn is_bits_12(&self) -> bool {
+        *self == Res::Bits12
     }
     #[doc = "10 bits"]
     #[inline(always)]
-    pub fn is_b_0x1(&self) -> bool {
-        *self == Res::B0x1
+    pub fn is_bits_10(&self) -> bool {
+        *self == Res::Bits10
     }
     #[doc = "8 bits"]
     #[inline(always)]
-    pub fn is_b_0x2(&self) -> bool {
-        *self == Res::B0x2
+    pub fn is_bits_8(&self) -> bool {
+        *self == Res::Bits8
     }
     #[doc = "6 bits"]
     #[inline(always)]
-    pub fn is_b_0x3(&self) -> bool {
-        *self == Res::B0x3
+    pub fn is_bits_6(&self) -> bool {
+        *self == Res::Bits6
     }
 }
 #[doc = "Field `RES` writer - Data resolution These bits are written by software to select the resolution of the conversion. Note: The software is allowed to write these bits only when ADEN=0."]
@@ -228,23 +228,23 @@ where
 {
     #[doc = "12 bits"]
     #[inline(always)]
-    pub fn b_0x0(self) -> &'a mut crate::W<REG> {
-        self.variant(Res::B0x0)
+    pub fn bits_12(self) -> &'a mut crate::W<REG> {
+        self.variant(Res::Bits12)
     }
     #[doc = "10 bits"]
     #[inline(always)]
-    pub fn b_0x1(self) -> &'a mut crate::W<REG> {
-        self.variant(Res::B0x1)
+    pub fn bits_10(self) -> &'a mut crate::W<REG> {
+        self.variant(Res::Bits10)
     }
     #[doc = "8 bits"]
     #[inline(always)]
-    pub fn b_0x2(self) -> &'a mut crate::W<REG> {
-        self.variant(Res::B0x2)
+    pub fn bits_8(self) -> &'a mut crate::W<REG> {
+        self.variant(Res::Bits8)
     }
     #[doc = "6 bits"]
     #[inline(always)]
-    pub fn b_0x3(self) -> &'a mut crate::W<REG> {
-        self.variant(Res::B0x3)
+    pub fn bits_6(self) -> &'a mut crate::W<REG> {
+        self.variant(Res::Bits6)
     }
 }
 #[doc = "Data alignment This bit is set and cleared by software to select right or left alignment. Refer to Data alignment and resolution (oversampling disabled: OVSE = 0) on page349 Note: The software is allowed to write this bit only when ADSTART bit is cleared to 0 (this ensures that no conversion is ongoing).\n\nValue on reset: 0"]

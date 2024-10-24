@@ -719,22 +719,22 @@ Note: The software is allowed to write these bits only when ADEN=0.</description
                 <access>read-write</access>
                 <enumeratedValues>
                   <enumeratedValue>
-                    <name>B_0x0</name>
+                    <name>BITS_12</name>
                     <description>12 bits</description>
                     <value>0x0</value>
                   </enumeratedValue>
                   <enumeratedValue>
-                    <name>B_0x1</name>
+                    <name>BITS_10</name>
                     <description>10 bits</description>
                     <value>0x1</value>
                   </enumeratedValue>
                   <enumeratedValue>
-                    <name>B_0x2</name>
+                    <name>BITS_8</name>
                     <description>8 bits</description>
                     <value>0x2</value>
                   </enumeratedValue>
                   <enumeratedValue>
-                    <name>B_0x3</name>
+                    <name>BITS_6</name>
                     <description>6 bits</description>
                     <value>0x3</value>
                   </enumeratedValue>
