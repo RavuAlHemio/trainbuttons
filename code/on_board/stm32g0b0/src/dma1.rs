@@ -238,12 +238,8 @@ module"]
 pub type Cndtr2 = crate::Reg<cndtr2::Cndtr2Spec>;
 #[doc = "DMA channel x number of data register"]
 pub mod cndtr2;
-#[doc = "CPAR2 (rw) register accessor: DMA channel x peripheral address register\n\nYou can [`read`](crate::Reg::read) this register and get [`cpar2::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cpar2::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cpar2`]
-module"]
-#[doc(alias = "CPAR2")]
-pub type Cpar2 = crate::Reg<cpar2::Cpar2Spec>;
-#[doc = "DMA channel x peripheral address register"]
-pub mod cpar2;
+pub use cpar1 as cpar2;
+pub use Cpar1 as Cpar2;
 #[doc = "CMAR2 (rw) register accessor: DMA channel x memory address register\n\nYou can [`read`](crate::Reg::read) this register and get [`cmar2::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cmar2::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cmar2`]
 module"]
 #[doc(alias = "CMAR2")]
@@ -262,12 +258,8 @@ module"]
 pub type Cndtr3 = crate::Reg<cndtr3::Cndtr3Spec>;
 #[doc = "DMA channel x configuration register"]
 pub mod cndtr3;
-#[doc = "CPAR3 (rw) register accessor: DMA channel x peripheral address register\n\nYou can [`read`](crate::Reg::read) this register and get [`cpar3::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cpar3::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cpar3`]
-module"]
-#[doc(alias = "CPAR3")]
-pub type Cpar3 = crate::Reg<cpar3::Cpar3Spec>;
-#[doc = "DMA channel x peripheral address register"]
-pub mod cpar3;
+pub use cpar1 as cpar3;
+pub use Cpar1 as Cpar3;
 #[doc = "CMAR3 (rw) register accessor: DMA channel x memory address register\n\nYou can [`read`](crate::Reg::read) this register and get [`cmar3::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cmar3::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cmar3`]
 module"]
 #[doc(alias = "CMAR3")]
@@ -286,12 +278,8 @@ module"]
 pub type Cndtr4 = crate::Reg<cndtr4::Cndtr4Spec>;
 #[doc = "DMA channel x configuration register"]
 pub mod cndtr4;
-#[doc = "CPAR4 (rw) register accessor: DMA channel x peripheral address register\n\nYou can [`read`](crate::Reg::read) this register and get [`cpar4::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cpar4::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cpar4`]
-module"]
-#[doc(alias = "CPAR4")]
-pub type Cpar4 = crate::Reg<cpar4::Cpar4Spec>;
-#[doc = "DMA channel x peripheral address register"]
-pub mod cpar4;
+pub use cpar1 as cpar4;
+pub use Cpar1 as Cpar4;
 #[doc = "CMAR4 (rw) register accessor: DMA channel x memory address register\n\nYou can [`read`](crate::Reg::read) this register and get [`cmar4::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cmar4::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cmar4`]
 module"]
 #[doc(alias = "CMAR4")]
@@ -310,12 +298,8 @@ module"]
 pub type Cndtr5 = crate::Reg<cndtr5::Cndtr5Spec>;
 #[doc = "DMA channel x configuration register"]
 pub mod cndtr5;
-#[doc = "CPAR5 (rw) register accessor: DMA channel x peripheral address register\n\nYou can [`read`](crate::Reg::read) this register and get [`cpar5::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cpar5::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cpar5`]
-module"]
-#[doc(alias = "CPAR5")]
-pub type Cpar5 = crate::Reg<cpar5::Cpar5Spec>;
-#[doc = "DMA channel x peripheral address register"]
-pub mod cpar5;
+pub use cpar1 as cpar5;
+pub use Cpar1 as Cpar5;
 #[doc = "CMAR5 (rw) register accessor: DMA channel x memory address register\n\nYou can [`read`](crate::Reg::read) this register and get [`cmar5::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cmar5::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cmar5`]
 module"]
 #[doc(alias = "CMAR5")]
@@ -334,12 +318,8 @@ module"]
 pub type Cndtr6 = crate::Reg<cndtr6::Cndtr6Spec>;
 #[doc = "DMA channel x configuration register"]
 pub mod cndtr6;
-#[doc = "CPAR6 (rw) register accessor: DMA channel x peripheral address register\n\nYou can [`read`](crate::Reg::read) this register and get [`cpar6::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cpar6::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cpar6`]
-module"]
-#[doc(alias = "CPAR6")]
-pub type Cpar6 = crate::Reg<cpar6::Cpar6Spec>;
-#[doc = "DMA channel x peripheral address register"]
-pub mod cpar6;
+pub use cpar1 as cpar6;
+pub use Cpar1 as Cpar6;
 #[doc = "CMAR6 (rw) register accessor: DMA channel x memory address register\n\nYou can [`read`](crate::Reg::read) this register and get [`cmar6::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cmar6::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cmar6`]
 module"]
 #[doc(alias = "CMAR6")]
@@ -358,12 +338,8 @@ module"]
 pub type Cndtr7 = crate::Reg<cndtr7::Cndtr7Spec>;
 #[doc = "DMA channel x configuration register"]
 pub mod cndtr7;
-#[doc = "CPAR7 (rw) register accessor: DMA channel x peripheral address register\n\nYou can [`read`](crate::Reg::read) this register and get [`cpar7::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cpar7::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cpar7`]
-module"]
-#[doc(alias = "CPAR7")]
-pub type Cpar7 = crate::Reg<cpar7::Cpar7Spec>;
-#[doc = "DMA channel x peripheral address register"]
-pub mod cpar7;
+pub use cpar1 as cpar7;
+pub use Cpar1 as Cpar7;
 #[doc = "CMAR7 (rw) register accessor: DMA channel x memory address register\n\nYou can [`read`](crate::Reg::read) this register and get [`cmar7::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cmar7::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cmar7`]
 module"]
 #[doc(alias = "CMAR7")]
