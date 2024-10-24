@@ -5137,6 +5137,12 @@ It is read-only when the channel is enabled (EN=1).</description>
                 <bitOffset>0</bitOffset>
                 <bitWidth>16</bitWidth>
                 <access>read-write</access>
+                <writeConstraint>
+                  <range>
+                    <minimum>0x0</minimum>
+                    <maximum>0xFFFF</maximum>
+                  </range>
+                </writeConstraint>
               </field>
             </fields>
           </register>
