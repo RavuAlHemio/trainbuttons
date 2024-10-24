@@ -103,42 +103,18 @@ module"]
 pub type C0cr = crate::Reg<c0cr::C0crSpec>;
 #[doc = "DMAMUX request line multiplexer channel x configuration register"]
 pub mod c0cr;
-#[doc = "C1CR (rw) register accessor: DMAMUX request line multiplexer channel x configuration register\n\nYou can [`read`](crate::Reg::read) this register and get [`c1cr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`c1cr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@c1cr`]
-module"]
-#[doc(alias = "C1CR")]
-pub type C1cr = crate::Reg<c1cr::C1crSpec>;
-#[doc = "DMAMUX request line multiplexer channel x configuration register"]
-pub mod c1cr;
-#[doc = "C2CR (rw) register accessor: DMAMUX request line multiplexer channel x configuration register\n\nYou can [`read`](crate::Reg::read) this register and get [`c2cr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`c2cr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@c2cr`]
-module"]
-#[doc(alias = "C2CR")]
-pub type C2cr = crate::Reg<c2cr::C2crSpec>;
-#[doc = "DMAMUX request line multiplexer channel x configuration register"]
-pub mod c2cr;
-#[doc = "C3CR (rw) register accessor: DMAMUX request line multiplexer channel x configuration register\n\nYou can [`read`](crate::Reg::read) this register and get [`c3cr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`c3cr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@c3cr`]
-module"]
-#[doc(alias = "C3CR")]
-pub type C3cr = crate::Reg<c3cr::C3crSpec>;
-#[doc = "DMAMUX request line multiplexer channel x configuration register"]
-pub mod c3cr;
-#[doc = "C4CR (rw) register accessor: DMAMUX request line multiplexer channel x configuration register\n\nYou can [`read`](crate::Reg::read) this register and get [`c4cr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`c4cr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@c4cr`]
-module"]
-#[doc(alias = "C4CR")]
-pub type C4cr = crate::Reg<c4cr::C4crSpec>;
-#[doc = "DMAMUX request line multiplexer channel x configuration register"]
-pub mod c4cr;
-#[doc = "C5CR (rw) register accessor: DMAMUX request line multiplexer channel x configuration register\n\nYou can [`read`](crate::Reg::read) this register and get [`c5cr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`c5cr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@c5cr`]
-module"]
-#[doc(alias = "C5CR")]
-pub type C5cr = crate::Reg<c5cr::C5crSpec>;
-#[doc = "DMAMUX request line multiplexer channel x configuration register"]
-pub mod c5cr;
-#[doc = "C6CR (rw) register accessor: DMAMUX request line multiplexer channel x configuration register\n\nYou can [`read`](crate::Reg::read) this register and get [`c6cr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`c6cr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@c6cr`]
-module"]
-#[doc(alias = "C6CR")]
-pub type C6cr = crate::Reg<c6cr::C6crSpec>;
-#[doc = "DMAMUX request line multiplexer channel x configuration register"]
-pub mod c6cr;
+pub use c0cr as c1cr;
+pub use c0cr as c2cr;
+pub use c0cr as c3cr;
+pub use c0cr as c4cr;
+pub use c0cr as c5cr;
+pub use c0cr as c6cr;
+pub use C0cr as C1cr;
+pub use C0cr as C2cr;
+pub use C0cr as C3cr;
+pub use C0cr as C4cr;
+pub use C0cr as C5cr;
+pub use C0cr as C6cr;
 #[doc = "CSR (r) register accessor: DMAMUX request line multiplexer interrupt channel status register\n\nYou can [`read`](crate::Reg::read) this register and get [`csr::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@csr`]
 module"]
 #[doc(alias = "CSR")]
@@ -157,24 +133,12 @@ module"]
 pub type Rg0cr = crate::Reg<rg0cr::Rg0crSpec>;
 #[doc = "DMAMUX request generator channel x configuration register"]
 pub mod rg0cr;
-#[doc = "RG1CR (rw) register accessor: DMAMUX request generator channel x configuration register\n\nYou can [`read`](crate::Reg::read) this register and get [`rg1cr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rg1cr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rg1cr`]
-module"]
-#[doc(alias = "RG1CR")]
-pub type Rg1cr = crate::Reg<rg1cr::Rg1crSpec>;
-#[doc = "DMAMUX request generator channel x configuration register"]
-pub mod rg1cr;
-#[doc = "RG2CR (rw) register accessor: DMAMUX request generator channel x configuration register\n\nYou can [`read`](crate::Reg::read) this register and get [`rg2cr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rg2cr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rg2cr`]
-module"]
-#[doc(alias = "RG2CR")]
-pub type Rg2cr = crate::Reg<rg2cr::Rg2crSpec>;
-#[doc = "DMAMUX request generator channel x configuration register"]
-pub mod rg2cr;
-#[doc = "RG3CR (rw) register accessor: DMAMUX request generator channel x configuration register\n\nYou can [`read`](crate::Reg::read) this register and get [`rg3cr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rg3cr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rg3cr`]
-module"]
-#[doc(alias = "RG3CR")]
-pub type Rg3cr = crate::Reg<rg3cr::Rg3crSpec>;
-#[doc = "DMAMUX request generator channel x configuration register"]
-pub mod rg3cr;
+pub use rg0cr as rg1cr;
+pub use rg0cr as rg2cr;
+pub use rg0cr as rg3cr;
+pub use Rg0cr as Rg1cr;
+pub use Rg0cr as Rg2cr;
+pub use Rg0cr as Rg3cr;
 #[doc = "RGSR (r) register accessor: DMAMUX request generator interrupt status register\n\nYou can [`read`](crate::Reg::read) this register and get [`rgsr::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rgsr`]
 module"]
 #[doc(alias = "RGSR")]
