@@ -251,9 +251,9 @@ where
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Align {
     #[doc = "0: Right alignment"]
-    B0x0 = 0,
+    Right = 0,
     #[doc = "1: Left alignment"]
-    B0x1 = 1,
+    Left = 1,
 }
 impl From<Align> for bool {
     #[inline(always)]
@@ -268,19 +268,19 @@ impl AlignR {
     #[inline(always)]
     pub const fn variant(&self) -> Align {
         match self.bits {
-            false => Align::B0x0,
-            true => Align::B0x1,
+            false => Align::Right,
+            true => Align::Left,
         }
     }
     #[doc = "Right alignment"]
     #[inline(always)]
-    pub fn is_b_0x0(&self) -> bool {
-        *self == Align::B0x0
+    pub fn is_right(&self) -> bool {
+        *self == Align::Right
     }
     #[doc = "Left alignment"]
     #[inline(always)]
-    pub fn is_b_0x1(&self) -> bool {
-        *self == Align::B0x1
+    pub fn is_left(&self) -> bool {
+        *self == Align::Left
     }
 }
 #[doc = "Field `ALIGN` writer - Data alignment This bit is set and cleared by software to select right or left alignment. Refer to Data alignment and resolution (oversampling disabled: OVSE = 0) on page349 Note: The software is allowed to write this bit only when ADSTART bit is cleared to 0 (this ensures that no conversion is ongoing)."]
@@ -291,13 +291,13 @@ where
 {
     #[doc = "Right alignment"]
     #[inline(always)]
-    pub fn b_0x0(self) -> &'a mut crate::W<REG> {
-        self.variant(Align::B0x0)
+    pub fn right(self) -> &'a mut crate::W<REG> {
+        self.variant(Align::Right)
     }
     #[doc = "Left alignment"]
     #[inline(always)]
-    pub fn b_0x1(self) -> &'a mut crate::W<REG> {
-        self.variant(Align::B0x1)
+    pub fn left(self) -> &'a mut crate::W<REG> {
+        self.variant(Align::Left)
     }
 }
 #[doc = "External trigger selection These bits select the external event used to trigger the start of conversion (refer to External triggers for details): Note: The software is allowed to write this bit only when ADSTART bit is cleared to 0 (this ensures that no conversion is ongoing).\n\nValue on reset: 0"]
