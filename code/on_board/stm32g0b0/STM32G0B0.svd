@@ -5515,31 +5515,11 @@ It is read-only when the channel is enabled (EN=1).</description>
               </field>
             </fields>
           </register>
-          <register>
+          <register derivedFrom="DMA1.CNDTR1">
             <name>CNDTR2</name>
             <displayName>DMA_CNDTR2</displayName>
-			<description>DMA channel x number of data register</description>
             <addressOffset>0x20</addressOffset>
             <size>0x20</size>
-            <resetValue>0x00000000</resetValue>
-            <resetMask>0xFFFFFFFF</resetMask>
-            <fields>
-              <field>
-                <name>NDT</name>
-                <description>number of data to transfer (0 to 216-1)
-This field is updated by hardware when the channel is enabled:
-It is decremented after each single DMA 'read followed by write' transfer, indicating the remaining amount of data items to transfer.
-It is kept at zero when the programmed amount of data to transfer is reached, if the channel is not in circular mode (CIRC=0 in the DMA_CCRx register).
-It is reloaded automatically by the previously programmed value, when the transfer is complete, if the channel is in circular mode (CIRC=1).
-If this field is zero, no transfer can be served whatever the channel status (enabled or not).
-Note: this field is set and cleared by software.
-It must not be written when the channel is enabled (EN = 1).
-It is read-only when the channel is enabled (EN=1).</description>
-                <bitOffset>0</bitOffset>
-                <bitWidth>16</bitWidth>
-                <access>read-write</access>
-              </field>
-            </fields>
           </register>
           <register derivedFrom="DMA1.CPAR1">
             <name>CPAR2</name>
@@ -5864,31 +5844,11 @@ It is read-only when the channel is enabled (EN=1).</description>
               </field>
             </fields>
           </register>
-          <register>
+          <register derivedFrom="DMA1.CNDTR1">
             <name>CNDTR3</name>
             <displayName>DMA_CNDTR3</displayName>
-			<description>DMA channel x configuration register</description>
             <addressOffset>0x34</addressOffset>
             <size>0x20</size>
-            <resetValue>0x00000000</resetValue>
-            <resetMask>0xFFFFFFFF</resetMask>
-            <fields>
-              <field>
-                <name>NDT</name>
-                <description>number of data to transfer (0 to 216-1)
-This field is updated by hardware when the channel is enabled:
-It is decremented after each single DMA 'read followed by write' transfer, indicating the remaining amount of data items to transfer.
-It is kept at zero when the programmed amount of data to transfer is reached, if the channel is not in circular mode (CIRC=0 in the DMA_CCRx register).
-It is reloaded automatically by the previously programmed value, when the transfer is complete, if the channel is in circular mode (CIRC=1).
-If this field is zero, no transfer can be served whatever the channel status (enabled or not).
-Note: this field is set and cleared by software.
-It must not be written when the channel is enabled (EN = 1).
-It is read-only when the channel is enabled (EN=1).</description>
-                <bitOffset>0</bitOffset>
-                <bitWidth>16</bitWidth>
-                <access>read-write</access>
-              </field>
-            </fields>
           </register>
           <register derivedFrom="DMA1.CPAR1">
             <name>CPAR3</name>
@@ -6213,31 +6173,11 @@ It is read-only when the channel is enabled (EN=1).</description>
               </field>
             </fields>
           </register>
-          <register>
+          <register derivedFrom="DMA1.CNDTR1">
             <name>CNDTR4</name>
             <displayName>DMA_CNDTR4</displayName>
-			<description>DMA channel x configuration register</description>
             <addressOffset>0x48</addressOffset>
             <size>0x20</size>
-            <resetValue>0x00000000</resetValue>
-            <resetMask>0xFFFFFFFF</resetMask>
-            <fields>
-              <field>
-                <name>NDT</name>
-                <description>number of data to transfer (0 to 216-1)
-This field is updated by hardware when the channel is enabled:
-It is decremented after each single DMA 'read followed by write' transfer, indicating the remaining amount of data items to transfer.
-It is kept at zero when the programmed amount of data to transfer is reached, if the channel is not in circular mode (CIRC=0 in the DMA_CCRx register).
-It is reloaded automatically by the previously programmed value, when the transfer is complete, if the channel is in circular mode (CIRC=1).
-If this field is zero, no transfer can be served whatever the channel status (enabled or not).
-Note: this field is set and cleared by software.
-It must not be written when the channel is enabled (EN = 1).
-It is read-only when the channel is enabled (EN=1).</description>
-                <bitOffset>0</bitOffset>
-                <bitWidth>16</bitWidth>
-                <access>read-write</access>
-              </field>
-            </fields>
           </register>
           <register derivedFrom="DMA1.CPAR1">
             <name>CPAR4</name>
@@ -6562,31 +6502,11 @@ It is read-only when the channel is enabled (EN=1).</description>
               </field>
             </fields>
           </register>
-          <register>
+          <register derivedFrom="DMA1.CNDTR1">
             <name>CNDTR5</name>
             <displayName>DMA_CNDTR5</displayName>
-			<description>DMA channel x configuration register</description>
             <addressOffset>0x5c</addressOffset>
             <size>0x20</size>
-            <resetValue>0x00000000</resetValue>
-            <resetMask>0xFFFFFFFF</resetMask>
-            <fields>
-              <field>
-                <name>NDT</name>
-                <description>number of data to transfer (0 to 216-1)
-This field is updated by hardware when the channel is enabled:
-It is decremented after each single DMA 'read followed by write' transfer, indicating the remaining amount of data items to transfer.
-It is kept at zero when the programmed amount of data to transfer is reached, if the channel is not in circular mode (CIRC=0 in the DMA_CCRx register).
-It is reloaded automatically by the previously programmed value, when the transfer is complete, if the channel is in circular mode (CIRC=1).
-If this field is zero, no transfer can be served whatever the channel status (enabled or not).
-Note: this field is set and cleared by software.
-It must not be written when the channel is enabled (EN = 1).
-It is read-only when the channel is enabled (EN=1).</description>
-                <bitOffset>0</bitOffset>
-                <bitWidth>16</bitWidth>
-                <access>read-write</access>
-              </field>
-            </fields>
           </register>
           <register derivedFrom="DMA1.CPAR1">
             <name>CPAR5</name>
@@ -6911,31 +6831,11 @@ It is read-only when the channel is enabled (EN=1).</description>
               </field>
             </fields>
           </register>
-          <register>
+          <register derivedFrom="DMA1.CNDTR1">
             <name>CNDTR6</name>
             <displayName>DMA_CNDTR6</displayName>
-			<description>DMA channel x configuration register</description>
             <addressOffset>0x70</addressOffset>
             <size>0x20</size>
-            <resetValue>0x00000000</resetValue>
-            <resetMask>0xFFFFFFFF</resetMask>
-            <fields>
-              <field>
-                <name>NDT</name>
-                <description>number of data to transfer (0 to 216-1)
-This field is updated by hardware when the channel is enabled:
-It is decremented after each single DMA 'read followed by write' transfer, indicating the remaining amount of data items to transfer.
-It is kept at zero when the programmed amount of data to transfer is reached, if the channel is not in circular mode (CIRC=0 in the DMA_CCRx register).
-It is reloaded automatically by the previously programmed value, when the transfer is complete, if the channel is in circular mode (CIRC=1).
-If this field is zero, no transfer can be served whatever the channel status (enabled or not).
-Note: this field is set and cleared by software.
-It must not be written when the channel is enabled (EN = 1).
-It is read-only when the channel is enabled (EN=1).</description>
-                <bitOffset>0</bitOffset>
-                <bitWidth>16</bitWidth>
-                <access>read-write</access>
-              </field>
-            </fields>
           </register>
           <register derivedFrom="DMA1.CPAR1">
             <name>CPAR6</name>
@@ -7260,31 +7160,11 @@ It is read-only when the channel is enabled (EN=1).</description>
               </field>
             </fields>
           </register>
-          <register>
+          <register derivedFrom="DMA1.CNDTR1">
             <name>CNDTR7</name>
             <displayName>DMA_CNDTR7</displayName>
-			<description>DMA channel x configuration register</description>
             <addressOffset>0x84</addressOffset>
             <size>0x20</size>
-            <resetValue>0x00000000</resetValue>
-            <resetMask>0xFFFFFFFF</resetMask>
-            <fields>
-              <field>
-                <name>NDT</name>
-                <description>number of data to transfer (0 to 216-1)
-This field is updated by hardware when the channel is enabled:
-It is decremented after each single DMA 'read followed by write' transfer, indicating the remaining amount of data items to transfer.
-It is kept at zero when the programmed amount of data to transfer is reached, if the channel is not in circular mode (CIRC=0 in the DMA_CCRx register).
-It is reloaded automatically by the previously programmed value, when the transfer is complete, if the channel is in circular mode (CIRC=1).
-If this field is zero, no transfer can be served whatever the channel status (enabled or not).
-Note: this field is set and cleared by software.
-It must not be written when the channel is enabled (EN = 1).
-It is read-only when the channel is enabled (EN=1).</description>
-                <bitOffset>0</bitOffset>
-                <bitWidth>16</bitWidth>
-                <access>read-write</access>
-              </field>
-            </fields>
           </register>
           <register derivedFrom="DMA1.CPAR1">
             <name>CPAR7</name>
