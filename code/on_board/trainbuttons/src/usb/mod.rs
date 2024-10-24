@@ -7,7 +7,6 @@ mod data;
 mod packets;
 
 
-use bitmacros::{bit_mask, extract_bits};
 use cortex_m::asm::nop;
 use cortex_m::peripheral::NVIC;
 use stm32g0b0::{interrupt, Interrupt, Peripherals};
@@ -444,35 +443,10 @@ fn handle_usb_interrupt(peripherals: &Peripherals) {
                 // endpoint 1 just sent off its current state
 
                 // update button states
-                // buttons are:
-                // PA1-PA4, PA7, PA15 (6 bits)
-                // PB1-PB11 (11 bits)
-                // [PB12 and PB13 are LEDs]
-                // PD0-PD3 (4 bits)
-                let pa_bits = peripherals.gpioa.idr().read().bits();
-                let pa_button_states: u32 =
-                    (extract_bits!(pa_bits, 1, 4) ^ bit_mask!(0, 4))
-                    | ((extract_bits!(pa_bits, 7, 1) ^ bit_mask!(0, 1)) << 4)
-                    | ((extract_bits!(pa_bits, 15, 1) ^ bit_mask!(0, 1)) << 5)
-                ;
-                let pb_bits = peripherals.gpiob.idr().read().bits();
-                let pb_button_states: u32 =
-                    extract_bits!(pb_bits, 1, 11) ^ bit_mask!(0, 11)
-                ;
-                let pd_bits = peripherals.gpiod.idr().read().bits();
-                let pd_button_states: u32 =
-                    extract_bits!(pd_bits, 0, 4) ^ bit_mask!(0, 4)
-                ;
+                let all_button_states = crate::pins::read_button_states(peripherals);
 
-                // reports are filled up from the least significant bit...
-                // 000D DDDB BBBB BBBB BBAA AAAA
-                let all_button_states =
-                    pa_button_states
-                    | (pb_button_states << 6)
-                    | (pd_button_states << (6 + 11))
-                ;
-
-                // ... but sent out in little-endian ordner
+                // reports are filled up from the least significant bit,
+                // but sent out in little-endian order
                 copy_to_endpoint_tx_buffer(1, &all_button_states.to_le_bytes()[0..3]);
 
                 // ready to send three bytes again
