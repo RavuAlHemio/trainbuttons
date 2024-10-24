@@ -226,75 +226,51 @@ module"]
 pub type Cmar1 = crate::Reg<cmar1::Cmar1Spec>;
 #[doc = "DMA channel x memory address register"]
 pub mod cmar1;
-#[doc = "CCR2 (rw) register accessor: DMA channel 2 configuration register\n\nYou can [`read`](crate::Reg::read) this register and get [`ccr2::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ccr2::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ccr2`]
-module"]
-#[doc(alias = "CCR2")]
-pub type Ccr2 = crate::Reg<ccr2::Ccr2Spec>;
-#[doc = "DMA channel 2 configuration register"]
-pub mod ccr2;
+pub use ccr1 as ccr2;
+pub use ccr1 as ccr3;
+pub use ccr1 as ccr4;
+pub use ccr1 as ccr5;
+pub use ccr1 as ccr6;
+pub use ccr1 as ccr7;
 pub use cmar1 as cmar2;
-pub use cndtr1 as cndtr2;
-pub use cpar1 as cpar2;
-pub use Cmar1 as Cmar2;
-pub use Cndtr1 as Cndtr2;
-pub use Cpar1 as Cpar2;
-#[doc = "CCR3 (rw) register accessor: DMA channel 3 configuration register\n\nYou can [`read`](crate::Reg::read) this register and get [`ccr3::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ccr3::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ccr3`]
-module"]
-#[doc(alias = "CCR3")]
-pub type Ccr3 = crate::Reg<ccr3::Ccr3Spec>;
-#[doc = "DMA channel 3 configuration register"]
-pub mod ccr3;
 pub use cmar1 as cmar3;
-pub use cndtr1 as cndtr3;
-pub use cpar1 as cpar3;
-pub use Cmar1 as Cmar3;
-pub use Cndtr1 as Cndtr3;
-pub use Cpar1 as Cpar3;
-#[doc = "CCR4 (rw) register accessor: DMA channel 4 configuration register\n\nYou can [`read`](crate::Reg::read) this register and get [`ccr4::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ccr4::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ccr4`]
-module"]
-#[doc(alias = "CCR4")]
-pub type Ccr4 = crate::Reg<ccr4::Ccr4Spec>;
-#[doc = "DMA channel 4 configuration register"]
-pub mod ccr4;
 pub use cmar1 as cmar4;
-pub use cndtr1 as cndtr4;
-pub use cpar1 as cpar4;
-pub use Cmar1 as Cmar4;
-pub use Cndtr1 as Cndtr4;
-pub use Cpar1 as Cpar4;
-#[doc = "CCR5 (rw) register accessor: DMA channel 5 configuration register\n\nYou can [`read`](crate::Reg::read) this register and get [`ccr5::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ccr5::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ccr5`]
-module"]
-#[doc(alias = "CCR5")]
-pub type Ccr5 = crate::Reg<ccr5::Ccr5Spec>;
-#[doc = "DMA channel 5 configuration register"]
-pub mod ccr5;
 pub use cmar1 as cmar5;
-pub use cndtr1 as cndtr5;
-pub use cpar1 as cpar5;
-pub use Cmar1 as Cmar5;
-pub use Cndtr1 as Cndtr5;
-pub use Cpar1 as Cpar5;
-#[doc = "CCR6 (rw) register accessor: DMA channel 6 configuration register\n\nYou can [`read`](crate::Reg::read) this register and get [`ccr6::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ccr6::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ccr6`]
-module"]
-#[doc(alias = "CCR6")]
-pub type Ccr6 = crate::Reg<ccr6::Ccr6Spec>;
-#[doc = "DMA channel 6 configuration register"]
-pub mod ccr6;
 pub use cmar1 as cmar6;
-pub use cndtr1 as cndtr6;
-pub use cpar1 as cpar6;
-pub use Cmar1 as Cmar6;
-pub use Cndtr1 as Cndtr6;
-pub use Cpar1 as Cpar6;
-#[doc = "CCR7 (rw) register accessor: DMA channel 7 configuration register\n\nYou can [`read`](crate::Reg::read) this register and get [`ccr7::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ccr7::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ccr7`]
-module"]
-#[doc(alias = "CCR7")]
-pub type Ccr7 = crate::Reg<ccr7::Ccr7Spec>;
-#[doc = "DMA channel 7 configuration register"]
-pub mod ccr7;
 pub use cmar1 as cmar7;
+pub use cndtr1 as cndtr2;
+pub use cndtr1 as cndtr3;
+pub use cndtr1 as cndtr4;
+pub use cndtr1 as cndtr5;
+pub use cndtr1 as cndtr6;
 pub use cndtr1 as cndtr7;
+pub use cpar1 as cpar2;
+pub use cpar1 as cpar3;
+pub use cpar1 as cpar4;
+pub use cpar1 as cpar5;
+pub use cpar1 as cpar6;
 pub use cpar1 as cpar7;
+pub use Ccr1 as Ccr2;
+pub use Ccr1 as Ccr3;
+pub use Ccr1 as Ccr4;
+pub use Ccr1 as Ccr5;
+pub use Ccr1 as Ccr6;
+pub use Ccr1 as Ccr7;
+pub use Cmar1 as Cmar2;
+pub use Cmar1 as Cmar3;
+pub use Cmar1 as Cmar4;
+pub use Cmar1 as Cmar5;
+pub use Cmar1 as Cmar6;
 pub use Cmar1 as Cmar7;
+pub use Cndtr1 as Cndtr2;
+pub use Cndtr1 as Cndtr3;
+pub use Cndtr1 as Cndtr4;
+pub use Cndtr1 as Cndtr5;
+pub use Cndtr1 as Cndtr6;
 pub use Cndtr1 as Cndtr7;
+pub use Cpar1 as Cpar2;
+pub use Cpar1 as Cpar3;
+pub use Cpar1 as Cpar4;
+pub use Cpar1 as Cpar5;
+pub use Cpar1 as Cpar6;
 pub use Cpar1 as Cpar7;
