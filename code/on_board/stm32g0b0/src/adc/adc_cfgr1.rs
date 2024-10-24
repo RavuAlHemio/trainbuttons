@@ -59,9 +59,9 @@ where
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Dmacfg {
     #[doc = "0: DMA one shot mode selected"]
-    B0x0 = 0,
+    OneShot = 0,
     #[doc = "1: DMA circular mode selected"]
-    B0x1 = 1,
+    Circular = 1,
 }
 impl From<Dmacfg> for bool {
     #[inline(always)]
@@ -76,19 +76,19 @@ impl DmacfgR {
     #[inline(always)]
     pub const fn variant(&self) -> Dmacfg {
         match self.bits {
-            false => Dmacfg::B0x0,
-            true => Dmacfg::B0x1,
+            false => Dmacfg::OneShot,
+            true => Dmacfg::Circular,
         }
     }
     #[doc = "DMA one shot mode selected"]
     #[inline(always)]
-    pub fn is_b_0x0(&self) -> bool {
-        *self == Dmacfg::B0x0
+    pub fn is_one_shot(&self) -> bool {
+        *self == Dmacfg::OneShot
     }
     #[doc = "DMA circular mode selected"]
     #[inline(always)]
-    pub fn is_b_0x1(&self) -> bool {
-        *self == Dmacfg::B0x1
+    pub fn is_circular(&self) -> bool {
+        *self == Dmacfg::Circular
     }
 }
 #[doc = "Field `DMACFG` writer - Direct memory access configuration This bit is set and cleared by software to select between two DMA modes of operation and is effective only when DMAEN=1. For more details, refer to page351 Note: The software is allowed to write this bit only when ADSTART bit is cleared to 0 (this ensures that no conversion is ongoing)."]
@@ -99,13 +99,13 @@ where
 {
     #[doc = "DMA one shot mode selected"]
     #[inline(always)]
-    pub fn b_0x0(self) -> &'a mut crate::W<REG> {
-        self.variant(Dmacfg::B0x0)
+    pub fn one_shot(self) -> &'a mut crate::W<REG> {
+        self.variant(Dmacfg::OneShot)
     }
     #[doc = "DMA circular mode selected"]
     #[inline(always)]
-    pub fn b_0x1(self) -> &'a mut crate::W<REG> {
-        self.variant(Dmacfg::B0x1)
+    pub fn circular(self) -> &'a mut crate::W<REG> {
+        self.variant(Dmacfg::Circular)
     }
 }
 #[doc = "Scan sequence direction This bit is set and cleared by software to select the direction in which the channels is scanned in the sequence. It is effective only if CHSELMOD bit is cleared to 0. Note: The software is allowed to write this bit only when ADSTART bit is cleared to 0 (this ensures that no conversion is ongoing). If CCRDY is not yet asserted after channel configuration (writing ADC_CHSELR register or changing CHSELRMOD or SCANDIR), the value written to this bit is ignored.\n\nValue on reset: 0"]

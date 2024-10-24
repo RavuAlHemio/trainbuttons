@@ -676,12 +676,12 @@ Note: The software is allowed to write this bit only when ADSTART bit is cleared
                 <access>read-write</access>
                 <enumeratedValues>
                   <enumeratedValue>
-                    <name>B_0x0</name>
+                    <name>ONE_SHOT</name>
                     <description>DMA one shot mode selected</description>
                     <value>0x0</value>
                   </enumeratedValue>
                   <enumeratedValue>
-                    <name>B_0x1</name>
+                    <name>CIRCULAR</name>
                     <description>DMA circular mode selected</description>
                     <value>0x1</value>
                   </enumeratedValue>
