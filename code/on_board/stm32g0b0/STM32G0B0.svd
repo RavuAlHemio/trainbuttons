@@ -5069,22 +5069,22 @@ It is read-only when the channel is enabled (EN=1).</description>
                 <access>read-write</access>
                 <enumeratedValues>
                   <enumeratedValue>
-                    <name>B_0x0</name>
+                    <name>LOW</name>
                     <description>low</description>
                     <value>0x0</value>
                   </enumeratedValue>
                   <enumeratedValue>
-                    <name>B_0x1</name>
+                    <name>MEDIUM</name>
                     <description>medium</description>
                     <value>0x1</value>
                   </enumeratedValue>
                   <enumeratedValue>
-                    <name>B_0x2</name>
+                    <name>HIGH</name>
                     <description>high</description>
                     <value>0x2</value>
                   </enumeratedValue>
                   <enumeratedValue>
-                    <name>B_0x3</name>
+                    <name>VERY_HIGH</name>
                     <description>very high</description>
                     <value>0x3</value>
                   </enumeratedValue>

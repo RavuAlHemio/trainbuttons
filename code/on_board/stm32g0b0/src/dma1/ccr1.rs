@@ -577,13 +577,13 @@ where
 #[repr(u8)]
 pub enum Pl {
     #[doc = "0: low"]
-    B0x0 = 0,
+    Low = 0,
     #[doc = "1: medium"]
-    B0x1 = 1,
+    Medium = 1,
     #[doc = "2: high"]
-    B0x2 = 2,
+    High = 2,
     #[doc = "3: very high"]
-    B0x3 = 3,
+    VeryHigh = 3,
 }
 impl From<Pl> for u8 {
     #[inline(always)]
@@ -602,32 +602,32 @@ impl PlR {
     #[inline(always)]
     pub const fn variant(&self) -> Pl {
         match self.bits {
-            0 => Pl::B0x0,
-            1 => Pl::B0x1,
-            2 => Pl::B0x2,
-            3 => Pl::B0x3,
+            0 => Pl::Low,
+            1 => Pl::Medium,
+            2 => Pl::High,
+            3 => Pl::VeryHigh,
             _ => unreachable!(),
         }
     }
     #[doc = "low"]
     #[inline(always)]
-    pub fn is_b_0x0(&self) -> bool {
-        *self == Pl::B0x0
+    pub fn is_low(&self) -> bool {
+        *self == Pl::Low
     }
     #[doc = "medium"]
     #[inline(always)]
-    pub fn is_b_0x1(&self) -> bool {
-        *self == Pl::B0x1
+    pub fn is_medium(&self) -> bool {
+        *self == Pl::Medium
     }
     #[doc = "high"]
     #[inline(always)]
-    pub fn is_b_0x2(&self) -> bool {
-        *self == Pl::B0x2
+    pub fn is_high(&self) -> bool {
+        *self == Pl::High
     }
     #[doc = "very high"]
     #[inline(always)]
-    pub fn is_b_0x3(&self) -> bool {
-        *self == Pl::B0x3
+    pub fn is_very_high(&self) -> bool {
+        *self == Pl::VeryHigh
     }
 }
 #[doc = "Field `PL` writer - priority level Note: this field is set and cleared by software. It must not be written when the channel is enabled (EN = 1). It is read-only when the channel is enabled (EN=1)."]
@@ -639,23 +639,23 @@ where
 {
     #[doc = "low"]
     #[inline(always)]
-    pub fn b_0x0(self) -> &'a mut crate::W<REG> {
-        self.variant(Pl::B0x0)
+    pub fn low(self) -> &'a mut crate::W<REG> {
+        self.variant(Pl::Low)
     }
     #[doc = "medium"]
     #[inline(always)]
-    pub fn b_0x1(self) -> &'a mut crate::W<REG> {
-        self.variant(Pl::B0x1)
+    pub fn medium(self) -> &'a mut crate::W<REG> {
+        self.variant(Pl::Medium)
     }
     #[doc = "high"]
     #[inline(always)]
-    pub fn b_0x2(self) -> &'a mut crate::W<REG> {
-        self.variant(Pl::B0x2)
+    pub fn high(self) -> &'a mut crate::W<REG> {
+        self.variant(Pl::High)
     }
     #[doc = "very high"]
     #[inline(always)]
-    pub fn b_0x3(self) -> &'a mut crate::W<REG> {
-        self.variant(Pl::B0x3)
+    pub fn very_high(self) -> &'a mut crate::W<REG> {
+        self.variant(Pl::VeryHigh)
     }
 }
 #[doc = "memory-to-memory mode Note: this bit is set and cleared by software. It must not be written when the channel is enabled (EN = 1). It is read-only when the channel is enabled (EN=1).\n\nValue on reset: 0"]
