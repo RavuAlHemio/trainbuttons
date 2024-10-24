@@ -1,22 +1,43 @@
 use stm32g0b0::Peripherals;
 
 
-pub(crate) fn set_up(peripherals: &Peripherals) {
+pub(crate) fn enable_peripheral_clocks(peripherals: &Peripherals) {
     // use peripheral clock (equal to undivided HSE = 48 MHz)
     peripherals.rcc.ccipr().modify(|_, w| w
         .usart1sel().pclk()
     );
 
-    // send clock to USART1
+    // send clock to USART1 and GPIOA
     peripherals.rcc.apbenr2().modify(|_, w| w
         .usart1en().set_bit()
     );
-
-    // also send clock to GPIOA
     peripherals.rcc.iopenr().modify(|_, w| w
         .gpioaen().set_bit()
     );
+}
 
+pub(crate) fn start_reset(peripherals: &Peripherals) {
+    // reset USART1 and GPIOA
+    peripherals.rcc.apbrstr2().modify(|_, w| w
+        .usart1rst().set_bit()
+    );
+    peripherals.rcc.ioprstr().modify(|_, w| w
+        .gpioarst().set_bit()
+    );
+}
+
+pub(crate) fn stop_reset(peripherals: &Peripherals) {
+    // disable reset of USART1 and GPIOA
+    peripherals.rcc.apbrstr2().modify(|_, w| w
+        .usart1rst().clear_bit()
+    );
+    peripherals.rcc.ioprstr().modify(|_, w| w
+        .gpioarst().clear_bit()
+    );
+}
+
+
+pub(crate) fn set_up(peripherals: &Peripherals) {
     // configure pins: PA9 = Tx, PA10 = Rx (alternative function 1)
     peripherals.gpioa.moder().modify(|_, w| w
         .moder9().alternate_function()

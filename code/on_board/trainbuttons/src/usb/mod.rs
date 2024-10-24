@@ -62,6 +62,38 @@ const fn get_usb_endpoint_rx_offset(endpoint: usize) -> usize {
 }
 
 
+pub(crate) fn enable_peripheral_clocks(peripherals: &Peripherals) {
+    // plug HSE into USB clock
+    peripherals.rcc.ccipr2().modify(|_, w| w
+        .usbsel().hse()
+    );
+
+    // send power to the USB macrocell
+    peripherals.pwr.cr2().modify(|_, w| w
+        .usv().set_bit()
+    );
+
+    // send a clock to the USB macrocell
+    peripherals.rcc.apbenr1().modify(|_, w| w
+        .usben().set_bit()
+    );
+}
+
+pub(crate) fn start_reset(peripherals: &Peripherals) {
+    // reset USB
+    peripherals.rcc.apbrstr1().modify(|_, w| w
+        .usbrst().set_bit()
+    );
+}
+
+pub(crate) fn stop_reset(peripherals: &Peripherals) {
+    // disable reset of USB
+    peripherals.rcc.apbrstr1().modify(|_, w| w
+        .usbrst().clear_bit()
+    );
+}
+
+
 fn copy_to_endpoint_tx_buffer(endpoint: usize, data: &[u8]) {
     // data must be transferred in units of 4 bytes
     // otherwise we get spurious bit errors
@@ -606,46 +638,12 @@ fn post_reset_setup(peripherals: &Peripherals) {
 ///
 /// Assumes that clocks have already been set up using [`crate::clock::set_up`].
 pub(crate) fn set_up(peripherals: &Peripherals) {
-    // plug HSE into USB clock
-    peripherals.rcc.ccipr2().modify(|_, w| w
-        .usbsel().hse()
-    );
-
-    // send power to the USB macrocell
-    peripherals.pwr.cr2().modify(|_, w| w
-        .usv().set_bit()
-    );
-
-    // send a clock to the USB macrocell
-    peripherals.rcc.apbenr1().modify(|_, w| w
-        .usben().set_bit()
-    );
-
-    // give it a bit
-    for _ in 0..8 {
-        nop();
-    }
-
     // enable USB interrupt with priority 3
     unsafe {
         let mut core_peripherals = cortex_m::Peripherals::steal();
         core_peripherals.NVIC.set_priority(Interrupt::USB, 3);
         NVIC::unmask(Interrupt::USB);
     }
-    for _ in 0..8 {
-        nop();
-    }
-
-    // trigger USB macrocell reset
-    peripherals.rcc.apbrstr1().modify(|_, w| w
-        .usbrst().set_bit()
-    );
-    for _ in 0..8 {
-        nop();
-    }
-    peripherals.rcc.apbrstr1().modify(|_, w| w
-        .usbrst().clear_bit()
-    );
     for _ in 0..8 {
         nop();
     }
