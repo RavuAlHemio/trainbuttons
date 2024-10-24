@@ -1,5 +1,5 @@
-#[doc = "Register `DMAMUX_CSR` reader"]
-pub type R = crate::R<DmamuxCsrSpec>;
+#[doc = "Register `CSR` reader"]
+pub type R = crate::R<CsrSpec>;
 #[doc = "Field `SOF0` reader - Synchronization overrun event flag The flag is set when a synchronization event occurs on a DMA request line multiplexer channel x, while the DMA request counter value is lower than NBREQ. The flag is cleared by writing 1 to the corresponding CSOFx bit in DMAMUX_CFR register."]
 pub type Sof0R = crate::BitReader;
 #[doc = "Field `SOF1` reader - Synchronization overrun event flag The flag is set when a synchronization event occurs on a DMA request line multiplexer channel x, while the DMA request counter value is lower than NBREQ. The flag is cleared by writing 1 to the corresponding CSOFx bit in DMAMUX_CFR register."]
@@ -51,14 +51,14 @@ impl R {
         Sof6R::new(((self.bits >> 6) & 1) != 0)
     }
 }
-#[doc = "DMAMUX request line multiplexer interrupt channel status register\n\nYou can [`read`](crate::Reg::read) this register and get [`dmamux_csr::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct DmamuxCsrSpec;
-impl crate::RegisterSpec for DmamuxCsrSpec {
+#[doc = "DMAMUX request line multiplexer interrupt channel status register\n\nYou can [`read`](crate::Reg::read) this register and get [`csr::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct CsrSpec;
+impl crate::RegisterSpec for CsrSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [`dmamux_csr::R`](R) reader structure"]
-impl crate::Readable for DmamuxCsrSpec {}
-#[doc = "`reset()` method sets DMAMUX_CSR to value 0"]
-impl crate::Resettable for DmamuxCsrSpec {
+#[doc = "`read()` method returns [`csr::R`](R) reader structure"]
+impl crate::Readable for CsrSpec {}
+#[doc = "`reset()` method sets CSR to value 0"]
+impl crate::Resettable for CsrSpec {
     const RESET_VALUE: u32 = 0;
 }

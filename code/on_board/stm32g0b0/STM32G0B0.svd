@@ -5378,7 +5378,7 @@ It is not read-only when the channel is enabled (EN=1).</description>
       </addressBlock>
       <registers>
         <register>
-          <name>DMAMUX_C0CR</name>
+          <name>C0CR</name>
           <displayName>DMAMUX_C0CR</displayName>
           <description>DMAMUX request line multiplexer channel x configuration register</description>
           <addressOffset>0x0</addressOffset>
@@ -5501,7 +5501,7 @@ It is not read-only when the channel is enabled (EN=1).</description>
           </fields>
         </register>
         <register>
-          <name>DMAMUX_C1CR</name>
+          <name>C1CR</name>
           <displayName>DMAMUX_C1CR</displayName>
           <description>DMAMUX request line multiplexer channel x configuration register</description>
           <addressOffset>0x4</addressOffset>
@@ -5624,7 +5624,7 @@ It is not read-only when the channel is enabled (EN=1).</description>
           </fields>
         </register>
         <register>
-          <name>DMAMUX_C2CR</name>
+          <name>C2CR</name>
           <displayName>DMAMUX_C2CR</displayName>
           <description>DMAMUX request line multiplexer channel x configuration register</description>
           <addressOffset>0x8</addressOffset>
@@ -5747,7 +5747,7 @@ It is not read-only when the channel is enabled (EN=1).</description>
           </fields>
         </register>
         <register>
-          <name>DMAMUX_C3CR</name>
+          <name>C3CR</name>
           <displayName>DMAMUX_C3CR</displayName>
           <description>DMAMUX request line multiplexer channel x configuration register</description>
           <addressOffset>0xC</addressOffset>
@@ -5870,7 +5870,7 @@ It is not read-only when the channel is enabled (EN=1).</description>
 		  </fields>
         </register>
         <register>
-          <name>DMAMUX_C4CR</name>
+          <name>C4CR</name>
           <displayName>DMAMUX_C4CR</displayName>
           <description>DMAMUX request line multiplexer channel x configuration register</description>
           <addressOffset>0x10</addressOffset>
@@ -5993,7 +5993,7 @@ It is not read-only when the channel is enabled (EN=1).</description>
           </fields>
         </register>
         <register>
-          <name>DMAMUX_C5CR</name>
+          <name>C5CR</name>
           <displayName>DMAMUX_C5CR</displayName>
           <description>DMAMUX request line multiplexer channel x configuration register</description>
           <addressOffset>0x14</addressOffset>
@@ -6116,7 +6116,7 @@ It is not read-only when the channel is enabled (EN=1).</description>
           </fields>
         </register>
         <register>
-          <name>DMAMUX_C6CR</name>
+          <name>C6CR</name>
           <displayName>DMAMUX_C6CR</displayName>
           <description>DMAMUX request line multiplexer channel x configuration register</description>
           <addressOffset>0x18</addressOffset>
@@ -6239,7 +6239,7 @@ It is not read-only when the channel is enabled (EN=1).</description>
           </fields>
         </register>
 		<register>
-          <name>DMAMUX_CSR</name>
+          <name>CSR</name>
 		  <displayName>DMAMUX_CSR</displayName>
           <description>DMAMUX request line multiplexer interrupt channel status register</description>
           <addressOffset>0x80</addressOffset>
@@ -6313,7 +6313,7 @@ It is not read-only when the channel is enabled (EN=1).</description>
 		  </fields>
         </register>
 		<register>
-          <name>DMAMUX_CFR</name>
+          <name>CFR</name>
           <displayName>DMAMUX_CFR</displayName>
 		  <description>DMAMUX request line multiplexer interrupt clear flag register</description>
           <addressOffset>0x84</addressOffset>
@@ -6387,7 +6387,7 @@ Writing 1 in each bit clears the corresponding overrun flag SOFx in the DMAMUX_C
 		  </fields>
         </register>		
         <register>
-          <name>DMAMUX_RG0CR</name>
+          <name>RG0CR</name>
           <displayName>DMAMUX_RG0CR</displayName>
           <description>DMAMUX request generator channel x configuration register</description>
           <addressOffset>0x100</addressOffset>
@@ -6483,7 +6483,7 @@ Note: This field shall only be written when GE bit is disabled.</description>
           </fields>
         </register>
         <register>
-          <name>DMAMUX_RG1CR</name>
+          <name>RG1CR</name>
           <displayName>DMAMUX_RG1CR</displayName>
           <description>DMAMUX request generator channel x configuration register</description>
           <addressOffset>0x104</addressOffset>
@@ -6579,7 +6579,7 @@ Note: This field shall only be written when GE bit is disabled.</description>
           </fields>
         </register>
         <register>
-          <name>DMAMUX_RG2CR</name>
+          <name>RG2CR</name>
           <displayName>DMAMUX_RG2CR</displayName>
           <description>DMAMUX request generator channel x configuration register</description>
           <addressOffset>0x108</addressOffset>
@@ -6675,7 +6675,7 @@ Note: This field shall only be written when GE bit is disabled.</description>
           </fields>
         </register>
         <register>
-          <name>DMAMUX_RG3CR</name>
+          <name>RG3CR</name>
           <displayName>DMAMUX_RG3CR</displayName>
           <description>DMAMUX request generator channel x configuration register</description>
           <addressOffset>0x10C</addressOffset>
@@ -6771,7 +6771,7 @@ Note: This field shall only be written when GE bit is disabled.</description>
           </fields>
         </register>
         <register>
-          <name>DMAMUX_RGSR</name>
+          <name>RGSR</name>
           <displayName>DMAMUX_RGSR</displayName>
           <description>DMAMUX request generator interrupt status register</description>
           <addressOffset>0x140</addressOffset>
@@ -6822,7 +6822,7 @@ The flag is cleared by writing 1 to the corresponding COFx bit in the DMAMUX_RGC
           </fields>
         </register>
         <register>
-          <name>DMAMUX_RGCFR</name>
+          <name>RGCFR</name>
           <displayName>DMAMUX_RGCFR</displayName>
           <description>DMAMUX request generator interrupt clear flag register</description>
           <addressOffset>0x144</addressOffset>

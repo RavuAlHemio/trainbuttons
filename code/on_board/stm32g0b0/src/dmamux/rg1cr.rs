@@ -1,7 +1,7 @@
-#[doc = "Register `DMAMUX_RG3CR` reader"]
-pub type R = crate::R<DmamuxRg3crSpec>;
-#[doc = "Register `DMAMUX_RG3CR` writer"]
-pub type W = crate::W<DmamuxRg3crSpec>;
+#[doc = "Register `RG1CR` reader"]
+pub type R = crate::R<Rg1crSpec>;
+#[doc = "Register `RG1CR` writer"]
+pub type W = crate::W<Rg1crSpec>;
 #[doc = "Field `SIG_ID` reader - Signal identification Selects the DMA request trigger input used for the channel x of the DMA request generator"]
 pub type SigIdR = crate::FieldReader;
 #[doc = "Field `SIG_ID` writer - Signal identification Selects the DMA request trigger input used for the channel x of the DMA request generator"]
@@ -233,48 +233,48 @@ impl W {
     #[doc = "Bits 0:4 - Signal identification Selects the DMA request trigger input used for the channel x of the DMA request generator"]
     #[inline(always)]
     #[must_use]
-    pub fn sig_id(&mut self) -> SigIdW<DmamuxRg3crSpec> {
+    pub fn sig_id(&mut self) -> SigIdW<Rg1crSpec> {
         SigIdW::new(self, 0)
     }
     #[doc = "Bit 8 - Trigger overrun interrupt enable"]
     #[inline(always)]
     #[must_use]
-    pub fn oie(&mut self) -> OieW<DmamuxRg3crSpec> {
+    pub fn oie(&mut self) -> OieW<Rg1crSpec> {
         OieW::new(self, 8)
     }
     #[doc = "Bit 16 - DMA request generator channel x enable"]
     #[inline(always)]
     #[must_use]
-    pub fn ge(&mut self) -> GeW<DmamuxRg3crSpec> {
+    pub fn ge(&mut self) -> GeW<Rg1crSpec> {
         GeW::new(self, 16)
     }
     #[doc = "Bits 17:18 - DMA request generator trigger polarity Defines the edge polarity of the selected trigger input"]
     #[inline(always)]
     #[must_use]
-    pub fn gpol(&mut self) -> GpolW<DmamuxRg3crSpec> {
+    pub fn gpol(&mut self) -> GpolW<Rg1crSpec> {
         GpolW::new(self, 17)
     }
     #[doc = "Bits 19:23 - Number of DMA requests to be generated (minus 1) Defines the number of DMA requests to be generated after a trigger event. The actual number of generated DMA requests is GNBREQ +1. Note: This field shall only be written when GE bit is disabled."]
     #[inline(always)]
     #[must_use]
-    pub fn gnbreq(&mut self) -> GnbreqW<DmamuxRg3crSpec> {
+    pub fn gnbreq(&mut self) -> GnbreqW<Rg1crSpec> {
         GnbreqW::new(self, 19)
     }
 }
-#[doc = "DMAMUX request generator channel x configuration register\n\nYou can [`read`](crate::Reg::read) this register and get [`dmamux_rg3cr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dmamux_rg3cr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct DmamuxRg3crSpec;
-impl crate::RegisterSpec for DmamuxRg3crSpec {
+#[doc = "DMAMUX request generator channel x configuration register\n\nYou can [`read`](crate::Reg::read) this register and get [`rg1cr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rg1cr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Rg1crSpec;
+impl crate::RegisterSpec for Rg1crSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [`dmamux_rg3cr::R`](R) reader structure"]
-impl crate::Readable for DmamuxRg3crSpec {}
-#[doc = "`write(|w| ..)` method takes [`dmamux_rg3cr::W`](W) writer structure"]
-impl crate::Writable for DmamuxRg3crSpec {
+#[doc = "`read()` method returns [`rg1cr::R`](R) reader structure"]
+impl crate::Readable for Rg1crSpec {}
+#[doc = "`write(|w| ..)` method takes [`rg1cr::W`](W) writer structure"]
+impl crate::Writable for Rg1crSpec {
     type Safety = crate::Unsafe;
     const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
     const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
-#[doc = "`reset()` method sets DMAMUX_RG3CR to value 0"]
-impl crate::Resettable for DmamuxRg3crSpec {
+#[doc = "`reset()` method sets RG1CR to value 0"]
+impl crate::Resettable for Rg1crSpec {
     const RESET_VALUE: u32 = 0;
 }

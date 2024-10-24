@@ -1,7 +1,7 @@
-#[doc = "Register `DMAMUX_C2CR` reader"]
-pub type R = crate::R<DmamuxC2crSpec>;
-#[doc = "Register `DMAMUX_C2CR` writer"]
-pub type W = crate::W<DmamuxC2crSpec>;
+#[doc = "Register `C3CR` reader"]
+pub type R = crate::R<C3crSpec>;
+#[doc = "Register `C3CR` writer"]
+pub type W = crate::W<C3crSpec>;
 #[doc = "Field `DMAREQ_ID` reader - DMA request identification Selects the input DMA request. See the DMAMUX table about assignments of multiplexer inputs to resources."]
 pub type DmareqIdR = crate::FieldReader;
 #[doc = "Field `DMAREQ_ID` writer - DMA request identification Selects the input DMA request. See the DMAMUX table about assignments of multiplexer inputs to resources."]
@@ -300,60 +300,60 @@ impl W {
     #[doc = "Bits 0:5 - DMA request identification Selects the input DMA request. See the DMAMUX table about assignments of multiplexer inputs to resources."]
     #[inline(always)]
     #[must_use]
-    pub fn dmareq_id(&mut self) -> DmareqIdW<DmamuxC2crSpec> {
+    pub fn dmareq_id(&mut self) -> DmareqIdW<C3crSpec> {
         DmareqIdW::new(self, 0)
     }
     #[doc = "Bit 8 - Synchronization overrun interrupt enable"]
     #[inline(always)]
     #[must_use]
-    pub fn soie(&mut self) -> SoieW<DmamuxC2crSpec> {
+    pub fn soie(&mut self) -> SoieW<C3crSpec> {
         SoieW::new(self, 8)
     }
     #[doc = "Bit 9 - Event generation enable"]
     #[inline(always)]
     #[must_use]
-    pub fn ege(&mut self) -> EgeW<DmamuxC2crSpec> {
+    pub fn ege(&mut self) -> EgeW<C3crSpec> {
         EgeW::new(self, 9)
     }
     #[doc = "Bit 16 - Synchronization enable"]
     #[inline(always)]
     #[must_use]
-    pub fn se(&mut self) -> SeW<DmamuxC2crSpec> {
+    pub fn se(&mut self) -> SeW<C3crSpec> {
         SeW::new(self, 16)
     }
     #[doc = "Bits 17:18 - Synchronization polarity Defines the edge polarity of the selected synchronization input:"]
     #[inline(always)]
     #[must_use]
-    pub fn spol(&mut self) -> SpolW<DmamuxC2crSpec> {
+    pub fn spol(&mut self) -> SpolW<C3crSpec> {
         SpolW::new(self, 17)
     }
     #[doc = "Bits 19:23 - Number of DMA requests minus 1 to forward Defines the number of DMA requests to forward to the DMA controller after a synchronization event, and/or the number of DMA requests before an output event is generated. This field shall only be written when both SE and EGE bits are low."]
     #[inline(always)]
     #[must_use]
-    pub fn nbreq(&mut self) -> NbreqW<DmamuxC2crSpec> {
+    pub fn nbreq(&mut self) -> NbreqW<C3crSpec> {
         NbreqW::new(self, 19)
     }
     #[doc = "Bits 24:28 - Synchronization identification Selects the synchronization input (see inputs to resources STM32G0)."]
     #[inline(always)]
     #[must_use]
-    pub fn sync_id(&mut self) -> SyncIdW<DmamuxC2crSpec> {
+    pub fn sync_id(&mut self) -> SyncIdW<C3crSpec> {
         SyncIdW::new(self, 24)
     }
 }
-#[doc = "DMAMUX request line multiplexer channel x configuration register\n\nYou can [`read`](crate::Reg::read) this register and get [`dmamux_c2cr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dmamux_c2cr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct DmamuxC2crSpec;
-impl crate::RegisterSpec for DmamuxC2crSpec {
+#[doc = "DMAMUX request line multiplexer channel x configuration register\n\nYou can [`read`](crate::Reg::read) this register and get [`c3cr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`c3cr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct C3crSpec;
+impl crate::RegisterSpec for C3crSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [`dmamux_c2cr::R`](R) reader structure"]
-impl crate::Readable for DmamuxC2crSpec {}
-#[doc = "`write(|w| ..)` method takes [`dmamux_c2cr::W`](W) writer structure"]
-impl crate::Writable for DmamuxC2crSpec {
+#[doc = "`read()` method returns [`c3cr::R`](R) reader structure"]
+impl crate::Readable for C3crSpec {}
+#[doc = "`write(|w| ..)` method takes [`c3cr::W`](W) writer structure"]
+impl crate::Writable for C3crSpec {
     type Safety = crate::Unsafe;
     const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
     const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
-#[doc = "`reset()` method sets DMAMUX_C2CR to value 0"]
-impl crate::Resettable for DmamuxC2crSpec {
+#[doc = "`reset()` method sets C3CR to value 0"]
+impl crate::Resettable for C3crSpec {
     const RESET_VALUE: u32 = 0;
 }
