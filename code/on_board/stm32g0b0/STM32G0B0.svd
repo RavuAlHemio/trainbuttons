@@ -4054,7 +4054,7 @@ This bit enables/disables the clock to the counter of TIM17 when the core is hal
         </interrupt>
         <registers>
           <register>
-            <name>DMA_ISR</name>
+            <name>ISR</name>
             <displayName>DMA_ISR</displayName>
             <description>DMA interrupt status register </description>
             <addressOffset>0x0</addressOffset>
@@ -4597,7 +4597,7 @@ This bit enables/disables the clock to the counter of TIM17 when the core is hal
             </fields>
           </register>
           <register>
-            <name>DMA_IFCR</name>
+            <name>IFCR</name>
             <displayName>DMA_IFCR</displayName>
             <description>DMA interrupt flag clear register </description>
             <addressOffset>0x4</addressOffset>
@@ -4804,7 +4804,7 @@ This bit enables/disables the clock to the counter of TIM17 when the core is hal
             </fields>
           </register>
           <register>
-            <name>DMA_CCR1</name>
+            <name>CCR1</name>
             <displayName>DMA_CCR1</displayName>
             <description>DMA channel 1 configuration register</description>
             <addressOffset>0x8</addressOffset>
@@ -5115,7 +5115,7 @@ It is read-only when the channel is enabled (EN=1).</description>
             </fields>
           </register>
           <register>
-            <name>DMA_CNDTR1</name>
+            <name>CNDTR1</name>
             <displayName>DMA_CNDTR1</displayName>
 			<description>DMA channel x number of data register</description>
             <addressOffset>0xc</addressOffset>
@@ -5141,7 +5141,7 @@ It is read-only when the channel is enabled (EN=1).</description>
             </fields>
           </register>
           <register>
-            <name>DMA_CPAR1</name>
+            <name>CPAR1</name>
             <displayName>DMA_CPAR1</displayName>
 			<description>DMA channel x peripheral address register</description>
             <addressOffset>0x10</addressOffset>
@@ -5167,7 +5167,7 @@ It is not read-only when the channel is enabled (EN=1).</description>
             </fields>
           </register>
           <register>
-            <name>DMA_CMAR1</name>
+            <name>CMAR1</name>
             <displayName>DMA_CMAR1</displayName>
 			<description>DMA channel x memory address register</description>
             <addressOffset>0x14</addressOffset>
@@ -5193,7 +5193,7 @@ It is not read-only when the channel is enabled (EN=1).</description>
             </fields>
           </register>
           <register>
-            <name>DMA_CCR2</name>
+            <name>CCR2</name>
             <displayName>DMA_CCR2</displayName>
             <description>DMA channel 2 configuration register</description>
             <addressOffset>0x1c</addressOffset>
@@ -5504,7 +5504,7 @@ It is read-only when the channel is enabled (EN=1).</description>
             </fields>
           </register>
           <register>
-            <name>DMA_CNDTR2</name>
+            <name>CNDTR2</name>
             <displayName>DMA_CNDTR2</displayName>
 			<description>DMA channel x number of data register</description>
             <addressOffset>0x20</addressOffset>
@@ -5530,7 +5530,7 @@ It is read-only when the channel is enabled (EN=1).</description>
             </fields>
           </register>
           <register>
-            <name>DMA_CPAR2</name>
+            <name>CPAR2</name>
             <displayName>DMA_CPAR2</displayName>
 			<description>DMA channel x peripheral address register</description>
             <addressOffset>0x24</addressOffset>
@@ -5556,7 +5556,7 @@ It is not read-only when the channel is enabled (EN=1).</description>
             </fields>
           </register>
           <register>
-            <name>DMA_CMAR2</name>
+            <name>CMAR2</name>
             <displayName>DMA_CMAR2</displayName>
 			<description>DMA channel x memory address register</description>
             <addressOffset>0x28</addressOffset>
@@ -5582,7 +5582,7 @@ It is not read-only when the channel is enabled (EN=1).</description>
             </fields>
           </register>
           <register>
-            <name>DMA_CCR3</name>
+            <name>CCR3</name>
             <displayName>DMA_CCR3</displayName>
             <description>DMA channel 3 configuration register</description>
             <addressOffset>0x30</addressOffset>
@@ -5893,7 +5893,7 @@ It is read-only when the channel is enabled (EN=1).</description>
             </fields>
           </register>
           <register>
-            <name>DMA_CNDTR3</name>
+            <name>CNDTR3</name>
             <displayName>DMA_CNDTR3</displayName>
 			<description>DMA channel x configuration register</description>
             <addressOffset>0x34</addressOffset>
@@ -5919,7 +5919,7 @@ It is read-only when the channel is enabled (EN=1).</description>
             </fields>
           </register>
           <register>
-            <name>DMA_CPAR3</name>
+            <name>CPAR3</name>
             <displayName>DMA_CPAR3</displayName>
 			<description>DMA channel x peripheral address register</description>
             <addressOffset>0x38</addressOffset>
@@ -5945,7 +5945,7 @@ It is not read-only when the channel is enabled (EN=1).</description>
             </fields>
           </register>
           <register>
-            <name>DMA_CMAR3</name>
+            <name>CMAR3</name>
             <displayName>DMA_CMAR3</displayName>
 			<description>DMA channel x memory address register</description>
             <addressOffset>0x3c</addressOffset>
@@ -5971,7 +5971,7 @@ It is not read-only when the channel is enabled (EN=1).</description>
             </fields>
           </register>
           <register>
-            <name>DMA_CCR4</name>
+            <name>CCR4</name>
             <displayName>DMA_CCR4</displayName>
             <description>DMA channel 4 configuration register</description>
             <addressOffset>0x44</addressOffset>
@@ -6282,7 +6282,7 @@ It is read-only when the channel is enabled (EN=1).</description>
             </fields>
           </register>
           <register>
-            <name>DMA_CNDTR4</name>
+            <name>CNDTR4</name>
             <displayName>DMA_CNDTR4</displayName>
 			<description>DMA channel x configuration register</description>
             <addressOffset>0x48</addressOffset>
@@ -6308,7 +6308,7 @@ It is read-only when the channel is enabled (EN=1).</description>
             </fields>
           </register>
           <register>
-            <name>DMA_CPAR4</name>
+            <name>CPAR4</name>
             <displayName>DMA_CPAR4</displayName>
 			<description>DMA channel x peripheral address register</description>
             <addressOffset>0x4c</addressOffset>
@@ -6334,7 +6334,7 @@ It is not read-only when the channel is enabled (EN=1).</description>
             </fields>
           </register>
           <register>
-            <name>DMA_CMAR4</name>
+            <name>CMAR4</name>
             <displayName>DMA_CMAR4</displayName>
 			<description>DMA channel x memory address register</description>
             <addressOffset>0x50</addressOffset>
@@ -6360,7 +6360,7 @@ It is not read-only when the channel is enabled (EN=1).</description>
             </fields>
           </register>
           <register>
-            <name>DMA_CCR5</name>
+            <name>CCR5</name>
             <displayName>DMA_CCR5</displayName>
             <description>DMA channel 5 configuration register</description>
             <addressOffset>0x58</addressOffset>
@@ -6671,7 +6671,7 @@ It is read-only when the channel is enabled (EN=1).</description>
             </fields>
           </register>
           <register>
-            <name>DMA_CNDTR5</name>
+            <name>CNDTR5</name>
             <displayName>DMA_CNDTR5</displayName>
 			<description>DMA channel x configuration register</description>
             <addressOffset>0x5c</addressOffset>
@@ -6697,7 +6697,7 @@ It is read-only when the channel is enabled (EN=1).</description>
             </fields>
           </register>
           <register>
-            <name>DMA_CPAR5</name>
+            <name>CPAR5</name>
             <displayName>DMA_CPAR5</displayName>
 			<description>DMA channel x peripheral address register</description>
             <addressOffset>0x60</addressOffset>
@@ -6723,7 +6723,7 @@ It is not read-only when the channel is enabled (EN=1).</description>
             </fields>
           </register>
           <register>
-            <name>DMA_CMAR5</name>
+            <name>CMAR5</name>
             <displayName>DMA_CMAR5</displayName>
 			<description>DMA channel x memory address register</description>
             <addressOffset>0x64</addressOffset>
@@ -6749,7 +6749,7 @@ It is not read-only when the channel is enabled (EN=1).</description>
             </fields>
           </register>
           <register>
-            <name>DMA_CCR6</name>
+            <name>CCR6</name>
             <displayName>DMA_CCR6</displayName>
             <description>DMA channel 6 configuration register</description>
             <addressOffset>0x6c</addressOffset>
@@ -7060,7 +7060,7 @@ It is read-only when the channel is enabled (EN=1).</description>
             </fields>
           </register>
           <register>
-            <name>DMA_CNDTR6</name>
+            <name>CNDTR6</name>
             <displayName>DMA_CNDTR6</displayName>
 			<description>DMA channel x configuration register</description>
             <addressOffset>0x70</addressOffset>
@@ -7086,7 +7086,7 @@ It is read-only when the channel is enabled (EN=1).</description>
             </fields>
           </register>
           <register>
-            <name>DMA_CPAR6</name>
+            <name>CPAR6</name>
             <displayName>DMA_CPAR6</displayName>
 			<description>DMA channel x peripheral address register</description>
             <addressOffset>0x74</addressOffset>
@@ -7112,7 +7112,7 @@ It is not read-only when the channel is enabled (EN=1).</description>
             </fields>
           </register>
           <register>
-            <name>DMA_CMAR6</name>
+            <name>CMAR6</name>
             <displayName>DMA_CMAR6</displayName>
 			<description>DMA channel x memory address register</description>
             <addressOffset>0x78</addressOffset>
@@ -7138,7 +7138,7 @@ It is not read-only when the channel is enabled (EN=1).</description>
             </fields>
           </register>
           <register>
-            <name>DMA_CCR7</name>
+            <name>CCR7</name>
             <displayName>DMA_CCR7</displayName>
             <description>DMA channel 7 configuration register</description>
             <addressOffset>0x80</addressOffset>
@@ -7449,7 +7449,7 @@ It is read-only when the channel is enabled (EN=1).</description>
             </fields>
           </register>
           <register>
-            <name>DMA_CNDTR7</name>
+            <name>CNDTR7</name>
             <displayName>DMA_CNDTR7</displayName>
 			<description>DMA channel x configuration register</description>
             <addressOffset>0x84</addressOffset>
@@ -7475,7 +7475,7 @@ It is read-only when the channel is enabled (EN=1).</description>
             </fields>
           </register>
           <register>
-            <name>DMA_CPAR7</name>
+            <name>CPAR7</name>
             <displayName>DMA_CPAR7</displayName>
 			<description>DMA channel x peripheral address register</description>
             <addressOffset>0x88</addressOffset>
@@ -7501,7 +7501,7 @@ It is not read-only when the channel is enabled (EN=1).</description>
             </fields>
           </register>
           <register>
-            <name>DMA_CMAR7</name>
+            <name>CMAR7</name>
             <displayName>DMA_CMAR7</displayName>
 			<description>DMA channel x memory address register</description>
             <addressOffset>0x8c</addressOffset>

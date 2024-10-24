@@ -1,5 +1,5 @@
-#[doc = "Register `DMA_IFCR` writer"]
-pub type W = crate::W<DmaIfcrSpec>;
+#[doc = "Register `IFCR` writer"]
+pub type W = crate::W<IfcrSpec>;
 #[doc = "Field `CGIF1` writer - global interrupt flag clear for channel 1"]
 pub type Cgif1W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `CTCIF1` writer - transfer complete flag clear for channel 1"]
@@ -60,184 +60,184 @@ impl W {
     #[doc = "Bit 0 - global interrupt flag clear for channel 1"]
     #[inline(always)]
     #[must_use]
-    pub fn cgif1(&mut self) -> Cgif1W<DmaIfcrSpec> {
+    pub fn cgif1(&mut self) -> Cgif1W<IfcrSpec> {
         Cgif1W::new(self, 0)
     }
     #[doc = "Bit 1 - transfer complete flag clear for channel 1"]
     #[inline(always)]
     #[must_use]
-    pub fn ctcif1(&mut self) -> Ctcif1W<DmaIfcrSpec> {
+    pub fn ctcif1(&mut self) -> Ctcif1W<IfcrSpec> {
         Ctcif1W::new(self, 1)
     }
     #[doc = "Bit 2 - half transfer flag clear for channel 1"]
     #[inline(always)]
     #[must_use]
-    pub fn chtif1(&mut self) -> Chtif1W<DmaIfcrSpec> {
+    pub fn chtif1(&mut self) -> Chtif1W<IfcrSpec> {
         Chtif1W::new(self, 2)
     }
     #[doc = "Bit 3 - transfer error flag clear for channel 1"]
     #[inline(always)]
     #[must_use]
-    pub fn cteif1(&mut self) -> Cteif1W<DmaIfcrSpec> {
+    pub fn cteif1(&mut self) -> Cteif1W<IfcrSpec> {
         Cteif1W::new(self, 3)
     }
     #[doc = "Bit 4 - global interrupt flag clear for channel 2"]
     #[inline(always)]
     #[must_use]
-    pub fn cgif2(&mut self) -> Cgif2W<DmaIfcrSpec> {
+    pub fn cgif2(&mut self) -> Cgif2W<IfcrSpec> {
         Cgif2W::new(self, 4)
     }
     #[doc = "Bit 5 - transfer complete flag clear for channel 2"]
     #[inline(always)]
     #[must_use]
-    pub fn ctcif2(&mut self) -> Ctcif2W<DmaIfcrSpec> {
+    pub fn ctcif2(&mut self) -> Ctcif2W<IfcrSpec> {
         Ctcif2W::new(self, 5)
     }
     #[doc = "Bit 6 - half transfer flag clear for channel 2"]
     #[inline(always)]
     #[must_use]
-    pub fn chtif2(&mut self) -> Chtif2W<DmaIfcrSpec> {
+    pub fn chtif2(&mut self) -> Chtif2W<IfcrSpec> {
         Chtif2W::new(self, 6)
     }
     #[doc = "Bit 7 - transfer error flag clear for channel 2"]
     #[inline(always)]
     #[must_use]
-    pub fn cteif2(&mut self) -> Cteif2W<DmaIfcrSpec> {
+    pub fn cteif2(&mut self) -> Cteif2W<IfcrSpec> {
         Cteif2W::new(self, 7)
     }
     #[doc = "Bit 8 - global interrupt flag clear for channel 3"]
     #[inline(always)]
     #[must_use]
-    pub fn cgif3(&mut self) -> Cgif3W<DmaIfcrSpec> {
+    pub fn cgif3(&mut self) -> Cgif3W<IfcrSpec> {
         Cgif3W::new(self, 8)
     }
     #[doc = "Bit 9 - transfer complete flag clear for channel 3"]
     #[inline(always)]
     #[must_use]
-    pub fn ctcif3(&mut self) -> Ctcif3W<DmaIfcrSpec> {
+    pub fn ctcif3(&mut self) -> Ctcif3W<IfcrSpec> {
         Ctcif3W::new(self, 9)
     }
     #[doc = "Bit 10 - half transfer flag clear for channel 3"]
     #[inline(always)]
     #[must_use]
-    pub fn chtif3(&mut self) -> Chtif3W<DmaIfcrSpec> {
+    pub fn chtif3(&mut self) -> Chtif3W<IfcrSpec> {
         Chtif3W::new(self, 10)
     }
     #[doc = "Bit 11 - transfer error flag clear for channel 3"]
     #[inline(always)]
     #[must_use]
-    pub fn cteif3(&mut self) -> Cteif3W<DmaIfcrSpec> {
+    pub fn cteif3(&mut self) -> Cteif3W<IfcrSpec> {
         Cteif3W::new(self, 11)
     }
     #[doc = "Bit 12 - global interrupt flag clear for channel 4"]
     #[inline(always)]
     #[must_use]
-    pub fn cgif4(&mut self) -> Cgif4W<DmaIfcrSpec> {
+    pub fn cgif4(&mut self) -> Cgif4W<IfcrSpec> {
         Cgif4W::new(self, 12)
     }
     #[doc = "Bit 13 - transfer complete flag clear for channel 4"]
     #[inline(always)]
     #[must_use]
-    pub fn ctcif4(&mut self) -> Ctcif4W<DmaIfcrSpec> {
+    pub fn ctcif4(&mut self) -> Ctcif4W<IfcrSpec> {
         Ctcif4W::new(self, 13)
     }
     #[doc = "Bit 14 - half transfer flag clear for channel 4"]
     #[inline(always)]
     #[must_use]
-    pub fn chtif4(&mut self) -> Chtif4W<DmaIfcrSpec> {
+    pub fn chtif4(&mut self) -> Chtif4W<IfcrSpec> {
         Chtif4W::new(self, 14)
     }
     #[doc = "Bit 15 - transfer error flag clear for channel 4"]
     #[inline(always)]
     #[must_use]
-    pub fn cteif4(&mut self) -> Cteif4W<DmaIfcrSpec> {
+    pub fn cteif4(&mut self) -> Cteif4W<IfcrSpec> {
         Cteif4W::new(self, 15)
     }
     #[doc = "Bit 16 - global interrupt flag clear for channel 5"]
     #[inline(always)]
     #[must_use]
-    pub fn cgif5(&mut self) -> Cgif5W<DmaIfcrSpec> {
+    pub fn cgif5(&mut self) -> Cgif5W<IfcrSpec> {
         Cgif5W::new(self, 16)
     }
     #[doc = "Bit 17 - transfer complete flag clear for channel 5"]
     #[inline(always)]
     #[must_use]
-    pub fn ctcif5(&mut self) -> Ctcif5W<DmaIfcrSpec> {
+    pub fn ctcif5(&mut self) -> Ctcif5W<IfcrSpec> {
         Ctcif5W::new(self, 17)
     }
     #[doc = "Bit 18 - half transfer flag clear for channel 5"]
     #[inline(always)]
     #[must_use]
-    pub fn chtif5(&mut self) -> Chtif5W<DmaIfcrSpec> {
+    pub fn chtif5(&mut self) -> Chtif5W<IfcrSpec> {
         Chtif5W::new(self, 18)
     }
     #[doc = "Bit 19 - transfer error flag clear for channel 5"]
     #[inline(always)]
     #[must_use]
-    pub fn cteif5(&mut self) -> Cteif5W<DmaIfcrSpec> {
+    pub fn cteif5(&mut self) -> Cteif5W<IfcrSpec> {
         Cteif5W::new(self, 19)
     }
     #[doc = "Bit 20 - global interrupt flag clear for channel 6"]
     #[inline(always)]
     #[must_use]
-    pub fn cgif6(&mut self) -> Cgif6W<DmaIfcrSpec> {
+    pub fn cgif6(&mut self) -> Cgif6W<IfcrSpec> {
         Cgif6W::new(self, 20)
     }
     #[doc = "Bit 21 - transfer complete flag clear for channel 6"]
     #[inline(always)]
     #[must_use]
-    pub fn ctcif6(&mut self) -> Ctcif6W<DmaIfcrSpec> {
+    pub fn ctcif6(&mut self) -> Ctcif6W<IfcrSpec> {
         Ctcif6W::new(self, 21)
     }
     #[doc = "Bit 22 - half transfer flag clear for channel 6"]
     #[inline(always)]
     #[must_use]
-    pub fn chtif6(&mut self) -> Chtif6W<DmaIfcrSpec> {
+    pub fn chtif6(&mut self) -> Chtif6W<IfcrSpec> {
         Chtif6W::new(self, 22)
     }
     #[doc = "Bit 23 - transfer error flag clear for channel 6"]
     #[inline(always)]
     #[must_use]
-    pub fn cteif6(&mut self) -> Cteif6W<DmaIfcrSpec> {
+    pub fn cteif6(&mut self) -> Cteif6W<IfcrSpec> {
         Cteif6W::new(self, 23)
     }
     #[doc = "Bit 24 - global interrupt flag clear for channel 7"]
     #[inline(always)]
     #[must_use]
-    pub fn cgif7(&mut self) -> Cgif7W<DmaIfcrSpec> {
+    pub fn cgif7(&mut self) -> Cgif7W<IfcrSpec> {
         Cgif7W::new(self, 24)
     }
     #[doc = "Bit 25 - transfer complete flag clear for channel 7"]
     #[inline(always)]
     #[must_use]
-    pub fn ctcif7(&mut self) -> Ctcif7W<DmaIfcrSpec> {
+    pub fn ctcif7(&mut self) -> Ctcif7W<IfcrSpec> {
         Ctcif7W::new(self, 25)
     }
     #[doc = "Bit 26 - half transfer flag clear for channel 7"]
     #[inline(always)]
     #[must_use]
-    pub fn chtif7(&mut self) -> Chtif7W<DmaIfcrSpec> {
+    pub fn chtif7(&mut self) -> Chtif7W<IfcrSpec> {
         Chtif7W::new(self, 26)
     }
     #[doc = "Bit 27 - transfer error flag clear for channel 7"]
     #[inline(always)]
     #[must_use]
-    pub fn cteif7(&mut self) -> Cteif7W<DmaIfcrSpec> {
+    pub fn cteif7(&mut self) -> Cteif7W<IfcrSpec> {
         Cteif7W::new(self, 27)
     }
 }
-#[doc = "DMA interrupt flag clear register\n\nYou can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dma_ifcr::W`](W). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct DmaIfcrSpec;
-impl crate::RegisterSpec for DmaIfcrSpec {
+#[doc = "DMA interrupt flag clear register\n\nYou can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ifcr::W`](W). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct IfcrSpec;
+impl crate::RegisterSpec for IfcrSpec {
     type Ux = u32;
 }
-#[doc = "`write(|w| ..)` method takes [`dma_ifcr::W`](W) writer structure"]
-impl crate::Writable for DmaIfcrSpec {
+#[doc = "`write(|w| ..)` method takes [`ifcr::W`](W) writer structure"]
+impl crate::Writable for IfcrSpec {
     type Safety = crate::Unsafe;
     const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
     const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
-#[doc = "`reset()` method sets DMA_IFCR to value 0"]
-impl crate::Resettable for DmaIfcrSpec {
+#[doc = "`reset()` method sets IFCR to value 0"]
+impl crate::Resettable for IfcrSpec {
     const RESET_VALUE: u32 = 0;
 }

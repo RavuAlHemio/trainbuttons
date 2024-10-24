@@ -1,7 +1,7 @@
-#[doc = "Register `DMA_CMAR2` reader"]
-pub type R = crate::R<DmaCmar2Spec>;
-#[doc = "Register `DMA_CMAR2` writer"]
-pub type W = crate::W<DmaCmar2Spec>;
+#[doc = "Register `CMAR3` reader"]
+pub type R = crate::R<Cmar3Spec>;
+#[doc = "Register `CMAR3` writer"]
+pub type W = crate::W<Cmar3Spec>;
 #[doc = "Field `MA` reader - peripheral address It contains the base address of the memory from/to which the data will be read/written. When MSIZE\\[1:0\\]=01 (16 bits), bit 0 of MA\\[31:0\\]
 is ignored. Access is automatically aligned to a half-word address. When MSIZE=10 (32 bits), bits 1 and 0 of MA\\[31:0\\]
 are ignored. Access is automatically aligned to a word address. In memory-to-memory mode, this register identifies the memory source address if DIR=1 and the memory destination address if DIR=0. In peripheral-to-peripheral mode, this register identifies the peripheral source address DIR=1 and the peripheral destination address if DIR=0. Note: this register is set and cleared by software. It must not be written when the channel is enabled (EN = 1). It is not read-only when the channel is enabled (EN=1)."]
@@ -25,24 +25,24 @@ is ignored. Access is automatically aligned to a half-word address. When MSIZE=1
 are ignored. Access is automatically aligned to a word address. In memory-to-memory mode, this register identifies the memory source address if DIR=1 and the memory destination address if DIR=0. In peripheral-to-peripheral mode, this register identifies the peripheral source address DIR=1 and the peripheral destination address if DIR=0. Note: this register is set and cleared by software. It must not be written when the channel is enabled (EN = 1). It is not read-only when the channel is enabled (EN=1)."]
     #[inline(always)]
     #[must_use]
-    pub fn ma(&mut self) -> MaW<DmaCmar2Spec> {
+    pub fn ma(&mut self) -> MaW<Cmar3Spec> {
         MaW::new(self, 0)
     }
 }
-#[doc = "DMA channel x memory address register\n\nYou can [`read`](crate::Reg::read) this register and get [`dma_cmar2::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dma_cmar2::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct DmaCmar2Spec;
-impl crate::RegisterSpec for DmaCmar2Spec {
+#[doc = "DMA channel x memory address register\n\nYou can [`read`](crate::Reg::read) this register and get [`cmar3::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cmar3::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Cmar3Spec;
+impl crate::RegisterSpec for Cmar3Spec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [`dma_cmar2::R`](R) reader structure"]
-impl crate::Readable for DmaCmar2Spec {}
-#[doc = "`write(|w| ..)` method takes [`dma_cmar2::W`](W) writer structure"]
-impl crate::Writable for DmaCmar2Spec {
+#[doc = "`read()` method returns [`cmar3::R`](R) reader structure"]
+impl crate::Readable for Cmar3Spec {}
+#[doc = "`write(|w| ..)` method takes [`cmar3::W`](W) writer structure"]
+impl crate::Writable for Cmar3Spec {
     type Safety = crate::Unsafe;
     const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
     const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
-#[doc = "`reset()` method sets DMA_CMAR2 to value 0"]
-impl crate::Resettable for DmaCmar2Spec {
+#[doc = "`reset()` method sets CMAR3 to value 0"]
+impl crate::Resettable for Cmar3Spec {
     const RESET_VALUE: u32 = 0;
 }

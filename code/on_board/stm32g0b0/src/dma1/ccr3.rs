@@ -1,7 +1,7 @@
-#[doc = "Register `DMA_CCR5` reader"]
-pub type R = crate::R<DmaCcr5Spec>;
-#[doc = "Register `DMA_CCR5` writer"]
-pub type W = crate::W<DmaCcr5Spec>;
+#[doc = "Register `CCR3` reader"]
+pub type R = crate::R<Ccr3Spec>;
+#[doc = "Register `CCR3` writer"]
+pub type W = crate::W<Ccr3Spec>;
 #[doc = "channel enable When a channel transfer error occurs, this bit is cleared by hardware. It can not be set again by software (channel x re-activated) until the TEIFx bit of the DMA_ISR register is cleared (by setting the CTEIFx bit of the DMA_IFCR register). Note: this bit is set and cleared by software.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum En {
@@ -777,90 +777,90 @@ impl W {
     #[doc = "Bit 0 - channel enable When a channel transfer error occurs, this bit is cleared by hardware. It can not be set again by software (channel x re-activated) until the TEIFx bit of the DMA_ISR register is cleared (by setting the CTEIFx bit of the DMA_IFCR register). Note: this bit is set and cleared by software."]
     #[inline(always)]
     #[must_use]
-    pub fn en(&mut self) -> EnW<DmaCcr5Spec> {
+    pub fn en(&mut self) -> EnW<Ccr3Spec> {
         EnW::new(self, 0)
     }
     #[doc = "Bit 1 - transfer complete interrupt enable Note: this bit is set and cleared by software. It must not be written when the channel is enabled (EN = 1). It is not read-only when the channel is enabled (EN=1)."]
     #[inline(always)]
     #[must_use]
-    pub fn tcie(&mut self) -> TcieW<DmaCcr5Spec> {
+    pub fn tcie(&mut self) -> TcieW<Ccr3Spec> {
         TcieW::new(self, 1)
     }
     #[doc = "Bit 2 - half transfer interrupt enable Note: this bit is set and cleared by software. It must not be written when the channel is enabled (EN = 1). It is not read-only when the channel is enabled (EN=1)."]
     #[inline(always)]
     #[must_use]
-    pub fn htie(&mut self) -> HtieW<DmaCcr5Spec> {
+    pub fn htie(&mut self) -> HtieW<Ccr3Spec> {
         HtieW::new(self, 2)
     }
     #[doc = "Bit 3 - transfer error interrupt enable Note: this bit is set and cleared by software. It must not be written when the channel is enabled (EN = 1). It is not read-only when the channel is enabled (EN=1)."]
     #[inline(always)]
     #[must_use]
-    pub fn teie(&mut self) -> TeieW<DmaCcr5Spec> {
+    pub fn teie(&mut self) -> TeieW<Ccr3Spec> {
         TeieW::new(self, 3)
     }
     #[doc = "Bit 4 - data transfer direction This bit must be set only in memory-to-peripheral and peripheral-to-memory modes. Source attributes are defined by PSIZE and PINC, plus the DMA_CPARx register. This is still valid in a memory-to-memory mode. Destination attributes are defined by MSIZE and MINC, plus the DMA_CMARx register. This is still valid in a peripheral-to-peripheral mode. Destination attributes are defined by PSIZE and PINC, plus the DMA_CPARx register. This is still valid in a memory-to-memory mode. Source attributes are defined by MSIZE and MINC, plus the DMA_CMARx register. This is still valid in a peripheral-to-peripheral mode. Note: this bit is set and cleared by software. It must not be written when the channel is enabled (EN = 1). It is read-only when the channel is enabled (EN=1)."]
     #[inline(always)]
     #[must_use]
-    pub fn dir(&mut self) -> DirW<DmaCcr5Spec> {
+    pub fn dir(&mut self) -> DirW<Ccr3Spec> {
         DirW::new(self, 4)
     }
     #[doc = "Bit 5 - circular mode Note: this bit is set and cleared by software. It must not be written when the channel is enabled (EN = 1). It is not read-only when the channel is enabled (EN=1)."]
     #[inline(always)]
     #[must_use]
-    pub fn circ(&mut self) -> CircW<DmaCcr5Spec> {
+    pub fn circ(&mut self) -> CircW<Ccr3Spec> {
         CircW::new(self, 5)
     }
     #[doc = "Bit 6 - peripheral increment mode Defines the increment mode for each DMA transfer to the identified peripheral. n memory-to-memory mode, this field identifies the memory destination if DIR=1 and the memory source if DIR=0. In peripheral-to-peripheral mode, this field identifies the peripheral destination if DIR=1 and the peripheral source if DIR=0. Note: this bit is set and cleared by software. It must not be written when the channel is enabled (EN = 1). It is read-only when the channel is enabled (EN=1)."]
     #[inline(always)]
     #[must_use]
-    pub fn pinc(&mut self) -> PincW<DmaCcr5Spec> {
+    pub fn pinc(&mut self) -> PincW<Ccr3Spec> {
         PincW::new(self, 6)
     }
     #[doc = "Bit 7 - memory increment mode Defines the increment mode for each DMA transfer to the identified memory. In memory-to-memory mode, this field identifies the memory source if DIR=1 and the memory destination if DIR=0. In peripheral-to-peripheral mode, this field identifies the peripheral source if DIR=1 and the peripheral destination if DIR=0. Note: this bit is set and cleared by software. It must not be written when the channel is enabled (EN = 1). It is read-only when the channel is enabled (EN=1)."]
     #[inline(always)]
     #[must_use]
-    pub fn minc(&mut self) -> MincW<DmaCcr5Spec> {
+    pub fn minc(&mut self) -> MincW<Ccr3Spec> {
         MincW::new(self, 7)
     }
     #[doc = "Bits 8:9 - peripheral size Defines the data size of each DMA transfer to the identified peripheral. In memory-to-memory mode, this field identifies the memory destination if DIR=1 and the memory source if DIR=0. In peripheral-to-peripheral mode, this field identifies the peripheral destination if DIR=1 and the peripheral source if DIR=0. Note: this field is set and cleared by software. It must not be written when the channel is enabled (EN = 1). It is read-only when the channel is enabled (EN=1)."]
     #[inline(always)]
     #[must_use]
-    pub fn psize(&mut self) -> PsizeW<DmaCcr5Spec> {
+    pub fn psize(&mut self) -> PsizeW<Ccr3Spec> {
         PsizeW::new(self, 8)
     }
     #[doc = "Bits 10:11 - memory size Defines the data size of each DMA transfer to the identified memory. In memory-to-memory mode, this field identifies the memory source if DIR=1 and the memory destination if DIR=0. In peripheral-to-peripheral mode, this field identifies the peripheral source if DIR=1 and the peripheral destination if DIR=0. Note: this field is set and cleared by software. It must not be written when the channel is enabled (EN = 1). It is read-only when the channel is enabled (EN=1)."]
     #[inline(always)]
     #[must_use]
-    pub fn msize(&mut self) -> MsizeW<DmaCcr5Spec> {
+    pub fn msize(&mut self) -> MsizeW<Ccr3Spec> {
         MsizeW::new(self, 10)
     }
     #[doc = "Bits 12:13 - priority level Note: this field is set and cleared by software. It must not be written when the channel is enabled (EN = 1). It is read-only when the channel is enabled (EN=1)."]
     #[inline(always)]
     #[must_use]
-    pub fn pl(&mut self) -> PlW<DmaCcr5Spec> {
+    pub fn pl(&mut self) -> PlW<Ccr3Spec> {
         PlW::new(self, 12)
     }
     #[doc = "Bit 14 - memory-to-memory mode Note: this bit is set and cleared by software. It must not be written when the channel is enabled (EN = 1). It is read-only when the channel is enabled (EN=1)."]
     #[inline(always)]
     #[must_use]
-    pub fn mem2mem(&mut self) -> Mem2memW<DmaCcr5Spec> {
+    pub fn mem2mem(&mut self) -> Mem2memW<Ccr3Spec> {
         Mem2memW::new(self, 14)
     }
 }
-#[doc = "DMA channel 5 configuration register\n\nYou can [`read`](crate::Reg::read) this register and get [`dma_ccr5::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dma_ccr5::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct DmaCcr5Spec;
-impl crate::RegisterSpec for DmaCcr5Spec {
+#[doc = "DMA channel 3 configuration register\n\nYou can [`read`](crate::Reg::read) this register and get [`ccr3::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ccr3::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Ccr3Spec;
+impl crate::RegisterSpec for Ccr3Spec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [`dma_ccr5::R`](R) reader structure"]
-impl crate::Readable for DmaCcr5Spec {}
-#[doc = "`write(|w| ..)` method takes [`dma_ccr5::W`](W) writer structure"]
-impl crate::Writable for DmaCcr5Spec {
+#[doc = "`read()` method returns [`ccr3::R`](R) reader structure"]
+impl crate::Readable for Ccr3Spec {}
+#[doc = "`write(|w| ..)` method takes [`ccr3::W`](W) writer structure"]
+impl crate::Writable for Ccr3Spec {
     type Safety = crate::Unsafe;
     const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
     const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
-#[doc = "`reset()` method sets DMA_CCR5 to value 0"]
-impl crate::Resettable for DmaCcr5Spec {
+#[doc = "`reset()` method sets CCR3 to value 0"]
+impl crate::Resettable for Ccr3Spec {
     const RESET_VALUE: u32 = 0;
 }

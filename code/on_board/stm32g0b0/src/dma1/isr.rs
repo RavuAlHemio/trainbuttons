@@ -1,5 +1,5 @@
-#[doc = "Register `DMA_ISR` reader"]
-pub type R = crate::R<DmaIsrSpec>;
+#[doc = "Register `ISR` reader"]
+pub type R = crate::R<IsrSpec>;
 #[doc = "global interrupt flag for channel 1\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Gif1 {
@@ -1150,14 +1150,14 @@ impl R {
         Teif7R::new(((self.bits >> 27) & 1) != 0)
     }
 }
-#[doc = "DMA interrupt status register\n\nYou can [`read`](crate::Reg::read) this register and get [`dma_isr::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct DmaIsrSpec;
-impl crate::RegisterSpec for DmaIsrSpec {
+#[doc = "DMA interrupt status register\n\nYou can [`read`](crate::Reg::read) this register and get [`isr::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct IsrSpec;
+impl crate::RegisterSpec for IsrSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [`dma_isr::R`](R) reader structure"]
-impl crate::Readable for DmaIsrSpec {}
-#[doc = "`reset()` method sets DMA_ISR to value 0"]
-impl crate::Resettable for DmaIsrSpec {
+#[doc = "`read()` method returns [`isr::R`](R) reader structure"]
+impl crate::Readable for IsrSpec {}
+#[doc = "`reset()` method sets ISR to value 0"]
+impl crate::Resettable for IsrSpec {
     const RESET_VALUE: u32 = 0;
 }

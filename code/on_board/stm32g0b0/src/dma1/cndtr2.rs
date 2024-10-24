@@ -1,7 +1,7 @@
-#[doc = "Register `DMA_CNDTR5` reader"]
-pub type R = crate::R<DmaCndtr5Spec>;
-#[doc = "Register `DMA_CNDTR5` writer"]
-pub type W = crate::W<DmaCndtr5Spec>;
+#[doc = "Register `CNDTR2` reader"]
+pub type R = crate::R<Cndtr2Spec>;
+#[doc = "Register `CNDTR2` writer"]
+pub type W = crate::W<Cndtr2Spec>;
 #[doc = "Field `NDT` reader - number of data to transfer (0 to 216-1) This field is updated by hardware when the channel is enabled: It is decremented after each single DMA 'read followed by write' transfer, indicating the remaining amount of data items to transfer. It is kept at zero when the programmed amount of data to transfer is reached, if the channel is not in circular mode (CIRC=0 in the DMA_CCRx register). It is reloaded automatically by the previously programmed value, when the transfer is complete, if the channel is in circular mode (CIRC=1). If this field is zero, no transfer can be served whatever the channel status (enabled or not). Note: this field is set and cleared by software. It must not be written when the channel is enabled (EN = 1). It is read-only when the channel is enabled (EN=1)."]
 pub type NdtR = crate::FieldReader<u16>;
 #[doc = "Field `NDT` writer - number of data to transfer (0 to 216-1) This field is updated by hardware when the channel is enabled: It is decremented after each single DMA 'read followed by write' transfer, indicating the remaining amount of data items to transfer. It is kept at zero when the programmed amount of data to transfer is reached, if the channel is not in circular mode (CIRC=0 in the DMA_CCRx register). It is reloaded automatically by the previously programmed value, when the transfer is complete, if the channel is in circular mode (CIRC=1). If this field is zero, no transfer can be served whatever the channel status (enabled or not). Note: this field is set and cleared by software. It must not be written when the channel is enabled (EN = 1). It is read-only when the channel is enabled (EN=1)."]
@@ -17,24 +17,24 @@ impl W {
     #[doc = "Bits 0:15 - number of data to transfer (0 to 216-1) This field is updated by hardware when the channel is enabled: It is decremented after each single DMA 'read followed by write' transfer, indicating the remaining amount of data items to transfer. It is kept at zero when the programmed amount of data to transfer is reached, if the channel is not in circular mode (CIRC=0 in the DMA_CCRx register). It is reloaded automatically by the previously programmed value, when the transfer is complete, if the channel is in circular mode (CIRC=1). If this field is zero, no transfer can be served whatever the channel status (enabled or not). Note: this field is set and cleared by software. It must not be written when the channel is enabled (EN = 1). It is read-only when the channel is enabled (EN=1)."]
     #[inline(always)]
     #[must_use]
-    pub fn ndt(&mut self) -> NdtW<DmaCndtr5Spec> {
+    pub fn ndt(&mut self) -> NdtW<Cndtr2Spec> {
         NdtW::new(self, 0)
     }
 }
-#[doc = "DMA channel x configuration register\n\nYou can [`read`](crate::Reg::read) this register and get [`dma_cndtr5::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dma_cndtr5::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct DmaCndtr5Spec;
-impl crate::RegisterSpec for DmaCndtr5Spec {
+#[doc = "DMA channel x number of data register\n\nYou can [`read`](crate::Reg::read) this register and get [`cndtr2::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cndtr2::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Cndtr2Spec;
+impl crate::RegisterSpec for Cndtr2Spec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [`dma_cndtr5::R`](R) reader structure"]
-impl crate::Readable for DmaCndtr5Spec {}
-#[doc = "`write(|w| ..)` method takes [`dma_cndtr5::W`](W) writer structure"]
-impl crate::Writable for DmaCndtr5Spec {
+#[doc = "`read()` method returns [`cndtr2::R`](R) reader structure"]
+impl crate::Readable for Cndtr2Spec {}
+#[doc = "`write(|w| ..)` method takes [`cndtr2::W`](W) writer structure"]
+impl crate::Writable for Cndtr2Spec {
     type Safety = crate::Unsafe;
     const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
     const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
-#[doc = "`reset()` method sets DMA_CNDTR5 to value 0"]
-impl crate::Resettable for DmaCndtr5Spec {
+#[doc = "`reset()` method sets CNDTR2 to value 0"]
+impl crate::Resettable for Cndtr2Spec {
     const RESET_VALUE: u32 = 0;
 }
