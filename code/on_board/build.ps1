@@ -3,7 +3,8 @@ Param(
     [switch] $NoBuild,
     [switch] $DebugBuild,
     [switch] $ProgramOOCD,
-    [switch] $DebugOOCD
+    [switch] $DebugOOCD,
+    [string] $BinaryName = "trainbuttons"
 )
 
 $buildSuccess = $true
@@ -22,9 +23,9 @@ If (-not $buildSuccess) {
 }
 
 $elfBinary = If ($DebugBuild) {
-    ".\target\thumbv6m-none-eabi\debug\trainbuttons"
+    ".\target\thumbv6m-none-eabi\debug\$BinaryName"
 } Else {
-    ".\target\thumbv6m-none-eabi\release\trainbuttons"
+    ".\target\thumbv6m-none-eabi\release\$BinaryName"
 }
 
 If (-not $NoBuild) {

@@ -125,13 +125,17 @@ const HID_USAGE_MINIMUM: u8 = hid_short_header!(bytes1, local, 1);
 const HID_USAGE_MAXIMUM: u8 = hid_short_header!(bytes1, local, 2);
 const HID_LOGICAL_MINIMUM: u8 = hid_short_header!(bytes1, global, 1);
 const HID_LOGICAL_MAXIMUM: u8 = hid_short_header!(bytes1, global, 2);
+const HID_LOGICAL_MINIMUM_2B: u8 = hid_short_header!(bytes2, global, 1);
+const HID_LOGICAL_MAXIMUM_2B: u8 = hid_short_header!(bytes2, global, 2);
 const HID_REPORT_SIZE: u8 = hid_short_header!(bytes1, global, 7);
 const HID_REPORT_COUNT: u8 = hid_short_header!(bytes1, global, 9);
 const HID_INPUT: u8 = hid_short_header!(bytes1, main, 8);
 const HID_DATA_VAR_ABSOLUTE: u8 = hid_input_flags!(data, variable, absolute);
 const HID_CONSTANT: u8 = hid_input_flags!(constant, array, absolute);
 
-pub const HID_REPORT: [u8; 32] = [
+//          |         |         |         |
+// 0000 00XX XXXX XXXX XXBB BBBB BBBB BBBB BBBB BBBB
+pub const HID_REPORT: [u8; 48] = [
     HID_USAGE_PAGE, 0x01, // generic desktop controls
     HID_USAGE, 0x05, // gamepad
     HID_COLLECTION, 0x01, // application
@@ -141,10 +145,19 @@ pub const HID_REPORT: [u8; 32] = [
             HID_USAGE_MAXIMUM, 22, // button 22
             HID_LOGICAL_MINIMUM, 0x00, // button not pressed
             HID_LOGICAL_MAXIMUM, 0x01, // button pressed
-            HID_REPORT_SIZE, 0x01, // bits per report (= 1 bit 0/1)
+            HID_REPORT_SIZE, 1, // bits per report (= 1 bit 0/1)
             HID_REPORT_COUNT, 21, // number of reports (= buttons)
             HID_INPUT, HID_DATA_VAR_ABSOLUTE, // add the buttons
-            HID_REPORT_SIZE, 3, // padding bits to get up to a full byte
+
+            HID_USAGE_PAGE, 0x01, // generic desktop controls
+            HID_USAGE, 0x30, // X axis
+            HID_LOGICAL_MINIMUM_2B, 0x00, 0x00, // minimum value: 0
+            HID_LOGICAL_MAXIMUM_2B, 0xFF, 0x0F, // maximum value: 4095 (12 bits) -- little endian!
+            HID_REPORT_SIZE, 12, // 12 bits per report
+            HID_REPORT_COUNT, 1, // single report (X axis)
+            HID_INPUT, HID_DATA_VAR_ABSOLUTE, // add the axis
+
+            HID_REPORT_SIZE, 6, // padding bits to get up to a full byte
             HID_REPORT_COUNT, 1, // one of those padding reports
             HID_INPUT, HID_CONSTANT,
         HID_END_COLLECTION,

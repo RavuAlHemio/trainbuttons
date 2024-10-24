@@ -2,6 +2,7 @@
 #![no_main]
 
 
+mod adc;
 mod clock;
 mod pins;
 mod uart;
@@ -47,11 +48,13 @@ fn main() -> ! {
     );
 
     // send clock to all relevant peripherals
+    crate::adc::enable_peripheral_clocks(&peripherals);
     crate::pins::enable_peripheral_clocks(&peripherals);
     crate::uart::enable_peripheral_clocks(&peripherals);
     crate::usb::enable_peripheral_clocks(&peripherals);
 
     // reset all relevant peripherals
+    crate::adc::start_reset(&peripherals);
     crate::pins::start_reset(&peripherals);
     crate::uart::start_reset(&peripherals);
     crate::usb::start_reset(&peripherals);
@@ -59,6 +62,7 @@ fn main() -> ! {
     for _ in 0..64 {
         cortex_m::asm::nop();
     }
+    crate::adc::stop_reset(&peripherals);
     crate::pins::stop_reset(&peripherals);
     crate::uart::stop_reset(&peripherals);
     crate::usb::stop_reset(&peripherals);
@@ -75,7 +79,8 @@ fn main() -> ! {
         .bs12().set_bit()
     );
 
-    // set up UART and USB
+    // set up ADC, UART and USB
+    crate::adc::set_up(&peripherals);
     crate::uart::set_up(&peripherals);
     crate::usb::set_up(&peripherals);
 

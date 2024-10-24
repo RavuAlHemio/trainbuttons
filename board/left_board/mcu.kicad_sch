@@ -1403,10 +1403,6 @@
 		(uuid "2d3b9285-ac59-4130-87ac-ff883d0245e7")
 	)
 	(no_connect
-		(at 146.05 59.69)
-		(uuid "53c81226-74b2-47fa-abfa-33f4b584c9c8")
-	)
-	(no_connect
 		(at 146.05 125.73)
 		(uuid "8b026f98-30b8-4411-881b-410b7c00c4a8")
 	)
@@ -1587,6 +1583,16 @@
 			(type default)
 		)
 		(uuid "3ff8f5ba-212d-4bcf-b223-a91db370d7d5")
+	)
+	(wire
+		(pts
+			(xy 146.05 59.69) (xy 151.13 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "41981e3c-fbe6-41d7-930b-b514b5a5ec79")
 	)
 	(wire
 		(pts
@@ -2249,6 +2255,18 @@
 			(justify right)
 		)
 		(uuid "c04ec745-dd88-45bb-8ca0-39e077747c30")
+	)
+	(hierarchical_label "PEDAL_ANA"
+		(shape input)
+		(at 151.13 59.69 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "c5f541b8-5af0-48b7-bfa3-c6fd4c70d6ea")
 	)
 	(hierarchical_label "MCB_OFF"
 		(shape input)

@@ -443,16 +443,21 @@ fn handle_usb_interrupt(peripherals: &Peripherals) {
                 // endpoint 1 just sent off its current state
 
                 // update button states
-                let all_button_states = crate::pins::read_button_states(peripherals);
+                let all_button_states: u64 = crate::pins::read_button_states(peripherals).into();
+                let x_axis: u64 = unsafe { crate::adc::ADC_VALUES[0] }.into();
+                let report =
+                    (all_button_states << 0)
+                    | (x_axis << 22)
+                ;
 
                 // reports are filled up from the least significant bit,
                 // but sent out in little-endian order
-                copy_to_endpoint_tx_buffer(1, &all_button_states.to_le_bytes()[0..3]);
+                copy_to_endpoint_tx_buffer(1, &report.to_le_bytes()[0..5]);
 
-                // ready to send three bytes again
+                // ready to send five bytes again
                 peripherals.usb_ram1.single_buffered(1).chep_txrxbd_0().modify(|_, w| w
                     .addr_tx().set(get_usb_endpoint_tx_offset(1).try_into().unwrap())
-                    .count_tx().set(3)
+                    .count_tx().set(5)
                 );
                 modify_chepnr(endpoint_register, |m| m
                     .stattx_valid()
@@ -581,10 +586,10 @@ fn post_reset_setup(peripherals: &Peripherals) {
     );
 
     // set up Ep1 buffer
-    copy_to_endpoint_tx_buffer(1, &[0x00, 0x00, 0x00, 0x00]);
+    copy_to_endpoint_tx_buffer(1, &[0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00]);
     peripherals.usb_ram1.single_buffered(1).chep_txrxbd_0().modify(|_, w| w
         .addr_tx().set(get_usb_endpoint_tx_offset(1).try_into().unwrap())
-        .count_tx().set(3)
+        .count_tx().set(5)
     );
     modify_chepnr(peripherals.usb.chepnr(1), |w| w
         .endpoint_address(0x1) // endpoint 1

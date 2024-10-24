@@ -1454,6 +1454,16 @@
 	)
 	(wire
 		(pts
+			(xy 82.55 90.17) (xy 93.98 90.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "06a5a65d-061f-49a2-8182-97e9a919f054")
+	)
+	(wire
+		(pts
 			(xy 22.86 110.49) (xy 22.86 66.04)
 		)
 		(stroke
@@ -2853,6 +2863,16 @@
 			)
 			(uuid "6acc3cd8-50b2-4e23-a693-4658513f3049")
 		)
+		(pin "PEDAL_ANA" input
+			(at 93.98 90.17 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "7161e756-0bd2-4ae5-9bfb-947c2497e21a")
+		)
 		(instances
 			(project "trainbuttons_left_board"
 				(path "/781b8cf7-c5e9-458b-bc5e-9d97c21958eb"
@@ -3118,6 +3138,16 @@
 				(justify right)
 			)
 			(uuid "1974315e-fc97-4b9e-84f9-ed9434d854bc")
+		)
+		(pin "PEDAL_ANA" output
+			(at 82.55 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "0be5ead2-72f6-4384-8ecc-64669e9c3397")
 		)
 		(instances
 			(project "trainbuttons_left_board"

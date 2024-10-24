@@ -1,3 +1,6 @@
+//! Interfacing with general-purpose input/output (GPIO) pins.
+
+
 use bitmacros::{bit_mask, extract_bits};
 use stm32g0b0::Peripherals;
 

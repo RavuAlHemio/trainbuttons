@@ -1,3 +1,6 @@
+//! Interfacing with the universal asynchronous receiver-transmitter (UART).
+
+
 use stm32g0b0::Peripherals;
 
 

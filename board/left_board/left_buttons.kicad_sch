@@ -107,6 +107,218 @@
 				)
 			)
 		)
+		(symbol "Connector_Audio:AudioJack4"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 8.89 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "AudioJack4"
+				(at 0 6.35 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Audio Jack, 4 Poles (TRRS)"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "audio jack receptacle stereo headphones TRRS connector"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Jack*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "AudioJack4_0_1"
+				(rectangle
+					(start -6.35 -5.08)
+					(end -7.62 -7.62)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -5.08) (xy 0.635 -5.715) (xy 1.27 -5.08) (xy 2.54 -5.08)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -5.715 -5.08) (xy -5.08 -5.715) (xy -4.445 -5.08) (xy -4.445 2.54) (xy 2.54 2.54)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.905 -5.08) (xy -1.27 -5.715) (xy -0.635 -5.08) (xy -0.635 -2.54) (xy 2.54 -2.54)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 0) (xy -2.54 0) (xy -2.54 -5.08) (xy -3.175 -5.715) (xy -3.81 -5.08)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start 2.54 3.81)
+					(end -6.35 -7.62)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "AudioJack4_1_1"
+				(pin passive line
+					(at 5.08 -2.54 180)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "R1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "R2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 2.54 180)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "S"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -5.08 180)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "T"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "Device:LED"
 			(pin_numbers hide)
 			(pin_names
@@ -604,6 +816,18 @@
 		(uuid "64aa59c5-3700-4084-98b8-8c5e9e44d950")
 	)
 	(junction
+		(at 74.93 104.14)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "6f29625f-3479-4f03-a3fe-ac25cb95ac50")
+	)
+	(junction
+		(at 74.93 106.68)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "70936df6-87d5-4ba3-9599-03d4f9488184")
+	)
+	(junction
 		(at 59.69 83.82)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -626,6 +850,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c46c56c7-5041-46cf-bb39-4f7921a1571a")
+	)
+	(junction
+		(at 59.69 111.76)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "f69dec25-3586-4f91-96d2-d2a50f0c05e2")
 	)
 	(wire
 		(pts
@@ -729,6 +959,16 @@
 	)
 	(wire
 		(pts
+			(xy 59.69 111.76) (xy 59.69 119.38)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "346b830a-f1e0-4299-abb1-507159d4097c")
+	)
+	(wire
+		(pts
 			(xy 59.69 22.86) (xy 59.69 33.02)
 		)
 		(stroke
@@ -769,6 +1009,16 @@
 	)
 	(wire
 		(pts
+			(xy 74.93 104.14) (xy 74.93 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3ca53ccc-77ec-4f53-a4b8-db0d4f36fc4d")
+	)
+	(wire
+		(pts
 			(xy 59.69 73.66) (xy 59.69 83.82)
 		)
 		(stroke
@@ -789,6 +1039,16 @@
 	)
 	(wire
 		(pts
+			(xy 74.93 104.14) (xy 77.47 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "49b39c29-93eb-4a3e-853d-700f7681d01f")
+	)
+	(wire
+		(pts
 			(xy 57.15 149.86) (xy 59.69 149.86)
 		)
 		(stroke
@@ -799,13 +1059,23 @@
 	)
 	(wire
 		(pts
-			(xy 91.44 20.32) (xy 91.44 22.86)
+			(xy 77.47 109.22) (xy 74.93 109.22)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "4fa3b8c9-8922-4aba-99fb-7c7b21a07178")
+		(uuid "5666e553-4772-4d61-8599-83455284c678")
+	)
+	(wire
+		(pts
+			(xy 88.9 22.86) (xy 93.98 22.86)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "59b4a9f0-3df2-4e70-851a-606f39a2085a")
 	)
 	(wire
 		(pts
@@ -856,16 +1126,6 @@
 			(type default)
 		)
 		(uuid "6268759a-c964-4832-ab99-b4ad2b656225")
-	)
-	(wire
-		(pts
-			(xy 91.44 20.32) (xy 93.98 20.32)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6523a96c-4265-4241-bfc5-ef765f739b41")
 	)
 	(wire
 		(pts
@@ -929,6 +1189,16 @@
 	)
 	(wire
 		(pts
+			(xy 74.93 96.52) (xy 77.47 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7ee11dcc-0d5a-4e24-bd28-6d55e756df43")
+	)
+	(wire
+		(pts
 			(xy 59.69 149.86) (xy 59.69 165.1)
 		)
 		(stroke
@@ -969,7 +1239,7 @@
 	)
 	(wire
 		(pts
-			(xy 59.69 104.14) (xy 59.69 119.38)
+			(xy 59.69 104.14) (xy 59.69 111.76)
 		)
 		(stroke
 			(width 0)
@@ -986,6 +1256,26 @@
 			(type default)
 		)
 		(uuid "88b85be3-9cef-467e-8dec-cd7f8fbf58f1")
+	)
+	(wire
+		(pts
+			(xy 74.93 104.14) (xy 74.93 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8c582818-e3aa-4289-947b-7c4302def675")
+	)
+	(wire
+		(pts
+			(xy 74.93 106.68) (xy 77.47 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "91b1e20c-d2dd-4459-811c-0fa47ebf0210")
 	)
 	(wire
 		(pts
@@ -1039,6 +1329,16 @@
 	)
 	(wire
 		(pts
+			(xy 74.93 109.22) (xy 74.93 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b14a1b8c-5488-4802-8d59-81819308e97e")
+	)
+	(wire
+		(pts
 			(xy 57.15 58.42) (xy 59.69 58.42)
 		)
 		(stroke
@@ -1055,7 +1355,17 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "bed94902-a6ee-4853-84a5-a858717ce6c4")
+		(uuid "ba61875c-70f1-4552-9083-84906f5627d2")
+	)
+	(wire
+		(pts
+			(xy 59.69 111.76) (xy 77.47 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c817454d-1b43-4143-be92-6c1c954d20f6")
 	)
 	(wire
 		(pts
@@ -1203,6 +1513,18 @@
 		)
 		(uuid "71bc4500-4489-4900-8d6d-60a14aed4fa8")
 	)
+	(hierarchical_label "PEDAL_ANA"
+		(shape output)
+		(at 77.47 96.52 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "77378aff-e113-463b-82b2-9183c9e73c67")
+	)
 	(hierarchical_label "NTC_RLS"
 		(shape output)
 		(at 44.45 33.02 180)
@@ -1277,7 +1599,7 @@
 	)
 	(hierarchical_label "+3.3V"
 		(shape passive)
-		(at 93.98 20.32 0)
+		(at 93.98 22.86 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2125,7 +2447,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 91.44 22.86 0)
+		(at 88.9 22.86 90)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -2135,25 +2457,23 @@
 		(fields_autoplaced yes)
 		(uuid "bec3fa96-7154-4a28-a733-fd91745788f4")
 		(property "Reference" "TP201"
-			(at 88.9 24.8919 0)
+			(at 85.598 17.78 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
 		(property "Value" "TestPoint"
-			(at 88.9 27.4319 0)
+			(at 85.598 20.32 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
-			(at 96.52 22.86 0)
+			(at 88.9 27.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2162,7 +2482,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 96.52 22.86 0)
+			(at 88.9 27.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2171,7 +2491,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 91.44 22.86 0)
+			(at 88.9 22.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2331,6 +2651,92 @@
 			(project "trainbuttons_left_board"
 				(path "/781b8cf7-c5e9-458b-bc5e-9d97c21958eb/ee7ea56d-ccae-4129-b9a8-76b6e32e09cb"
 					(reference "SW209")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Audio:AudioJack4")
+		(at 82.55 106.68 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ebc501db-b36f-4cb2-8905-8b129a4a64f6")
+		(property "Reference" "J201"
+			(at 91.44 107.3149 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "AudioJack2"
+			(at 91.44 109.8549 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Connector_Audio:Jack_3.5mm_PJ320D_Horizontal"
+			(at 82.55 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 82.55 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Audio Jack, 4 Poles (TRRS)"
+			(at 82.55 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C431535"
+			(at 82.55 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "S"
+			(uuid "643401c9-d9a1-4459-9365-ccd65f326a34")
+		)
+		(pin "T"
+			(uuid "111b1d1b-c1ed-4780-902b-f30ad6e9df2d")
+		)
+		(pin "R2"
+			(uuid "f635d2e3-e9d5-46c6-a260-565b010a7c90")
+		)
+		(pin "R1"
+			(uuid "1751bde0-9208-4adf-b7d4-86ac8684dc10")
+		)
+		(instances
+			(project ""
+				(path "/781b8cf7-c5e9-458b-bc5e-9d97c21958eb/ee7ea56d-ccae-4129-b9a8-76b6e32e09cb"
+					(reference "J201")
 					(unit 1)
 				)
 			)
