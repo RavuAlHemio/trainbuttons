@@ -793,9 +793,9 @@ where
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Chselrmod {
     #[doc = "0: Each bit of the ADC_CHSELR register enables an input"]
-    B0x0 = 0,
+    NumericOrder = 0,
     #[doc = "1: ADC_CHSELR register is able to sequence up to 8 channels"]
-    B0x1 = 1,
+    CustomOrder = 1,
 }
 impl From<Chselrmod> for bool {
     #[inline(always)]
@@ -810,19 +810,19 @@ impl ChselrmodR {
     #[inline(always)]
     pub const fn variant(&self) -> Chselrmod {
         match self.bits {
-            false => Chselrmod::B0x0,
-            true => Chselrmod::B0x1,
+            false => Chselrmod::NumericOrder,
+            true => Chselrmod::CustomOrder,
         }
     }
     #[doc = "Each bit of the ADC_CHSELR register enables an input"]
     #[inline(always)]
-    pub fn is_b_0x0(&self) -> bool {
-        *self == Chselrmod::B0x0
+    pub fn is_numeric_order(&self) -> bool {
+        *self == Chselrmod::NumericOrder
     }
     #[doc = "ADC_CHSELR register is able to sequence up to 8 channels"]
     #[inline(always)]
-    pub fn is_b_0x1(&self) -> bool {
-        *self == Chselrmod::B0x1
+    pub fn is_custom_order(&self) -> bool {
+        *self == Chselrmod::CustomOrder
     }
 }
 #[doc = "Field `CHSELRMOD` writer - Mode selection of the ADC_CHSELR register This bit is set and cleared by software to control the ADC_CHSELR feature: Note: The software is allowed to write this bit only when ADSTART bit is cleared to 0 (this ensures that no conversion is ongoing). If CCRDY is not yet asserted after channel configuration (writing ADC_CHSELR register or changing CHSELRMOD or SCANDIR), the value written to this bit is ignored."]
@@ -833,13 +833,13 @@ where
 {
     #[doc = "Each bit of the ADC_CHSELR register enables an input"]
     #[inline(always)]
-    pub fn b_0x0(self) -> &'a mut crate::W<REG> {
-        self.variant(Chselrmod::B0x0)
+    pub fn numeric_order(self) -> &'a mut crate::W<REG> {
+        self.variant(Chselrmod::NumericOrder)
     }
     #[doc = "ADC_CHSELR register is able to sequence up to 8 channels"]
     #[inline(always)]
-    pub fn b_0x1(self) -> &'a mut crate::W<REG> {
-        self.variant(Chselrmod::B0x1)
+    pub fn custom_order(self) -> &'a mut crate::W<REG> {
+        self.variant(Chselrmod::CustomOrder)
     }
 }
 #[doc = "Enable the watchdog on a single channel or on all channels This bit is set and cleared by software to enable the analog watchdog on the channel identified by the AWDCH\\[4:0\\]
