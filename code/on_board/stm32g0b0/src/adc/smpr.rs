@@ -1,7 +1,7 @@
-#[doc = "Register `ADC_SMPR` reader"]
-pub type R = crate::R<AdcSmprSpec>;
-#[doc = "Register `ADC_SMPR` writer"]
-pub type W = crate::W<AdcSmprSpec>;
+#[doc = "Register `SMPR` reader"]
+pub type R = crate::R<SmprSpec>;
+#[doc = "Register `SMPR` writer"]
+pub type W = crate::W<SmprSpec>;
 #[doc = "Sampling time selection 1 These bits are written by software to select the sampling time that applies to all channels. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing).\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
@@ -1510,144 +1510,144 @@ impl W {
     #[doc = "Bits 0:2 - Sampling time selection 1 These bits are written by software to select the sampling time that applies to all channels. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn smp1(&mut self) -> Smp1W<AdcSmprSpec> {
+    pub fn smp1(&mut self) -> Smp1W<SmprSpec> {
         Smp1W::new(self, 0)
     }
     #[doc = "Bits 4:6 - Sampling time selection 2 These bits are written by software to select the sampling time that applies to all channels. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn smp2(&mut self) -> Smp2W<AdcSmprSpec> {
+    pub fn smp2(&mut self) -> Smp2W<SmprSpec> {
         Smp2W::new(self, 4)
     }
     #[doc = "Bit 8 - Channel-x sampling time selection These bits are written by software to define which sampling time is used. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn smpsel0(&mut self) -> Smpsel0W<AdcSmprSpec> {
+    pub fn smpsel0(&mut self) -> Smpsel0W<SmprSpec> {
         Smpsel0W::new(self, 8)
     }
     #[doc = "Bit 9 - Channel-x sampling time selection These bits are written by software to define which sampling time is used. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn smpsel1(&mut self) -> Smpsel1W<AdcSmprSpec> {
+    pub fn smpsel1(&mut self) -> Smpsel1W<SmprSpec> {
         Smpsel1W::new(self, 9)
     }
     #[doc = "Bit 10 - Channel-x sampling time selection These bits are written by software to define which sampling time is used. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn smpsel2(&mut self) -> Smpsel2W<AdcSmprSpec> {
+    pub fn smpsel2(&mut self) -> Smpsel2W<SmprSpec> {
         Smpsel2W::new(self, 10)
     }
     #[doc = "Bit 11 - Channel-x sampling time selection These bits are written by software to define which sampling time is used. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn smpsel3(&mut self) -> Smpsel3W<AdcSmprSpec> {
+    pub fn smpsel3(&mut self) -> Smpsel3W<SmprSpec> {
         Smpsel3W::new(self, 11)
     }
     #[doc = "Bit 12 - Channel-x sampling time selection These bits are written by software to define which sampling time is used. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn smpsel4(&mut self) -> Smpsel4W<AdcSmprSpec> {
+    pub fn smpsel4(&mut self) -> Smpsel4W<SmprSpec> {
         Smpsel4W::new(self, 12)
     }
     #[doc = "Bit 13 - Channel-x sampling time selection These bits are written by software to define which sampling time is used. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn smpsel5(&mut self) -> Smpsel5W<AdcSmprSpec> {
+    pub fn smpsel5(&mut self) -> Smpsel5W<SmprSpec> {
         Smpsel5W::new(self, 13)
     }
     #[doc = "Bit 14 - Channel-x sampling time selection These bits are written by software to define which sampling time is used. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn smpsel6(&mut self) -> Smpsel6W<AdcSmprSpec> {
+    pub fn smpsel6(&mut self) -> Smpsel6W<SmprSpec> {
         Smpsel6W::new(self, 14)
     }
     #[doc = "Bit 15 - Channel-x sampling time selection These bits are written by software to define which sampling time is used. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn smpsel7(&mut self) -> Smpsel7W<AdcSmprSpec> {
+    pub fn smpsel7(&mut self) -> Smpsel7W<SmprSpec> {
         Smpsel7W::new(self, 15)
     }
     #[doc = "Bit 16 - Channel-x sampling time selection These bits are written by software to define which sampling time is used. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn smpsel8(&mut self) -> Smpsel8W<AdcSmprSpec> {
+    pub fn smpsel8(&mut self) -> Smpsel8W<SmprSpec> {
         Smpsel8W::new(self, 16)
     }
     #[doc = "Bit 17 - Channel-x sampling time selection These bits are written by software to define which sampling time is used. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn smpsel9(&mut self) -> Smpsel9W<AdcSmprSpec> {
+    pub fn smpsel9(&mut self) -> Smpsel9W<SmprSpec> {
         Smpsel9W::new(self, 17)
     }
     #[doc = "Bit 18 - Channel-x sampling time selection These bits are written by software to define which sampling time is used. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn smpsel10(&mut self) -> Smpsel10W<AdcSmprSpec> {
+    pub fn smpsel10(&mut self) -> Smpsel10W<SmprSpec> {
         Smpsel10W::new(self, 18)
     }
     #[doc = "Bit 19 - Channel-x sampling time selection These bits are written by software to define which sampling time is used. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn smpsel11(&mut self) -> Smpsel11W<AdcSmprSpec> {
+    pub fn smpsel11(&mut self) -> Smpsel11W<SmprSpec> {
         Smpsel11W::new(self, 19)
     }
     #[doc = "Bit 20 - Channel-x sampling time selection These bits are written by software to define which sampling time is used. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn smpsel12(&mut self) -> Smpsel12W<AdcSmprSpec> {
+    pub fn smpsel12(&mut self) -> Smpsel12W<SmprSpec> {
         Smpsel12W::new(self, 20)
     }
     #[doc = "Bit 21 - Channel-x sampling time selection These bits are written by software to define which sampling time is used. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn smpsel13(&mut self) -> Smpsel13W<AdcSmprSpec> {
+    pub fn smpsel13(&mut self) -> Smpsel13W<SmprSpec> {
         Smpsel13W::new(self, 21)
     }
     #[doc = "Bit 22 - Channel-x sampling time selection These bits are written by software to define which sampling time is used. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn smpsel14(&mut self) -> Smpsel14W<AdcSmprSpec> {
+    pub fn smpsel14(&mut self) -> Smpsel14W<SmprSpec> {
         Smpsel14W::new(self, 22)
     }
     #[doc = "Bit 23 - Channel-x sampling time selection These bits are written by software to define which sampling time is used. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn smpsel15(&mut self) -> Smpsel15W<AdcSmprSpec> {
+    pub fn smpsel15(&mut self) -> Smpsel15W<SmprSpec> {
         Smpsel15W::new(self, 23)
     }
     #[doc = "Bit 24 - Channel-x sampling time selection These bits are written by software to define which sampling time is used. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn smpsel16(&mut self) -> Smpsel16W<AdcSmprSpec> {
+    pub fn smpsel16(&mut self) -> Smpsel16W<SmprSpec> {
         Smpsel16W::new(self, 24)
     }
     #[doc = "Bit 25 - Channel-x sampling time selection These bits are written by software to define which sampling time is used. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn smpsel17(&mut self) -> Smpsel17W<AdcSmprSpec> {
+    pub fn smpsel17(&mut self) -> Smpsel17W<SmprSpec> {
         Smpsel17W::new(self, 25)
     }
     #[doc = "Bit 26 - Channel-x sampling time selection These bits are written by software to define which sampling time is used. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn smpsel18(&mut self) -> Smpsel18W<AdcSmprSpec> {
+    pub fn smpsel18(&mut self) -> Smpsel18W<SmprSpec> {
         Smpsel18W::new(self, 26)
     }
 }
-#[doc = "ADC sampling time register\n\nYou can [`read`](crate::Reg::read) this register and get [`adc_smpr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`adc_smpr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct AdcSmprSpec;
-impl crate::RegisterSpec for AdcSmprSpec {
+#[doc = "ADC sampling time register\n\nYou can [`read`](crate::Reg::read) this register and get [`smpr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`smpr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct SmprSpec;
+impl crate::RegisterSpec for SmprSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [`adc_smpr::R`](R) reader structure"]
-impl crate::Readable for AdcSmprSpec {}
-#[doc = "`write(|w| ..)` method takes [`adc_smpr::W`](W) writer structure"]
-impl crate::Writable for AdcSmprSpec {
+#[doc = "`read()` method returns [`smpr::R`](R) reader structure"]
+impl crate::Readable for SmprSpec {}
+#[doc = "`write(|w| ..)` method takes [`smpr::W`](W) writer structure"]
+impl crate::Writable for SmprSpec {
     type Safety = crate::Unsafe;
     const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
     const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
-#[doc = "`reset()` method sets ADC_SMPR to value 0"]
-impl crate::Resettable for AdcSmprSpec {
+#[doc = "`reset()` method sets SMPR to value 0"]
+impl crate::Resettable for SmprSpec {
     const RESET_VALUE: u32 = 0;
 }

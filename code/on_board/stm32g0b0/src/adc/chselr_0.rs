@@ -1,7 +1,7 @@
-#[doc = "Register `ADC_CHSELR_0` reader"]
-pub type R = crate::R<AdcChselr0Spec>;
-#[doc = "Register `ADC_CHSELR_0` writer"]
-pub type W = crate::W<AdcChselr0Spec>;
+#[doc = "Register `CHSELR_0` reader"]
+pub type R = crate::R<Chselr0Spec>;
+#[doc = "Register `CHSELR_0` writer"]
+pub type W = crate::W<Chselr0Spec>;
 #[doc = "Channel-x selection These bits are written by software and define which channels are part of the sequence of channels to be converted. Refer to for ADC inputs connected to external channels and internal sources. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing). If CCRDY is not yet asserted after channel configuration (writing ADC_CHSELR register or changing CHSELRMOD or SCANDIR), the value written to this bit is ignored.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Chsel0 {
@@ -1110,132 +1110,132 @@ impl W {
     #[doc = "Bit 0 - Channel-x selection These bits are written by software and define which channels are part of the sequence of channels to be converted. Refer to for ADC inputs connected to external channels and internal sources. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing). If CCRDY is not yet asserted after channel configuration (writing ADC_CHSELR register or changing CHSELRMOD or SCANDIR), the value written to this bit is ignored."]
     #[inline(always)]
     #[must_use]
-    pub fn chsel0(&mut self) -> Chsel0W<AdcChselr0Spec> {
+    pub fn chsel0(&mut self) -> Chsel0W<Chselr0Spec> {
         Chsel0W::new(self, 0)
     }
     #[doc = "Bit 1 - Channel-x selection These bits are written by software and define which channels are part of the sequence of channels to be converted. Refer to for ADC inputs connected to external channels and internal sources. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing). If CCRDY is not yet asserted after channel configuration (writing ADC_CHSELR register or changing CHSELRMOD or SCANDIR), the value written to this bit is ignored."]
     #[inline(always)]
     #[must_use]
-    pub fn chsel1(&mut self) -> Chsel1W<AdcChselr0Spec> {
+    pub fn chsel1(&mut self) -> Chsel1W<Chselr0Spec> {
         Chsel1W::new(self, 1)
     }
     #[doc = "Bit 2 - Channel-x selection These bits are written by software and define which channels are part of the sequence of channels to be converted. Refer to for ADC inputs connected to external channels and internal sources. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing). If CCRDY is not yet asserted after channel configuration (writing ADC_CHSELR register or changing CHSELRMOD or SCANDIR), the value written to this bit is ignored."]
     #[inline(always)]
     #[must_use]
-    pub fn chsel2(&mut self) -> Chsel2W<AdcChselr0Spec> {
+    pub fn chsel2(&mut self) -> Chsel2W<Chselr0Spec> {
         Chsel2W::new(self, 2)
     }
     #[doc = "Bit 3 - Channel-x selection These bits are written by software and define which channels are part of the sequence of channels to be converted. Refer to for ADC inputs connected to external channels and internal sources. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing). If CCRDY is not yet asserted after channel configuration (writing ADC_CHSELR register or changing CHSELRMOD or SCANDIR), the value written to this bit is ignored."]
     #[inline(always)]
     #[must_use]
-    pub fn chsel3(&mut self) -> Chsel3W<AdcChselr0Spec> {
+    pub fn chsel3(&mut self) -> Chsel3W<Chselr0Spec> {
         Chsel3W::new(self, 3)
     }
     #[doc = "Bit 4 - Channel-x selection These bits are written by software and define which channels are part of the sequence of channels to be converted. Refer to for ADC inputs connected to external channels and internal sources. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing). If CCRDY is not yet asserted after channel configuration (writing ADC_CHSELR register or changing CHSELRMOD or SCANDIR), the value written to this bit is ignored."]
     #[inline(always)]
     #[must_use]
-    pub fn chsel4(&mut self) -> Chsel4W<AdcChselr0Spec> {
+    pub fn chsel4(&mut self) -> Chsel4W<Chselr0Spec> {
         Chsel4W::new(self, 4)
     }
     #[doc = "Bit 5 - Channel-x selection These bits are written by software and define which channels are part of the sequence of channels to be converted. Refer to for ADC inputs connected to external channels and internal sources. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing). If CCRDY is not yet asserted after channel configuration (writing ADC_CHSELR register or changing CHSELRMOD or SCANDIR), the value written to this bit is ignored."]
     #[inline(always)]
     #[must_use]
-    pub fn chsel5(&mut self) -> Chsel5W<AdcChselr0Spec> {
+    pub fn chsel5(&mut self) -> Chsel5W<Chselr0Spec> {
         Chsel5W::new(self, 5)
     }
     #[doc = "Bit 6 - Channel-x selection These bits are written by software and define which channels are part of the sequence of channels to be converted. Refer to for ADC inputs connected to external channels and internal sources. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing). If CCRDY is not yet asserted after channel configuration (writing ADC_CHSELR register or changing CHSELRMOD or SCANDIR), the value written to this bit is ignored."]
     #[inline(always)]
     #[must_use]
-    pub fn chsel6(&mut self) -> Chsel6W<AdcChselr0Spec> {
+    pub fn chsel6(&mut self) -> Chsel6W<Chselr0Spec> {
         Chsel6W::new(self, 6)
     }
     #[doc = "Bit 7 - Channel-x selection These bits are written by software and define which channels are part of the sequence of channels to be converted. Refer to for ADC inputs connected to external channels and internal sources. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing). If CCRDY is not yet asserted after channel configuration (writing ADC_CHSELR register or changing CHSELRMOD or SCANDIR), the value written to this bit is ignored."]
     #[inline(always)]
     #[must_use]
-    pub fn chsel7(&mut self) -> Chsel7W<AdcChselr0Spec> {
+    pub fn chsel7(&mut self) -> Chsel7W<Chselr0Spec> {
         Chsel7W::new(self, 7)
     }
     #[doc = "Bit 8 - Channel-x selection These bits are written by software and define which channels are part of the sequence of channels to be converted. Refer to for ADC inputs connected to external channels and internal sources. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing). If CCRDY is not yet asserted after channel configuration (writing ADC_CHSELR register or changing CHSELRMOD or SCANDIR), the value written to this bit is ignored."]
     #[inline(always)]
     #[must_use]
-    pub fn chsel8(&mut self) -> Chsel8W<AdcChselr0Spec> {
+    pub fn chsel8(&mut self) -> Chsel8W<Chselr0Spec> {
         Chsel8W::new(self, 8)
     }
     #[doc = "Bit 9 - Channel-x selection These bits are written by software and define which channels are part of the sequence of channels to be converted. Refer to for ADC inputs connected to external channels and internal sources. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing). If CCRDY is not yet asserted after channel configuration (writing ADC_CHSELR register or changing CHSELRMOD or SCANDIR), the value written to this bit is ignored."]
     #[inline(always)]
     #[must_use]
-    pub fn chsel9(&mut self) -> Chsel9W<AdcChselr0Spec> {
+    pub fn chsel9(&mut self) -> Chsel9W<Chselr0Spec> {
         Chsel9W::new(self, 9)
     }
     #[doc = "Bit 10 - Channel-x selection These bits are written by software and define which channels are part of the sequence of channels to be converted. Refer to for ADC inputs connected to external channels and internal sources. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing). If CCRDY is not yet asserted after channel configuration (writing ADC_CHSELR register or changing CHSELRMOD or SCANDIR), the value written to this bit is ignored."]
     #[inline(always)]
     #[must_use]
-    pub fn chsel10(&mut self) -> Chsel10W<AdcChselr0Spec> {
+    pub fn chsel10(&mut self) -> Chsel10W<Chselr0Spec> {
         Chsel10W::new(self, 10)
     }
     #[doc = "Bit 11 - Channel-x selection These bits are written by software and define which channels are part of the sequence of channels to be converted. Refer to for ADC inputs connected to external channels and internal sources. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing). If CCRDY is not yet asserted after channel configuration (writing ADC_CHSELR register or changing CHSELRMOD or SCANDIR), the value written to this bit is ignored."]
     #[inline(always)]
     #[must_use]
-    pub fn chsel11(&mut self) -> Chsel11W<AdcChselr0Spec> {
+    pub fn chsel11(&mut self) -> Chsel11W<Chselr0Spec> {
         Chsel11W::new(self, 11)
     }
     #[doc = "Bit 12 - Channel-x selection These bits are written by software and define which channels are part of the sequence of channels to be converted. Refer to for ADC inputs connected to external channels and internal sources. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing). If CCRDY is not yet asserted after channel configuration (writing ADC_CHSELR register or changing CHSELRMOD or SCANDIR), the value written to this bit is ignored."]
     #[inline(always)]
     #[must_use]
-    pub fn chsel12(&mut self) -> Chsel12W<AdcChselr0Spec> {
+    pub fn chsel12(&mut self) -> Chsel12W<Chselr0Spec> {
         Chsel12W::new(self, 12)
     }
     #[doc = "Bit 13 - Channel-x selection These bits are written by software and define which channels are part of the sequence of channels to be converted. Refer to for ADC inputs connected to external channels and internal sources. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing). If CCRDY is not yet asserted after channel configuration (writing ADC_CHSELR register or changing CHSELRMOD or SCANDIR), the value written to this bit is ignored."]
     #[inline(always)]
     #[must_use]
-    pub fn chsel13(&mut self) -> Chsel13W<AdcChselr0Spec> {
+    pub fn chsel13(&mut self) -> Chsel13W<Chselr0Spec> {
         Chsel13W::new(self, 13)
     }
     #[doc = "Bit 14 - Channel-x selection These bits are written by software and define which channels are part of the sequence of channels to be converted. Refer to for ADC inputs connected to external channels and internal sources. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing). If CCRDY is not yet asserted after channel configuration (writing ADC_CHSELR register or changing CHSELRMOD or SCANDIR), the value written to this bit is ignored."]
     #[inline(always)]
     #[must_use]
-    pub fn chsel14(&mut self) -> Chsel14W<AdcChselr0Spec> {
+    pub fn chsel14(&mut self) -> Chsel14W<Chselr0Spec> {
         Chsel14W::new(self, 14)
     }
     #[doc = "Bit 15 - Channel-x selection These bits are written by software and define which channels are part of the sequence of channels to be converted. Refer to for ADC inputs connected to external channels and internal sources. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing). If CCRDY is not yet asserted after channel configuration (writing ADC_CHSELR register or changing CHSELRMOD or SCANDIR), the value written to this bit is ignored."]
     #[inline(always)]
     #[must_use]
-    pub fn chsel15(&mut self) -> Chsel15W<AdcChselr0Spec> {
+    pub fn chsel15(&mut self) -> Chsel15W<Chselr0Spec> {
         Chsel15W::new(self, 15)
     }
     #[doc = "Bit 16 - Channel-x selection These bits are written by software and define which channels are part of the sequence of channels to be converted. Refer to for ADC inputs connected to external channels and internal sources. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing). If CCRDY is not yet asserted after channel configuration (writing ADC_CHSELR register or changing CHSELRMOD or SCANDIR), the value written to this bit is ignored."]
     #[inline(always)]
     #[must_use]
-    pub fn chsel16(&mut self) -> Chsel16W<AdcChselr0Spec> {
+    pub fn chsel16(&mut self) -> Chsel16W<Chselr0Spec> {
         Chsel16W::new(self, 16)
     }
     #[doc = "Bit 17 - Channel-x selection These bits are written by software and define which channels are part of the sequence of channels to be converted. Refer to for ADC inputs connected to external channels and internal sources. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing). If CCRDY is not yet asserted after channel configuration (writing ADC_CHSELR register or changing CHSELRMOD or SCANDIR), the value written to this bit is ignored."]
     #[inline(always)]
     #[must_use]
-    pub fn chsel17(&mut self) -> Chsel17W<AdcChselr0Spec> {
+    pub fn chsel17(&mut self) -> Chsel17W<Chselr0Spec> {
         Chsel17W::new(self, 17)
     }
     #[doc = "Bit 18 - Channel-x selection These bits are written by software and define which channels are part of the sequence of channels to be converted. Refer to for ADC inputs connected to external channels and internal sources. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing). If CCRDY is not yet asserted after channel configuration (writing ADC_CHSELR register or changing CHSELRMOD or SCANDIR), the value written to this bit is ignored."]
     #[inline(always)]
     #[must_use]
-    pub fn chsel18(&mut self) -> Chsel18W<AdcChselr0Spec> {
+    pub fn chsel18(&mut self) -> Chsel18W<Chselr0Spec> {
         Chsel18W::new(self, 18)
     }
 }
-#[doc = "ADC channel selection register \\[alternate\\]\n\nYou can [`read`](crate::Reg::read) this register and get [`adc_chselr_0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`adc_chselr_0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct AdcChselr0Spec;
-impl crate::RegisterSpec for AdcChselr0Spec {
+#[doc = "ADC channel selection register \\[alternate\\]\n\nYou can [`read`](crate::Reg::read) this register and get [`chselr_0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`chselr_0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Chselr0Spec;
+impl crate::RegisterSpec for Chselr0Spec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [`adc_chselr_0::R`](R) reader structure"]
-impl crate::Readable for AdcChselr0Spec {}
-#[doc = "`write(|w| ..)` method takes [`adc_chselr_0::W`](W) writer structure"]
-impl crate::Writable for AdcChselr0Spec {
+#[doc = "`read()` method returns [`chselr_0::R`](R) reader structure"]
+impl crate::Readable for Chselr0Spec {}
+#[doc = "`write(|w| ..)` method takes [`chselr_0::W`](W) writer structure"]
+impl crate::Writable for Chselr0Spec {
     type Safety = crate::Unsafe;
     const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
     const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
-#[doc = "`reset()` method sets ADC_CHSELR_0 to value 0"]
-impl crate::Resettable for AdcChselr0Spec {
+#[doc = "`reset()` method sets CHSELR_0 to value 0"]
+impl crate::Resettable for Chselr0Spec {
     const RESET_VALUE: u32 = 0;
 }

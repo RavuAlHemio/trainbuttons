@@ -1,7 +1,7 @@
-#[doc = "Register `ADC_CCR` reader"]
-pub type R = crate::R<AdcCcrSpec>;
-#[doc = "Register `ADC_CCR` writer"]
-pub type W = crate::W<AdcCcrSpec>;
+#[doc = "Register `CCR` reader"]
+pub type R = crate::R<CcrSpec>;
+#[doc = "Register `CCR` writer"]
+pub type W = crate::W<CcrSpec>;
 #[doc = "ADC prescaler Set and cleared by software to select the frequency of the clock to the ADC. Other: Reserved Note: Software is allowed to write these bits only when the ADC is disabled (ADCAL=0, ADSTART=0, ADSTP=0, ADDIS=0 and ADEN=0).\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
@@ -377,42 +377,42 @@ impl W {
     #[doc = "Bits 18:21 - ADC prescaler Set and cleared by software to select the frequency of the clock to the ADC. Other: Reserved Note: Software is allowed to write these bits only when the ADC is disabled (ADCAL=0, ADSTART=0, ADSTP=0, ADDIS=0 and ADEN=0)."]
     #[inline(always)]
     #[must_use]
-    pub fn presc(&mut self) -> PrescW<AdcCcrSpec> {
+    pub fn presc(&mut self) -> PrescW<CcrSpec> {
         PrescW::new(self, 18)
     }
     #[doc = "Bit 22 - VREFINT enable This bit is set and cleared by software to enable/disable the VREFINT. Note: Software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn vrefen(&mut self) -> VrefenW<AdcCcrSpec> {
+    pub fn vrefen(&mut self) -> VrefenW<CcrSpec> {
         VrefenW::new(self, 22)
     }
     #[doc = "Bit 23 - Temperature sensor enable This bit is set and cleared by software to enable/disable the temperature sensor. Note: Software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn tsen(&mut self) -> TsenW<AdcCcrSpec> {
+    pub fn tsen(&mut self) -> TsenW<CcrSpec> {
         TsenW::new(self, 23)
     }
     #[doc = "Bit 24 - VBAT enable This bit is set and cleared by software to enable/disable the VBAT channel. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)"]
     #[inline(always)]
     #[must_use]
-    pub fn vbaten(&mut self) -> VbatenW<AdcCcrSpec> {
+    pub fn vbaten(&mut self) -> VbatenW<CcrSpec> {
         VbatenW::new(self, 24)
     }
 }
-#[doc = "ADC common configuration register\n\nYou can [`read`](crate::Reg::read) this register and get [`adc_ccr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`adc_ccr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct AdcCcrSpec;
-impl crate::RegisterSpec for AdcCcrSpec {
+#[doc = "ADC common configuration register\n\nYou can [`read`](crate::Reg::read) this register and get [`ccr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ccr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct CcrSpec;
+impl crate::RegisterSpec for CcrSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [`adc_ccr::R`](R) reader structure"]
-impl crate::Readable for AdcCcrSpec {}
-#[doc = "`write(|w| ..)` method takes [`adc_ccr::W`](W) writer structure"]
-impl crate::Writable for AdcCcrSpec {
+#[doc = "`read()` method returns [`ccr::R`](R) reader structure"]
+impl crate::Readable for CcrSpec {}
+#[doc = "`write(|w| ..)` method takes [`ccr::W`](W) writer structure"]
+impl crate::Writable for CcrSpec {
     type Safety = crate::Unsafe;
     const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
     const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
-#[doc = "`reset()` method sets ADC_CCR to value 0"]
-impl crate::Resettable for AdcCcrSpec {
+#[doc = "`reset()` method sets CCR to value 0"]
+impl crate::Resettable for CcrSpec {
     const RESET_VALUE: u32 = 0;
 }

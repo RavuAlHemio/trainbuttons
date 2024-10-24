@@ -1,7 +1,7 @@
-#[doc = "Register `ADC_CFGR2` reader"]
-pub type R = crate::R<AdcCfgr2Spec>;
-#[doc = "Register `ADC_CFGR2` writer"]
-pub type W = crate::W<AdcCfgr2Spec>;
+#[doc = "Register `CFGR2` reader"]
+pub type R = crate::R<Cfgr2Spec>;
+#[doc = "Register `CFGR2` writer"]
+pub type W = crate::W<Cfgr2Spec>;
 #[doc = "Oversampler Enable This bit is set and cleared by software. Note: Software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing).\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Ovse {
@@ -572,54 +572,54 @@ impl W {
     #[doc = "Bit 0 - Oversampler Enable This bit is set and cleared by software. Note: Software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn ovse(&mut self) -> OvseW<AdcCfgr2Spec> {
+    pub fn ovse(&mut self) -> OvseW<Cfgr2Spec> {
         OvseW::new(self, 0)
     }
     #[doc = "Bits 2:4 - Oversampling ratio This bit filed defines the number of oversampling ratio. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn ovsr(&mut self) -> OvsrW<AdcCfgr2Spec> {
+    pub fn ovsr(&mut self) -> OvsrW<Cfgr2Spec> {
         OvsrW::new(self, 2)
     }
     #[doc = "Bits 5:8 - Oversampling shift This bit is set and cleared by software. Others: Reserved Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn ovss(&mut self) -> OvssW<AdcCfgr2Spec> {
+    pub fn ovss(&mut self) -> OvssW<Cfgr2Spec> {
         OvssW::new(self, 5)
     }
     #[doc = "Bit 9 - Triggered Oversampling This bit is set and cleared by software. Note: The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn tovs(&mut self) -> TovsW<AdcCfgr2Spec> {
+    pub fn tovs(&mut self) -> TovsW<Cfgr2Spec> {
         TovsW::new(self, 9)
     }
     #[doc = "Bit 29 - Low frequency trigger mode enable This bit is set and cleared by software. Note: The software is allowed to write this bit only when ADSTART bit is cleared to 0 (this ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn lftrig(&mut self) -> LftrigW<AdcCfgr2Spec> {
+    pub fn lftrig(&mut self) -> LftrigW<Cfgr2Spec> {
         LftrigW::new(self, 29)
     }
     #[doc = "Bits 30:31 - ADC clock mode These bits are set and cleared by software to define how the analog ADC is clocked: In all synchronous clock modes, there is no jitter in the delay from a timer trigger to the start of a conversion. Note: The software is allowed to write these bits only when the ADC is disabled (ADCAL=0, ADSTART=0, ADSTP=0, ADDIS=0 and ADEN=0)."]
     #[inline(always)]
     #[must_use]
-    pub fn ckmode(&mut self) -> CkmodeW<AdcCfgr2Spec> {
+    pub fn ckmode(&mut self) -> CkmodeW<Cfgr2Spec> {
         CkmodeW::new(self, 30)
     }
 }
-#[doc = "ADC configuration register 2\n\nYou can [`read`](crate::Reg::read) this register and get [`adc_cfgr2::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`adc_cfgr2::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct AdcCfgr2Spec;
-impl crate::RegisterSpec for AdcCfgr2Spec {
+#[doc = "ADC configuration register 2\n\nYou can [`read`](crate::Reg::read) this register and get [`cfgr2::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfgr2::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Cfgr2Spec;
+impl crate::RegisterSpec for Cfgr2Spec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [`adc_cfgr2::R`](R) reader structure"]
-impl crate::Readable for AdcCfgr2Spec {}
-#[doc = "`write(|w| ..)` method takes [`adc_cfgr2::W`](W) writer structure"]
-impl crate::Writable for AdcCfgr2Spec {
+#[doc = "`read()` method returns [`cfgr2::R`](R) reader structure"]
+impl crate::Readable for Cfgr2Spec {}
+#[doc = "`write(|w| ..)` method takes [`cfgr2::W`](W) writer structure"]
+impl crate::Writable for Cfgr2Spec {
     type Safety = crate::Unsafe;
     const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
     const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
-#[doc = "`reset()` method sets ADC_CFGR2 to value 0"]
-impl crate::Resettable for AdcCfgr2Spec {
+#[doc = "`reset()` method sets CFGR2 to value 0"]
+impl crate::Resettable for Cfgr2Spec {
     const RESET_VALUE: u32 = 0;
 }

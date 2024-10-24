@@ -1,7 +1,7 @@
-#[doc = "Register `ADC_CFGR1` reader"]
-pub type R = crate::R<AdcCfgr1Spec>;
-#[doc = "Register `ADC_CFGR1` writer"]
-pub type W = crate::W<AdcCfgr1Spec>;
+#[doc = "Register `CFGR1` reader"]
+pub type R = crate::R<Cfgr1Spec>;
+#[doc = "Register `CFGR1` writer"]
+pub type W = crate::W<Cfgr1Spec>;
 #[doc = "Direct memory access enable This bit is set and cleared by software to enable the generation of DMA requests. This allows the DMA controller to be used to manage automatically the converted data. For more details, refer to . Note: The software is allowed to write this bit only when ADSTART bit is cleared to 0 (this ensures that no conversion is ongoing).\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Dmaen {
@@ -1128,116 +1128,116 @@ impl W {
     #[doc = "Bit 0 - Direct memory access enable This bit is set and cleared by software to enable the generation of DMA requests. This allows the DMA controller to be used to manage automatically the converted data. For more details, refer to . Note: The software is allowed to write this bit only when ADSTART bit is cleared to 0 (this ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn dmaen(&mut self) -> DmaenW<AdcCfgr1Spec> {
+    pub fn dmaen(&mut self) -> DmaenW<Cfgr1Spec> {
         DmaenW::new(self, 0)
     }
     #[doc = "Bit 1 - Direct memory access configuration This bit is set and cleared by software to select between two DMA modes of operation and is effective only when DMAEN=1. For more details, refer to page351 Note: The software is allowed to write this bit only when ADSTART bit is cleared to 0 (this ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn dmacfg(&mut self) -> DmacfgW<AdcCfgr1Spec> {
+    pub fn dmacfg(&mut self) -> DmacfgW<Cfgr1Spec> {
         DmacfgW::new(self, 1)
     }
     #[doc = "Bit 2 - Scan sequence direction This bit is set and cleared by software to select the direction in which the channels is scanned in the sequence. It is effective only if CHSELMOD bit is cleared to 0. Note: The software is allowed to write this bit only when ADSTART bit is cleared to 0 (this ensures that no conversion is ongoing). If CCRDY is not yet asserted after channel configuration (writing ADC_CHSELR register or changing CHSELRMOD or SCANDIR), the value written to this bit is ignored."]
     #[inline(always)]
     #[must_use]
-    pub fn scandir(&mut self) -> ScandirW<AdcCfgr1Spec> {
+    pub fn scandir(&mut self) -> ScandirW<Cfgr1Spec> {
         ScandirW::new(self, 2)
     }
     #[doc = "Bits 3:4 - Data resolution These bits are written by software to select the resolution of the conversion. Note: The software is allowed to write these bits only when ADEN=0."]
     #[inline(always)]
     #[must_use]
-    pub fn res(&mut self) -> ResW<AdcCfgr1Spec> {
+    pub fn res(&mut self) -> ResW<Cfgr1Spec> {
         ResW::new(self, 3)
     }
     #[doc = "Bit 5 - Data alignment This bit is set and cleared by software to select right or left alignment. Refer to Data alignment and resolution (oversampling disabled: OVSE = 0) on page349 Note: The software is allowed to write this bit only when ADSTART bit is cleared to 0 (this ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn align(&mut self) -> AlignW<AdcCfgr1Spec> {
+    pub fn align(&mut self) -> AlignW<Cfgr1Spec> {
         AlignW::new(self, 5)
     }
     #[doc = "Bits 6:8 - External trigger selection These bits select the external event used to trigger the start of conversion (refer to External triggers for details): Note: The software is allowed to write this bit only when ADSTART bit is cleared to 0 (this ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn extsel(&mut self) -> ExtselW<AdcCfgr1Spec> {
+    pub fn extsel(&mut self) -> ExtselW<Cfgr1Spec> {
         ExtselW::new(self, 6)
     }
     #[doc = "Bits 10:11 - External trigger enable and polarity selection These bits are set and cleared by software to select the external trigger polarity and enable the trigger. Note: The software is allowed to write this bit only when ADSTART bit is cleared to 0 (this ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn exten(&mut self) -> ExtenW<AdcCfgr1Spec> {
+    pub fn exten(&mut self) -> ExtenW<Cfgr1Spec> {
         ExtenW::new(self, 10)
     }
     #[doc = "Bit 12 - Overrun management mode This bit is set and cleared by software and configure the way data overruns are managed. Note: The software is allowed to write this bit only when ADSTART bit is cleared to 0 (this ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn ovrmod(&mut self) -> OvrmodW<AdcCfgr1Spec> {
+    pub fn ovrmod(&mut self) -> OvrmodW<Cfgr1Spec> {
         OvrmodW::new(self, 12)
     }
     #[doc = "Bit 13 - Single / continuous conversion mode This bit is set and cleared by software. If it is set, conversion takes place continuously until it is cleared. Note: It is not possible to have both discontinuous mode and continuous mode enabled: it is forbidden to set both bits DISCEN=1 and CONT=1. The software is allowed to write this bit only when ADSTART bit is cleared to 0 (this ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn cont(&mut self) -> ContW<AdcCfgr1Spec> {
+    pub fn cont(&mut self) -> ContW<Cfgr1Spec> {
         ContW::new(self, 13)
     }
     #[doc = "Bit 14 - Wait conversion mode This bit is set and cleared by software to enable/disable wait conversion mode.. Note: The software is allowed to write this bit only when ADSTART bit is cleared to 0 (this ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn wait(&mut self) -> WaitW<AdcCfgr1Spec> {
+    pub fn wait(&mut self) -> WaitW<Cfgr1Spec> {
         WaitW::new(self, 14)
     }
     #[doc = "Bit 15 - Auto-off mode This bit is set and cleared by software to enable/disable auto-off mode.. Note: The software is allowed to write this bit only when ADSTART bit is cleared to 0 (this ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn autoff(&mut self) -> AutoffW<AdcCfgr1Spec> {
+    pub fn autoff(&mut self) -> AutoffW<Cfgr1Spec> {
         AutoffW::new(self, 15)
     }
     #[doc = "Bit 16 - Discontinuous mode This bit is set and cleared by software to enable/disable discontinuous mode. Note: It is not possible to have both discontinuous mode and continuous mode enabled: it is forbidden to set both bits DISCEN=1 and CONT=1. The software is allowed to write this bit only when ADSTART bit is cleared to 0 (this ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn discen(&mut self) -> DiscenW<AdcCfgr1Spec> {
+    pub fn discen(&mut self) -> DiscenW<Cfgr1Spec> {
         DiscenW::new(self, 16)
     }
     #[doc = "Bit 21 - Mode selection of the ADC_CHSELR register This bit is set and cleared by software to control the ADC_CHSELR feature: Note: The software is allowed to write this bit only when ADSTART bit is cleared to 0 (this ensures that no conversion is ongoing). If CCRDY is not yet asserted after channel configuration (writing ADC_CHSELR register or changing CHSELRMOD or SCANDIR), the value written to this bit is ignored."]
     #[inline(always)]
     #[must_use]
-    pub fn chselrmod(&mut self) -> ChselrmodW<AdcCfgr1Spec> {
+    pub fn chselrmod(&mut self) -> ChselrmodW<Cfgr1Spec> {
         ChselrmodW::new(self, 21)
     }
     #[doc = "Bit 22 - Enable the watchdog on a single channel or on all channels This bit is set and cleared by software to enable the analog watchdog on the channel identified by the AWDCH\\[4:0\\]
 bits or on all the channels Note: The software is allowed to write this bit only when ADSTART bit is cleared to 0 (this ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn awd1sgl(&mut self) -> Awd1sglW<AdcCfgr1Spec> {
+    pub fn awd1sgl(&mut self) -> Awd1sglW<Cfgr1Spec> {
         Awd1sglW::new(self, 22)
     }
     #[doc = "Bit 23 - Analog watchdog enable This bit is set and cleared by software. Note: The software is allowed to write this bit only when ADSTART bit is cleared to 0 (this ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn awd1en(&mut self) -> Awd1enW<AdcCfgr1Spec> {
+    pub fn awd1en(&mut self) -> Awd1enW<Cfgr1Spec> {
         Awd1enW::new(self, 23)
     }
     #[doc = "Bits 26:30 - Analog watchdog channel selection These bits are set and cleared by software. They select the input channel to be guarded by the analog watchdog. ..... Others: Reserved Note: The channel selected by the AWDCH\\[4:0\\]
 bits must be also set into the CHSELR register. The software is allowed to write this bit only when ADSTART bit is cleared to 0 (this ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn awd1ch(&mut self) -> Awd1chW<AdcCfgr1Spec> {
+    pub fn awd1ch(&mut self) -> Awd1chW<Cfgr1Spec> {
         Awd1chW::new(self, 26)
     }
 }
-#[doc = "ADC configuration register 1\n\nYou can [`read`](crate::Reg::read) this register and get [`adc_cfgr1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`adc_cfgr1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct AdcCfgr1Spec;
-impl crate::RegisterSpec for AdcCfgr1Spec {
+#[doc = "ADC configuration register 1\n\nYou can [`read`](crate::Reg::read) this register and get [`cfgr1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfgr1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Cfgr1Spec;
+impl crate::RegisterSpec for Cfgr1Spec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [`adc_cfgr1::R`](R) reader structure"]
-impl crate::Readable for AdcCfgr1Spec {}
-#[doc = "`write(|w| ..)` method takes [`adc_cfgr1::W`](W) writer structure"]
-impl crate::Writable for AdcCfgr1Spec {
+#[doc = "`read()` method returns [`cfgr1::R`](R) reader structure"]
+impl crate::Readable for Cfgr1Spec {}
+#[doc = "`write(|w| ..)` method takes [`cfgr1::W`](W) writer structure"]
+impl crate::Writable for Cfgr1Spec {
     type Safety = crate::Unsafe;
     const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
     const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
-#[doc = "`reset()` method sets ADC_CFGR1 to value 0"]
-impl crate::Resettable for AdcCfgr1Spec {
+#[doc = "`reset()` method sets CFGR1 to value 0"]
+impl crate::Resettable for Cfgr1Spec {
     const RESET_VALUE: u32 = 0;
 }

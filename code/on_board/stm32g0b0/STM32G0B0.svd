@@ -54,7 +54,7 @@ xs:noNamespaceSchemaLocation="CMSIS-SVD_Schema_1_1.xsd">
         </interrupt>
         <registers>
           <register>
-            <name>ADC_ISR</name>
+            <name>ISR</name>
             <displayName>ADC_ISR</displayName>
 			<description>ADC interrupt and status register</description>
             <addressOffset>0x0</addressOffset>
@@ -267,7 +267,7 @@ Note: When the software configures the channels (by programming ADC_CHSELR or ch
             </fields>
           </register>
           <register>
-            <name>ADC_IER</name>
+            <name>IER</name>
             <displayName>ADC_IER</displayName>
 			<description>ADC interrupt enable register </description>
             <addressOffset>0x4</addressOffset>
@@ -488,7 +488,7 @@ Note: The software is allowed to write this bit only when ADSTART bit is cleared
             </fields>
           </register>
           <register>
-            <name>ADC_CR</name>
+            <name>CR</name>
             <displayName>ADC_CR</displayName>
 			<description>ADC control register</description>
             <addressOffset>0x8</addressOffset>
@@ -636,7 +636,7 @@ The software is allowed to update the calibration factor by writing ADC_CALFACT 
             </fields>
           </register>
           <register>
-            <name>ADC_CFGR1</name>
+            <name>CFGR1</name>
             <displayName>ADC_CFGR1</displayName>
 			<description>ADC configuration register 1</description>
             <addressOffset>0xc</addressOffset>
@@ -1051,7 +1051,7 @@ The software is allowed to write this bit only when ADSTART bit is cleared to 0 
             </fields>
           </register>
           <register>
-            <name>ADC_CFGR2</name>
+            <name>CFGR2</name>
             <displayName>ADC_CFGR2</displayName>
 			<description>ADC configuration register 2</description>
             <addressOffset>0x10</addressOffset>
@@ -1265,7 +1265,7 @@ Note: The software is allowed to write these bits only when the ADC is disabled 
             </fields>
           </register>
           <register>
-            <name>ADC_SMPR</name>
+            <name>SMPR</name>
             <displayName>ADC_SMPR</displayName>
 		    <description>ADC sampling time register</description>
             <addressOffset>0x14</addressOffset>
@@ -1777,7 +1777,7 @@ Note: The software is allowed to write this bit only when ADSTART=0 (which ensur
             </fields>
           </register>
           <register>
-            <name>ADC_AWD1TR</name>
+            <name>AWD1TR</name>
             <displayName>ADC_AWD1TR</displayName>
 			<description>ADC watchdog threshold register</description>
             <addressOffset>0x20</addressOffset>
@@ -1806,7 +1806,7 @@ Refer to ADC_AWDxTR) on page355.</description>
             </fields>
           </register>
           <register>
-            <name>ADC_AWD2TR</name>
+            <name>AWD2TR</name>
             <displayName>ADC_AWD2TR</displayName>
 			<description>ADC watchdog threshold register</description>
             <addressOffset>0x24</addressOffset>
@@ -1835,7 +1835,7 @@ Refer to ADC_AWDxTR) on page355.</description>
             </fields>
           </register>
           <register>
-            <name>ADC_CHSELR_0</name>
+            <name>CHSELR_0</name>
             <displayName>ADC_CHSELR_0</displayName>
             <description>ADC channel selection register [alternate] </description>
             <addressOffset>0x28</addressOffset>
@@ -2264,7 +2264,7 @@ If CCRDY is not yet asserted after channel configuration (writing ADC_CHSELR reg
             </fields>
           </register>
 		  <register>
-            <name>ADC_CHSELR_1</name>
+            <name>CHSELR_1</name>
             <displayName>ADC_CHSELR_1</displayName>
             <description>channel selection register CHSELRMOD = 1 in
             ADC_CFGR1</description>
@@ -2397,7 +2397,7 @@ Note: The software is allowed to write this bit only when ADSTART=0 (which ensur
             </fields>
           </register>		  
           <register>
-            <name>ADC_AWD3TR</name>
+            <name>AWD3TR</name>
             <displayName>ADC_AWD3TR</displayName>
 			<description>ADC watchdog threshold register</description>
             <addressOffset>0x2c</addressOffset>
@@ -2426,7 +2426,7 @@ Refer to ADC_AWDxTR) on page355.</description>
             </fields>
           </register>
           <register>
-            <name>ADC_DR</name>
+            <name>DR</name>
             <displayName>ADC_DR</displayName>
 			<description>ADC data register</description>
             <addressOffset>0x40</addressOffset>
@@ -2446,7 +2446,7 @@ Just after a calibration is complete, DATA[6:0] contains the calibration factor.
             </fields>
           </register>
           <register>
-            <name>ADC_AWD2CR</name>
+            <name>AWD2CR</name>
             <displayName>ADC_AWD2CR</displayName>
 			<description>ADC Analog Watchdog 2 Configuration register</description>
             <addressOffset>0xa0</addressOffset>
@@ -2856,7 +2856,7 @@ Note: The channels selected through ADC_AWD2CR must be also configured into the 
             </fields>
           </register>
           <register>
-            <name>ADC_AWD3CR</name>
+            <name>AWD3CR</name>
             <displayName>ADC_AWD3CR</displayName>
 			<description>ADC Analog Watchdog 3 Configuration register</description>
             <addressOffset>0xa4</addressOffset>
@@ -3266,7 +3266,7 @@ Note: The channels selected through ADC_AWD3CR must be also configured into the 
             </fields>
           </register>
           <register>
-            <name>ADC_CALFACT</name>
+            <name>CALFACT</name>
             <displayName>ADC_CALFACT</displayName>
 			<description>ADC Calibration factor</description>
             <addressOffset>0xb4</addressOffset>
@@ -3289,7 +3289,7 @@ Note: Software can write these bits only when ADEN=1 (ADC is enabled and no cali
             </fields>
           </register>
           <register>
-            <name>ADC_CCR</name>
+            <name>CCR</name>
             <displayName>ADC_CCR</displayName>
 			<description>ADC common configuration register</description>
             <addressOffset>0x308</addressOffset>

@@ -1,7 +1,7 @@
-#[doc = "Register `ADC_IER` reader"]
-pub type R = crate::R<AdcIerSpec>;
-#[doc = "Register `ADC_IER` writer"]
-pub type W = crate::W<AdcIerSpec>;
+#[doc = "Register `IER` reader"]
+pub type R = crate::R<IerSpec>;
+#[doc = "Register `IER` writer"]
+pub type W = crate::W<IerSpec>;
 #[doc = "ADC ready interrupt enable This bit is set and cleared by software to enable/disable the ADC Ready interrupt. Note: The software is allowed to write this bit only when ADSTART bit is cleared to 0 (this ensures that no conversion is ongoing).\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Adrdyie {
@@ -588,78 +588,78 @@ impl W {
     #[doc = "Bit 0 - ADC ready interrupt enable This bit is set and cleared by software to enable/disable the ADC Ready interrupt. Note: The software is allowed to write this bit only when ADSTART bit is cleared to 0 (this ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn adrdyie(&mut self) -> AdrdyieW<AdcIerSpec> {
+    pub fn adrdyie(&mut self) -> AdrdyieW<IerSpec> {
         AdrdyieW::new(self, 0)
     }
     #[doc = "Bit 1 - End of sampling flag interrupt enable This bit is set and cleared by software to enable/disable the end of the sampling phase interrupt. Note: The software is allowed to write this bit only when ADSTART bit is cleared to 0 (this ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn eosmpie(&mut self) -> EosmpieW<AdcIerSpec> {
+    pub fn eosmpie(&mut self) -> EosmpieW<IerSpec> {
         EosmpieW::new(self, 1)
     }
     #[doc = "Bit 2 - End of conversion interrupt enable This bit is set and cleared by software to enable/disable the end of conversion interrupt. Note: The software is allowed to write this bit only when ADSTART bit is cleared to 0 (this ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn eocie(&mut self) -> EocieW<AdcIerSpec> {
+    pub fn eocie(&mut self) -> EocieW<IerSpec> {
         EocieW::new(self, 2)
     }
     #[doc = "Bit 3 - End of conversion sequence interrupt enable This bit is set and cleared by software to enable/disable the end of sequence of conversions interrupt. Note: The software is allowed to write this bit only when ADSTART bit is cleared to 0 (this ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn eosie(&mut self) -> EosieW<AdcIerSpec> {
+    pub fn eosie(&mut self) -> EosieW<IerSpec> {
         EosieW::new(self, 3)
     }
     #[doc = "Bit 4 - Overrun interrupt enable This bit is set and cleared by software to enable/disable the overrun interrupt. Note: The software is allowed to write this bit only when ADSTART bit is cleared to 0 (this ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn ovrie(&mut self) -> OvrieW<AdcIerSpec> {
+    pub fn ovrie(&mut self) -> OvrieW<IerSpec> {
         OvrieW::new(self, 4)
     }
     #[doc = "Bit 7 - Analog watchdog 1 interrupt enable This bit is set and cleared by software to enable/disable the analog watchdog interrupt. Note: The Software is allowed to write this bit only when ADSTART bit is cleared to 0 (this ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn awd1ie(&mut self) -> Awd1ieW<AdcIerSpec> {
+    pub fn awd1ie(&mut self) -> Awd1ieW<IerSpec> {
         Awd1ieW::new(self, 7)
     }
     #[doc = "Bit 8 - Analog watchdog 2 interrupt enable This bit is set and cleared by software to enable/disable the analog watchdog interrupt. Note: The Software is allowed to write this bit only when ADSTART bit is cleared to 0 (this ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn awd2ie(&mut self) -> Awd2ieW<AdcIerSpec> {
+    pub fn awd2ie(&mut self) -> Awd2ieW<IerSpec> {
         Awd2ieW::new(self, 8)
     }
     #[doc = "Bit 9 - Analog watchdog 3 interrupt enable This bit is set and cleared by software to enable/disable the analog watchdog interrupt. Note: The Software is allowed to write this bit only when ADSTART bit is cleared to 0 (this ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn awd3ie(&mut self) -> Awd3ieW<AdcIerSpec> {
+    pub fn awd3ie(&mut self) -> Awd3ieW<IerSpec> {
         Awd3ieW::new(self, 9)
     }
     #[doc = "Bit 11 - End of calibration interrupt enable This bit is set and cleared by software to enable/disable the end of calibration interrupt. Note: The software is allowed to write this bit only when ADSTART bit is cleared to 0 (this ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn eocalie(&mut self) -> EocalieW<AdcIerSpec> {
+    pub fn eocalie(&mut self) -> EocalieW<IerSpec> {
         EocalieW::new(self, 11)
     }
     #[doc = "Bit 13 - Channel Configuration Ready Interrupt enable This bit is set and cleared by software to enable/disable the channel configuration ready interrupt. Note: The software is allowed to write this bit only when ADSTART bit is cleared to 0 (this ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn ccrdyie(&mut self) -> CcrdyieW<AdcIerSpec> {
+    pub fn ccrdyie(&mut self) -> CcrdyieW<IerSpec> {
         CcrdyieW::new(self, 13)
     }
 }
-#[doc = "ADC interrupt enable register\n\nYou can [`read`](crate::Reg::read) this register and get [`adc_ier::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`adc_ier::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct AdcIerSpec;
-impl crate::RegisterSpec for AdcIerSpec {
+#[doc = "ADC interrupt enable register\n\nYou can [`read`](crate::Reg::read) this register and get [`ier::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ier::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct IerSpec;
+impl crate::RegisterSpec for IerSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [`adc_ier::R`](R) reader structure"]
-impl crate::Readable for AdcIerSpec {}
-#[doc = "`write(|w| ..)` method takes [`adc_ier::W`](W) writer structure"]
-impl crate::Writable for AdcIerSpec {
+#[doc = "`read()` method returns [`ier::R`](R) reader structure"]
+impl crate::Readable for IerSpec {}
+#[doc = "`write(|w| ..)` method takes [`ier::W`](W) writer structure"]
+impl crate::Writable for IerSpec {
     type Safety = crate::Unsafe;
     const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
     const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
-#[doc = "`reset()` method sets ADC_IER to value 0"]
-impl crate::Resettable for AdcIerSpec {
+#[doc = "`reset()` method sets IER to value 0"]
+impl crate::Resettable for IerSpec {
     const RESET_VALUE: u32 = 0;
 }

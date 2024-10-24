@@ -1,7 +1,7 @@
-#[doc = "Register `ADC_AWD3CR` reader"]
-pub type R = crate::R<AdcAwd3crSpec>;
-#[doc = "Register `ADC_AWD3CR` writer"]
-pub type W = crate::W<AdcAwd3crSpec>;
+#[doc = "Register `AWD3CR` reader"]
+pub type R = crate::R<Awd3crSpec>;
+#[doc = "Register `AWD3CR` writer"]
+pub type W = crate::W<Awd3crSpec>;
 #[doc = "Analog watchdog channel selection These bits are set and cleared by software. They enable and select the input channels to be guarded by analog watchdog 3 (AWD3). Note: The channels selected through ADC_AWD3CR must be also configured into the ADC_CHSELR registers. Refer to SQ8\\[3:0\\]
 for a definition of channel selection. The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing).\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -1187,150 +1187,150 @@ impl W {
 for a definition of channel selection. The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn awd3ch0(&mut self) -> Awd3ch0W<AdcAwd3crSpec> {
+    pub fn awd3ch0(&mut self) -> Awd3ch0W<Awd3crSpec> {
         Awd3ch0W::new(self, 0)
     }
     #[doc = "Bit 1 - Analog watchdog channel selection These bits are set and cleared by software. They enable and select the input channels to be guarded by analog watchdog 3 (AWD3). Note: The channels selected through ADC_AWD3CR must be also configured into the ADC_CHSELR registers. Refer to SQ8\\[3:0\\]
 for a definition of channel selection. The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn awd3ch1(&mut self) -> Awd3ch1W<AdcAwd3crSpec> {
+    pub fn awd3ch1(&mut self) -> Awd3ch1W<Awd3crSpec> {
         Awd3ch1W::new(self, 1)
     }
     #[doc = "Bit 2 - Analog watchdog channel selection These bits are set and cleared by software. They enable and select the input channels to be guarded by analog watchdog 3 (AWD3). Note: The channels selected through ADC_AWD3CR must be also configured into the ADC_CHSELR registers. Refer to SQ8\\[3:0\\]
 for a definition of channel selection. The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn awd3ch2(&mut self) -> Awd3ch2W<AdcAwd3crSpec> {
+    pub fn awd3ch2(&mut self) -> Awd3ch2W<Awd3crSpec> {
         Awd3ch2W::new(self, 2)
     }
     #[doc = "Bit 3 - Analog watchdog channel selection These bits are set and cleared by software. They enable and select the input channels to be guarded by analog watchdog 3 (AWD3). Note: The channels selected through ADC_AWD3CR must be also configured into the ADC_CHSELR registers. Refer to SQ8\\[3:0\\]
 for a definition of channel selection. The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn awd3ch3(&mut self) -> Awd3ch3W<AdcAwd3crSpec> {
+    pub fn awd3ch3(&mut self) -> Awd3ch3W<Awd3crSpec> {
         Awd3ch3W::new(self, 3)
     }
     #[doc = "Bit 4 - Analog watchdog channel selection These bits are set and cleared by software. They enable and select the input channels to be guarded by analog watchdog 3 (AWD3). Note: The channels selected through ADC_AWD3CR must be also configured into the ADC_CHSELR registers. Refer to SQ8\\[3:0\\]
 for a definition of channel selection. The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn awd3ch4(&mut self) -> Awd3ch4W<AdcAwd3crSpec> {
+    pub fn awd3ch4(&mut self) -> Awd3ch4W<Awd3crSpec> {
         Awd3ch4W::new(self, 4)
     }
     #[doc = "Bit 5 - Analog watchdog channel selection These bits are set and cleared by software. They enable and select the input channels to be guarded by analog watchdog 3 (AWD3). Note: The channels selected through ADC_AWD3CR must be also configured into the ADC_CHSELR registers. Refer to SQ8\\[3:0\\]
 for a definition of channel selection. The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn awd3ch5(&mut self) -> Awd3ch5W<AdcAwd3crSpec> {
+    pub fn awd3ch5(&mut self) -> Awd3ch5W<Awd3crSpec> {
         Awd3ch5W::new(self, 5)
     }
     #[doc = "Bit 6 - Analog watchdog channel selection These bits are set and cleared by software. They enable and select the input channels to be guarded by analog watchdog 3 (AWD3). Note: The channels selected through ADC_AWD3CR must be also configured into the ADC_CHSELR registers. Refer to SQ8\\[3:0\\]
 for a definition of channel selection. The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn awd3ch6(&mut self) -> Awd3ch6W<AdcAwd3crSpec> {
+    pub fn awd3ch6(&mut self) -> Awd3ch6W<Awd3crSpec> {
         Awd3ch6W::new(self, 6)
     }
     #[doc = "Bit 7 - Analog watchdog channel selection These bits are set and cleared by software. They enable and select the input channels to be guarded by analog watchdog 3 (AWD3). Note: The channels selected through ADC_AWD3CR must be also configured into the ADC_CHSELR registers. Refer to SQ8\\[3:0\\]
 for a definition of channel selection. The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn awd3ch7(&mut self) -> Awd3ch7W<AdcAwd3crSpec> {
+    pub fn awd3ch7(&mut self) -> Awd3ch7W<Awd3crSpec> {
         Awd3ch7W::new(self, 7)
     }
     #[doc = "Bit 8 - Analog watchdog channel selection These bits are set and cleared by software. They enable and select the input channels to be guarded by analog watchdog 3 (AWD3). Note: The channels selected through ADC_AWD3CR must be also configured into the ADC_CHSELR registers. Refer to SQ8\\[3:0\\]
 for a definition of channel selection. The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn awd3ch8(&mut self) -> Awd3ch8W<AdcAwd3crSpec> {
+    pub fn awd3ch8(&mut self) -> Awd3ch8W<Awd3crSpec> {
         Awd3ch8W::new(self, 8)
     }
     #[doc = "Bit 9 - Analog watchdog channel selection These bits are set and cleared by software. They enable and select the input channels to be guarded by analog watchdog 3 (AWD3). Note: The channels selected through ADC_AWD3CR must be also configured into the ADC_CHSELR registers. Refer to SQ8\\[3:0\\]
 for a definition of channel selection. The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn awd3ch9(&mut self) -> Awd3ch9W<AdcAwd3crSpec> {
+    pub fn awd3ch9(&mut self) -> Awd3ch9W<Awd3crSpec> {
         Awd3ch9W::new(self, 9)
     }
     #[doc = "Bit 10 - Analog watchdog channel selection These bits are set and cleared by software. They enable and select the input channels to be guarded by analog watchdog 3 (AWD3). Note: The channels selected through ADC_AWD3CR must be also configured into the ADC_CHSELR registers. Refer to SQ8\\[3:0\\]
 for a definition of channel selection. The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn awd3ch10(&mut self) -> Awd3ch10W<AdcAwd3crSpec> {
+    pub fn awd3ch10(&mut self) -> Awd3ch10W<Awd3crSpec> {
         Awd3ch10W::new(self, 10)
     }
     #[doc = "Bit 11 - Analog watchdog channel selection These bits are set and cleared by software. They enable and select the input channels to be guarded by analog watchdog 3 (AWD3). Note: The channels selected through ADC_AWD3CR must be also configured into the ADC_CHSELR registers. Refer to SQ8\\[3:0\\]
 for a definition of channel selection. The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn awd3ch11(&mut self) -> Awd3ch11W<AdcAwd3crSpec> {
+    pub fn awd3ch11(&mut self) -> Awd3ch11W<Awd3crSpec> {
         Awd3ch11W::new(self, 11)
     }
     #[doc = "Bit 12 - Analog watchdog channel selection These bits are set and cleared by software. They enable and select the input channels to be guarded by analog watchdog 3 (AWD3). Note: The channels selected through ADC_AWD3CR must be also configured into the ADC_CHSELR registers. Refer to SQ8\\[3:0\\]
 for a definition of channel selection. The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn awd3ch12(&mut self) -> Awd3ch12W<AdcAwd3crSpec> {
+    pub fn awd3ch12(&mut self) -> Awd3ch12W<Awd3crSpec> {
         Awd3ch12W::new(self, 12)
     }
     #[doc = "Bit 13 - Analog watchdog channel selection These bits are set and cleared by software. They enable and select the input channels to be guarded by analog watchdog 3 (AWD3). Note: The channels selected through ADC_AWD3CR must be also configured into the ADC_CHSELR registers. Refer to SQ8\\[3:0\\]
 for a definition of channel selection. The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn awd3ch13(&mut self) -> Awd3ch13W<AdcAwd3crSpec> {
+    pub fn awd3ch13(&mut self) -> Awd3ch13W<Awd3crSpec> {
         Awd3ch13W::new(self, 13)
     }
     #[doc = "Bit 14 - Analog watchdog channel selection These bits are set and cleared by software. They enable and select the input channels to be guarded by analog watchdog 3 (AWD3). Note: The channels selected through ADC_AWD3CR must be also configured into the ADC_CHSELR registers. Refer to SQ8\\[3:0\\]
 for a definition of channel selection. The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn awd3ch14(&mut self) -> Awd3ch14W<AdcAwd3crSpec> {
+    pub fn awd3ch14(&mut self) -> Awd3ch14W<Awd3crSpec> {
         Awd3ch14W::new(self, 14)
     }
     #[doc = "Bit 15 - Analog watchdog channel selection These bits are set and cleared by software. They enable and select the input channels to be guarded by analog watchdog 3 (AWD3). Note: The channels selected through ADC_AWD3CR must be also configured into the ADC_CHSELR registers. Refer to SQ8\\[3:0\\]
 for a definition of channel selection. The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn awd3ch15(&mut self) -> Awd3ch15W<AdcAwd3crSpec> {
+    pub fn awd3ch15(&mut self) -> Awd3ch15W<Awd3crSpec> {
         Awd3ch15W::new(self, 15)
     }
     #[doc = "Bit 16 - Analog watchdog channel selection These bits are set and cleared by software. They enable and select the input channels to be guarded by analog watchdog 3 (AWD3). Note: The channels selected through ADC_AWD3CR must be also configured into the ADC_CHSELR registers. Refer to SQ8\\[3:0\\]
 for a definition of channel selection. The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn awd3ch16(&mut self) -> Awd3ch16W<AdcAwd3crSpec> {
+    pub fn awd3ch16(&mut self) -> Awd3ch16W<Awd3crSpec> {
         Awd3ch16W::new(self, 16)
     }
     #[doc = "Bit 17 - Analog watchdog channel selection These bits are set and cleared by software. They enable and select the input channels to be guarded by analog watchdog 3 (AWD3). Note: The channels selected through ADC_AWD3CR must be also configured into the ADC_CHSELR registers. Refer to SQ8\\[3:0\\]
 for a definition of channel selection. The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn awd3ch17(&mut self) -> Awd3ch17W<AdcAwd3crSpec> {
+    pub fn awd3ch17(&mut self) -> Awd3ch17W<Awd3crSpec> {
         Awd3ch17W::new(self, 17)
     }
     #[doc = "Bit 18 - Analog watchdog channel selection These bits are set and cleared by software. They enable and select the input channels to be guarded by analog watchdog 3 (AWD3). Note: The channels selected through ADC_AWD3CR must be also configured into the ADC_CHSELR registers. Refer to SQ8\\[3:0\\]
 for a definition of channel selection. The software is allowed to write this bit only when ADSTART=0 (which ensures that no conversion is ongoing)."]
     #[inline(always)]
     #[must_use]
-    pub fn awd3ch18(&mut self) -> Awd3ch18W<AdcAwd3crSpec> {
+    pub fn awd3ch18(&mut self) -> Awd3ch18W<Awd3crSpec> {
         Awd3ch18W::new(self, 18)
     }
 }
-#[doc = "ADC Analog Watchdog 3 Configuration register\n\nYou can [`read`](crate::Reg::read) this register and get [`adc_awd3cr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`adc_awd3cr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct AdcAwd3crSpec;
-impl crate::RegisterSpec for AdcAwd3crSpec {
+#[doc = "ADC Analog Watchdog 3 Configuration register\n\nYou can [`read`](crate::Reg::read) this register and get [`awd3cr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`awd3cr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Awd3crSpec;
+impl crate::RegisterSpec for Awd3crSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [`adc_awd3cr::R`](R) reader structure"]
-impl crate::Readable for AdcAwd3crSpec {}
-#[doc = "`write(|w| ..)` method takes [`adc_awd3cr::W`](W) writer structure"]
-impl crate::Writable for AdcAwd3crSpec {
+#[doc = "`read()` method returns [`awd3cr::R`](R) reader structure"]
+impl crate::Readable for Awd3crSpec {}
+#[doc = "`write(|w| ..)` method takes [`awd3cr::W`](W) writer structure"]
+impl crate::Writable for Awd3crSpec {
     type Safety = crate::Unsafe;
     const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
     const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
-#[doc = "`reset()` method sets ADC_AWD3CR to value 0"]
-impl crate::Resettable for AdcAwd3crSpec {
+#[doc = "`reset()` method sets AWD3CR to value 0"]
+impl crate::Resettable for Awd3crSpec {
     const RESET_VALUE: u32 = 0;
 }

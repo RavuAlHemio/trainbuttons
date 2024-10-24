@@ -1,7 +1,7 @@
-#[doc = "Register `ADC_ISR` reader"]
-pub type R = crate::R<AdcIsrSpec>;
-#[doc = "Register `ADC_ISR` writer"]
-pub type W = crate::W<AdcIsrSpec>;
+#[doc = "Register `ISR` reader"]
+pub type R = crate::R<IsrSpec>;
+#[doc = "Register `ISR` writer"]
+pub type W = crate::W<IsrSpec>;
 #[doc = "ADC ready This bit is set by hardware after the ADC has been enabled (ADEN=1) and when the ADC reaches a state where it is ready to accept conversion requests. It is cleared by software writing 1 to it.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Adrdy {
@@ -588,78 +588,78 @@ impl W {
     #[doc = "Bit 0 - ADC ready This bit is set by hardware after the ADC has been enabled (ADEN=1) and when the ADC reaches a state where it is ready to accept conversion requests. It is cleared by software writing 1 to it."]
     #[inline(always)]
     #[must_use]
-    pub fn adrdy(&mut self) -> AdrdyW<AdcIsrSpec> {
+    pub fn adrdy(&mut self) -> AdrdyW<IsrSpec> {
         AdrdyW::new(self, 0)
     }
     #[doc = "Bit 1 - End of sampling flag This bit is set by hardware during the conversion, at the end of the sampling phase.It is cleared by software by programming it to '1'."]
     #[inline(always)]
     #[must_use]
-    pub fn eosmp(&mut self) -> EosmpW<AdcIsrSpec> {
+    pub fn eosmp(&mut self) -> EosmpW<IsrSpec> {
         EosmpW::new(self, 1)
     }
     #[doc = "Bit 2 - End of conversion flag This bit is set by hardware at the end of each conversion of a channel when a new data result is available in the ADC_DR register. It is cleared by software writing 1 to it or by reading the ADC_DR register."]
     #[inline(always)]
     #[must_use]
-    pub fn eoc(&mut self) -> EocW<AdcIsrSpec> {
+    pub fn eoc(&mut self) -> EocW<IsrSpec> {
         EocW::new(self, 2)
     }
     #[doc = "Bit 3 - End of sequence flag This bit is set by hardware at the end of the conversion of a sequence of channels selected by the CHSEL bits. It is cleared by software writing 1 to it."]
     #[inline(always)]
     #[must_use]
-    pub fn eos(&mut self) -> EosW<AdcIsrSpec> {
+    pub fn eos(&mut self) -> EosW<IsrSpec> {
         EosW::new(self, 3)
     }
     #[doc = "Bit 4 - ADC overrun This bit is set by hardware when an overrun occurs, meaning that a new conversion has complete while the EOC flag was already set. It is cleared by software writing 1 to it."]
     #[inline(always)]
     #[must_use]
-    pub fn ovr(&mut self) -> OvrW<AdcIsrSpec> {
+    pub fn ovr(&mut self) -> OvrW<IsrSpec> {
         OvrW::new(self, 4)
     }
     #[doc = "Bit 7 - Analog watchdog 1 flag This bit is set by hardware when the converted voltage crosses the values programmed in ADC_TR1 and ADC_HR1 registers. It is cleared by software by programming it to 1."]
     #[inline(always)]
     #[must_use]
-    pub fn awd1(&mut self) -> Awd1W<AdcIsrSpec> {
+    pub fn awd1(&mut self) -> Awd1W<IsrSpec> {
         Awd1W::new(self, 7)
     }
     #[doc = "Bit 8 - Analog watchdog 2 flag This bit is set by hardware when the converted voltage crosses the values programmed in ADC_AWD2TR and ADC_AWD2TR registers. It is cleared by software programming it it."]
     #[inline(always)]
     #[must_use]
-    pub fn awd2(&mut self) -> Awd2W<AdcIsrSpec> {
+    pub fn awd2(&mut self) -> Awd2W<IsrSpec> {
         Awd2W::new(self, 8)
     }
     #[doc = "Bit 9 - Analog watchdog 3 flag This bit is set by hardware when the converted voltage crosses the values programmed in ADC_AWD3TR and ADC_AWD3TR registers. It is cleared by software by programming it to 1."]
     #[inline(always)]
     #[must_use]
-    pub fn awd3(&mut self) -> Awd3W<AdcIsrSpec> {
+    pub fn awd3(&mut self) -> Awd3W<IsrSpec> {
         Awd3W::new(self, 9)
     }
     #[doc = "Bit 11 - End Of Calibration flag This bit is set by hardware when calibration is complete. It is cleared by software writing 1 to it."]
     #[inline(always)]
     #[must_use]
-    pub fn eocal(&mut self) -> EocalW<AdcIsrSpec> {
+    pub fn eocal(&mut self) -> EocalW<IsrSpec> {
         EocalW::new(self, 11)
     }
     #[doc = "Bit 13 - Channel Configuration Ready flag This flag bit is set by hardware when the channel configuration is applied after programming to ADC_CHSELR register or changing CHSELRMOD or SCANDIR. It is cleared by software by programming it to it. Note: When the software configures the channels (by programming ADC_CHSELR or changing CHSELRMOD or SCANDIR), it must wait until the CCRDY flag rises before configuring again or starting conversions, otherwise the new configuration (or the START bit) is ignored. Once the flag is asserted, if the software needs to configure again the channels, it must clear the CCRDY flag before proceeding with a new configuration."]
     #[inline(always)]
     #[must_use]
-    pub fn ccrdy(&mut self) -> CcrdyW<AdcIsrSpec> {
+    pub fn ccrdy(&mut self) -> CcrdyW<IsrSpec> {
         CcrdyW::new(self, 13)
     }
 }
-#[doc = "ADC interrupt and status register\n\nYou can [`read`](crate::Reg::read) this register and get [`adc_isr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`adc_isr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct AdcIsrSpec;
-impl crate::RegisterSpec for AdcIsrSpec {
+#[doc = "ADC interrupt and status register\n\nYou can [`read`](crate::Reg::read) this register and get [`isr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`isr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct IsrSpec;
+impl crate::RegisterSpec for IsrSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [`adc_isr::R`](R) reader structure"]
-impl crate::Readable for AdcIsrSpec {}
-#[doc = "`write(|w| ..)` method takes [`adc_isr::W`](W) writer structure"]
-impl crate::Writable for AdcIsrSpec {
+#[doc = "`read()` method returns [`isr::R`](R) reader structure"]
+impl crate::Readable for IsrSpec {}
+#[doc = "`write(|w| ..)` method takes [`isr::W`](W) writer structure"]
+impl crate::Writable for IsrSpec {
     type Safety = crate::Unsafe;
     const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
     const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
-#[doc = "`reset()` method sets ADC_ISR to value 0"]
-impl crate::Resettable for AdcIsrSpec {
+#[doc = "`reset()` method sets ISR to value 0"]
+impl crate::Resettable for IsrSpec {
     const RESET_VALUE: u32 = 0;
 }
