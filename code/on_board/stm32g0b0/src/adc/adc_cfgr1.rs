@@ -443,13 +443,13 @@ where
 #[repr(u8)]
 pub enum Exten {
     #[doc = "0: Hardware trigger detection disabled (conversions can be started by software)"]
-    B0x0 = 0,
+    Software = 0,
     #[doc = "1: Hardware trigger detection on the rising edge"]
-    B0x1 = 1,
+    HardwareRising = 1,
     #[doc = "2: Hardware trigger detection on the falling edge"]
-    B0x2 = 2,
+    HardwareFalling = 2,
     #[doc = "3: Hardware trigger detection on both the rising and falling edges"]
-    B0x3 = 3,
+    HardwareBoth = 3,
 }
 impl From<Exten> for u8 {
     #[inline(always)]
@@ -468,32 +468,32 @@ impl ExtenR {
     #[inline(always)]
     pub const fn variant(&self) -> Exten {
         match self.bits {
-            0 => Exten::B0x0,
-            1 => Exten::B0x1,
-            2 => Exten::B0x2,
-            3 => Exten::B0x3,
+            0 => Exten::Software,
+            1 => Exten::HardwareRising,
+            2 => Exten::HardwareFalling,
+            3 => Exten::HardwareBoth,
             _ => unreachable!(),
         }
     }
     #[doc = "Hardware trigger detection disabled (conversions can be started by software)"]
     #[inline(always)]
-    pub fn is_b_0x0(&self) -> bool {
-        *self == Exten::B0x0
+    pub fn is_software(&self) -> bool {
+        *self == Exten::Software
     }
     #[doc = "Hardware trigger detection on the rising edge"]
     #[inline(always)]
-    pub fn is_b_0x1(&self) -> bool {
-        *self == Exten::B0x1
+    pub fn is_hardware_rising(&self) -> bool {
+        *self == Exten::HardwareRising
     }
     #[doc = "Hardware trigger detection on the falling edge"]
     #[inline(always)]
-    pub fn is_b_0x2(&self) -> bool {
-        *self == Exten::B0x2
+    pub fn is_hardware_falling(&self) -> bool {
+        *self == Exten::HardwareFalling
     }
     #[doc = "Hardware trigger detection on both the rising and falling edges"]
     #[inline(always)]
-    pub fn is_b_0x3(&self) -> bool {
-        *self == Exten::B0x3
+    pub fn is_hardware_both(&self) -> bool {
+        *self == Exten::HardwareBoth
     }
 }
 #[doc = "Field `EXTEN` writer - External trigger enable and polarity selection These bits are set and cleared by software to select the external trigger polarity and enable the trigger. Note: The software is allowed to write this bit only when ADSTART bit is cleared to 0 (this ensures that no conversion is ongoing)."]
@@ -505,23 +505,23 @@ where
 {
     #[doc = "Hardware trigger detection disabled (conversions can be started by software)"]
     #[inline(always)]
-    pub fn b_0x0(self) -> &'a mut crate::W<REG> {
-        self.variant(Exten::B0x0)
+    pub fn software(self) -> &'a mut crate::W<REG> {
+        self.variant(Exten::Software)
     }
     #[doc = "Hardware trigger detection on the rising edge"]
     #[inline(always)]
-    pub fn b_0x1(self) -> &'a mut crate::W<REG> {
-        self.variant(Exten::B0x1)
+    pub fn hardware_rising(self) -> &'a mut crate::W<REG> {
+        self.variant(Exten::HardwareRising)
     }
     #[doc = "Hardware trigger detection on the falling edge"]
     #[inline(always)]
-    pub fn b_0x2(self) -> &'a mut crate::W<REG> {
-        self.variant(Exten::B0x2)
+    pub fn hardware_falling(self) -> &'a mut crate::W<REG> {
+        self.variant(Exten::HardwareFalling)
     }
     #[doc = "Hardware trigger detection on both the rising and falling edges"]
     #[inline(always)]
-    pub fn b_0x3(self) -> &'a mut crate::W<REG> {
-        self.variant(Exten::B0x3)
+    pub fn hardware_both(self) -> &'a mut crate::W<REG> {
+        self.variant(Exten::HardwareBoth)
     }
 }
 #[doc = "Overrun management mode This bit is set and cleared by software and configure the way data overruns are managed. Note: The software is allowed to write this bit only when ADSTART bit is cleared to 0 (this ensures that no conversion is ongoing).\n\nValue on reset: 0"]

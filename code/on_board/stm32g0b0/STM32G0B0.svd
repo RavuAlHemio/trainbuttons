@@ -822,22 +822,22 @@ Note: The software is allowed to write this bit only when ADSTART bit is cleared
                 <access>read-write</access>
                 <enumeratedValues>
                   <enumeratedValue>
-                    <name>B_0x0</name>
+                    <name>SOFTWARE</name>
                     <description>Hardware trigger detection disabled (conversions can be started by software)</description>
                     <value>0x0</value>
                   </enumeratedValue>
                   <enumeratedValue>
-                    <name>B_0x1</name>
+                    <name>HARDWARE_RISING</name>
                     <description>Hardware trigger detection on the rising edge</description>
                     <value>0x1</value>
                   </enumeratedValue>
                   <enumeratedValue>
-                    <name>B_0x2</name>
+                    <name>HARDWARE_FALLING</name>
                     <description>Hardware trigger detection on the falling edge</description>
                     <value>0x2</value>
                   </enumeratedValue>
                   <enumeratedValue>
-                    <name>B_0x3</name>
+                    <name>HARDWARE_BOTH</name>
                     <description>Hardware trigger detection on both the rising and falling edges</description>
                     <value>0x3</value>
                   </enumeratedValue>
