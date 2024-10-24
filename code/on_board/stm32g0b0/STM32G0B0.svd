@@ -4915,12 +4915,12 @@ It is read-only when the channel is enabled (EN=1).</description>
                 <access>read-write</access>
                 <enumeratedValues>
                   <enumeratedValue>
-                    <name>B_0x0</name>
+                    <name>PERIPHERAL_TO_MEMORY</name>
                     <description>read from peripheral</description>
                     <value>0x0</value>
                   </enumeratedValue>
                   <enumeratedValue>
-                    <name>B_0x1</name>
+                    <name>MEMORY_TO_PERIPHERAL</name>
                     <description>read from memory</description>
                     <value>0x1</value>
                   </enumeratedValue>

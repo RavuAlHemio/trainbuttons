@@ -218,9 +218,9 @@ where
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Dir {
     #[doc = "0: read from peripheral"]
-    B0x0 = 0,
+    PeripheralToMemory = 0,
     #[doc = "1: read from memory"]
-    B0x1 = 1,
+    MemoryToPeripheral = 1,
 }
 impl From<Dir> for bool {
     #[inline(always)]
@@ -235,19 +235,19 @@ impl DirR {
     #[inline(always)]
     pub const fn variant(&self) -> Dir {
         match self.bits {
-            false => Dir::B0x0,
-            true => Dir::B0x1,
+            false => Dir::PeripheralToMemory,
+            true => Dir::MemoryToPeripheral,
         }
     }
     #[doc = "read from peripheral"]
     #[inline(always)]
-    pub fn is_b_0x0(&self) -> bool {
-        *self == Dir::B0x0
+    pub fn is_peripheral_to_memory(&self) -> bool {
+        *self == Dir::PeripheralToMemory
     }
     #[doc = "read from memory"]
     #[inline(always)]
-    pub fn is_b_0x1(&self) -> bool {
-        *self == Dir::B0x1
+    pub fn is_memory_to_peripheral(&self) -> bool {
+        *self == Dir::MemoryToPeripheral
     }
 }
 #[doc = "Field `DIR` writer - data transfer direction This bit must be set only in memory-to-peripheral and peripheral-to-memory modes. Source attributes are defined by PSIZE and PINC, plus the DMA_CPARx register. This is still valid in a memory-to-memory mode. Destination attributes are defined by MSIZE and MINC, plus the DMA_CMARx register. This is still valid in a peripheral-to-peripheral mode. Destination attributes are defined by PSIZE and PINC, plus the DMA_CPARx register. This is still valid in a memory-to-memory mode. Source attributes are defined by MSIZE and MINC, plus the DMA_CMARx register. This is still valid in a peripheral-to-peripheral mode. Note: this bit is set and cleared by software. It must not be written when the channel is enabled (EN = 1). It is read-only when the channel is enabled (EN=1)."]
@@ -258,13 +258,13 @@ where
 {
     #[doc = "read from peripheral"]
     #[inline(always)]
-    pub fn b_0x0(self) -> &'a mut crate::W<REG> {
-        self.variant(Dir::B0x0)
+    pub fn peripheral_to_memory(self) -> &'a mut crate::W<REG> {
+        self.variant(Dir::PeripheralToMemory)
     }
     #[doc = "read from memory"]
     #[inline(always)]
-    pub fn b_0x1(self) -> &'a mut crate::W<REG> {
-        self.variant(Dir::B0x1)
+    pub fn memory_to_peripheral(self) -> &'a mut crate::W<REG> {
+        self.variant(Dir::MemoryToPeripheral)
     }
 }
 #[doc = "circular mode Note: this bit is set and cleared by software. It must not be written when the channel is enabled (EN = 1). It is not read-only when the channel is enabled (EN=1).\n\nValue on reset: 0"]
