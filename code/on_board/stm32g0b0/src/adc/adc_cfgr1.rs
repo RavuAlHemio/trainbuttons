@@ -112,9 +112,9 @@ where
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Scandir {
     #[doc = "0: Upward scan (from CHSEL0 to CHSEL18)"]
-    B0x0 = 0,
+    Upward = 0,
     #[doc = "1: Backward scan (from CHSEL18 to CHSEL0)"]
-    B0x1 = 1,
+    Backward = 1,
 }
 impl From<Scandir> for bool {
     #[inline(always)]
@@ -129,19 +129,19 @@ impl ScandirR {
     #[inline(always)]
     pub const fn variant(&self) -> Scandir {
         match self.bits {
-            false => Scandir::B0x0,
-            true => Scandir::B0x1,
+            false => Scandir::Upward,
+            true => Scandir::Backward,
         }
     }
     #[doc = "Upward scan (from CHSEL0 to CHSEL18)"]
     #[inline(always)]
-    pub fn is_b_0x0(&self) -> bool {
-        *self == Scandir::B0x0
+    pub fn is_upward(&self) -> bool {
+        *self == Scandir::Upward
     }
     #[doc = "Backward scan (from CHSEL18 to CHSEL0)"]
     #[inline(always)]
-    pub fn is_b_0x1(&self) -> bool {
-        *self == Scandir::B0x1
+    pub fn is_backward(&self) -> bool {
+        *self == Scandir::Backward
     }
 }
 #[doc = "Field `SCANDIR` writer - Scan sequence direction This bit is set and cleared by software to select the direction in which the channels is scanned in the sequence. It is effective only if CHSELMOD bit is cleared to 0. Note: The software is allowed to write this bit only when ADSTART bit is cleared to 0 (this ensures that no conversion is ongoing). If CCRDY is not yet asserted after channel configuration (writing ADC_CHSELR register or changing CHSELRMOD or SCANDIR), the value written to this bit is ignored."]
@@ -152,13 +152,13 @@ where
 {
     #[doc = "Upward scan (from CHSEL0 to CHSEL18)"]
     #[inline(always)]
-    pub fn b_0x0(self) -> &'a mut crate::W<REG> {
-        self.variant(Scandir::B0x0)
+    pub fn upward(self) -> &'a mut crate::W<REG> {
+        self.variant(Scandir::Upward)
     }
     #[doc = "Backward scan (from CHSEL18 to CHSEL0)"]
     #[inline(always)]
-    pub fn b_0x1(self) -> &'a mut crate::W<REG> {
-        self.variant(Scandir::B0x1)
+    pub fn backward(self) -> &'a mut crate::W<REG> {
+        self.variant(Scandir::Backward)
     }
 }
 #[doc = "Data resolution These bits are written by software to select the resolution of the conversion. Note: The software is allowed to write these bits only when ADEN=0.\n\nValue on reset: 0"]

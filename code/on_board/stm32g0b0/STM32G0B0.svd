@@ -698,12 +698,12 @@ If CCRDY is not yet asserted after channel configuration (writing ADC_CHSELR reg
                 <access>read-write</access>
                 <enumeratedValues>
                   <enumeratedValue>
-                    <name>B_0x0</name>
+                    <name>UPWARD</name>
                     <description>Upward scan (from CHSEL0 to CHSEL18)</description>
                     <value>0x0</value>
                   </enumeratedValue>
                   <enumeratedValue>
-                    <name>B_0x1</name>
+                    <name>BACKWARD</name>
                     <description>Backward scan (from CHSEL18 to CHSEL0)</description>
                     <value>0x1</value>
                   </enumeratedValue>
