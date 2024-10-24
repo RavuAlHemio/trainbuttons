@@ -5012,17 +5012,17 @@ It is read-only when the channel is enabled (EN=1).</description>
                 <access>read-write</access>
                 <enumeratedValues>
                   <enumeratedValue>
-                    <name>B_0x0</name>
+                    <name>BITS_8</name>
                     <description>8 bits</description>
                     <value>0x0</value>
                   </enumeratedValue>
                   <enumeratedValue>
-                    <name>B_0x1</name>
+                    <name>BITS_16</name>
                     <description>16 bits</description>
                     <value>0x1</value>
                   </enumeratedValue>
                   <enumeratedValue>
-                    <name>B_0x2</name>
+                    <name>BITS_32</name>
                     <description>32 bits</description>
                     <value>0x2</value>
                   </enumeratedValue>
@@ -5042,17 +5042,17 @@ It is read-only when the channel is enabled (EN=1).</description>
                 <access>read-write</access>
                 <enumeratedValues>
                   <enumeratedValue>
-                    <name>B_0x0</name>
+                    <name>BITS_8</name>
                     <description>8 bits</description>
                     <value>0x0</value>
                   </enumeratedValue>
                   <enumeratedValue>
-                    <name>B_0x1</name>
+                    <name>BITS_16</name>
                     <description>16 bits</description>
                     <value>0x1</value>
                   </enumeratedValue>
                   <enumeratedValue>
-                    <name>B_0x2</name>
+                    <name>BITS_32</name>
                     <description>32 bits</description>
                     <value>0x2</value>
                   </enumeratedValue>

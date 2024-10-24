@@ -431,11 +431,11 @@ where
 #[repr(u8)]
 pub enum Psize {
     #[doc = "0: 8 bits"]
-    B0x0 = 0,
+    Bits8 = 0,
     #[doc = "1: 16 bits"]
-    B0x1 = 1,
+    Bits16 = 1,
     #[doc = "2: 32 bits"]
-    B0x2 = 2,
+    Bits32 = 2,
 }
 impl From<Psize> for u8 {
     #[inline(always)]
@@ -454,26 +454,26 @@ impl PsizeR {
     #[inline(always)]
     pub const fn variant(&self) -> Option<Psize> {
         match self.bits {
-            0 => Some(Psize::B0x0),
-            1 => Some(Psize::B0x1),
-            2 => Some(Psize::B0x2),
+            0 => Some(Psize::Bits8),
+            1 => Some(Psize::Bits16),
+            2 => Some(Psize::Bits32),
             _ => None,
         }
     }
     #[doc = "8 bits"]
     #[inline(always)]
-    pub fn is_b_0x0(&self) -> bool {
-        *self == Psize::B0x0
+    pub fn is_bits_8(&self) -> bool {
+        *self == Psize::Bits8
     }
     #[doc = "16 bits"]
     #[inline(always)]
-    pub fn is_b_0x1(&self) -> bool {
-        *self == Psize::B0x1
+    pub fn is_bits_16(&self) -> bool {
+        *self == Psize::Bits16
     }
     #[doc = "32 bits"]
     #[inline(always)]
-    pub fn is_b_0x2(&self) -> bool {
-        *self == Psize::B0x2
+    pub fn is_bits_32(&self) -> bool {
+        *self == Psize::Bits32
     }
 }
 #[doc = "Field `PSIZE` writer - peripheral size Defines the data size of each DMA transfer to the identified peripheral. In memory-to-memory mode, this field identifies the memory destination if DIR=1 and the memory source if DIR=0. In peripheral-to-peripheral mode, this field identifies the peripheral destination if DIR=1 and the peripheral source if DIR=0. Note: this field is set and cleared by software. It must not be written when the channel is enabled (EN = 1). It is read-only when the channel is enabled (EN=1)."]
@@ -485,18 +485,18 @@ where
 {
     #[doc = "8 bits"]
     #[inline(always)]
-    pub fn b_0x0(self) -> &'a mut crate::W<REG> {
-        self.variant(Psize::B0x0)
+    pub fn bits_8(self) -> &'a mut crate::W<REG> {
+        self.variant(Psize::Bits8)
     }
     #[doc = "16 bits"]
     #[inline(always)]
-    pub fn b_0x1(self) -> &'a mut crate::W<REG> {
-        self.variant(Psize::B0x1)
+    pub fn bits_16(self) -> &'a mut crate::W<REG> {
+        self.variant(Psize::Bits16)
     }
     #[doc = "32 bits"]
     #[inline(always)]
-    pub fn b_0x2(self) -> &'a mut crate::W<REG> {
-        self.variant(Psize::B0x2)
+    pub fn bits_32(self) -> &'a mut crate::W<REG> {
+        self.variant(Psize::Bits32)
     }
 }
 #[doc = "memory size Defines the data size of each DMA transfer to the identified memory. In memory-to-memory mode, this field identifies the memory source if DIR=1 and the memory destination if DIR=0. In peripheral-to-peripheral mode, this field identifies the peripheral source if DIR=1 and the peripheral destination if DIR=0. Note: this field is set and cleared by software. It must not be written when the channel is enabled (EN = 1). It is read-only when the channel is enabled (EN=1).\n\nValue on reset: 0"]
@@ -504,11 +504,11 @@ where
 #[repr(u8)]
 pub enum Msize {
     #[doc = "0: 8 bits"]
-    B0x0 = 0,
+    Bits8 = 0,
     #[doc = "1: 16 bits"]
-    B0x1 = 1,
+    Bits16 = 1,
     #[doc = "2: 32 bits"]
-    B0x2 = 2,
+    Bits32 = 2,
 }
 impl From<Msize> for u8 {
     #[inline(always)]
@@ -527,26 +527,26 @@ impl MsizeR {
     #[inline(always)]
     pub const fn variant(&self) -> Option<Msize> {
         match self.bits {
-            0 => Some(Msize::B0x0),
-            1 => Some(Msize::B0x1),
-            2 => Some(Msize::B0x2),
+            0 => Some(Msize::Bits8),
+            1 => Some(Msize::Bits16),
+            2 => Some(Msize::Bits32),
             _ => None,
         }
     }
     #[doc = "8 bits"]
     #[inline(always)]
-    pub fn is_b_0x0(&self) -> bool {
-        *self == Msize::B0x0
+    pub fn is_bits_8(&self) -> bool {
+        *self == Msize::Bits8
     }
     #[doc = "16 bits"]
     #[inline(always)]
-    pub fn is_b_0x1(&self) -> bool {
-        *self == Msize::B0x1
+    pub fn is_bits_16(&self) -> bool {
+        *self == Msize::Bits16
     }
     #[doc = "32 bits"]
     #[inline(always)]
-    pub fn is_b_0x2(&self) -> bool {
-        *self == Msize::B0x2
+    pub fn is_bits_32(&self) -> bool {
+        *self == Msize::Bits32
     }
 }
 #[doc = "Field `MSIZE` writer - memory size Defines the data size of each DMA transfer to the identified memory. In memory-to-memory mode, this field identifies the memory source if DIR=1 and the memory destination if DIR=0. In peripheral-to-peripheral mode, this field identifies the peripheral source if DIR=1 and the peripheral destination if DIR=0. Note: this field is set and cleared by software. It must not be written when the channel is enabled (EN = 1). It is read-only when the channel is enabled (EN=1)."]
@@ -558,18 +558,18 @@ where
 {
     #[doc = "8 bits"]
     #[inline(always)]
-    pub fn b_0x0(self) -> &'a mut crate::W<REG> {
-        self.variant(Msize::B0x0)
+    pub fn bits_8(self) -> &'a mut crate::W<REG> {
+        self.variant(Msize::Bits8)
     }
     #[doc = "16 bits"]
     #[inline(always)]
-    pub fn b_0x1(self) -> &'a mut crate::W<REG> {
-        self.variant(Msize::B0x1)
+    pub fn bits_16(self) -> &'a mut crate::W<REG> {
+        self.variant(Msize::Bits16)
     }
     #[doc = "32 bits"]
     #[inline(always)]
-    pub fn b_0x2(self) -> &'a mut crate::W<REG> {
-        self.variant(Msize::B0x2)
+    pub fn bits_32(self) -> &'a mut crate::W<REG> {
+        self.variant(Msize::Bits32)
     }
 }
 #[doc = "priority level Note: this field is set and cleared by software. It must not be written when the channel is enabled (EN = 1). It is read-only when the channel is enabled (EN=1).\n\nValue on reset: 0"]
