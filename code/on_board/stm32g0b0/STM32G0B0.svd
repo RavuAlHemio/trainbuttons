@@ -5541,31 +5541,11 @@ It is read-only when the channel is enabled (EN=1).</description>
             <addressOffset>0x24</addressOffset>
             <size>0x20</size>
           </register>
-          <register>
+          <register derivedFrom="DMA1.CMAR1">
             <name>CMAR2</name>
             <displayName>DMA_CMAR2</displayName>
-			<description>DMA channel x memory address register</description>
             <addressOffset>0x28</addressOffset>
             <size>0x20</size>
-            <resetValue>0x00000000</resetValue>
-            <resetMask>0xFFFFFFFF</resetMask>
-            <fields>
-              <field>
-                <name>MA</name>
-                <description>peripheral address
-It contains the base address of the memory from/to which the data will be read/written.
-When MSIZE[1:0]=01 (16 bits), bit 0 of MA[31:0] is ignored. Access is automatically aligned to a half-word address.
-When MSIZE=10 (32 bits), bits 1 and 0 of MA[31:0] are ignored. Access is automatically aligned to a word address.
-In memory-to-memory mode, this register identifies the memory source address if DIR=1 and the memory destination address if DIR=0.
-In peripheral-to-peripheral mode, this register identifies the peripheral source address DIR=1 and the peripheral destination address if DIR=0.
-Note: this register is set and cleared by software.
-It must not be written when the channel is enabled (EN = 1).
-It is not read-only when the channel is enabled (EN=1).</description>
-                <bitOffset>0</bitOffset>
-                <bitWidth>32</bitWidth>
-                <access>read-write</access>
-              </field>
-            </fields>
           </register>
           <register>
             <name>CCR3</name>
@@ -5910,31 +5890,11 @@ It is read-only when the channel is enabled (EN=1).</description>
             <addressOffset>0x38</addressOffset>
             <size>0x20</size>
           </register>
-          <register>
+          <register derivedFrom="DMA1.CMAR1">
             <name>CMAR3</name>
             <displayName>DMA_CMAR3</displayName>
-			<description>DMA channel x memory address register</description>
             <addressOffset>0x3c</addressOffset>
             <size>0x20</size>
-            <resetValue>0x00000000</resetValue>
-            <resetMask>0xFFFFFFFF</resetMask>
-            <fields>
-              <field>
-                <name>MA</name>
-                <description>peripheral address
-It contains the base address of the memory from/to which the data will be read/written.
-When MSIZE[1:0]=01 (16 bits), bit 0 of MA[31:0] is ignored. Access is automatically aligned to a half-word address.
-When MSIZE=10 (32 bits), bits 1 and 0 of MA[31:0] are ignored. Access is automatically aligned to a word address.
-In memory-to-memory mode, this register identifies the memory source address if DIR=1 and the memory destination address if DIR=0.
-In peripheral-to-peripheral mode, this register identifies the peripheral source address DIR=1 and the peripheral destination address if DIR=0.
-Note: this register is set and cleared by software.
-It must not be written when the channel is enabled (EN = 1).
-It is not read-only when the channel is enabled (EN=1).</description>
-                <bitOffset>0</bitOffset>
-                <bitWidth>32</bitWidth>
-                <access>read-write</access>
-              </field>
-            </fields>
           </register>
           <register>
             <name>CCR4</name>
@@ -6279,31 +6239,11 @@ It is read-only when the channel is enabled (EN=1).</description>
             <addressOffset>0x4c</addressOffset>
             <size>0x20</size>
           </register>
-          <register>
+          <register derivedFrom="DMA1.CMAR1">
             <name>CMAR4</name>
             <displayName>DMA_CMAR4</displayName>
-			<description>DMA channel x memory address register</description>
             <addressOffset>0x50</addressOffset>
             <size>0x20</size>
-            <resetValue>0x00000000</resetValue>
-            <resetMask>0xFFFFFFFF</resetMask>
-            <fields>
-              <field>
-                <name>MA</name>
-                <description>peripheral address
-It contains the base address of the memory from/to which the data will be read/written.
-When MSIZE[1:0]=01 (16 bits), bit 0 of MA[31:0] is ignored. Access is automatically aligned to a half-word address.
-When MSIZE=10 (32 bits), bits 1 and 0 of MA[31:0] are ignored. Access is automatically aligned to a word address.
-In memory-to-memory mode, this register identifies the memory source address if DIR=1 and the memory destination address if DIR=0.
-In peripheral-to-peripheral mode, this register identifies the peripheral source address DIR=1 and the peripheral destination address if DIR=0.
-Note: this register is set and cleared by software.
-It must not be written when the channel is enabled (EN = 1).
-It is not read-only when the channel is enabled (EN=1).</description>
-                <bitOffset>0</bitOffset>
-                <bitWidth>32</bitWidth>
-                <access>read-write</access>
-              </field>
-            </fields>
           </register>
           <register>
             <name>CCR5</name>
@@ -6648,31 +6588,11 @@ It is read-only when the channel is enabled (EN=1).</description>
             <addressOffset>0x60</addressOffset>
             <size>0x20</size>
           </register>
-          <register>
+          <register derivedFrom="DMA1.CMAR1">
             <name>CMAR5</name>
             <displayName>DMA_CMAR5</displayName>
-			<description>DMA channel x memory address register</description>
             <addressOffset>0x64</addressOffset>
             <size>0x20</size>
-            <resetValue>0x00000000</resetValue>
-            <resetMask>0xFFFFFFFF</resetMask>
-            <fields>
-              <field>
-                <name>MA</name>
-                <description>peripheral address
-It contains the base address of the memory from/to which the data will be read/written.
-When MSIZE[1:0]=01 (16 bits), bit 0 of MA[31:0] is ignored. Access is automatically aligned to a half-word address.
-When MSIZE=10 (32 bits), bits 1 and 0 of MA[31:0] are ignored. Access is automatically aligned to a word address.
-In memory-to-memory mode, this register identifies the memory source address if DIR=1 and the memory destination address if DIR=0.
-In peripheral-to-peripheral mode, this register identifies the peripheral source address DIR=1 and the peripheral destination address if DIR=0.
-Note: this register is set and cleared by software.
-It must not be written when the channel is enabled (EN = 1).
-It is not read-only when the channel is enabled (EN=1).</description>
-                <bitOffset>0</bitOffset>
-                <bitWidth>32</bitWidth>
-                <access>read-write</access>
-              </field>
-            </fields>
           </register>
           <register>
             <name>CCR6</name>
@@ -7017,31 +6937,11 @@ It is read-only when the channel is enabled (EN=1).</description>
             <addressOffset>0x74</addressOffset>
             <size>0x20</size>
           </register>
-          <register>
+          <register derivedFrom="DMA1.CMAR1">
             <name>CMAR6</name>
             <displayName>DMA_CMAR6</displayName>
-			<description>DMA channel x memory address register</description>
             <addressOffset>0x78</addressOffset>
             <size>0x20</size>
-            <resetValue>0x00000000</resetValue>
-            <resetMask>0xFFFFFFFF</resetMask>
-            <fields>
-              <field>
-                <name>MA</name>
-                <description>peripheral address
-It contains the base address of the memory from/to which the data will be read/written.
-When MSIZE[1:0]=01 (16 bits), bit 0 of MA[31:0] is ignored. Access is automatically aligned to a half-word address.
-When MSIZE=10 (32 bits), bits 1 and 0 of MA[31:0] are ignored. Access is automatically aligned to a word address.
-In memory-to-memory mode, this register identifies the memory source address if DIR=1 and the memory destination address if DIR=0.
-In peripheral-to-peripheral mode, this register identifies the peripheral source address DIR=1 and the peripheral destination address if DIR=0.
-Note: this register is set and cleared by software.
-It must not be written when the channel is enabled (EN = 1).
-It is not read-only when the channel is enabled (EN=1).</description>
-                <bitOffset>0</bitOffset>
-                <bitWidth>32</bitWidth>
-                <access>read-write</access>
-              </field>
-            </fields>
           </register>
           <register>
             <name>CCR7</name>
@@ -7386,31 +7286,11 @@ It is read-only when the channel is enabled (EN=1).</description>
             <addressOffset>0x88</addressOffset>
             <size>0x20</size>
           </register>
-          <register>
+          <register derivedFrom="DMA1.CMAR1">
             <name>CMAR7</name>
             <displayName>DMA_CMAR7</displayName>
-			<description>DMA channel x memory address register</description>
             <addressOffset>0x8c</addressOffset>
             <size>0x20</size>
-            <resetValue>0x00000000</resetValue>
-            <resetMask>0xFFFFFFFF</resetMask>
-            <fields>
-              <field>
-                <name>MA</name>
-                <description>peripheral address
-It contains the base address of the memory from/to which the data will be read/written.
-When MSIZE[1:0]=01 (16 bits), bit 0 of MA[31:0] is ignored. Access is automatically aligned to a half-word address.
-When MSIZE=10 (32 bits), bits 1 and 0 of MA[31:0] are ignored. Access is automatically aligned to a word address.
-In memory-to-memory mode, this register identifies the memory source address if DIR=1 and the memory destination address if DIR=0.
-In peripheral-to-peripheral mode, this register identifies the peripheral source address DIR=1 and the peripheral destination address if DIR=0.
-Note: this register is set and cleared by software.
-It must not be written when the channel is enabled (EN = 1).
-It is not read-only when the channel is enabled (EN=1).</description>
-                <bitOffset>0</bitOffset>
-                <bitWidth>32</bitWidth>
-                <access>read-write</access>
-              </field>
-            </fields>
           </register>
         </registers>
     </peripheral>
