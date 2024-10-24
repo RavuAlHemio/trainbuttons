@@ -1241,22 +1241,22 @@ Note: The software is allowed to write these bits only when the ADC is disabled 
                 <access>read-write</access>
                 <enumeratedValues>
                   <enumeratedValue>
-                    <name>B_0x0</name>
+                    <name>ADCCLK</name>
                     <description>ADCCLK (Asynchronous clock mode), generated at product level (refer to RCC section)</description>
                     <value>0x0</value>
                   </enumeratedValue>
                   <enumeratedValue>
-                    <name>B_0x1</name>
+                    <name>PCLK_BY_2</name>
                     <description>PCLK/2 (Synchronous clock mode)</description>
                     <value>0x1</value>
                   </enumeratedValue>
                   <enumeratedValue>
-                    <name>B_0x2</name>
+                    <name>PCLK_BY_4</name>
                     <description>PCLK/4 (Synchronous clock mode)</description>
                     <value>0x2</value>
                   </enumeratedValue>
                   <enumeratedValue>
-                    <name>B_0x3</name>
+                    <name>PCLK</name>
                     <description>PCLK (Synchronous clock mode). This configuration must be enabled only if PCLK has a 50% duty clock cycle (APB prescaler configured inside the RCC must be bypassed and the system clock must by 50% duty cycle)</description>
                     <value>0x3</value>
                   </enumeratedValue>

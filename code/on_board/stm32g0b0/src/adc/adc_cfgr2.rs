@@ -455,13 +455,13 @@ where
 #[repr(u8)]
 pub enum Ckmode {
     #[doc = "0: ADCCLK (Asynchronous clock mode), generated at product level (refer to RCC section)"]
-    B0x0 = 0,
+    Adcclk = 0,
     #[doc = "1: PCLK/2 (Synchronous clock mode)"]
-    B0x1 = 1,
+    PclkBy2 = 1,
     #[doc = "2: PCLK/4 (Synchronous clock mode)"]
-    B0x2 = 2,
+    PclkBy4 = 2,
     #[doc = "3: PCLK (Synchronous clock mode). This configuration must be enabled only if PCLK has a 50% duty clock cycle (APB prescaler configured inside the RCC must be bypassed and the system clock must by 50% duty cycle)"]
-    B0x3 = 3,
+    Pclk = 3,
 }
 impl From<Ckmode> for u8 {
     #[inline(always)]
@@ -480,32 +480,32 @@ impl CkmodeR {
     #[inline(always)]
     pub const fn variant(&self) -> Ckmode {
         match self.bits {
-            0 => Ckmode::B0x0,
-            1 => Ckmode::B0x1,
-            2 => Ckmode::B0x2,
-            3 => Ckmode::B0x3,
+            0 => Ckmode::Adcclk,
+            1 => Ckmode::PclkBy2,
+            2 => Ckmode::PclkBy4,
+            3 => Ckmode::Pclk,
             _ => unreachable!(),
         }
     }
     #[doc = "ADCCLK (Asynchronous clock mode), generated at product level (refer to RCC section)"]
     #[inline(always)]
-    pub fn is_b_0x0(&self) -> bool {
-        *self == Ckmode::B0x0
+    pub fn is_adcclk(&self) -> bool {
+        *self == Ckmode::Adcclk
     }
     #[doc = "PCLK/2 (Synchronous clock mode)"]
     #[inline(always)]
-    pub fn is_b_0x1(&self) -> bool {
-        *self == Ckmode::B0x1
+    pub fn is_pclk_by_2(&self) -> bool {
+        *self == Ckmode::PclkBy2
     }
     #[doc = "PCLK/4 (Synchronous clock mode)"]
     #[inline(always)]
-    pub fn is_b_0x2(&self) -> bool {
-        *self == Ckmode::B0x2
+    pub fn is_pclk_by_4(&self) -> bool {
+        *self == Ckmode::PclkBy4
     }
     #[doc = "PCLK (Synchronous clock mode). This configuration must be enabled only if PCLK has a 50% duty clock cycle (APB prescaler configured inside the RCC must be bypassed and the system clock must by 50% duty cycle)"]
     #[inline(always)]
-    pub fn is_b_0x3(&self) -> bool {
-        *self == Ckmode::B0x3
+    pub fn is_pclk(&self) -> bool {
+        *self == Ckmode::Pclk
     }
 }
 #[doc = "Field `CKMODE` writer - ADC clock mode These bits are set and cleared by software to define how the analog ADC is clocked: In all synchronous clock modes, there is no jitter in the delay from a timer trigger to the start of a conversion. Note: The software is allowed to write these bits only when the ADC is disabled (ADCAL=0, ADSTART=0, ADSTP=0, ADDIS=0 and ADEN=0)."]
@@ -517,23 +517,23 @@ where
 {
     #[doc = "ADCCLK (Asynchronous clock mode), generated at product level (refer to RCC section)"]
     #[inline(always)]
-    pub fn b_0x0(self) -> &'a mut crate::W<REG> {
-        self.variant(Ckmode::B0x0)
+    pub fn adcclk(self) -> &'a mut crate::W<REG> {
+        self.variant(Ckmode::Adcclk)
     }
     #[doc = "PCLK/2 (Synchronous clock mode)"]
     #[inline(always)]
-    pub fn b_0x1(self) -> &'a mut crate::W<REG> {
-        self.variant(Ckmode::B0x1)
+    pub fn pclk_by_2(self) -> &'a mut crate::W<REG> {
+        self.variant(Ckmode::PclkBy2)
     }
     #[doc = "PCLK/4 (Synchronous clock mode)"]
     #[inline(always)]
-    pub fn b_0x2(self) -> &'a mut crate::W<REG> {
-        self.variant(Ckmode::B0x2)
+    pub fn pclk_by_4(self) -> &'a mut crate::W<REG> {
+        self.variant(Ckmode::PclkBy4)
     }
     #[doc = "PCLK (Synchronous clock mode). This configuration must be enabled only if PCLK has a 50% duty clock cycle (APB prescaler configured inside the RCC must be bypassed and the system clock must by 50% duty cycle)"]
     #[inline(always)]
-    pub fn b_0x3(self) -> &'a mut crate::W<REG> {
-        self.variant(Ckmode::B0x3)
+    pub fn pclk(self) -> &'a mut crate::W<REG> {
+        self.variant(Ckmode::Pclk)
     }
 }
 impl R {
