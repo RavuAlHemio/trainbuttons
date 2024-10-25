@@ -774,6 +774,12 @@
 		(uuid "136e8cde-14bc-40dd-9375-ebeb5be1607c")
 	)
 	(junction
+		(at 74.93 96.52)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "204bc123-75e3-45e0-861a-6752440fa598")
+	)
+	(junction
 		(at 59.69 129.54)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1129,6 +1135,16 @@
 	)
 	(wire
 		(pts
+			(xy 74.93 93.98) (xy 74.93 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6556fa38-6816-464c-bdfc-24325af37a03")
+	)
+	(wire
+		(pts
 			(xy 44.45 73.66) (xy 46.99 73.66)
 		)
 		(stroke
@@ -1196,6 +1212,16 @@
 			(type default)
 		)
 		(uuid "7ee11dcc-0d5a-4e24-bd28-6d55e756df43")
+	)
+	(wire
+		(pts
+			(xy 74.93 83.82) (xy 77.47 83.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7f79c850-ed97-47e3-a7ba-43c71b58ea0b")
 	)
 	(wire
 		(pts
@@ -1417,6 +1443,16 @@
 		)
 		(uuid "e9cbbbcd-4ca3-4c8f-8670-581c94d10c36")
 	)
+	(wire
+		(pts
+			(xy 74.93 86.36) (xy 74.93 83.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ec45e6b6-d271-4e75-99c5-140de943e806")
+	)
 	(hierarchical_label "GND"
 		(shape passive)
 		(at 59.69 175.26 270)
@@ -1560,6 +1596,18 @@
 			(justify right)
 		)
 		(uuid "b1fb5b85-0531-43c2-a3d2-cdc229f2a824")
+	)
+	(hierarchical_label "+3.3V"
+		(shape passive)
+		(at 77.47 83.82 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "b3b35a7b-508e-427a-b8de-f5b68e927b7c")
 	)
 	(hierarchical_label "MCB_ON"
 		(shape output)
@@ -1829,6 +1877,85 @@
 			(project "trainbuttons_left_board"
 				(path "/781b8cf7-c5e9-458b-bc5e-9d97c21958eb/ee7ea56d-ccae-4129-b9a8-76b6e32e09cb"
 					(reference "SW206")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 74.93 90.17 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "1b3abf6f-03dc-4d36-a269-ff72e7c24923")
+		(property "Reference" "R202"
+			(at 77.47 88.8999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "470kΩ"
+			(at 77.47 91.4399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 73.152 90.17 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 74.93 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 74.93 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C23178"
+			(at 74.93 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "12f4cd48-8419-4d7e-b7af-6d61754e2dd3")
+		)
+		(pin "1"
+			(uuid "fbed07cd-0825-4cf1-b1c4-c08dde49a5fb")
+		)
+		(instances
+			(project ""
+				(path "/781b8cf7-c5e9-458b-bc5e-9d97c21958eb/ee7ea56d-ccae-4129-b9a8-76b6e32e09cb"
+					(reference "R202")
 					(unit 1)
 				)
 			)
