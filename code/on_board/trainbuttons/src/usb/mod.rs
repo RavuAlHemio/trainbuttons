@@ -443,11 +443,13 @@ fn handle_usb_interrupt(peripherals: &Peripherals) {
                 // endpoint 1 just sent off its current state
 
                 // update button states
+                // 21 bits of buttons
+                // 12 bits of X axis
                 let all_button_states: u64 = crate::pins::read_button_states(peripherals).into();
                 let x_axis: u64 = unsafe { crate::adc::ADC_VALUES[0] }.into();
                 let report =
                     (all_button_states << 0)
-                    | (x_axis << 22)
+                    | (x_axis << 21)
                 ;
 
                 // reports are filled up from the least significant bit,

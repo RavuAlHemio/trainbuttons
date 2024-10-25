@@ -134,7 +134,7 @@ const HID_DATA_VAR_ABSOLUTE: u8 = hid_input_flags!(data, variable, absolute);
 const HID_CONSTANT: u8 = hid_input_flags!(constant, array, absolute);
 
 //          |         |         |         |
-// 0000 00XX XXXX XXXX XXBB BBBB BBBB BBBB BBBB BBBB
+// 0000 000X XXXX XXXX XXXB BBBB BBBB BBBB BBBB BBBB
 pub const HID_REPORT: [u8; 48] = [
     HID_USAGE_PAGE, 0x01, // generic desktop controls
     HID_USAGE, 0x05, // gamepad
@@ -157,7 +157,7 @@ pub const HID_REPORT: [u8; 48] = [
             HID_REPORT_COUNT, 1, // single report (X axis)
             HID_INPUT, HID_DATA_VAR_ABSOLUTE, // add the axis
 
-            HID_REPORT_SIZE, 6, // padding bits to get up to a full byte
+            HID_REPORT_SIZE, 7, // padding bits to get up to a full byte
             HID_REPORT_COUNT, 1, // one of those padding reports
             HID_INPUT, HID_CONSTANT,
         HID_END_COLLECTION,
